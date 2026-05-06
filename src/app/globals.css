@@ -48,9 +48,9 @@
     font-family: var(--font-display), "Helvetica Neue Condensed", "Arial Narrow", Impact, sans-serif;
     color: var(--color-navy);
     /* Brand rule: Compacta Bold is always ALL CAPS for headlines and hook overlays.
-       Add a hair of tracking so the heavy condensed caps don't visually crowd. */
+       No extra tracking. Compacta's natural metrics keep the caps readable as
+       word-shapes; positive tracking would break Gestalt grouping and slow reading. */
     text-transform: uppercase;
-    letter-spacing: 0.005em;
   }
 
   /* Honor reduced-motion at the OS level */
