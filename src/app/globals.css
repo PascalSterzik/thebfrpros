@@ -47,10 +47,10 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display), "Helvetica Neue Condensed", "Arial Narrow", Impact, sans-serif;
     color: var(--color-navy);
-    /* Brand rule: Compacta Bold is always ALL CAPS for headlines and hook overlays.
-       No extra tracking. Compacta's natural metrics keep the caps readable as
-       word-shapes; positive tracking would break Gestalt grouping and slow reading. */
+    /* Brand rule: Compacta Bold is always ALL CAPS for headlines.
+       Slight negative tracking tightens the caps so word-shapes scan as a unit. */
     text-transform: uppercase;
+    letter-spacing: -0.015em;
   }
 
   /* Honor reduced-motion at the OS level */
