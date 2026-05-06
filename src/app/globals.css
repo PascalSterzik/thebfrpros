@@ -47,9 +47,10 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display), "Helvetica Neue Condensed", "Arial Narrow", Impact, sans-serif;
     color: var(--color-navy);
-    /* Brand rule: Compacta Bold is always ALL CAPS. No tracking applied,
-       Compacta's natural metrics are what we want. */
+    /* Brand rule: Compacta Bold is always ALL CAPS. Slight negative tracking
+       tightens the heavy condensed caps so word-shapes scan as a unit. */
     text-transform: uppercase;
+    letter-spacing: -0.015em;
   }
 
   /* Honor reduced-motion at the OS level */

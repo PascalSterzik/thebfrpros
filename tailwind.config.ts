@@ -27,12 +27,13 @@ const config: Config = {
         body: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        // Compacta Bold headings use the font's natural metrics. No letter-spacing.
-        // Eyebrow labels at 13px are the exception, they need positive tracking for legibility.
-        "display-2xl": ["clamp(3rem, 6.4vw, 5.25rem)", { lineHeight: "0.96" }],
-        "display-xl": ["clamp(2.4rem, 5vw, 4rem)", { lineHeight: "0.98" }],
-        "display-lg": ["clamp(2rem, 3.6vw, 3rem)", { lineHeight: "1.02" }],
-        "display-md": ["clamp(1.6rem, 2.8vw, 2.25rem)", { lineHeight: "1.06" }],
+        // Compacta Bold ALL CAPS with slight negative tracking. Tighter caps
+        // scan as word-shapes faster; the heavy condensed weight can take it.
+        // Eyebrow labels at 13px are the exception, they need positive tracking.
+        "display-2xl": ["clamp(3rem, 6.4vw, 5.25rem)", { lineHeight: "0.96", letterSpacing: "-0.02em" }],
+        "display-xl": ["clamp(2.4rem, 5vw, 4rem)", { lineHeight: "0.98", letterSpacing: "-0.018em" }],
+        "display-lg": ["clamp(2rem, 3.6vw, 3rem)", { lineHeight: "1.02", letterSpacing: "-0.015em" }],
+        "display-md": ["clamp(1.6rem, 2.8vw, 2.25rem)", { lineHeight: "1.06", letterSpacing: "-0.012em" }],
         eyebrow: ["0.78rem", { lineHeight: "1.2", letterSpacing: "0.18em" }],
       },
       maxWidth: {
