@@ -45,9 +45,10 @@
   }
 
   h1, h2, h3, h4 {
-    font-family: var(--font-display), Georgia, serif;
+    font-family: var(--font-display), "Helvetica Neue Condensed", "Arial Narrow", Impact, sans-serif;
     color: var(--color-navy);
-    letter-spacing: -0.014em;
+    /* Compacta is condensed and heavy. Loosen tracking slightly so the headlines breathe. */
+    letter-spacing: -0.005em;
   }
 
   /* Honor reduced-motion at the OS level */

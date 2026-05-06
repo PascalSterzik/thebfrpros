@@ -22,7 +22,8 @@ const config: Config = {
         line: "#E2E8F0",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
+        // Compacta Bold is a heavy condensed sans, so the fallback chain is condensed-sans, not serif.
+        display: ["var(--font-display)", "Helvetica Neue Condensed", "Arial Narrow", "Impact", "sans-serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       fontSize: {

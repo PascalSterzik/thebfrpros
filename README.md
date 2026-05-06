@@ -9,7 +9,9 @@
 
 ## 1. Committed Aesthetic Direction
 
-> **Editorial clinical authority: bold serif display over humanist sans body, atmospheric navy fields with subtle noise-textured depth, sharp red accents earned through restraint, generous editorial spacing, and motion that feels like a confident researcher turning pages, not a marketer waving its arms.**
+> **Poster-bold clinical authority: Compacta Bold (the actual brand display font, self-hosted via `next/font/local`) over humanist DM Sans body, atmospheric navy fields with subtle noise-textured depth, sharp red accents earned through restraint, generous editorial spacing, and motion that feels like a confident researcher turning pages, not a marketer waving its arms.**
+
+(Initial build went to DM Serif Display because the brand guide currently directs Compacta Bold to short-form video only and lists Playfair Display + DM Serif Display as web alternatives. Pascal corrected that on 2026-05-06 — Compacta IS the brand identity for web headlines too — so the OTF was self-hosted from `Assets/Fonts/`. Brand guide should be updated to reflect this decision in the next edit pass.)
 
 Reference points (from brand-guide.md): Mayo Clinic clinical credibility, Precision Nutrition identity-led conversion, NASM modular structure. Explicit anti-references: fitness-bro aesthetic, cold-academic walls of text.
 
@@ -47,7 +49,7 @@ ANTI-PATTERNS (KEPT): generic content, no credentials, AI purple/pink gradients.
 | Element | Source | Decision |
 |---|---|---|
 | Colors | brand-guide.md | Navy #193763 primary, Red #AD1A27 accent, Off-white #F5F7FA, Ink #1F2937, White |
-| Typography | brand-guide.md ∩ user spec | DM Serif Display + DM Sans |
+| Typography | brand-guide.md (updated 2026-05-06 by Pascal) | **Compacta Bold (self-hosted) + DM Sans**. Webfont licensing must be confirmed before public deploy. |
 | Pattern | CLI + user spec | Trust & Authority style applied to user's locked 22-section flow |
 | Effects | CLI + frontend-design skill | Badge hover, metric pulse, smooth stat reveal, scroll fade-up, magnetic CTA on desktop only |
 | Anti-patterns | CLI + frontend-design + user spec | No purple gradients, no Inter, no Playfair Display, no em-dashes, no forbidden AI words |
@@ -58,7 +60,7 @@ ANTI-PATTERNS (KEPT): generic content, no credentials, AI purple/pink gradients.
 |---|---|---|---|
 | `/get-certified-v1` | Belief 5 | Research-authority lead | "Learn BFR from the most-published BFR researcher in the world." |
 | `/get-certified-v2` | Belief 3 | Equipment-agnostic lead | "The only BFR certification that doesn't sell you a cuff." |
-| `/get-certified-v3` | Belief 6 | Patient-demand lead | "Your patients are already asking for BFR. Be the clinic that delivers it." |
+| `/get-certified` | Belief 6 | Patient-demand lead (chosen 2026-05-06) | "Your patients are already asking for BFR. Be the clinic that delivers it." |
 
 Variant-specific sections (locked): Announcement Bar, Hero, Problem, Dream Vision, Dream Deep Dive, Solution Bridge, Final CTA framing, P.S. All other sections share components.
 

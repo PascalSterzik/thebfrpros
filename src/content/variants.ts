@@ -222,7 +222,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
   },
   v3: {
     slug: "v3",
-    routePath: "/get-certified-v3",
+    routePath: "/get-certified",
     belief: "Belief 6: patient-demand and competitor adoption",
     beliefNumber: 6,
     metaTitle: "Your Patients Are Already Asking for BFR. Be the Clinic That Delivers. | The BFR Pros",

@@ -1,12 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Serif_Display, DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const fontDisplay = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: ["400"],
+// Compacta Bold is The BFR Pros' brand display font (self-hosted from Assets/Fonts).
+// Web licensing must be confirmed before public deploy.
+const fontDisplay = localFont({
+  src: [
+    {
+      path: "./fonts/CompactaBold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-display",
   display: "swap",
+  // Adjust the fallback metric so the FOUT swap doesn't reflow the page.
+  // Compacta is a heavy condensed sans, so the fallback chain matches that family.
+  fallback: ["Helvetica Neue Condensed", "Arial Narrow", "Impact", "sans-serif"],
 });
 
 const fontBody = DM_Sans({
