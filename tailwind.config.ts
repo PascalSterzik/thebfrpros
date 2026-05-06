@@ -27,10 +27,12 @@ const config: Config = {
         body: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "display-2xl": ["clamp(3rem, 6.4vw, 5.25rem)", { lineHeight: "1.02", letterSpacing: "-0.022em" }],
-        "display-xl": ["clamp(2.4rem, 5vw, 4rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
-        "display-lg": ["clamp(2rem, 3.6vw, 3rem)", { lineHeight: "1.1", letterSpacing: "-0.018em" }],
-        "display-md": ["clamp(1.6rem, 2.8vw, 2.25rem)", { lineHeight: "1.15", letterSpacing: "-0.014em" }],
+        // Compacta Bold ALL CAPS reads better with neutral or slight positive tracking,
+        // not the negative tracking that suits serif lowercase.
+        "display-2xl": ["clamp(3rem, 6.4vw, 5.25rem)", { lineHeight: "0.96", letterSpacing: "0em" }],
+        "display-xl": ["clamp(2.4rem, 5vw, 4rem)", { lineHeight: "0.98", letterSpacing: "0.005em" }],
+        "display-lg": ["clamp(2rem, 3.6vw, 3rem)", { lineHeight: "1.02", letterSpacing: "0.005em" }],
+        "display-md": ["clamp(1.6rem, 2.8vw, 2.25rem)", { lineHeight: "1.06", letterSpacing: "0.01em" }],
         eyebrow: ["0.78rem", { lineHeight: "1.2", letterSpacing: "0.18em" }],
       },
       maxWidth: {
