@@ -848,11 +848,14 @@ The next session should pull from these:
 
 The other session shipped most of the plan. This section captures what Pascal flagged on review of the live build. **Treat as a punch list for the next session.** Every item below is a defect or a refinement, not a re-litigation.
 
-### N.1 — Real survey rating numbers (replace 712)
+### N.1 — Real survey rating numbers: 4.8 from 767 (Pascal-confirmed)
 
-Survey has **762 numeric ratings** (Overall Impression column), mean = **4.68** (rounds to 4.7). Course Content column has 767 ratings, mean 4.77. Total survey responses = 767.
+Survey contains two rating columns. Both are real student ratings:
 
-The "712" currently in `STATS.reviewCount` is from a different counter (probably a stale Teachable platform export). **Replace** with `762` to anchor on the verifiable survey-based number. Optional: also count the 1× 2-star + 16× 3-star + 212× 4-star + 533× 5-star distribution as a "Star distribution" sub-block under the testimonials.
+- Overall Impression column: 762 ratings, mean **4.68** → rounds to 4.7
+- Course Content column: 767 ratings, mean **4.77** → rounds to **4.8**
+
+**Use 4.8 stars from 767 ratings** (Course Content column). Stronger and equally defensible. Update `STATS.ratingValue` from `4.7` to `4.8`, `STATS.reviewCount` from `712` to `767`. Note in source: "Course Content rating from internal student survey, n=767."
 
 ### N.2 — Stars.tsx: render fractional fill, not rounded
 
@@ -881,57 +884,82 @@ The "712" currently in `STATS.reviewCount` is from a different counter (probably
 
 Apply to both Featured-In and Partners marquees.
 
-### N.4 — Hero structure: centered, video above CTAs, full-width on mobile and desktop
+### N.4 — Hero structure: stacked single column, max-width centered (NOT full-bleed)
 
-Drop the 2-column desktop layout. Use a **single centered column** for the entire hero, mobile and desktop:
+Drop the 2-column desktop split. Stack everything in **one centered column with a sane max-width** (~720-800px content width). Mobile and desktop, same structure:
 
 ```
 [eyebrow pill]
 [H1 headline, ≤14ch wrap]
 [2-line subhead, ≤60ch]
-[hero video, 16:9, max-width ~720px]
-[primary CTA full-width on mobile, max-width 360px on desktop]
-[stars + 762 reviews]
-[Featured-in marquee]
+[hero video, 16:9, max-width 720px]
+[primary CTA: full-width on mobile (with side margin), max-width ~360px on desktop]
+[stars + 767 reviews line]
+[Featured-in marquee, full-width below]
 ```
 
-Apply the centered single-column rhythm to the whole page where structurally possible (not literally everything — pricing card stays a single block, etc.). King Kong's structural simplicity is the reference.
+Pascal clarification: "single column" means the content stack is one column, not that the section content goes full-bleed across the desktop. Container max-width stays bounded so reading width is comfortable.
+
+Two-column layouts are still allowed where they make structural sense (image + text with an actual image, e.g. instructor cards). Two-column **text + text** is what we're cutting. King Kong's rhythm is the reference.
 
 ### N.5 — Stats / numbers placement
 
 Move `StatsBlock` from above-the-fold area down to **after the Problem section** (or after Dream Vision). Numbers prove a claim already raised. They're punctuation, not exposition. Current order proves something the reader hasn't been asked yet to question.
 
-### N.6 — Demand graph: too small to read at section-block scale
+### N.6 — Demand graph: keep the real chart, add King-Kong-style annotations (Pascal-confirmed)
 
-Three execution options. Pascal: pick one.
+Pascal: keep the real Google Trends screenshot. Real chart > stylised SVG (more credible). Add King-Kong-style annotation overlay (red circles, curved arrows, bold callouts).
 
-| Option | Description | When to choose |
-|---|---|---|
-| **A** | **Big-number + sparkline.** Lead with `4.2×` (or whatever the verified Google-Trends multiplier is) at huge type, with a small inline sparkline beside it. Caption: "Worldwide search interest in 'Blood Flow Restriction' grew 4.2× from Aug 2025 to Feb 2026 (Google Trends)." | If the goal is "reader gets it in 1 second." Recommended. |
-| **B** | **Annotated chart, larger labels.** Keep the chart, but with 24px+ label type, only 2-3 callouts on the line, and no axis ticks (since exact values matter less than the slope). | If you want the chart to remain a visual centerpiece. |
-| **C** | **Shortened timespan** (Jan 2024 → present). Fewer data points = bigger plot space per point. Same chart approach, less to read. | If 2012 baseline doesn't add value. |
+**Asset path:** `Assets/.../google-trends-bfr-worldwide.csv` is the source. Existing screenshot lives at `public/images/demand-trend.png` (rebuilt from a Pascal-supplied screenshot).
 
-Recommended: **A** for /get-certified (sales page). Save B for `/research` later.
+**Pascal builds the annotated image manually in Canva.** Specs to overlay on the screenshot:
+
+| # | Element | Position | Text |
+|---|---|---|---|
+| 1 | Bold text above chart | Top centre | **"BFR SEARCH INTEREST 4.2× IN 6 MONTHS"** |
+| 2 | Red circle | Around Feb 2026 peak (index 100, top-right) | — |
+| 3 | Red curved arrow + label | Above-right of #2 | **"All-time high — Feb 2026"** |
+| 4 | Red circle | Around Aug 2025 inflection (index 28, line takes off upward) | — |
+| 5 | Red curved arrow + label | Below-left of #4 | **"Demand accelerates — Aug 2025"** |
+| 6 | Bold text below chart | Bottom centre | **"100× higher than 2012 baseline"** |
+| 7 | Source caption | Below #6, smaller + lighter | "Google Trends · 'Blood Flow Restriction' · Worldwide · 2012-2026" |
+
+**Style:** circles + arrows in `#AD1A27` (brand accent). Bold text in **Compacta Bold** (brand consistency) OR a marker handwriting font for the King-Kong "scribbled-on" feel — Pascal's call.
+
+Once Pascal exports the annotated PNG to `_Inbox/3/`, the next session swaps `public/images/demand-trend.png`, deletes the SVG overlay code in `DemandGraph.tsx`, and renders the static image with `next/image` only.
 
 ### N.7 — Dream Vision ("THE DESTINATION") headline still narrow
 
 Means the `text-balance` CSS or a `max-w-` constraint is still there. Remove `text-balance` from the H2 in `DreamVisionBlock.tsx` and any `max-w-prose-narrow` from the heading itself (keep it on the body paragraphs).
 
-### N.8 — Bridge quote: drop Compacta, use DM Sans italic at large size
+### N.8 — Bridge quote: serif italic exception (introduce a third font, only for quotes)
 
-Pascal flipped on "use the font" because Compacta at sentence length is hard to read. Resolution that doesn't introduce a third font:
+Pascal: a quote is an exception to the brand type system. Traditional convention is serif italic, that's what makes it visually read as "quote." Adding one more font weight specifically scoped to `.editorial-quote` is fine.
 
+**Use EB Garamond Italic** (Google Fonts, free, weight 400 only — minimal payload, ~25KB). Classic editorial serif italic, not on any "avoid" list, pairs cleanly with Compacta + DM Sans without competing.
+
+```css
+.editorial-quote {
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  line-height: 1.45;
+  color: var(--color-navy-deeper);
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1.5rem;
+}
 ```
-font-family: var(--font-body);  /* DM Sans */
-font-style: italic;
-font-size: clamp(1.25rem, 1.6vw, 1.6rem);
-font-weight: 500;
-line-height: 1.5;
-color: var(--color-navy);
-border-left: 2px solid var(--color-accent);
+
+Wire via `next/font/google` in `layout.tsx`:
+```ts
+import { EB_Garamond } from "next/font/google";
+const fontQuote = EB_Garamond({ subsets: ["latin"], weight: ["400"], style: ["italic"], variable: "--font-quote", display: "swap" });
 ```
 
-Sentence-form quote in DM Sans italic reads as a quote without needing a serif. Update brand-guide.md typography note: "Compacta Bold for headlines + hooks; DM Sans (regular for body, italic for quotes)."
+Update brand-guide.md typography note: "Compacta Bold for headlines + hooks (ALL CAPS), DM Sans for body, EB Garamond Italic reserved exclusively for quoted text."
+
+Alternative if Pascal prefers a different serif: Lora Italic (more modern), Source Serif Pro Italic (workhorse). EB Garamond is the recommended default.
 
 ### N.9 — "BFR Pros Difference" pillar cards: drop hover effect, add icons
 
@@ -989,12 +1017,12 @@ Three pricing strategies. Pick one:
 | 9 | Athletic BFR Programming Guide | $100 | Programming guides retail |
 | 10 | BFR Training Marketing Video | $200 | Custom marketing video freelance rate |
 | 11 | Private Facebook Group | $100/year | Community access tier |
-| 12 | Continuing Ed Credit Application | $50 | Concierge filing |
-| | **Bonus subtotal** | **$850** + $640 savings | |
+| 12 | Continuing Ed Credit Application | **$200** | Concierge filing-service rate (was $50, bumped after Pascal review — real services charge $150-300) |
+| | **Bonus subtotal** | **$1,000** + $640 savings | |
 | | **Course value** | $654 | |
-| | **Total advertised value** | **$1,504** + up to $640 in savings | |
+| | **Total advertised value** | **$1,654** + up to $640 in savings | |
 | | **Sale price** | $449 | |
-| | **You save** | $1,055 (+ up to $640 device savings) | |
+| | **You save** | $1,205 (+ up to $640 device savings) | |
 
 **Strategy B: Mid-range market values** — bump each by 50%, total ~$1,275 + $640 savings, advertised value ~$1,929.
 
