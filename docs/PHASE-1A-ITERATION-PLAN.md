@@ -598,6 +598,252 @@ We have `Assets/Social Proof/Published Research/` with 6 journal logos (Frontier
 
 ---
 
+## K. Source-of-truth findings from old bfrtraining.com (Pascal-shared HTML, 2026-05-07)
+
+Pascal exported the full HTML of the live course-package and CEU pages to `_Inbox/3/`. Verbatim content extracted below. **These supersede any earlier sections of this doc that conflict.**
+
+### K.1 — Testimonials WERE real, but paraphrased in brand guide
+
+The brand guide's testimonial section had paraphrased shorter versions of real quotes. The verbatim originals (with full names + credentials + roles) live on the old course page. **Use the verbatim originals for the v3 build.** No more paraphrasing.
+
+**Long-form expert testimonials (4):**
+
+> "Dr. Rolnick is a passionate instructor who optimizes the blend of science and practice which enabled me to utilize BFR training immediately. Because of Dr. Rolnick's instruction BFR training has become a well used tool with my special population..."
+> — **Benjamin Toderico, MS, CSCS** (Owner, BT Fitness)
+
+> "The BFR Pros course led by Dr. Nicholas Rolnick was excellent. It helped me to gain a sound knowledge base for implementing Blood Flow Restriction in the clinic and the understanding of when BFR can be best utilized for optimal outcomes."
+> — **Dr. Brian D. Whyte, DPT, CLT, CSCS** (Owner, Perfusion Point Therapy)
+
+> "I chose to take The BFR Pros' blood flow restriction course over other companies such as Owens Recovery Science & Smart Tools because of how the former is continually staying up-to-date with emerging BFR research and implementing it into the course content."
+> — **Dr. Clinton H. Lee, PT, DPT, CSCS** (Owner, PhysioStrength)
+
+> "Hi Nick and Marty, Just wanted to say thank you for putting up with us Canadians. We really appreciate you working with us to find the best way to deliver the course content. We all really enjoyed the in-person Webinar this past Saturday and found it quite helpful. ... We did a lot of research prior to going with the BFR Pros and we are happy we chose you."
+> — **Chantale Nightingale** (Stapleford Health and Rehab Regina)
+
+**Short student testimonials (13):** Vincent Beatty, Earl Hayden, Brian Gargiul, Giuseppe Sposito, Conor McClure, Michael Reeves, Matthew D'Elia, Matt Girard, Roberto Baumgartne, Shaquan Garnette, Brenden Aylward, Peter Schley, Christina Bentrewicz. All with verbatim quotes captured in the HTML — pull as-is for the testimonial wall.
+
+We have **3 student photos** in `Assets/Social Proof/Testimonials/Student Images for Testimonials/` for: Toderico, Whyte, Lee. Lead with the 4 long-form expert testimonials (use the photos for these 3 + a placeholder/stylized initial for Nightingale).
+
+### K.2 — Pricing math (every value)
+
+| Item | Value |
+|---|---|
+| Course 1: Introduction to BFR Training (13 modules, 5.5 CEUs) | $349 |
+| Course 2: BFR Masters Series Clinical Rounds (2.25 CEUs) | $147 |
+| Course 3: BFR Masters Webinar What's New 2021 (2 CEUs) | $79 |
+| Course 4: BFR Masters Webinar Device Features (2 CEUs) | $79 |
+| **Total course value** | **$654** |
+| Bonus 1: Liability Waiver Form | $500 |
+| Bonus 2: BFR Patient Screening Form | $500 |
+| Bonus 3: RPE OMNI-Res Tool | $500 |
+| Bonus 4: BFR Device Discount Codes | up to $640 (saves money — net positive) |
+| Bonus 5: Module by Module Bibliography | $200 |
+| Bonus 6: Downloadable Course PDF (481 pages) | $10 |
+| Bonus 7: Precautions and Contraindications | $50 |
+| Bonus 8: BFR Nutritional Recommendations | $50 |
+| Bonus 9: Athletic BFR Programming | $50 |
+| Bonus 10: BFR Training Marketing Video | $200 |
+| Bonus 11: Private Facebook Group | $200 |
+| Bonus 12: Continuing Ed Credit Application | $250 |
+| **Total bonus value** | **$3,150** |
+| **TOTAL ADVERTISED VALUE** | **$3,804** |
+| **PRICE** | **$449** |
+| **YOU SAVE** | **$3,355** |
+
+Update `src/lib/constants.ts` `PRICING.bundleValue` from `654` to `3804` and `savings` from `205` to `3355`. The $654 number is just the course value, NOT the full advertised value. The $654-vs-$449 framing was wrong; the real anchor is $3,804.
+
+Add per-bonus value next to each bonus title in the Bonuses section.
+
+### K.3 — Trust stats (real numbers)
+
+- **712+** reviews, **4.7 stars** (already in the build)
+- **1,467+** professionals have completed the training (NEW — this is the "graduates" number, more powerful than 712 reviews)
+- **1 out of 1,467** customers has ever refunded (NEW — devastating-good guarantee statistic, use it)
+- **50+** peer-reviewed publications (OLD-page stat, supersede with **72+** per Pascal verification)
+- **10+** years experience
+- **60+** workshops held (matches the 26 workshop banners in `Assets/Workshop/`)
+- **42K+** social followers (combined across IG, FB, YT, TikTok, X)
+
+### K.4 — CEU approvals (the actual definitive list)
+
+**Physical Therapists:**
+
+- **New York PT Board** (approved Dec 12, 2024 → Dec 11, 2027). Approved courses:
+  - Optimize Rehab Outcomes Advanced Clinical Workshop
+  - Accelerate Performance & Recovery Intro On-Demand Course
+  - BFR Masters Series Clinical Rounds
+  - What's New in BFR 2021
+
+- **New Jersey PT Board** (approved through Jan 31, 2026). Approved courses + IDs:
+  - Accelerate Performance & Recovery (5.5 PT CEUs, approval **2207-114**)
+  - BFR Masters Series Clinical Rounds (2.25 PT CEUs, approval **2206-14**)
+  - What's New in BFR 2021 (2 PT CEUs, approval **2210-53**)
+
+- **35 reciprocal states** likely accepted (per state regulation): AL, AK, AR, CO, CT, DE, GA, HI, ID, IN, IA, KS, KY, ME, MA, MI, MO, MT, NE, NH, NC, ND, OR, PA, RI, SC, SD, TN, UT, VT, VA, VI, WA, WI, WY
+
+- **13 states NOT pre-approved** (file individually): AZ, DC, MD, MS, NM, CA, LA, IL, MN, NV, OH, TX, WV
+
+- Question contact: `info@redefinehealthed.com`
+
+**Athletic Trainers:**
+
+- **Board of Certification (BOC) AP# P10226**. ATs claim only hours actually spent. Approved courses:
+  - Optimize Rehab Outcomes (8 Cat A CEUs)
+  - Accelerate Performance & Recovery (5.5 Cat A CEUs)
+  - Clinical Rounds (2.25 Cat A CEUs)
+  - What's New 2021 (2 Cat A CEUs)
+  - Device Selection Webinar 2024 (2 Cat A CEUs)
+
+**Implementation for new page:** use the CEU map image from `Assets/Continuing Education Approvals For Continuing Education Credits (CEUs) Map.jpg`. Below the map, two clear blocks:
+
+- **Course-specific approvals:** BOC + NY State PT Board + NJ State PT Board (with approval IDs).
+- **Reciprocal coverage:** the 35-state list rendered as small inline pill chips. The 13 not-pre-approved states get a "file individually" note with a link to the application doc.
+
+Drop the previous misleading lump that included "APTA-approved" (APTA only confirms BFR is in PT scope, not approves the course).
+
+### K.5 — Course modules (Course 1 has full breakdown; use this verbatim)
+
+**Course 1: Introduction to BFR Training** (13 modules + Module 0 = 14 videos, 5.5 CEUs, $349 value)
+
+| Module | Title | Duration |
+|---|---|---|
+| 0 | Course Overview | 10:12 |
+| 1 | A Brief History of BFR | 5:23 |
+| 2 | Scientific Basis of BFR | 8:30 |
+| 3 | Consequences of Injury and Combating Disuse | 11:49 |
+| 4 | The Science Behind BFR Training | 13:09 |
+| 5 | Fatigue and Blood Flow Restriction Training | 10:21 |
+| 6 | Primary Mechanisms of BFR Training | 13:18 |
+| 7 | Safety & Proper Use of BFR | 38:32 |
+| 8 | Pillar One: Cell Swelling / IPC | 10:37 |
+| 9 | Pillar Two: Aerobic Training | 26:59 |
+| 10 | Pillar Three: Resistance Training | 47:02 |
+| 11 | Programming BFR | 57:30 |
+| 12 | Other BFR-Related Evidence | 17:22 |
+| 13 | Summary of BFR & Wrap Up | 6:01 |
+| — | Survey, Bonus Material, Quiz, CEU Credits (5.5) | — |
+
+**Course 2: BFR Masters Series Clinical Rounds** — 2.25 CEUs, $147
+
+6 parts (each + a quiz):
+- Part 1: Pillars of BFR + Post-Surgical Screening (20:10) → Quiz: The Pillars & Post-Surgical Training
+- Part 2: BFR Post-Surgical ACL Rehab in 19yo female athlete (11:40) → Quiz: Lejkowski (2011)
+- Part 3: 99-year-old Sarcopenic Male (14:50) → Quiz: Scarpelli (2021)
+- Part 4: BFR walking home-based program, 67yo female (8:51) → Quiz: Weisner (2021)
+- Part 5: Lower leg strength + reduced knee swelling, 17yo reactive arthritis (14:06) → Quiz: Jørgensen (2021)
+- Part 6: In-Season BFR Rehab, two decathletes with patellar tendinopathy (22:01) → Quiz: Cuddeford (2020)
+
+**Course 3: BFR Masters Webinar "What's New In BFR 2021?"** — 2 CEUs, $79
+
+5 papers + intro:
+- Part 1: Introduction to The BFR Pros (12:06)
+- Part 2: Perceived Barriers to BFR (18:01) — Rolnick (2021)
+- Part 3: Repetition Failure & Applied Pressure (12:02) — Carqueira (2021)
+- Part 4: BFR Improves Strength in Chronic Atrophic Post-Surgical Patients (14:46) — Noyes (2021)
+- Part 5: Muscle Activation & Applied BFR Pressure (17:22) — De Queiros (2021)
+- Part 6: BFR Induces Comparable Patellar Tendon Changes as Heavy Load (20:27) — Centner (2021)
+
+**Course 4: BFR Masters Webinar "Device Features"** — 2 CEUs, $79
+
+- Part 1: BFR Masters Webinar 2024 (97:48 — devices, autoregulation, bladder design, cuff width)
+- Part 2: Knowledge Assessment (practical BFR with wrapping straps vs elastic bands)
+
+### K.6 — Hero pattern (rotating-word headline)
+
+Old page:
+> "The Only [Cutting-Edge / Unbiased / Evidence-Based / Comprehensive / On-Demand / Risk-Free / Self-Paced / Online / Physical Therapy / Science-Based / World-Class / Beginner-Friendly / Well-Structured / Not Boring / Advanced / Professional / Rehabilitation / Cool / Virtual / Informative / From-Home / Educational / Instructional / Fast / Engaging / Easy-To-Follow / Leading / Refundable / Supercalifragilistic-expialidocious] Blood Flow Restriction Training (BFR) Course You'll Ever Need."
+
+The "supercalifragilistic" tail is a deliberate joke to break tension. Pascal probably wants to keep the personality. **Decision needed:** keep the rotating-word trick on v3, or use a static patient-demand hero. The patient-demand angle Pascal locked needs a tighter, more urgency-led hero. Recommend keep v3's static "Your patients are already asking for BFR" hero (matches the chosen direction), and use rotating words ONLY in a smaller secondary section if at all.
+
+### K.7 — Audience cards (4 segments, with copy)
+
+There's a copy bug in the old page (two cards labeled "Rehabilitation Specialists"). The intent was 4-5 distinct audiences:
+
+| Audience | Old-page copy | Use as |
+|---|---|---|
+| Physical Therapists | "Licensed PTs looking to accelerate client recovery and expand their treatment options." | Card 1 |
+| Performance Coaches | "Trainers seeking science-backed methods to deliver better results for diverse clients." | Card 2 |
+| Rehabilitation Specialists | "Healthcare providers wanting to enhance outcomes for post-surgery and injury recovery." | Card 3 |
+| ~~Rehabilitation Specialists~~ → Athletic Trainers / Sports Performance | "Sports performance experts aiming to safely maximize athlete gains." | Card 4 (renamed) |
+| Practice Owners | "Clinic owners ready to differentiate their services and increase revenue." | Card 5 |
+
+Resolve the duplicate by renaming the second one **"Athletic Trainers"** (or "Sports Performance Experts" if Pascal prefers).
+
+### K.8 — Real case studies for the proof section (5 specific)
+
+Use these as the "BFR in action" / "case studies" content (replacing the avatar-journal driven Dream Vision):
+
+1. **ACL surgery recovery** — accelerated the recovery process; specific BFR protocols documented; remarkable improvements observed
+2. **99-year-old male with sarcopenia** — improved muscle mass, strength, AND cardiovascular health (defies the "BFR is only for athletes" assumption)
+3. **Home-based BFR walking during COVID** — maintained muscle mass + cardio during lockdowns when gyms were closed
+4. **17-year-old with reactive arthritis** — improved lower-leg strength + perceived function while reducing knee joint swelling, in a home-based intervention
+5. **Two collegiate decathletes with patellar tendinopathy** — in-season strength training without aggravating the injury
+
+Each could be a small card with a clinical line + a "Learn more →" expansion. Pull from Course 2 (Clinical Rounds) module bodies for citation depth.
+
+### K.9 — Course completion timing (verbatim from old FAQ)
+
+> "You can work them through in a day (and many of our students have done that) but we recommend working everything through thoroughly to get the most value out of it. So, we recommend a week minimum. And you can always get back to sections whenever you need to."
+
+> "After completing the core modules and safety protocols (approximately 5-7 hours of study), you'll have the foundational knowledge to begin implementing BFR safely with appropriate clients."
+
+**Locked messaging:** "**11.5 hours of video content. 11.75 CEUs. You can work it through in a day, in a week, or take longer. Lifetime access to come back whenever you need.**"
+
+Stop saying "4-6 weeks at 2-3 modules per week." That's wrong. The old page is closer to truth (day to week, 5-7 hours to first patient).
+
+### K.10 — CEU map image confirmed
+
+`Assets/Continuing Education Approvals For Continuing Education Credits (CEUs) Map.jpg` is the live map (also at `https://bfrtraining.com/wp-content/uploads/2025/02/updatedMap-768x465.png` on the old page). Use it.
+
+### K.11 — Old page has 3 sections we don't have on v3
+
+Add these to the section flow:
+
+1. **"Simply Follow Our Blueprint to Success"** + **"Save Yourself Months Of Costly Trial And Error"** — these are mid-page reframing sections that handle the "I could just learn it on YouTube" objection. Lightweight, two paragraphs each, optional but powerful.
+
+2. **"Become A Certified BFR Provider"** identity-stack section (5 benefits cards + 4 audience cards). The patient-demand frame can lead, the "certified provider" identity-shift section reinforces it.
+
+3. **TL;DR section after FAQ** — a one-paragraph summary for skim-readers, pre-final-CTA. Old page has this.
+
+### K.12 — P.S. and P.P.S. content (for v3, Pascal's tone)
+
+Old page P.S. is long and conversational ("Oh still here? Need a little more convincing? 1 Comprehensive Course package. 4 courses. 12 bonuses. $3804 value for only $449. And it's still not worth it?"). Pascal: feel free to keep the v3 patient-demand frame OR adapt this conversational shape. The "1 out of 1,467 customers has refunded" line MUST appear somewhere near the guarantee.
+
+---
+
+## L. Updated open question status (after K)
+
+| # | Question | Status |
+|---|---|---|
+| F1 | True publication count? | **72+** — Pascal verified |
+| F2 | "Most-published" claim? | **Drop entirely** — use 72+ as the authority signal |
+| F3 | Average completion time? | **"Day to week, your pace"** — verbatim from old page FAQ, Pascal verified |
+| F4 | Logo? | **BFR Pros Secondary** — Pascal verified |
+| F5 | Announcement bar? | **Kill** — Pascal verified |
+| F6 | Featured-in marquee composition? | **Logos only** — Pascal verified |
+| F7 | CEU section: missing approval logos vs text? | **Use the CEU map image** as the headline visual + structured text blocks per K.4. No new logo files needed. |
+| F8 | Bonus thumbnails? | **All 11 in the asset folders** — confirmed in §J.8 |
+| F9 | Module 1 PDF? | **Module 0 video + downloadable bibliography PDF** (Bonus 5 has the all-modules-bibliographies.pdf) |
+| F10 | Real module names? | **All 14 modules with names + durations confirmed** in K.5. Use verbatim. |
+| F11 | Demand graph: Google Trends OK? | Still open. Recommend yes. |
+| F12 | Compacta webfont license written confirmation? | Still open. Pascal: send paperwork before Vercel push. |
+
+---
+
+## M. Source files in `_Inbox/3/` for the next session
+
+The next session should pull from these:
+
+- `_Inbox/3/course page.txt` — full HTML of `bfrtraining.com/course-package/` (verbatim source for testimonials, modules, bonuses, pricing, FAQ, P.S./P.P.S.)
+- `_Inbox/3/CEU page.txt` — full HTML of `bfrtraining.com/continuing-education-credits/` (verbatim source for the CEU approval list, state lists, contact email)
+- `Assets/Social Proof/Testimonials/SURVEY _ Intro to BFR.xlsx` — 768 anonymous survey responses (additional verbatim quotes if more variety wanted)
+- `Assets/Videos/video-embeds.md` — all VEED.io video embed URLs
+- `Assets/Course Package/Bonuses/*` — bonus thumbnail images (all 11 + module bibliographies)
+- `Assets/Continuing Education Approvals For Continuing Education Credits (CEUs) Map.jpg` — CEU approval map
+- `Assets/Workshop/*.jpg` — 26 workshop event photos (proof of national reach + clinic partnerships)
+
+---
+
 ## I. What's NOT in this iteration (deliberate scope cut)
 
 To keep the next session focused, these are deferred to Phase 1B or later:
