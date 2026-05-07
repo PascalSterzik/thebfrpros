@@ -489,6 +489,115 @@ These are decisions made during this iteration that should land in `brand-guide.
 
 ---
 
+## J. Corrections from Pascal's second review (2026-05-06)
+
+These supersede earlier sections of this doc where they conflict.
+
+### J.1 — Testimonials are NOT real (brand-guide-sourced quotes were fabricated)
+
+The three testimonials I pulled from `brand-guide.md` (Dr. Clinton H. Lee, Dr. Keith Steigbigel, Dr. Brian D. Whyte) were **constructed quotes**, not actual student words. **Strip them all from the build.**
+
+The real testimonial sources are in `Assets/Social Proof/Testimonials/`:
+
+- **Real student quotes:** `SURVEY _ Intro to BFR.xlsx` — 768 rows of anonymous student survey responses with verbatim quotes. Use these (anonymous attribution: "Course Graduate" or "Verified Student"). Specific strong pulls below.
+- **Video testimonial:** `Dr-Rolnick-1-1-Coaching-Testimonial.mov` — but note this is a **1:1 coaching** testimonial, NOT a course testimonial. Won't work for /get-certified directly. There's also a YouTube video testimonial referenced in `video-embeds.md` (`Introduction to BFR Training Course Testimonial`) on VEED — that's the real course video testimonial.
+- **Bob M. patient testimonial:** patient story about avoiding hip surgery. Not a course testimonial. Don't use here.
+- **Student photos:** 3 photos exist in `Student Images for Testimonials/`. Use them as decorative graduate photos (with permission), not falsely attached to specific fabricated quotes.
+
+**Strong verbatim quotes from the survey to consider:**
+
+> "Great intro to BFR. Feel as though I could use on Monday when going back to work. Loved the questions at the end of each module as well as all the bonus material you have provided."
+
+> "Great detail and support from the literature. Also extremely applicable to my setting (PT clinic). This course more than covers the bases with all of the how's, what's and why's of BFR."
+
+> "I liked that it explained everything from the science/mechanisms to the practical application, It came with the program templates, and that it was more than worth the money. I've taken two other book/courses that did not explain everything as this course did."
+
+> "Honest, unbiased view of the research behind BFR, as well as no certain cuff brand bias."
+
+> "Simplified systematic way to integrate BFR into clinical practice."
+
+> "I really appreciated the unbiased education related to the concepts, methods, implications, and application of BFR from a barebones method to all the bells and whistles that come with certain brands."
+
+Use 3-5 of these on the page, attributed to "Verified Course Graduate" or similar. Real, defensible, no fabrication.
+
+### J.2 — Drop the "most-published" claim entirely
+
+Pascal cannot verify whether Nick is *the* most-published BFR researcher. Don't say it, don't soften it, don't reference it. **Just use the specific number** ("72+ peer-reviewed BFR publications") as the authority signal. The number is the proof.
+
+### J.3 — Publication count: 72+ (Pascal verified)
+
+Update `STATS.publications` in `src/lib/constants.ts` from `"50+"` to `"72+"`. Update `brand-guide.md` § Social Proof & Credentials and § Authority Credentials to match. Update `BFR-PROS-RESEARCH-PROFILE.md` summary section too.
+
+### J.4 — Logo: BFR Pros Secondary
+
+Use `Assets/Logos/The-BFR-Pros-Logo-Secondary.jpg.png` for the website (header + footer).
+
+### J.5 — Announcement bar: KILL
+
+No conditional, no desktop-only fallback. Delete the AnnouncementBar component from VariantPage.tsx. The hero carries the urgency.
+
+### J.6 — Featured-in marquee: just logos
+
+No magazine-cover images. Use only the publication logos from `Assets/Social Proof/BFR featured in/` (CNN, WSJ, Forbes, etc.) and `Assets/Social Proof/Featured in (the News)/` (Men's Health, AskMen, CNET, etc.). Single marquee, all logos in one continuous scroll.
+
+### J.7 — CEU section: real approvals vs profession scope
+
+This needs Pascal verification before going live. Distinguish:
+
+- **Course-specific approvals** (the course IS approved for CEUs by these bodies): BOC AP# P10226, NY State PT Board, NJ State PT Board (per `brand-guide.md`). Anything else?
+- **Profession scope statements** (the modality of BFR is in scope per these bodies): APTA (BFR within PT scope), NATA (BFR approved for ATs).
+
+The distinction matters. "APTA-approved course" is wrong if it's actually "APTA confirms BFR is in PT scope." Two different claims. **Action:** present them as TWO separate blocks: course approvals vs profession scope. Pascal: verify the course-specific approval list is complete (we only have 3 confirmed: BOC, NY, NJ).
+
+### J.8 — Bonus thumbnails: ALL 11 ARE PRESENT (I missed them earlier)
+
+Every bonus folder has a `_Blurry.PNG` thumbnail except Bonus 12 (Continuing Credit Application — likely doesn't need one). Bonus 5 (Module-by-Module Bibliography) has 10 separate module thumbnails plus an `All_Modules_Bibliographies.pdf`. We have everything we need.
+
+| # | Bonus | Thumbnail file |
+|---|---|---|
+| 1 | Liability Waiver Form | `Liability_Waiver_Form_Blurry.PNG` |
+| 2 | BFR Patient Screening Form | `BFR_Patient_Screening_Form_Blurry.PNG` |
+| 3 | RPE Omni-Res Tool | `RPE_Omni-Res_Tool_Blurry.PNG` |
+| 4 | BFR Device Discount Codes | `BFR_Device_Discount_Codes_Blurry.PNG` |
+| 5 | Module-by-Module Bibliography | 10 module thumbnails + `All_Modules_Bibliographies.pdf` |
+| 6 | Downloadable Course PDF | `All_Courses_PDF_Blurry.PNG` |
+| 7 | Precautions & Contraindications | 2 thumbnails |
+| 8 | BFR Nutritional Recommendations | `General_Nutritional_Recommendations_Blurry.PNG` |
+| 9 | Athletic BFR Programming | 3 thumbnails |
+| 10 | BFR Training Marketing Video | `BFR_Training_Marketing_Video.PNG` |
+| 11 | Private Facebook Group | `The_BFR_Pros_Facebook_Group_Blurry.PNG` |
+
+### J.9 — Preview is Module 0, NOT Module 1 (correction to §D.12)
+
+The free-preview video is **Module 0: Welcome and orientation** (the first video of Course 1). The downloadable PDF for the preview section is the **Module 0 bibliography**. Both already exist:
+
+- Module 0 video: VEED embed in `video-embeds.md` (`Module 0 — Introduction to BFR Training (Free Preview)`)
+- Module 0 bibliography: pull from `Assets/Course Package/Bonuses/Bonus Nr5 Module by Module Bibliography/All_Modules_Bibliographies.pdf` (extract the Module 0 / Module 2 page) OR use one of the per-module thumbnails as a teaser
+
+§D.12 in this doc said "Module 1 Preview" — that was wrong. Rename the section "Free Module Preview" and use the Module 0 video + bibliography PDF.
+
+### J.10 — Compacta on the bridge quote (revoke §B4)
+
+Pascal: "Use the font. Stop killing me." Compacta Bold ALL CAPS stays everywhere display-grade text appears, including the bridge quote. **No third font introduced.** §B4 in this doc is wrong — strike it. The bridge quote keeps Compacta. If it reads as too shouty at sentence length, we adjust the SIZE (smaller, like display-md) or the layout (left-aligned, narrower line-length), not the font.
+
+### J.11 — Section transitions: brand-fitting curve/wave (not literal mountain)
+
+Pascal's mountain reference was about the OLD page using a curved shape between sections. **Not literal mountains.** Design a single transitional SVG shape that matches The BFR Pros' editorial-clinical character. Recommend: a low-amplitude organic wave with a subtle accent stroke at the apex, OR a clean diagonal slice. Lock the shape during execution and reuse everywhere section backgrounds change. Reference for inspiration: King Kong's transitions.
+
+### J.12 — Course duration messaging (correction to F3)
+
+Lock as: "**11.75 hours of video content. Do it in a weekend or take 4 weeks. On-demand, your pace.**" Use across the curriculum section, the final CTA, and the FAQ. Drop the earlier "4 to 6 weeks at 2-3 modules per week" framing entirely.
+
+### J.13 — Old bfrtraining.com is not programmatically accessible
+
+Both direct WebFetch and Wayback Machine return 403 / no snapshots (Cloudflare blocks bots, robots.txt blocks archive). The next session can't fetch the old page. **Workaround:** Pascal sends a full-page screenshot OR pastes specific section copy when an old-page detail matters. Tip for Pascal: full-page screenshot in Chrome = open DevTools, Cmd/Ctrl+Shift+P, type "Capture full size screenshot", press Enter. Saves the entire scrollable page as one PNG.
+
+### J.14 — Add a "Featured Research" section using publication logos
+
+We have `Assets/Social Proof/Published Research/` with 6 journal logos (Frontiers, Medicine & Science in Sports, Sage Journals, ScienceDirect, Strength and Conditioning Journal x2). And `Assets/Social Proof/Podcast Appearances/` with 15 podcast logos. Both are credibility goldmines we haven't used. Suggest a "Cited in / Published in" row near the instructor section using the journal logos, and a "Heard on" row using podcast logos. Both as marquees if we want to keep the page rhythm consistent.
+
+---
+
 ## I. What's NOT in this iteration (deliberate scope cut)
 
 To keep the next session focused, these are deferred to Phase 1B or later:
