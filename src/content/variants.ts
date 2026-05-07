@@ -69,24 +69,24 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     routePath: "/get-certified-v1",
     belief: "Belief 5: research-source authority",
     beliefNumber: 5,
-    metaTitle: "BFR Certification Taught by the Most-Published BFR Researcher | The BFR Pros",
+    metaTitle: "BFR Certification Built on 72+ Peer-Reviewed Publications | The BFR Pros",
     metaDescription:
-      "Earn 11.75 CEUs in 37 modules taught by Dr. Nicholas Rolnick, 50+ peer-reviewed BFR publications. Equipment-agnostic, evidence-based, 30-day money-back guarantee.",
+      "Earn 11.75 CEUs in 37 modules taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. Equipment-agnostic, evidence-based, 30-day money-back guarantee.",
     ogImage: "/images/og/og-v1.png",
     announcement: {
       eyebrow: "New cohort open",
-      line: "Learn BFR from the most-published BFR researcher in the world.",
+      line: "Learn BFR from the source of 72+ peer-reviewed publications.",
       cta: "See the certification",
     },
     hero: {
       eyebrow: "The Complete BFR Certification",
-      headline: "Learn BFR from the most-published BFR researcher in the world.",
+      headline: "Learn BFR from the source of 72+ peer-reviewed publications.",
       subhead:
-        "Dr. Nicholas Rolnick has authored more peer-reviewed BFR studies than any single individual in the field. The Complete BFR Certification is built on that work. 37 modules. 11.75 CEUs. Zero cuff sales pitches.",
+        "Dr. Nicholas Rolnick has authored 72+ peer-reviewed BFR publications, and The Complete BFR Certification is built on that body of work. 37 modules. 11.75 CEUs. Zero cuff sales pitches.",
       primaryCta: "Enroll Now for $449",
       secondaryCta: "See what's inside",
       supportingStat: [
-        { value: "50+", label: "peer-reviewed BFR publications" },
+        { value: "72+", label: "peer-reviewed BFR publications" },
         { value: "11.75", label: "CEUs (BOC + state PT boards)" },
         { value: "37", label: "modules across 4 courses" },
         { value: "4.7", label: "stars from 712 reviews" },
@@ -96,7 +96,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     problem: {
       label: "The problem",
-      headline: "You can keep reading abstracts at 9:42 on a Tuesday. Or you can learn from the source.",
+      headline: "You can keep reading abstracts on your lunch break. Or you can learn from the source.",
       intro:
         "You know what BFR is. You've watched the YouTube videos. You've read the Frontiers paper twice. You're not in the dark, you're in the wrong room.",
       surface:
@@ -104,17 +104,17 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       emotional:
         "Half of being a clinician is being marketed to by people who used to be clinicians. Each course feels like a pitch dressed as education. You're tired of being sold to and you don't know who is teaching from the science and who is teaching from the catalog.",
       future:
-        "Twelve months go by. The post-op ACL plateaus at 71% LSI. The patient who asked you about cuffs last week is now training with a clinic that did the certification you didn't.",
+        "Twelve months go by. Your post-op ACL outcomes plateau in late-stage rehab. The patient who asked you about cuffs last week is now training with a clinic that did the certification you didn't.",
       visceral:
-        "The problem isn't that you don't have time. It's that you don't have a single trustworthy source to learn from. So the tabs stay open and Tuesday becomes Tuesday again.",
+        "The problem isn't that you don't have time. It's that you don't have a single trustworthy source to learn from. So the tabs stay open and another quarter passes.",
     },
     dreamVision: {
       label: "The destination",
-      headline: "It's a Tuesday in September and Marcus's quad finally fires.",
+      headline: "Six months from now, your post-op ACL patients hit late-stage strength benchmarks on schedule.",
       paragraphs: [
-        "It's 4:15 in the afternoon. Marcus is back, week 18 post-op ACL, and the LSI is 86%. Last visit you applied the cuff yourself, set the pressure to 70% LOP, and walked him through the same low-load protocol you've used with the last seven post-op knees. He didn't ask if it would work. He just trusted you, the way patients trust clinicians who know their tools.",
-        "On the computer beside you is the screening form from Bonus #2, filled out for tomorrow's first BFR consult. The surgeon down the hall has started CC'ing you on post-op orders. Sarah from three doors down stopped by last week to ask which cuff you went with and why. You answered her in two sentences.",
-        "It's 9:42 on a Tuesday again, and tonight you are not on PubMed. You are reading a chapter for fun.",
+        "It's a clinic afternoon. The patient on your table is week 18 post-op and the LSI is 86%. Last visit you applied the cuff yourself, set the pressure to 70% of limb occlusion, and walked them through the same low-load protocol you've used with the last seven post-op knees. They didn't ask if it would work. They trusted you, the way patients trust clinicians who know their tools.",
+        "On the computer beside you is the screening form from Bonus #2, filled out for tomorrow's first BFR consult. The surgeon down the hall has started CC'ing you on post-op orders. The peer at the clinic across the street stopped by last week to ask which cuff you went with and why. You answered in two sentences.",
+        "Tonight you are not on PubMed. You are reading a chapter for fun, because you no longer need PubMed to know what works.",
       ],
     },
     dreamDeep: {
@@ -127,19 +127,19 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       ],
     },
     bridge: {
-      line: "You don't need a different cuff. You need the curriculum the cuff manufacturers don't want you to see. The Complete BFR Certification is built on 50+ peer-reviewed publications by the practitioner teaching it, and it doesn't ship with a single product to upsell.",
+      line: "You don't need a different cuff. You need the curriculum the cuff manufacturers don't want you to see. The Complete BFR Certification is built on 72+ peer-reviewed publications by the practitioner teaching it, and it doesn't ship with a single product to upsell.",
     },
     finalCta: {
-      headline: "Learn BFR from the most-published researcher in the field. Or read a different abstract.",
+      headline: "Learn BFR from the source of 72+ peer-reviewed publications. Or read another abstract.",
       subhead:
-        "11.75 CEUs. 37 modules. $449. 30-day money-back guarantee. Average completion time is 4 to 6 weeks at 2-3 modules per week.",
+        "11.75 hours of video content. 11.75 CEUs. 37 modules. $449. 30-day money-back guarantee. Do it in a weekend or take 4 weeks. Lifetime access either way.",
       warning:
-        "Every Tuesday you don't decide is a Tuesday Marcus stays at 71% and the patient on the schedule next week asks the question you don't yet have the answer to. The research isn't moving slower; you are.",
+        "Every quarter you don't decide is a quarter your outcomes stay where they are and the patient on next week's schedule asks the question you don't yet have the answer to. The research isn't moving slower. You are.",
       primary: "Enroll for $449",
     },
     ps: [
       "P.S. The certification is the technique, not the cuff. If a year from now you switch from Delfi to SmartCuffs to LiveBand, you don't pay for re-education. The curriculum doesn't depend on what's in your closet. The 30-day money-back guarantee is the rest of the trade.",
-      "P.P.S. You've been telling yourself you'll get to it for four years. Tonight is a Tuesday. The tab is open.",
+      "P.P.S. You've been telling yourself you'll get to it for years. The tab is open. The certification is the same price tonight as it is next quarter, and you are 11.75 hours away from being able to apply it on Monday.",
     ],
   },
   v2: {
@@ -149,7 +149,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     beliefNumber: 3,
     metaTitle: "The Only BFR Certification That Doesn't Sell You a Cuff | The BFR Pros",
     metaDescription:
-      "Equipment-agnostic BFR certification. Works with Delfi, SmartCuffs, B Strong, LiveBand. 37 modules, 11.75 CEUs, 50+ peer-reviewed publications. 30-day money-back.",
+      "Equipment-agnostic BFR certification. Works with Delfi, SmartCuffs, B Strong, LiveBand. 37 modules, 11.75 CEUs, 72+ peer-reviewed publications. 30-day money-back.",
     ogImage: "/images/og/og-v2.png",
     announcement: {
       eyebrow: "Equipment-agnostic by design",
@@ -231,14 +231,14 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     ogImage: "/images/og/og-v3.png",
     announcement: {
       eyebrow: "Patient demand is rising",
-      line: "Sarah, three doors down, just hung a 'BFR provided here' sign on her clinic window.",
+      line: "Your competitors are getting certified. Be the BFR clinic patients in your zip code find first.",
       cta: "Get certified before the next one does",
     },
     hero: {
       eyebrow: "The Complete BFR Certification",
       headline: "Your patients are already asking for BFR. Be the clinic that delivers it.",
       subhead:
-        "BFR has been on CNN, in the Wall Street Journal, on ESPN, and on Cleveland Clinic's blog. Your patients are searching for it. The question isn't whether your clinic offers BFR in 2026. It's whether you are the one offering it, or whether they're booking with the clinic three doors down.",
+        "Google searches for blood flow restriction hit 100 on the worldwide index in February 2026, 2.6× the previous all-time high. From July 2025 to February 2026 search interest climbed 4.2×, with the single biggest jump in one month: July's 24 became August's 64. Your patients are searching now. The question is whether you are the clinic they find first, or the clinic across the street.",
       primaryCta: "Get Certified for $449",
       secondaryCta: "See the curriculum",
       supportingStat: [
@@ -254,23 +254,23 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       label: "The problem",
       headline: "Patients can tell when you're stalling.",
       intro:
-        "BFR has crossed into patient-facing media. The firefighter in your waiting room read about it on TikTok. The post-op ACL bookmarked a Cleveland Clinic article. The marathoner heard about it on a podcast. They are not asking if you've heard of it. They are asking which cuff you use.",
+        "BFR has crossed into patient-facing media. The post-op ACL bookmarked a Cleveland Clinic article. The marathoner heard about it on a podcast. The lifter saw it in Men's Health. They are not asking if you've heard of it. They are asking which cuff you use.",
       surface:
         "Last month a patient asked you directly. You said something about looking into it for next visit. They nodded and went home and Googled. By next visit, they had answers. You still didn't.",
       emotional:
-        "You went to PT school because you wanted to actually help people get better. The gap between that ambition and your Tuesday afternoon outcomes report is widening, and the gap is shaped exactly like the techniques your DPT program left out.",
+        "You went to PT school because you wanted to actually help people get better. The gap between that ambition and your weekly outcomes review is widening, and the gap is shaped exactly like the techniques your DPT program left out.",
       future:
-        "Sarah, three doors down, just hung a \"BFR provided here\" sign on her clinic window. The surgeon you work with starts asking why she gets the post-op ACLs and you don't. The 18-year-old who came in last spring with a patellar dislocation is at her clinic this fall.",
+        "Within twelve months, the clinic in your zip code that offers BFR by name will be the one on the search results page when your patient types \"BFR near me.\" The surgeon you work with starts asking why a different clinic gets the post-op ACLs. The 18-year-old who came in last spring with a patellar dislocation never came back.",
       visceral:
-        "The defensive cost of doing nothing is no longer zero. It's a sign on a window three doors down that wasn't there last quarter.",
+        "The defensive cost of doing nothing is no longer zero. It is the patient who already left and the patient who is about to.",
     },
     dreamVision: {
       label: "The destination",
-      headline: "It's a Wednesday in spring and the firefighter walks back in.",
+      headline: "Six months from now, the patients who Googled BFR in your zip code book with you, by name.",
       paragraphs: [
-        "He's three weeks post-patellar-dislocation. He'd been to two clinics and Googled in between. He found you because your website says BFR provided here and your Google reviews mention specific outcomes by name. He came in for a consult and didn't leave for a second opinion.",
-        "You apply the cuff. You set the pressure. You walk him through what the next eight weeks look like and you write it down for him. He's back at the firehouse in week ten, on light duty in week twelve, full duty in week sixteen. Six months later he sends you a text from a structure fire.",
-        "There are seven of him on your schedule for the spring. Every one of them found you by name.",
+        "Three weeks post-op, the patient walks in for the first time. They had been to two clinics and searched between visits. They found you because your website says BFR provided here and your reviews mention specific outcomes. They came in for a consult and didn't leave for a second opinion.",
+        "You apply the cuff. You set the pressure. You walk them through what the next eight weeks look like and you write it down. They are back at full duty by week sixteen. Six months later they send you a referral.",
+        "There are several of them on your schedule for the spring. Every one of them found you by name.",
       ],
     },
     dreamDeep: {
@@ -279,7 +279,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       paragraphs: [
         "Your Google reviews mention BFR by name. Your clinic's intake form has a box for blood flow restriction goals. Two surgeons in your zip code have you on their referral shortlist for late-stage post-op rehab. The cash-pay BFR program you launched last year covers your CE budget for the next three.",
         "You are not the only certified BFR clinician in your region. You are the first one a patient finds when they search. The certification is what got you in the door. The implementation is what kept you there.",
-        "Six months from now, the new graduate down the hall asks how to start a BFR program at her own clinic. You tell her the same thing the firefighter tells his crewmates: this is real, and the time to be early is over.",
+        "Six months from now, the new graduate down the hall asks how to start a BFR program at her own clinic. You tell her what your patients already know: this is real, the demand is here, and the time to be early is over.",
       ],
     },
     bridge: {
@@ -288,14 +288,14 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     finalCta: {
       headline: "The patient walks in tomorrow either way. The question is which clinic answers.",
       subhead:
-        "$449. 37 modules. 11.75 CEUs. 30-day money-back guarantee. Average completion time 4 to 6 weeks at 2-3 modules per week. The window to be the first BFR-certified clinic in your zip code is still open. It is not open forever.",
+        "$449. 37 modules. 11.75 hours of video content. 11.75 CEUs. 30-day money-back guarantee. Do it in a weekend or take 4 weeks. The window to be the first BFR-certified clinic in your zip code is still open. It is not open forever.",
       warning:
-        "The clinic three doors down didn't wait. The 18-year-old patellar dislocation didn't wait. The firefighter didn't wait. None of them waited for the right moment, and none of them are going to wait for you.",
+        "Google searches for blood flow restriction 4.2×'d between July 2025 and February 2026. The previous all-time high, set in September 2021, was 39. February 2026 hit 100. A curve that took fourteen years to build, redrawn in seven months. The clinics certifying this quarter are the ones that show up first when those patients search next quarter. The wave is not coming. It is here.",
       primary: "Get Certified for $449",
     },
     ps: [
-      "P.S. \"Sarah, three doors down, just hung a 'BFR provided here' sign on her clinic window\" is a real sentence from a real PT in a real journal entry. The reason it's a sentence is because the sign was there. The reason the sign was there is because she didn't wait.",
-      "P.P.S. The 30-day money-back guarantee means you can finish the curriculum, run BFR with your first patient, and refund out if it's not for your practice. The guarantee asks you to act now, not commit forever.",
+      "P.S. The certification is the technique, not the cuff. Your patients don't care which brand you bought. They care whether you can apply BFR safely, prescribe the pressure correctly, and hit their outcome goals. The 30-day money-back guarantee is the rest of the trade.",
+      "P.P.S. The 30-day refund means you can finish the curriculum, run BFR with your first patient, and refund out if it's not for your practice. The guarantee asks you to act now, not commit forever. 1 out of 1,467 graduates has ever taken it.",
     ],
   },
 };

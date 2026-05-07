@@ -1,10 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PrimaryCTA from "@/components/shared/PrimaryCTA";
-import { STATS, TESTIMONIALS } from "@/lib/constants";
+import Stars from "@/components/shared/Stars";
+import { STATS, TESTIMONIALS, VIDEOS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
+
+// Each testimonial in TESTIMONIALS has a known photo file mapped here. Photos
+// live in public/images/students/ and were copied from the brand asset folder.
+const PHOTO_MAP: Record<string, string> = {
+  "Dr. Clinton H. Lee, PT, DPT, CSCS": "/images/students/clinton-lee.jpeg",
+  "Dr. Brian D. Whyte, DPT, CLT, CSCS": "/images/students/brian-whyte.jpeg",
+  "Benjamin Toderico, MS, CSCS": "/images/students/benjamin-toderico.jpeg",
+};
 
 export default function TestimonialsSection() {
   return (
@@ -24,13 +34,16 @@ export default function TestimonialsSection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-balance text-white"
           >
-            {STATS.ratingValue} stars from {STATS.reviewCount} certified practitioners.
+            {STATS.ratingValue} stars from {STATS.reviewCount}+ reviews. {STATS.certifiedPractitioners} certified practitioners.
           </motion.h2>
+          <motion.div variants={fadeUp} className="mt-6">
+            <Stars variant="dark" size="md" />
+          </motion.div>
           <motion.p
             variants={fadeUp}
             className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80"
           >
-            Three voices from the {STATS.reviewCount}. Each shopped Owens, Smart Tools, or PESI before they shopped us, and each picked us for a specific reason.
+            Three voices from the {STATS.certifiedPractitioners}, pulled verbatim from the live course page. Plus the full course testimonial video below.
           </motion.p>
         </motion.div>
 
@@ -39,29 +52,72 @@ export default function TestimonialsSection() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-14 grid gap-5 md:grid-cols-3"
+          className="mt-14 grid gap-5 lg:grid-cols-3"
         >
-          {TESTIMONIALS.map((t) => (
-            <motion.li
-              key={t.name}
-              variants={fadeUp}
-              className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm"
-            >
-              <span aria-hidden className="font-display text-4xl text-accent leading-none">
-                “
-              </span>
-              <blockquote className="mt-3 text-lg leading-relaxed text-white/95">
-                {t.quote}
-              </blockquote>
-              <figcaption className="mt-6 border-t border-white/10 pt-4">
-                <p className="font-display text-base text-white">{t.name}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.16em] text-white/60">
-                  {t.role}
-                </p>
-              </figcaption>
-            </motion.li>
-          ))}
+          {TESTIMONIALS.map((t) => {
+            const photo = PHOTO_MAP[t.name];
+            return (
+              <motion.li
+                key={t.name}
+                variants={fadeUp}
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm"
+              >
+                <span aria-hidden className="font-display text-4xl text-accent leading-none">
+                  &ldquo;
+                </span>
+                <blockquote className="mt-3 text-base leading-relaxed text-white/95">
+                  {t.quote}
+                </blockquote>
+                <figcaption className="mt-6 grid grid-cols-[48px_1fr] items-center gap-3 border-t border-white/10 pt-4">
+                  {photo ? (
+                    <div className="relative h-12 w-12 overflow-hidden rounded-full ring-2 ring-white/20">
+                      <Image src={photo} alt={t.name} fill sizes="48px" className="object-cover" />
+                    </div>
+                  ) : (
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 font-display text-lg text-white">
+                      {t.name.split(" ").slice(-1)[0]?.[0] ?? "?"}
+                    </div>
+                  )}
+                  <div>
+                    <p className="font-display text-sm text-white leading-tight">{t.name}</p>
+                    <p className="mt-1 text-[0.7rem] uppercase tracking-[0.16em] text-white/60">
+                      {t.role}
+                    </p>
+                  </div>
+                </figcaption>
+              </motion.li>
+            );
+          })}
         </motion.ul>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={inViewOnce}
+          variants={stagger}
+          className="mt-14 grid gap-10 lg:grid-cols-12 lg:items-center"
+        >
+          <motion.div variants={fadeUp} className="lg:col-span-5">
+            <p className="small-caps-line text-accent">Course graduate testimonial</p>
+            <h3 className="mt-3 font-display text-display-md text-white text-balance">
+              See a clinician explain why they chose this certification, in their own words.
+            </h3>
+          </motion.div>
+          <motion.div variants={fadeUp} className="lg:col-span-7">
+            <div className="relative w-full overflow-hidden rounded-2xl bg-black/40 ring-1 ring-white/15 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.55)]">
+              <div className="relative pb-[56.25%]">
+                <iframe
+                  src={VIDEOS.testimonial}
+                  title="Introduction to BFR Training Course Testimonial"
+                  loading="lazy"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full border-0"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -70,7 +126,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.7 }}
           className="mt-12"
         >
-          <PrimaryCTA label={`Join ${STATS.reviewCount}+ certified practitioners`} />
+          <PrimaryCTA label={`Join ${STATS.certifiedPractitioners} certified practitioners`} />
         </motion.div>
       </div>
     </section>

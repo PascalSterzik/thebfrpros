@@ -2,14 +2,13 @@
 
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
-import PrimaryCTA from "@/components/shared/PrimaryCTA";
 import { COMPETITOR_TABLE } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 const STRANGER_QUESTIONS = [
   {
     q: "Who is teaching this?",
-    a: "Dr. Nicholas Rolnick. Active practicing PT in Manhattan. 50+ peer-reviewed BFR publications. Lehman College CUNY and Concordia University Chicago faculty. NASM Chapter 12 author. Featured in CNN, the Wall Street Journal, Forbes, ESPN, Men's Health, GQ, PubMed, and NSCA.",
+    a: "Dr. Nicholas Rolnick. Active practicing PT in Manhattan. 72+ peer-reviewed BFR publications. Lehman College CUNY and Concordia University Chicago faculty. NASM Chapter 12 author. Featured in CNN, the Wall Street Journal, Forbes, ESPN, Men's Health, GQ, PubMed, and NSCA.",
   },
   {
     q: "What is being offered?",
@@ -17,14 +16,14 @@ const STRANGER_QUESTIONS = [
   },
   {
     q: "How long will it take?",
-    a: "4 to 6 weeks at 2-3 modules per week. 11.75 hours of total content. On-demand video plus downloadable resources, so you complete it on your own schedule and return to it as a reference forever.",
+    a: "11.75 hours of video content. Do it in a weekend or take 4 weeks. On-demand video plus downloadable resources, so you complete it on your own schedule and return to it as a lifetime reference.",
   },
 ];
 
 const PILLARS = [
   {
     title: "Research-led, not product-led",
-    body: "Built on more peer-reviewed BFR studies than any single individual in the field has authored. Updated as the literature evolves.",
+    body: "Built on 72+ peer-reviewed BFR publications by the lead instructor. Updated as the literature evolves.",
   },
   {
     title: "Equipment-agnostic by design",
@@ -134,17 +133,16 @@ export default function SolutionSection() {
           >
             <table className="min-w-[760px] w-full text-left">
               <caption className="sr-only">
-                Comparison of The BFR Pros certification against Owens Recovery Science, NE Seminars / UT BFRT, PESI, and Mike Reinold's online course.
+                Comparison of The Complete BFR Certification against Owens Recovery Science, NE Seminars / UT BFRT, PESI, and Mike Reinold's online course on consistent axes: format, hours of content, CEUs, equipment requirements, and money-back guarantee.
               </caption>
               <thead className="bg-cream">
                 <tr>
                   <th scope="col" className="small-caps-line p-4 text-muted">Program</th>
-                  <th scope="col" className="small-caps-line p-4 text-muted">Research depth</th>
-                  <th scope="col" className="small-caps-line p-4 text-muted">Equipment</th>
-                  <th scope="col" className="small-caps-line p-4 text-muted">Modules</th>
+                  <th scope="col" className="small-caps-line p-4 text-muted">Format</th>
+                  <th scope="col" className="small-caps-line p-4 text-muted">Hours</th>
                   <th scope="col" className="small-caps-line p-4 text-muted">CEUs</th>
-                  <th scope="col" className="small-caps-line p-4 text-muted">Price</th>
-                  <th scope="col" className="small-caps-line p-4 text-muted">Guarantee</th>
+                  <th scope="col" className="small-caps-line p-4 text-muted">Equipment required</th>
+                  <th scope="col" className="small-caps-line p-4 text-muted">Money-back</th>
                 </tr>
               </thead>
               <tbody>
@@ -162,27 +160,23 @@ export default function SolutionSection() {
                         {row.name}
                       </span>
                     </th>
-                    <td className="p-4 align-top text-sm text-ink/85">{row.research}</td>
-                    <td className="p-4 align-top text-sm text-ink/85">{row.equipment}</td>
-                    <td className="p-4 align-top text-sm text-ink/85">{row.modules}</td>
+                    <td className="p-4 align-top text-sm text-ink/85">{row.format}</td>
+                    <td className="p-4 align-top text-sm text-ink/85">{row.hours}</td>
                     <td className="p-4 align-top text-sm text-ink/85">{row.ceus}</td>
-                    <td className="p-4 align-top text-sm text-ink/85">{row.price}</td>
+                    <td className="p-4 align-top text-sm text-ink/85">{row.equipment}</td>
                     <td className="p-4 align-top text-sm text-ink/85">{row.guarantee}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </motion.div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={inViewOnce}
-          transition={{ duration: 0.7 }}
-          className="mt-12 flex flex-col items-start gap-3"
-        >
-          <PrimaryCTA label="See What's Inside the Curriculum" href="#curriculum" variant="secondary" />
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 max-w-3xl text-base leading-relaxed text-ink/75"
+          >
+            Only one of these courses is led by a clinician with 72+ peer-reviewed BFR publications. Research depth is in the body, not the table, because it doesn't fit a comparable column.
+          </motion.p>
         </motion.div>
       </div>
     </section>

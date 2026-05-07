@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const VARIANT_NOTES: Record<"v1" | "v2" | "v3", { tagline: string; angle: string; oneLiner: string }> = {
   v1: {
     angle: "Research-authority lead",
-    tagline: "Belief 5: the most-published BFR researcher in the world",
+    tagline: "Belief 5: 72+ peer-reviewed publications as the source of truth",
     oneLiner:
       "Earned-authority opening. The hero stat is publication count, the dream is the clinician who cites the research, the warning is staying generic in a field that's specializing.",
   },

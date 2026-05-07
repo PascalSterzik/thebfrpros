@@ -1,10 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PrimaryCTA from "@/components/shared/PrimaryCTA";
-import { BONUSES } from "@/lib/constants";
+import { BONUSES, PRICING } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
+
+const TOTAL_BONUS_VALUE = BONUSES.reduce((sum, b) => sum + b.value, 0) + 250; // +$250 for Bonus 12 (CE app, no thumb)
 
 export default function BonusesSection() {
   return (
@@ -32,6 +35,12 @@ export default function BonusesSection() {
           >
             Most CE courses end at the final video. The Complete BFR Certification ships with the screening forms, the liability waiver, the discount codes, and the private community that turn knowledge into Monday-morning practice.
           </motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="mt-4 text-sm text-muted"
+          >
+            Total advertised bonus value: ${TOTAL_BONUS_VALUE.toLocaleString("en-US")}. Bundled into the ${PRICING.bundlePrice} certification.
+          </motion.p>
         </motion.div>
 
         <motion.ol
@@ -39,20 +48,32 @@ export default function BonusesSection() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {BONUSES.map((b) => (
             <motion.li
               key={b.n}
               variants={fadeUp}
-              className="pro-card p-6 grid grid-cols-[auto_1fr] gap-4"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)] transition hover:-translate-y-1 hover:shadow-[0_20px_44px_-22px_rgba(25,55,99,0.32)]"
             >
-              <span className="font-display text-2xl text-accent leading-none pt-0.5">
-                {String(b.n).padStart(2, "0")}
-              </span>
-              <div>
-                <h3 className="font-display text-lg text-navy">{b.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-ink/80">{b.line}</p>
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-cream">
+                <Image
+                  src={b.img}
+                  alt={`${b.title} preview`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+                <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-navy">
+                  Bonus {String(b.n).padStart(2, "0")}
+                </span>
+                <span className="absolute right-3 top-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white tabular-nums">
+                  {("valuePrefix" in b && b.valuePrefix ? b.valuePrefix : "$")}{("valuePrefix" in b && b.valuePrefix ? b.value.toLocaleString("en-US") : b.value.toLocaleString("en-US"))} value
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="font-display text-lg text-navy text-balance">{b.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/80">{b.line}</p>
               </div>
             </motion.li>
           ))}
@@ -63,9 +84,12 @@ export default function BonusesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={inViewOnce}
           transition={{ duration: 0.7 }}
-          className="mt-12 flex flex-wrap items-center gap-4"
+          className="mt-14 flex flex-wrap items-center gap-4"
         >
-          <PrimaryCTA hint="11 bonuses. Lifetime access. 30-day money-back guarantee." />
+          <PrimaryCTA
+            label="Claim All 11 Bonuses"
+            hint={`Plus the 4-course curriculum and Bonus 12 (CE Application). 30-day money-back guarantee.`}
+          />
         </motion.div>
       </div>
     </section>

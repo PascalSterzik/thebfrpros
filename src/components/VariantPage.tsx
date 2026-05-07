@@ -1,14 +1,16 @@
-import AnnouncementBar from "@/components/shared/AnnouncementBar";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import HeroBlock from "@/components/sections/HeroBlock";
 import CredibilityBar from "@/components/sections/CredibilityBar";
+import StatsBlock from "@/components/sections/StatsBlock";
 import ProblemBlock from "@/components/sections/ProblemBlock";
+import DemandGraph from "@/components/sections/DemandGraph";
 import DreamVisionBlock from "@/components/sections/DreamVisionBlock";
 import DreamDeepBlock from "@/components/sections/DreamDeepBlock";
 import BridgeBlock from "@/components/sections/BridgeBlock";
 import SolutionSection from "@/components/sections/SolutionSection";
 import CurriculumSection from "@/components/sections/CurriculumSection";
+import ModulePreview from "@/components/sections/ModulePreview";
 import InstructorsSection from "@/components/sections/InstructorsSection";
 import BonusesSection from "@/components/sections/BonusesSection";
 import CEUBadgesSection from "@/components/sections/CEUBadgesSection";
@@ -34,27 +36,26 @@ export default function VariantPage({ variant }: { variant: Variant }) {
 
   return (
     <>
-      {/* 1. Announcement bar */}
-      <AnnouncementBar
-        eyebrow={variant.announcement.eyebrow}
-        line={variant.announcement.line}
-        cta={variant.announcement.cta}
-      />
-
-      {/* 2. Sticky header with mobile hamburger */}
+      {/* 1. Sticky header with mobile hamburger (announcement bar killed per §J.5: hero carries the urgency) */}
       <Header />
 
       <main id="main">
         {/* 3. Hero */}
         <HeroBlock variant={variant} />
 
-        {/* 4. Credibility bar */}
+        {/* 4. Featured-in marquee */}
         <CredibilityBar />
 
-        {/* 5. Problem (4-Layer Pain Stack) */}
+        {/* 5. Dedicated stats section (§D.5) */}
+        <StatsBlock />
+
+        {/* 6. Problem (4-Layer Pain Stack) */}
         <ProblemBlock variant={variant} />
 
-        {/* 6. Dream Vision */}
+        {/* 7. Demand graph (§D.25) */}
+        <DemandGraph />
+
+        {/* 8. Dream Vision */}
         <DreamVisionBlock variant={variant} />
 
         {/* 7. Dream Deep Dive */}
@@ -68,6 +69,9 @@ export default function VariantPage({ variant }: { variant: Variant }) {
 
         {/* 10. Curriculum (4 courses, 37 modules, 11.75 CEUs accordion) */}
         <CurriculumSection />
+
+        {/* 10b. Free Module Preview (Module 0 video + bibliography PDF) */}
+        <ModulePreview />
 
         {/* 11. Instructor authority (Rolnick + Licameli) */}
         <InstructorsSection />

@@ -15,11 +15,11 @@ export const FAQ: FAQItem[] = [
   },
   {
     q: "How is The BFR Pros different from Owens Recovery Science, PESI, or Mike Reinold's course?",
-    a: "Three differences: research depth, equipment independence, and curriculum scope. The BFR Pros is led by Dr. Nicholas Rolnick, who has 50+ peer-reviewed BFR publications, more than any single individual in the field. Owens is excellent education tied to the Delfi PTS device. PESI is a generic CE platform with shorter coverage. Mike Reinold's course is a strong starting point. The Complete BFR Certification is the comprehensive 37-module specialty for clinicians who want to be the BFR specialist in their region.",
+    a: "Three differences: research depth, equipment independence, and curriculum scope. The BFR Pros is led by Dr. Nicholas Rolnick, who has authored 72+ peer-reviewed BFR publications. Owens is excellent education tied to the Delfi PTS device. PESI is a generic CE platform with shorter coverage. Mike Reinold's course is a strong starting point. The Complete BFR Certification is the comprehensive 37-module specialty for clinicians who want to be the BFR specialist in their region.",
   },
   {
     q: "How long does the certification take to complete?",
-    a: "Most practitioners finish in 4 to 6 weeks at 2-3 modules per week, with a total content load of 11.75 hours. The format is on-demand video plus downloadable resources, so you can complete it on your commute or between patients. Modules are searchable, so you can return to them as a reference once certified.",
+    a: "11.75 hours of video content. You can do it in a weekend, take 4 weeks, or work through it slower than that. The format is on-demand video plus downloadable resources, so you can complete it on your commute or between patients. Modules are searchable, and you have lifetime access, so you can return to them as a reference once certified.",
   },
   {
     q: "What if a patient has an adverse event?",

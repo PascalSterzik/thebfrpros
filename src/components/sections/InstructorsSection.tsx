@@ -3,12 +3,12 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
-import { LICAMELI, ROLNICK } from "@/lib/constants";
+import { LICAMELI, ROLNICK, STATS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 const ROLNICK_FACTS = [
-  { value: "50+", label: "peer-reviewed BFR publications" },
-  { value: "10+", label: "years in active Manhattan practice" },
+  { value: STATS.publications, label: "peer-reviewed BFR publications" },
+  { value: STATS.yearsInClinic, label: "years in active Manhattan practice" },
   { value: "2", label: "university faculty appointments" },
   { value: "8+", label: "major media features" },
 ];
@@ -62,7 +62,7 @@ export default function InstructorsSection() {
                 {ROLNICK.credentials} · {ROLNICK.tagline}
               </p>
               <p className="mt-5 text-base leading-relaxed text-ink/85">
-                {ROLNICK.fullName} has authored more peer-reviewed BFR studies than any other single individual in the field. He earned his Doctor of Physical Therapy at Columbia University with honors and his Master of Science in Health Promotion Management at American University.
+                {ROLNICK.fullName} has authored {STATS.publications} peer-reviewed BFR publications. The Complete BFR Certification is built on that body of work. He earned his Doctor of Physical Therapy at Columbia University with honors and his Master of Science in Health Promotion Management at American University.
               </p>
               <p className="mt-4 text-base leading-relaxed text-ink/85">
                 He maintains an active clinical practice in {ROLNICK.city}, sees patients weekly, and teaches Exercise Science as faculty at Lehman College CUNY and Concordia University Chicago. He authored Chapter 12 (Warm-up, Recovery, Injury Prevention) of the National Academy of Sports Medicine textbook.

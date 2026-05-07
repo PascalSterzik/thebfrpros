@@ -249,3 +249,37 @@
 body.menu-open {
   overflow: hidden;
 }
+
+/* Right-to-left infinite marquee. Track contains TWO copies of the logo set,
+   so translating -50% loops the second copy seamlessly into the first's slot. */
+@keyframes marquee-rtl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-rtl 50s linear infinite;
+  /* OS-level prefers-reduced-motion handler in @layer base nukes the animation */
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+}
+
+/* Eyebrow pill: rounded background lozenge for the hero eyebrow per §D.3 */
+.eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45em 1em;
+  background: rgba(173, 26, 39, 0.12);
+  color: var(--color-accent);
+  border-radius: 999px;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+}
+.eyebrow-pill-on-navy {
+  background: rgba(255, 255, 255, 0.10);
+  color: var(--color-white);
+}

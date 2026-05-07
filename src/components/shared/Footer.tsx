@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Stars from "@/components/shared/Stars";
 import { ENROLL_URL, SITE } from "@/lib/constants";
 
 const COLS = [
@@ -56,15 +57,15 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <Image
-              src="/images/logos/bfr-pros-primary.png"
+              src="/images/logos/bfr-pros-secondary.png"
               alt={`${SITE.brandName} logo`}
               width={200}
               height={56}
-              className="h-14 w-auto brightness-0 invert"
+              className="h-14 w-auto"
             />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/75">
               The most research-backed BFR certification in the world. Led by{" "}
-              <span className="text-white">Dr. Nicholas Rolnick</span>, the most-published BFR researcher in the field.
+              <span className="text-white">Dr. Nicholas Rolnick</span>, author of 72+ peer-reviewed BFR publications.
             </p>
             <div className="mt-7 flex flex-col gap-2 text-sm text-white/80">
               <a href={`tel:${SITE.phone}`} className="hover:text-white">
@@ -74,6 +75,9 @@ export default function Footer() {
                 {SITE.contactEmail}
               </a>
               <p>{SITE.city}, {SITE.region}</p>
+            </div>
+            <div className="mt-6">
+              <Stars variant="dark" size="sm" />
             </div>
           </div>
 

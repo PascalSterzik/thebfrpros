@@ -844,6 +844,222 @@ The next session should pull from these:
 
 ---
 
+## N. Pascal's Round 2 review (2026-05-07, after Waves 1-4 + 5.E.2 + demand graph executed)
+
+The other session shipped most of the plan. This section captures what Pascal flagged on review of the live build. **Treat as a punch list for the next session.** Every item below is a defect or a refinement, not a re-litigation.
+
+### N.1 — Real survey rating numbers (replace 712)
+
+Survey has **762 numeric ratings** (Overall Impression column), mean = **4.68** (rounds to 4.7). Course Content column has 767 ratings, mean 4.77. Total survey responses = 767.
+
+The "712" currently in `STATS.reviewCount` is from a different counter (probably a stale Teachable platform export). **Replace** with `762` to anchor on the verifiable survey-based number. Optional: also count the 1× 2-star + 16× 3-star + 212× 4-star + 533× 5-star distribution as a "Star distribution" sub-block under the testimonials.
+
+### N.2 — Stars.tsx: render fractional fill, not rounded
+
+`Stars.tsx` line 18: `const filled = Math.round(rating)` rounds 4.7 to 5. Render the LAST star at **70% fill** for a 4.7 score. Standard pattern: an SVG `linearGradient` with two stops, or two stacked stars (gold full + gray ghost) with `clip-path: inset(0 30% 0 0)` on the gold one for the partial. Apply across every Stars instance.
+
+### N.3 — Marquee not animating
+
+`Marquee.tsx` has the correct two-copy track structure. The animation isn't running because `@keyframes marquee` is either missing from `globals.css` or the `.marquee-track` rule isn't selecting properly. Add:
+
+```css
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+.marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+```
+
+Apply to both Featured-In and Partners marquees.
+
+### N.4 — Hero structure: centered, video above CTAs, full-width on mobile and desktop
+
+Drop the 2-column desktop layout. Use a **single centered column** for the entire hero, mobile and desktop:
+
+```
+[eyebrow pill]
+[H1 headline, ≤14ch wrap]
+[2-line subhead, ≤60ch]
+[hero video, 16:9, max-width ~720px]
+[primary CTA full-width on mobile, max-width 360px on desktop]
+[stars + 762 reviews]
+[Featured-in marquee]
+```
+
+Apply the centered single-column rhythm to the whole page where structurally possible (not literally everything — pricing card stays a single block, etc.). King Kong's structural simplicity is the reference.
+
+### N.5 — Stats / numbers placement
+
+Move `StatsBlock` from above-the-fold area down to **after the Problem section** (or after Dream Vision). Numbers prove a claim already raised. They're punctuation, not exposition. Current order proves something the reader hasn't been asked yet to question.
+
+### N.6 — Demand graph: too small to read at section-block scale
+
+Three execution options. Pascal: pick one.
+
+| Option | Description | When to choose |
+|---|---|---|
+| **A** | **Big-number + sparkline.** Lead with `4.2×` (or whatever the verified Google-Trends multiplier is) at huge type, with a small inline sparkline beside it. Caption: "Worldwide search interest in 'Blood Flow Restriction' grew 4.2× from Aug 2025 to Feb 2026 (Google Trends)." | If the goal is "reader gets it in 1 second." Recommended. |
+| **B** | **Annotated chart, larger labels.** Keep the chart, but with 24px+ label type, only 2-3 callouts on the line, and no axis ticks (since exact values matter less than the slope). | If you want the chart to remain a visual centerpiece. |
+| **C** | **Shortened timespan** (Jan 2024 → present). Fewer data points = bigger plot space per point. Same chart approach, less to read. | If 2012 baseline doesn't add value. |
+
+Recommended: **A** for /get-certified (sales page). Save B for `/research` later.
+
+### N.7 — Dream Vision ("THE DESTINATION") headline still narrow
+
+Means the `text-balance` CSS or a `max-w-` constraint is still there. Remove `text-balance` from the H2 in `DreamVisionBlock.tsx` and any `max-w-prose-narrow` from the heading itself (keep it on the body paragraphs).
+
+### N.8 — Bridge quote: drop Compacta, use DM Sans italic at large size
+
+Pascal flipped on "use the font" because Compacta at sentence length is hard to read. Resolution that doesn't introduce a third font:
+
+```
+font-family: var(--font-body);  /* DM Sans */
+font-style: italic;
+font-size: clamp(1.25rem, 1.6vw, 1.6rem);
+font-weight: 500;
+line-height: 1.5;
+color: var(--color-navy);
+border-left: 2px solid var(--color-accent);
+```
+
+Sentence-form quote in DM Sans italic reads as a quote without needing a serif. Update brand-guide.md typography note: "Compacta Bold for headlines + hooks; DM Sans (regular for body, italic for quotes)."
+
+### N.9 — "BFR Pros Difference" pillar cards: drop hover effect, add icons
+
+Three cards (research-led, equipment-agnostic, implementation-focused) currently have a hover lift but aren't clickable. Remove the hover. Add a fitting Lucide icon per pillar:
+
+- Research-led: `BookOpen` or `Microscope`
+- Equipment-agnostic: `Unplug` or `CircleSlash` (the "no cuff" lock-out symbol)
+- Implementation-focused: `Wrench` or `ClipboardCheck`
+
+### N.10 — Comparison table: Mike Reinold guarantee + CEUs
+
+Mike Reinold's course IS approved for PT in most states + ATs for **6.0 CEU contact hours**. Update the comparison row from "Varies" → "**6.0 CEUs**." Keep the 30-day guarantee Pascal verified earlier.
+
+### N.11 — Curriculum section overhaul (a lot)
+
+Pascal's specific list:
+- **Add module descriptions** verbatim from the old page (every module has a 1-line description).
+- **Show all 14 modules per course** (not just bullet summaries). The old page lists them all.
+- **Remove module-type icons** (▶ video / ❓ quiz / 📄 PDF). Just show the module number + title + duration. No type-differentiation icons.
+- **Move the course promo video** above "WHAT'S INSIDE" inside the course card.
+- **Rename "COURSE PREVIEW"** → **"WHAT YOU CAN EXPECT"**.
+- **Move CEUs + dollar value** from inline meta-line up to the course card header, right below the course icon. Visual treatment: two prominent elements stacked (e.g. "5.5 CEUs" big, "$349 Value" smaller below).
+- **Remove the round frame** around the course icon. Bigger icon, no frame.
+- **Delete the "See Module 1 Free" CTA** below the curriculum (it goes to the next section, the Module 0 preview, which is right there). It's both wrong-numbered (it's Module 0) and useless.
+- **Bibliography PDF download:** restrict to **Module 0 bibliography only**, not the entire `All_Modules_Bibliographies.pdf`. The download button goes **below** the preview video, not above.
+- **Don't put CTA buttons above videos** anywhere on the page. Videos play, then CTAs prompt.
+- **Remove fluff** small text below the video and the small paragraph above the CTA. The video is the explanation; no caption needed.
+
+### N.12 — Instructors section: Rolnick must match Licameli's card
+
+Currently Rolnick has a different (sprawling) layout, Licameli has a tight card. Rebuild Rolnick in the same card pattern, just bigger / featured. Add the **publication-source logos** (Frontiers, JOSPT, etc., from `Assets/Social Proof/Published Research/`) and the **podcast logos** (from `Assets/Social Proof/Podcast Appearances/`) inside or below the Rolnick card as marquee or static logo row. Pascal: "Logos of brands Nick was featured on aren't there." That's the fix.
+
+### N.13 — Bonuses section
+
+- **Realistic bonus values.** Current $500 for a liability waiver is not believable. See N.13.1 below for the proposed table.
+- **Drop the hover effect** on bonus cards. They're not clickable.
+- **Bonus 12 must be a card like the other 11.** Right now it's tiny text below a CTA. Render Bonus 12 ("Continuing Ed Credit Application", filing-service value) as the 12th card in the grid.
+
+#### N.13.1 — Proposed realistic bonus values
+
+Three pricing strategies. Pick one:
+
+**Strategy A: Conservative real-market values (recommended)**
+
+| # | Bonus | Realistic value | Justification |
+|---|---|---|---|
+| 1 | Liability Waiver Form | $50 | Marketplace template price; real legal-drafted waivers are $300-500 but readers won't believe a free PDF is worth that |
+| 2 | BFR Patient Screening Form | $75 | Clinical templates on Etsy/TPT |
+| 3 | RPE OMNI-Res Tool | $25 | Printable scale, low marketplace |
+| 4 | BFR Device Discount Codes | "Up to $640 in savings" | Frame as savings, not value |
+| 5 | Module-by-Module Bibliography | $50 | Research compilation |
+| 6 | Downloadable Course PDF (481 pages) | $150 | Comparable to a textbook |
+| 7 | Precautions & Contraindications | $25 | Reference card |
+| 8 | BFR Nutritional Recommendations | $25 | Reference card |
+| 9 | Athletic BFR Programming Guide | $100 | Programming guides retail |
+| 10 | BFR Training Marketing Video | $200 | Custom marketing video freelance rate |
+| 11 | Private Facebook Group | $100/year | Community access tier |
+| 12 | Continuing Ed Credit Application | $50 | Concierge filing |
+| | **Bonus subtotal** | **$850** + $640 savings | |
+| | **Course value** | $654 | |
+| | **Total advertised value** | **$1,504** + up to $640 in savings | |
+| | **Sale price** | $449 | |
+| | **You save** | $1,055 (+ up to $640 device savings) | |
+
+**Strategy B: Mid-range market values** — bump each by 50%, total ~$1,275 + $640 savings, advertised value ~$1,929.
+
+**Strategy C: Drop the dollar values entirely.** Lead with "**12 bonuses you can't buy anywhere else**" and emphasize utility, not anchoring. Total advertised value just becomes the course value ($654).
+
+Recommend Strategy **A**. Defensible numbers, still 3-4× the price, no inflation cringe.
+
+### N.14 — CTA button styling
+
+Pascal's spec:
+- **Font:** Compacta Bold (display font)
+- **Case:** ALL CAPS
+- **Border-radius:** sharper. Current is `999px` (pill); use `8-12px` (rounded rectangle).
+- **Size:** larger. Increase padding to `1.4rem 2.4rem`.
+- **Subtle text-shadow:** old page has `text-shadow: 0 1px 2px rgba(0,0,0,0.15)` for depth.
+- **Full-width on mobile** (`width: 100%; max-width: 480px;`).
+- **Mild lift on hover:** `transform: translateY(-2px)` + `box-shadow: 0 14px 28px -10px rgba(173, 26, 39, 0.5)` (color-tinted, not gray).
+
+Reference for shape: King Kong's primary buttons + the old bfrtraining page's red buttons.
+
+Counter-arguments (so Pascal can decide):
+- Compacta Bold ALL CAPS at button scale is loud. With the headlines also ALL CAPS, the page can start to feel SHOUTY.
+- Counter-counter: brand consistency wins. Compacta is the brand voice; using DM Sans on buttons makes them look generic. Recommend **proceed with Compacta Bold ALL CAPS**, just accept the boldness as a brand choice.
+
+### N.15 — Certificate image missing
+
+The blurred course-completion certificate (`/images/guarantee/certificate.png`) was supposed to appear in the Pricing card or near the Guarantee. It's not rendering. Add it as the visual anchor inside the Pricing card (top-right thumbnail) OR as a hero element on the Guarantee block.
+
+### N.16 — CEU section: bring back the body logos we have
+
+For the bodies we have logos for (BOC, APTA NY), use the logo. For the bodies we don't (NJ State PT, NATA), use a clean text card. The CEU map image is a separate visual that lives above the body list, not a replacement for the per-body logos.
+
+### N.17 — Testimonial #3 missing tail
+
+The third testimonial is missing "**... clients as well.**" at the end. Pull the verbatim tail from `_Inbox/3/course page.txt` and append.
+
+### N.18 — Guarantee section: spacing
+
+Add `gap: 1.5rem` (or `space-y-6`) between the money-back logo image and the "THE GUARANTEE" eyebrow text. Currently they're touching.
+
+### N.19 — P.S. / P.P.S.: more white space above
+
+Add `padding-top: 4rem` (or `mt-16`) before the P.S. block. Currently it crowds into the previous section. Consider the section transition (when implemented per Wave 5.E.1) to break the visual flow before the P.S.
+
+### N.20 — Side padding: cut from 24px to 12px on mobile
+
+Current `container-rail` uses `px-6 sm:px-8 lg:px-12`. Cut mobile to `px-3` (12px). Especially affects card content that already has its own internal padding — without this fix, cards squeeze the text on small screens.
+
+### N.21 — Rolnick instructor: add featured-in publication logos
+
+Per N.12, render the publication logos (Frontiers, MDPI, Sage, ScienceDirect, Strength & Conditioning Journal) and the podcast logos as a strip inside or under the Rolnick card. Asset folders are ready: `Assets/Social Proof/Published Research/` (6 logos) + `Assets/Social Proof/Podcast Appearances/` (15 logos).
+
+### N.22 — Recurring patterns to break (self-learning fodder)
+
+These mistakes recurred across iterations and are noted for the gotchas table:
+
+- **CTAs above videos** — videos are explanations, CTAs are conversions. Order is video → CTA, never CTA → video.
+- **CTAs leading to the very next section** — if the section the CTA links to is right below it, the CTA is redundant. Cut.
+- **Hover effects on non-clickable cards** — adds dead interactivity. Hover effects only on cards that actually do something (link, click-to-expand, etc.).
+- **Module 1 vs Module 0 confusion** — the free preview is Module 0, never call it Module 1.
+- **Fluff caption text below videos and above CTAs** — videos and CTAs do their own work. No filler captions.
+- **Card frames around small icons** that limit icon scale unnecessarily.
+
+---
+
 ## I. What's NOT in this iteration (deliberate scope cut)
 
 To keep the next session focused, these are deferred to Phase 1B or later:
