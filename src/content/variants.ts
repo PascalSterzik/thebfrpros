@@ -238,7 +238,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       eyebrow: "The Complete BFR Certification",
       headline: "Your patients are already asking for BFR. Be the clinic that delivers it.",
       subhead:
-        "Worldwide searches for blood flow restriction climbed from roughly 19,000 per month in July 2025 to roughly 80,000 per month in February 2026. That is a 4.2× jump, +317%, in seven months. The previous all-time high, set in September 2021, was about 31,000 searches per month. The new peak is 2.6× higher than that record. Your patients are searching now. The question is whether you are the clinic they find first, or the clinic across the street.",
+        "Worldwide searches for blood flow restriction climbed from roughly 19,000 per month in July 2025 to roughly 84,000 per month in February 2026. That is a 4.4× jump, +342%, in seven months. The previous all-time high, set in September 2021, was about 33,000 searches per month. The new peak is 2.6× higher than that record. Your patients are searching now. The question is whether you are the clinic they find first, or the clinic across the street.",
       primaryCta: "Get Certified for $449",
       secondaryCta: "See the curriculum",
       supportingStat: [
@@ -290,7 +290,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       subhead:
         "$449. 37 modules. 11.75 hours of video content. 11.75 CEUs. 30-day money-back guarantee. Do it in a weekend or take 4 weeks. The window to be the first BFR-certified clinic in your zip code is still open. It is not open forever.",
       warning:
-        "Worldwide searches for blood flow restriction went from ~19,000 a month in July 2025 to ~80,000 a month in February 2026. That is +317% in seven months. The previous all-time high, ~31,000 searches a month set in September 2021, has been redrawn 2.6× higher. Fourteen years of slow climb, replaced in seven. The clinics certifying this quarter are the ones that show up first when those patients search next quarter. The wave is not coming. It is here.",
+        "Worldwide searches for blood flow restriction went from ~19,000 a month in July 2025 to ~84,000 a month in February 2026. That is +342% in seven months. The previous all-time high, ~33,000 searches a month set in September 2021, has been redrawn 2.6× higher. Fourteen years of slow climb, replaced in seven. The clinics certifying this quarter are the ones that show up first when those patients search next quarter. The wave is not coming. It is here.",
       primary: "Get Certified for $449",
     },
     ps: [
