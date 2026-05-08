@@ -916,13 +916,22 @@ Pascal: keep the real Google Trends screenshot. Real chart > stylised SVG (more 
 
 | # | Element | Position | Text |
 |---|---|---|---|
-| 1 | Bold text above chart | Top centre | **"BFR SEARCH INTEREST 4.2× IN 6 MONTHS"** |
-| 2 | Red circle | Around Feb 2026 peak (index 100, top-right) | — |
+| 1 | Bold text above chart | Top centre | **"+317% IN 7 MONTHS"** (or **"4.2× IN 7 MONTHS"** — pick whichever reads stronger) |
+| 2 | Red circle | Around Feb 2026 peak (index 100, top-right of the line) | — |
 | 3 | Red curved arrow + label | Above-right of #2 | **"All-time high — Feb 2026"** |
-| 4 | Red circle | Around Aug 2025 inflection (index 28, line takes off upward) | — |
-| 5 | Red curved arrow + label | Below-left of #4 | **"Demand accelerates — Aug 2025"** |
-| 6 | Bold text below chart | Bottom centre | **"100× higher than 2012 baseline"** |
-| 7 | Source caption | Below #6, smaller + lighter | "Google Trends · 'Blood Flow Restriction' · Worldwide · 2012-2026" |
+| 4 | Red circle | Around July 2025 (index 24, just before the line takes off upward) | — |
+| 5 | Red curved arrow + label | Below-left of #4 | **"Take-off — July 2025"** |
+| 6 | Bold text below chart | Bottom centre | **"2.6× higher than the previous record"** *(previous all-time high was Sep 2021 at index 39; new peak Feb 2026 = 100)* |
+| 7 | Source caption | Below #6, smaller + lighter | "Google Trends · 'Blood Flow Restriction' · Worldwide · Jan 2012 to May 2026" |
+
+**Verified figures from `docs/data/google-trends-bfr-worldwide.csv`:**
+
+- July 2025 = 24
+- August 2025 = 64 (single biggest one-month jump: +167% in one month)
+- September 2021 = 39 (previous all-time high)
+- February 2026 = 100 (new all-time high)
+
+Multiplier July 2025 → Feb 2026: **100 / 24 = 4.17× = +317% over 7 months**.
 
 **Style:** circles + arrows in `#AD1A27` (brand accent). Bold text in **Compacta Bold** (brand consistency) OR a marker handwriting font for the King-Kong "scribbled-on" feel — Pascal's call.
 
