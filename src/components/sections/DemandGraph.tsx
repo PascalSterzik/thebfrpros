@@ -32,12 +32,15 @@ const SURGE_MULTIPLE = (PEAK_VALUE / PRE_SURGE_VALUE).toFixed(1); // 4.2
 const SURGE_PERCENT = Math.round(((PEAK_VALUE - PRE_SURGE_VALUE) / PRE_SURGE_VALUE) * 100); // 317
 const SURGE_DURATION_MONTHS = 7; // July to February
 
-// Anchor positions on the raw chart (917x340). Expressed as percentages so the
-// overlay scales with the responsive image. Validated against the screenshot:
+// Anchor positions on the raw chart (1003x737, full Google Trends export with
+// title row + legend). Expressed as percentages so the overlay scales with the
+// responsive image. Validated against the screenshot:
+//   plot area horizontally roughly x=80 (2012) to x=985 (May 2026), so 905px wide
+//   plot area vertically roughly y=130 (index 100) to y=560 (index 0), so 430px tall
 //   take-off dot sits at July 2025 / index 24 (just before the August leap)
 //   peak dot sits at February 2026 / index 100 (all-time high)
-const PEAK_DOT = { x: 97.0, y: 5.0 }; // % from top-left of image
-const TAKEOFF_DOT = { x: 94.6, y: 69.0 };
+const PEAK_DOT = { x: 96.7, y: 17.6 }; // % from top-left of image
+const TAKEOFF_DOT = { x: 93.0, y: 62.0 };
 
 // Returns months elapsed since February 2026 (the all-time peak). Updates automatically
 // as time passes so the body copy stays current without manual edits.
@@ -93,8 +96,8 @@ export default function DemandGraph() {
             <Image
               src="/images/demand-trend-raw.png"
               alt={`Annotated Google Trends chart showing worldwide search interest for "blood flow restriction" from January 2012 to May 2026. The line climbs slowly until July 2025 then spikes to roughly 80,000 searches per month in ${PEAK_MONTH}.`}
-              width={917}
-              height={340}
+              width={1003}
+              height={737}
               sizes="(max-width: 1024px) 100vw, 600px"
               className="block h-auto w-full"
               style={{ width: "100%", height: "auto" }}
@@ -112,10 +115,10 @@ export default function DemandGraph() {
               style={{ left: `${TAKEOFF_DOT.x}%`, top: `${TAKEOFF_DOT.y}%` }}
             />
 
-            {/* Peak callout: positioned to cover the residual tooltip in the source
-                screenshot (Apr 2026: 89). Solid navy card with restrained typography. */}
+            {/* Peak callout: top-right, in the empty space above the chart line
+                (which only crosses index 60+ at the very rightmost months). */}
             <div
-              className="absolute right-[2%] top-[6%] w-[42%] sm:w-[34%] max-w-[220px]"
+              className="absolute right-[2%] top-[14%] w-[42%] sm:w-[34%] max-w-[220px]"
               aria-hidden
             >
               <div className="rounded-lg bg-navy px-3 py-2.5 shadow-navy-md ring-1 ring-navy-deeper/30">
@@ -129,10 +132,10 @@ export default function DemandGraph() {
               </div>
             </div>
 
-            {/* Take-off callout: bottom-left area where the chart line is flat in
-                2014-2016. Connector line drawn separately to the take-off dot. */}
+            {/* Take-off callout: middle-left, in the empty space above the early
+                years of the chart (2014-2020 sits at index 5-25). */}
             <div
-              className="absolute left-[3%] top-[58%] w-[42%] sm:w-[34%] max-w-[220px]"
+              className="absolute left-[10%] top-[28%] w-[42%] sm:w-[36%] max-w-[230px]"
               aria-hidden
             >
               <div className="rounded-lg border border-line bg-white px-3 py-2.5 shadow-navy-sm">
@@ -146,9 +149,8 @@ export default function DemandGraph() {
               </div>
             </div>
 
-            {/* SVG connector: thin navy line from the take-off callout's right edge
-                to the take-off dot. preserveAspectRatio=none so % positions match
-                the image regardless of rendered width. */}
+            {/* SVG connector: thin navy line from take-off callout right edge to
+                take-off dot. Uses % coords matched against image position. */}
             <svg
               aria-hidden
               className="pointer-events-none absolute inset-0 h-full w-full"
@@ -156,7 +158,7 @@ export default function DemandGraph() {
               viewBox="0 0 100 100"
             >
               <path
-                d={`M 38.5 67 C 70 67, 88 68, ${TAKEOFF_DOT.x - 1.5} ${TAKEOFF_DOT.y}`}
+                d={`M 45 35 C 70 50, 85 58, ${TAKEOFF_DOT.x - 1.2} ${TAKEOFF_DOT.y}`}
                 stroke="currentColor"
                 strokeWidth="0.25"
                 fill="none"
