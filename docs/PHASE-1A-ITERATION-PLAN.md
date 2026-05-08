@@ -918,20 +918,24 @@ Pascal: keep the real Google Trends screenshot. Real chart > stylised SVG (more 
 |---|---|---|---|
 | 1 | Bold text above chart | Top centre | **"+317% IN 7 MONTHS"** (or **"4.2× IN 7 MONTHS"** — pick whichever reads stronger) |
 | 2 | Red circle | Around Feb 2026 peak (index 100, top-right of the line) | — |
-| 3 | Red curved arrow + label | Above-right of #2 | **"All-time high — Feb 2026"** |
+| 3 | Red curved arrow + label | Above-right of #2 | **"~80,000 searches/month — Feb 2026"** |
 | 4 | Red circle | Around July 2025 (index 24, just before the line takes off upward) | — |
-| 5 | Red curved arrow + label | Below-left of #4 | **"Take-off — July 2025"** |
-| 6 | Bold text below chart | Bottom centre | **"2.6× higher than the previous record"** *(previous all-time high was Sep 2021 at index 39; new peak Feb 2026 = 100)* |
-| 7 | Source caption | Below #6, smaller + lighter | "Google Trends · 'Blood Flow Restriction' · Worldwide · Jan 2012 to May 2026" |
+| 5 | Red curved arrow + label | Below-left of #4 | **"~19,000 searches/month — July 2025"** |
+| 6 | Bold text below chart | Bottom centre | **"2.6× higher than the previous record (~31k/month, Sep 2021)"** |
+| 7 | Source caption | Below #6, smaller + lighter | "Google Trends · Glimpse · Worldwide · Jan 2012 to May 2026" |
 
-**Verified figures from `docs/data/google-trends-bfr-worldwide.csv`:**
+**Verified figures (Google Trends index + Glimpse-derived absolute volume):**
 
-- July 2025 = 24
-- August 2025 = 64 (single biggest one-month jump: +167% in one month)
-- September 2021 = 39 (previous all-time high)
-- February 2026 = 100 (new all-time high)
+| Month | Trends index | Approx. searches/month |
+|---|---|---|
+| July 2025 (take-off) | 24 | ~19,000 |
+| August 2025 (single-month jump) | 64 | ~51,000 |
+| September 2021 (previous all-time high) | 39 | ~31,000 |
+| February 2026 (new all-time high) | 100 | **~80,000** |
 
-Multiplier July 2025 → Feb 2026: **100 / 24 = 4.17× = +317% over 7 months**.
+Multiplier July 2025 → Feb 2026: **100 / 24 = 4.17× = +317% over 7 months**, in absolute terms ~19k → ~80k searches/month.
+
+Absolute volumes derived by anchoring Glimpse's reported peak (~80k searches/month at index 100) to the relative Google Trends index. Source: Glimpse Chrome extension over Google Trends, May 2026 query.
 
 **Style:** circles + arrows in `#AD1A27` (brand accent). Bold text in **Compacta Bold** (brand consistency) OR a marker handwriting font for the King-Kong "scribbled-on" feel — Pascal's call.
 
