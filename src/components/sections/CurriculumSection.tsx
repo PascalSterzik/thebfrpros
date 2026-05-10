@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PrimaryCTA from "@/components/shared/PrimaryCTA";
+import VideoPoster from "@/components/shared/VideoPoster";
 import { CURRICULUM, type CourseModule, VIDEOS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -134,16 +135,12 @@ export default function CurriculumSection() {
                      not the entire card. */}
                   <div className="mt-6 lg:mt-0">
                     <div className="relative w-full overflow-hidden rounded-lg bg-black/5 ring-1 ring-line">
-                      <div className="relative pb-[56.25%]">
-                        <iframe
-                          src={promoVideoSrc}
-                          title={`${c.title} promo`}
-                          loading="lazy"
-                          allow="autoplay; fullscreen; picture-in-picture"
-                          allowFullScreen
-                          className="absolute inset-0 h-full w-full border-0"
-                        />
-                      </div>
+                      <VideoPoster
+                        posterSrc={c.posterSrc}
+                        videoSrc={promoVideoSrc}
+                        title={`${c.title} promo`}
+                        sizes="(max-width: 1024px) 100vw, 600px"
+                      />
                     </div>
 
                     <div

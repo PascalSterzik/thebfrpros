@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Variant } from "@/content/variants";
 import PrimaryCTA from "@/components/shared/PrimaryCTA";
+import VideoPoster from "@/components/shared/VideoPoster";
 import { VIDEOS } from "@/lib/constants";
 
 // §Pascal-2026-05-08 v7: marker-stroke highlight on the most kinetic phrase in
@@ -73,16 +74,13 @@ export default function HeroBlock({ variant }: { variant: Variant }) {
             style={{ animationDelay: STAGGER_DELAYS[3], animationDuration: "0.95s" }}
           >
             <div className="relative w-full overflow-hidden rounded-lg bg-black/40 ring-1 ring-white/15 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.6)]">
-              <div className="relative pb-[56.25%]">
-                <iframe
-                  src={VIDEOS.coursePackagePromo}
-                  title="The Complete BFR Certification: course package promo"
-                  loading="lazy"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 h-full w-full border-0"
-                />
-              </div>
+              <VideoPoster
+                posterSrc="/images/posters/hero.jpg"
+                videoSrc={VIDEOS.coursePackagePromo}
+                title="The Complete BFR Certification course package promo"
+                priority
+                sizes="(max-width: 1024px) 100vw, 800px"
+              />
             </div>
           </div>
 

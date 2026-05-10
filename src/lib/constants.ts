@@ -192,12 +192,12 @@ export const VIDEOS = {
 // VisualProofSection — replaces the 4 static photos with 6 short VEED embeds
 // that show a real BFR cuff in motion across common compound lifts.
 export const ACTION_VIDEOS = [
-  { title: "Romanian Deadlift vs Regular Deadlift", src: "https://www.veed.io/embed/0ad32f9d-e62f-45e2-bda0-8abed95ece0b?watermark=0&color=red&sharing=0&title=0" },
-  { title: "Leg Press with BFR", src: "https://www.veed.io/embed/5751e248-436e-44e7-ba2b-2a2e8e63cf6a?watermark=0&color=blue&sharing=0&title=0" },
-  { title: "Leg Curl with BFR", src: "https://www.veed.io/embed/2e7d2fc0-5082-4732-a8f3-97b1d72b1e32?watermark=0&color=blue&sharing=0&title=0" },
-  { title: "Split Squat with BFR", src: "https://www.veed.io/embed/b3e3e1f9-34d4-4672-8c83-a64956949f78?watermark=0&color=blue&sharing=0&title=0" },
-  { title: "Heel Elevated High-Bar Squat with BFR", src: "https://www.veed.io/embed/b8b73290-c1ed-4e7b-a4f3-7279c77d5426?watermark=0&color=blue&sharing=0&title=0" },
-  { title: "Hip Thrust with BFR", src: "https://www.veed.io/embed/97e4b507-edc5-4662-bfcc-f8bab006f100?watermark=0&color=blue&sharing=0&title=0" },
+  { title: "Romanian Deadlift vs Regular Deadlift", src: "https://www.veed.io/embed/0ad32f9d-e62f-45e2-bda0-8abed95ece0b?watermark=0&color=red&sharing=0&title=0", posterSrc: "/images/posters/action-romanian-deadlift.jpg" },
+  { title: "Leg Press with BFR", src: "https://www.veed.io/embed/5751e248-436e-44e7-ba2b-2a2e8e63cf6a?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-leg-press.jpg" },
+  { title: "Leg Curl with BFR", src: "https://www.veed.io/embed/2e7d2fc0-5082-4732-a8f3-97b1d72b1e32?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-leg-curl.jpg" },
+  { title: "Split Squat with BFR", src: "https://www.veed.io/embed/b3e3e1f9-34d4-4672-8c83-a64956949f78?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-split-squat.jpg" },
+  { title: "Heel Elevated High-Bar Squat with BFR", src: "https://www.veed.io/embed/b8b73290-c1ed-4e7b-a4f3-7279c77d5426?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-high-bar-squat.jpg" },
+  { title: "Hip Thrust with BFR", src: "https://www.veed.io/embed/97e4b507-edc5-4662-bfcc-f8bab006f100?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-hip-thrust.jpg" },
 ] as const;
 
 // BFR_DEMAND_TREND was a hand-typed approximation of Google Trends data for an SVG
@@ -314,6 +314,7 @@ export const CURRICULUM = [
     courseValue: 349,
     promoVideoKey: "course1Promo" as const,
     coatOfArmsSrc: "/images/course-arms/course-1.png",
+    posterSrc: "/images/posters/course-1.jpg",
     summary:
       "The foundation course. 60 years of BFR research, mechanisms, pressure determination, screening, and the three pillars of clinical application.",
     modules: [
@@ -342,6 +343,7 @@ export const CURRICULUM = [
     courseValue: 147,
     promoVideoKey: "course2Promo" as const,
     coatOfArmsSrc: "/images/course-arms/course-2.png",
+    posterSrc: "/images/posters/course-2.jpg",
     summary:
       "Six case-based clinical rounds with Dr. Rolnick walking through real patient decisions, each paired with a quiz on the underlying paper.",
     modules: [
@@ -368,6 +370,7 @@ export const CURRICULUM = [
     courseValue: 79,
     promoVideoKey: "course3Promo" as const,
     coatOfArmsSrc: "/images/course-arms/course-3.jpg",
+    posterSrc: "/images/posters/course-3.jpg",
     summary:
       "Five 2021 papers walked through with the lead author's commentary on what each finding means for the clinic floor.",
     modules: [
@@ -388,6 +391,7 @@ export const CURRICULUM = [
     courseValue: 79,
     promoVideoKey: "course4Promo" as const,
     coatOfArmsSrc: "/images/course-arms/course-4.jpg",
+    posterSrc: "/images/posters/course-4.jpg",
     summary:
       "Comparative review of 2024 cuff design data plus a practical knowledge assessment on wrapping straps versus elastic bands.",
     modules: [

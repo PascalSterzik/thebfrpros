@@ -72,7 +72,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     metaTitle: "BFR Certification Built on 72+ Peer-Reviewed Publications",
     metaDescription:
       "Earn 11.75 CEUs in 37 modules taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. Equipment-agnostic, evidence-based, 30-day money-back guarantee.",
-    ogImage: "/images/hero/hero-banner.jpg",
+    ogImage: "/og/v1",
     announcement: {
       eyebrow: "New cohort open",
       line: "Learn BFR from the source of 72+ peer-reviewed publications.",
@@ -150,7 +150,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     metaTitle: "The Only BFR Certification That Doesn't Sell You a Cuff",
     metaDescription:
       "Equipment-agnostic BFR certification. Works with Delfi, SmartCuffs, B Strong, LiveBand. 37 modules, 11.75 CEUs, 72+ peer-reviewed publications. 30-day money-back.",
-    ogImage: "/images/hero/hero-banner.jpg",
+    ogImage: "/og/v2",
     announcement: {
       eyebrow: "Equipment-agnostic by design",
       line: "The only BFR certification that doesn't sell you a cuff.",
@@ -228,7 +228,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     metaTitle: "Your Patients Are Already Asking for BFR. Be the Clinic That Delivers.",
     metaDescription:
       "Patients are searching for BFR providers in your zip code. Get certified in 37 modules and 11.75 CEUs before the clinic across the street does. 30-day money-back guarantee.",
-    ogImage: "/images/hero/hero-banner.jpg",
+    ogImage: "/og/v3",
     announcement: {
       eyebrow: "Patient demand is rising",
       line: "Your competitors are getting certified. Be the BFR clinic patients in your zip code find first.",

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
+import VideoPoster from "@/components/shared/VideoPoster";
 import { ACTION_VIDEOS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -43,16 +44,12 @@ export default function VisualProofSection() {
               variants={fadeUp}
               className="overflow-hidden rounded-lg ring-1 ring-line bg-black/5"
             >
-              <div className="relative pb-[56.25%]">
-                <iframe
-                  src={v.src}
-                  title={v.title}
-                  loading="lazy"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 h-full w-full border-0"
-                />
-              </div>
+              <VideoPoster
+                posterSrc={v.posterSrc}
+                videoSrc={v.src}
+                title={v.title}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
               <p className="px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-navy/85">
                 {v.title}
               </p>

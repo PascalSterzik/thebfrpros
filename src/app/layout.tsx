@@ -36,7 +36,10 @@ const fontQuote = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://thebfrpros.com"),
+  // §Pascal-2026-05-08 v12: pointing at the live Vercel URL so OG previews
+  // (LinkedIn, X, Slack, etc.) resolve correctly before the custom domain is
+  // wired. Swap to "https://thebfrpros.com" once the DNS cutover completes.
+  metadataBase: new URL("https://thebfrpros.vercel.app"),
   title: {
     default: "The BFR Pros | Online BFR Certification by Dr. Nicholas Rolnick",
     template: "%s | The BFR Pros",

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PrimaryCTA from "@/components/shared/PrimaryCTA";
 import Stars from "@/components/shared/Stars";
+import VideoPoster from "@/components/shared/VideoPoster";
 import { STATS, TESTIMONIALS, VIDEOS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -105,16 +106,12 @@ export default function TestimonialsSection() {
           </motion.div>
           <motion.div variants={fadeUp} className="lg:col-span-7">
             <div className="relative w-full overflow-hidden rounded-lg bg-black/40 ring-1 ring-white/15 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.55)]">
-              <div className="relative pb-[56.25%]">
-                <iframe
-                  src={VIDEOS.testimonial}
-                  title="Introduction to BFR Training Course Testimonial"
-                  loading="lazy"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 h-full w-full border-0"
-                />
-              </div>
+              <VideoPoster
+                posterSrc="/images/posters/testimonial.jpg"
+                videoSrc={VIDEOS.testimonial}
+                title="Introduction to BFR Training Course Testimonial"
+                sizes="(max-width: 1024px) 100vw, 600px"
+              />
             </div>
           </motion.div>
         </motion.div>
