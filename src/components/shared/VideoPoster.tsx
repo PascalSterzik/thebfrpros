@@ -23,8 +23,12 @@ export default function VideoPoster({
   const [playing, setPlaying] = useState(false);
 
   if (playing) {
+    // §Pascal-2026-05-08 v13: append autoplay=1 + muted=0 so VEED autoplays
+    // with sound on (Pascal's request). User gesture from the poster click
+    // is what authorizes the unmuted autoplay; if the browser still forces
+    // muted (rare), the user can unmute via the player's volume control.
     const sep = videoSrc.includes("?") ? "&" : "?";
-    const autoplaySrc = `${videoSrc}${sep}autoplay=1`;
+    const autoplaySrc = `${videoSrc}${sep}autoplay=1&muted=0`;
     return (
       <div className="relative w-full pb-[56.25%]">
         <iframe
