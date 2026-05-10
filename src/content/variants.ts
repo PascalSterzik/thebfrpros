@@ -238,7 +238,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       eyebrow: "The Complete BFR Certification",
       headline: "Your patients are already asking for BFR. Be the clinic that delivers it",
       subhead:
-        "37 modules, 11.75 CEUs, taught by Dr. Nicholas Rolnick. The most research-backed BFR certification in the world.",
+        "37 modules, 11.75 CEUs, taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. Equipment-agnostic, 30-day money-back guarantee.",
       primaryCta: "Get BFR Certified",
       secondaryCta: "See the curriculum",
       supportingStat: [

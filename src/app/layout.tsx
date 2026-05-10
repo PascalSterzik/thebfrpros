@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     template: "%s | The BFR Pros",
   },
   description:
-    "Earn the most research-backed blood flow restriction (BFR) certification in the world. 37 modules, 11.75 CEUs, taught by Dr. Nicholas Rolnick (50+ peer-reviewed publications).",
+    "Online BFR certification taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. 37 modules, 11.75 CEUs, equipment-agnostic, 30-day money-back guarantee.",
   applicationName: "The BFR Pros",
   authors: [{ name: "Dr. Nicholas Rolnick" }],
   keywords: [

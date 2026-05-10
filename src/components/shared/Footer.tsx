@@ -64,8 +64,8 @@ export default function Footer() {
               className="h-14 w-auto"
             />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/75">
-              The most research-backed BFR certification in the world. Led by{" "}
-              <span className="text-white">Dr. Nicholas Rolnick</span>, author of 72+ peer-reviewed BFR publications.
+              Equipment-agnostic BFR certification built on 72+ peer-reviewed publications by the lead instructor,{" "}
+              <span className="text-white">Dr. Nicholas Rolnick</span>.
             </p>
             <div className="mt-7 flex flex-col gap-2 text-sm text-white/80">
               <a href={`tel:${SITE.phone}`} className="hover:text-white">
