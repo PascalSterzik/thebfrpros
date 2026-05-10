@@ -25,23 +25,23 @@ export default function TestimonialsSection() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="max-w-3xl text-white"
+          className="max-w-3xl mx-auto text-center text-white"
         >
           <motion.div variants={fadeUp}>
             <SectionLabel label="What clinicians say" variant="light" />
           </motion.div>
           <motion.h2
             variants={fadeUp}
-            className="mt-5 font-display text-display-xl text-balance text-white"
+            className="mt-5 font-display text-display-xl text-white"
           >
             {STATS.ratingValue} stars from {STATS.reviewCount}+ reviews. {STATS.certifiedPractitioners} certified practitioners.
           </motion.h2>
-          <motion.div variants={fadeUp} className="mt-6">
+          <motion.div variants={fadeUp} className="mt-6 flex justify-center">
             <Stars variant="dark" size="md" />
           </motion.div>
           <motion.p
             variants={fadeUp}
-            className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80"
+            className="mt-6 mx-auto max-w-2xl text-lg leading-relaxed text-white/80"
           >
             Three voices from the {STATS.certifiedPractitioners}, pulled verbatim from the live course page. Plus the full course testimonial video below.
           </motion.p>
@@ -60,7 +60,7 @@ export default function TestimonialsSection() {
               <motion.li
                 key={t.name}
                 variants={fadeUp}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm"
+                className="rounded-lg border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm"
               >
                 <span aria-hidden className="font-display text-4xl text-accent leading-none">
                   &ldquo;
@@ -104,7 +104,7 @@ export default function TestimonialsSection() {
             </h3>
           </motion.div>
           <motion.div variants={fadeUp} className="lg:col-span-7">
-            <div className="relative w-full overflow-hidden rounded-2xl bg-black/40 ring-1 ring-white/15 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.55)]">
+            <div className="relative w-full overflow-hidden rounded-lg bg-black/40 ring-1 ring-white/15 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.55)]">
               <div className="relative pb-[56.25%]">
                 <iframe
                   src={VIDEOS.testimonial}
@@ -124,9 +124,9 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={inViewOnce}
           transition={{ duration: 0.7 }}
-          className="mt-12"
+          className="mt-12 flex justify-center"
         >
-          <PrimaryCTA label={`Join ${STATS.certifiedPractitioners} certified practitioners`} />
+          <PrimaryCTA starsVariant="dark" />
         </motion.div>
       </div>
     </section>

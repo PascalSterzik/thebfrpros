@@ -10,7 +10,6 @@ import DreamDeepBlock from "@/components/sections/DreamDeepBlock";
 import BridgeBlock from "@/components/sections/BridgeBlock";
 import SolutionSection from "@/components/sections/SolutionSection";
 import CurriculumSection from "@/components/sections/CurriculumSection";
-import ModulePreview from "@/components/sections/ModulePreview";
 import InstructorsSection from "@/components/sections/InstructorsSection";
 import BonusesSection from "@/components/sections/BonusesSection";
 import CEUBadgesSection from "@/components/sections/CEUBadgesSection";
@@ -46,37 +45,36 @@ export default function VariantPage({ variant }: { variant: Variant }) {
         {/* 4. Featured-in marquee */}
         <CredibilityBar />
 
-        {/* 5. Dedicated stats section (§D.5) */}
-        <StatsBlock />
+        {/* 5. Demand graph: leads as urgency context BEFORE problem so it doesn't
+            interrupt the Problem→Dream→Solution flow Pascal flagged on review. */}
+        <DemandGraph />
 
         {/* 6. Problem (4-Layer Pain Stack) */}
         <ProblemBlock variant={variant} />
 
-        {/* 7. Demand graph (§D.25) */}
-        <DemandGraph />
-
-        {/* 8. Dream Vision */}
+        {/* 7. Dream Vision */}
         <DreamVisionBlock variant={variant} />
 
-        {/* 7. Dream Deep Dive */}
+        {/* 8. Dream Deep Dive */}
         <DreamDeepBlock variant={variant} />
 
-        {/* 8. Solution Bridge */}
+        {/* 9. Solution Bridge */}
         <BridgeBlock variant={variant} />
 
-        {/* 9. Solution / The BFR Pros Difference + Three Stranger Questions + comparison table */}
+        {/* 10. Solution / The BFR Pros Difference + Three Stranger Questions + comparison table */}
         <SolutionSection />
 
         {/* 10. Curriculum (4 courses, 37 modules, 11.75 CEUs accordion) */}
         <CurriculumSection />
 
-        {/* 10b. Free Module Preview (Module 0 video + bibliography PDF) */}
-        <ModulePreview />
-
         {/* 11. Instructor authority (Rolnick + Licameli) */}
         <InstructorsSection />
 
-        {/* 12. What's Included / 11 implementation bonuses */}
+        {/* 11b. Authority by the numbers — moved here per Pascal so the proof
+            stack sits right before "What's Included" / 12 bonuses. */}
+        <StatsBlock />
+
+        {/* 12. What's Included / 12 implementation bonuses */}
         <BonusesSection />
 
         {/* 13. CEU approvals */}

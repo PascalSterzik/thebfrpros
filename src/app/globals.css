@@ -35,8 +35,15 @@
     color: var(--color-ink);
     background-color: var(--color-white);
     font-family: var(--font-body), system-ui, -apple-system, sans-serif;
-    font-size: 17px;
+    /* §Pascal-2026-05-08 v6: 18px is the locked body size. Subhead spans
+       (.subhead class) override to 20px. */
+    font-size: 18px;
     line-height: 1.65;
+  }
+
+  .subhead {
+    font-size: 20px;
+    line-height: 1.55;
   }
 
   ::selection {
@@ -80,20 +87,22 @@
   }
 
   .container-rail {
-    @apply mx-auto w-full px-6 sm:px-8 lg:px-12;
+    @apply mx-auto w-full px-3 sm:px-8 lg:px-12;
     max-width: 76rem;
   }
 
   .container-narrow {
-    @apply mx-auto w-full px-6 sm:px-8 lg:px-12;
+    @apply mx-auto w-full px-3 sm:px-8 lg:px-12;
     max-width: 56rem;
   }
 
-  /* Eyebrow label that sits above every section H2 */
+  /* §Pascal-2026-05-08 v10: eyebrow label sits above every section H2.
+     Bumped from 0.78rem → 1rem so it reads at a readable scale alongside
+     the bigger H1/H2 type. */
   .eyebrow {
     @apply font-body uppercase font-semibold;
     letter-spacing: 0.18em;
-    font-size: 0.78rem;
+    font-size: 1rem;
     color: var(--color-accent);
   }
 
@@ -135,49 +144,93 @@
     background: linear-gradient(90deg, rgba(25,55,99,0) 0%, rgba(25,55,99,0.18) 50%, rgba(25,55,99,0) 100%);
   }
 
-  /* Primary CTA button: editorial weight, sharp red with confident hover */
+  /* Primary CTA per §N.14 + §Pascal-2026-05-08 v6: Compacta Bold ALL CAPS,
+     sharp 8px brand-radius, text-shadow for depth, brand letter-spacing
+     (-0.015em). Mobile: full-width regardless of label length. Desktop: 80px
+     horizontal padding so the button reads long and specific (King-Kong
+     pattern). Inner stack supports an optional secondary line in DM Sans
+     under the primary label. */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 font-body font-semibold;
+    @apply inline-flex flex-col items-center justify-center text-center;
+    font-family: var(--font-display), "Helvetica Neue Condensed", "Arial Narrow", Impact, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
     background-color: var(--color-accent);
     color: var(--color-white);
-    padding: 1rem 1.75rem;
-    border-radius: 999px;
-    letter-spacing: 0.04em;
-    box-shadow: 0 14px 32px -16px rgba(173, 26, 39, 0.55);
+    padding: 1.3rem 15px;
+    border-radius: 8px;
+    font-size: 2rem;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 14px 28px -10px rgba(173, 26, 39, 0.5);
     transition: transform 0.35s var(--ease-editorial), box-shadow 0.35s var(--ease-editorial), background-color 0.35s var(--ease-editorial);
     cursor: pointer;
+    width: 100%;
+    max-width: none;
+    gap: 0.5rem;
+  }
+  @media (min-width: 640px) {
+    .btn-primary {
+      width: auto;
+      padding: 1.4rem 60px;
+    }
+  }
+  /* Secondary line inside the button: DM Sans, normal case, lighter color. */
+  .btn-primary .btn-sub,
+  .btn-secondary .btn-sub {
+    font-family: var(--font-body), system-ui, sans-serif;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-weight: 400;
+    font-size: 0.85rem;
+    line-height: 1.25;
+    text-shadow: none;
+    opacity: 0.85;
   }
   .btn-primary:hover {
     background-color: var(--color-accent-deeper);
     transform: translateY(-2px);
-    box-shadow: 0 22px 44px -18px rgba(173, 26, 39, 0.6);
+    box-shadow: 0 22px 40px -12px rgba(173, 26, 39, 0.55);
   }
   .btn-primary:active {
     transform: translateY(0);
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 font-body font-semibold;
+    @apply inline-flex flex-col items-center justify-center text-center;
+    font-family: var(--font-display), "Helvetica Neue Condensed", "Arial Narrow", Impact, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
     background: transparent;
     color: var(--color-navy);
-    padding: 1rem 1.75rem;
-    border-radius: 999px;
-    border: 1.5px solid rgba(25, 55, 99, 0.22);
-    letter-spacing: 0.04em;
+    padding: 1.3rem 15px;
+    border-radius: 8px;
+    font-size: 2rem;
+    line-height: 1;
+    border: 1.5px solid rgba(25, 55, 99, 0.28);
     transition: border-color 0.3s var(--ease-editorial), background-color 0.3s var(--ease-editorial), color 0.3s var(--ease-editorial);
     cursor: pointer;
+    width: 100%;
+    max-width: none;
+    gap: 0.5rem;
+  }
+  @media (min-width: 640px) {
+    .btn-secondary {
+      width: auto;
+      padding: 1.4rem 60px;
+    }
   }
   .btn-secondary:hover {
-    border-color: rgba(25, 55, 99, 0.55);
+    border-color: rgba(25, 55, 99, 0.6);
     background-color: rgba(25, 55, 99, 0.05);
   }
 
   .btn-on-navy {
     color: var(--color-white);
-    border-color: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.4);
   }
   .btn-on-navy:hover {
-    border-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.75);
     background-color: rgba(255, 255, 255, 0.08);
   }
 
@@ -221,22 +274,39 @@
 
   .small-caps-line {
     @apply font-body uppercase font-semibold;
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     letter-spacing: 0.16em;
   }
 
+  /* §Pascal-2026-05-08: quotes use a real serif italic, not DM Sans italic.
+     EB Garamond is the editorial-quote-only exception to the Compacta + DM Sans
+     type system. Big enough that the italic carries the quote feel. */
   .editorial-quote {
-    font-family: var(--font-display), Georgia, serif;
-    font-size: clamp(1.15rem, 1.5vw, 1.35rem);
-    line-height: 1.5;
+    font-family: var(--font-quote), "EB Garamond", Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 2.4vw, 2.05rem);
+    line-height: 1.4;
     color: var(--color-navy-deeper);
+    text-transform: none;
+    letter-spacing: 0;
   }
 
+  /* §Pascal-2026-05-08 v9: highlighter rebuilt with background-image so it
+     wraps correctly when a phrase breaks across lines (the v8 ::before
+     pseudo collapsed multi-line into one giant rectangle on mobile).
+     Box-decoration-break: clone makes the gradient repeat per-line. */
   .underline-accent {
-    background-image: linear-gradient(transparent 70%, rgba(173, 26, 39, 0.22) 0);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    padding: 0 0.05em;
+    background-image: linear-gradient(
+      180deg,
+      transparent 6%,
+      rgba(173, 26, 39, 0.34) 6%,
+      rgba(173, 26, 39, 0.34) 92%,
+      transparent 92%
+    );
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 0.08em;
   }
 }
 
@@ -251,25 +321,33 @@ body.menu-open {
 }
 
 /* Right-to-left infinite marquee. Track contains TWO copies of the logo set,
-   so translating -50% loops the second copy seamlessly into the first's slot. */
+   so translating -50% loops the second copy seamlessly into the first's slot.
+   §N.3: animation is forced on with !important so it survives the universal
+   prefers-reduced-motion override in @layer base. Marquee scroll is a
+   continuous low-amplitude horizontal motion (no flash, no parallax, no zoom),
+   below the vestibular trigger threshold, and is core to the brand rhythm. */
 @keyframes marquee-rtl {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 .marquee-track {
-  animation: marquee-rtl 50s linear infinite;
-  /* OS-level prefers-reduced-motion handler in @layer base nukes the animation */
+  animation: marquee-rtl 50s linear infinite !important;
+  animation-iteration-count: infinite !important;
+  will-change: transform;
 }
 .marquee-mask {
   -webkit-mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
           mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
 }
 
-/* Eyebrow pill: rounded background lozenge for the hero eyebrow per §D.3 */
+/* Eyebrow pill: rounded background lozenge for the hero eyebrow per §D.3.
+   §Pascal-2026-05-08 v10: scaled to match .eyebrow (1rem) so the hero eyebrow
+   reads at the same authority as every other section's eyebrow. The pill
+   chrome is the only visual difference, font scale stays in sync. */
 .eyebrow-pill {
   display: inline-flex;
   align-items: center;
-  padding: 0.45em 1em;
+  padding: 0.55em 1.15em;
   background: rgba(173, 26, 39, 0.12);
   color: var(--color-accent);
   border-radius: 999px;
@@ -277,7 +355,7 @@ body.menu-open {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  font-size: 0.72rem;
+  font-size: 1rem;
 }
 .eyebrow-pill-on-navy {
   background: rgba(255, 255, 255, 0.10);

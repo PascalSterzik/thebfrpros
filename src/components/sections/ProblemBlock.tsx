@@ -5,6 +5,18 @@ import type { Variant } from "@/content/variants";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
+function Highlighted({ text, phrase }: { text: string; phrase: string }) {
+  const i = text.indexOf(phrase);
+  if (i === -1) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, i)}
+      <span className="underline-accent">{phrase}</span>
+      {text.slice(i + phrase.length)}
+    </>
+  );
+}
+
 export default function ProblemBlock({ variant }: { variant: Variant }) {
   const layers = [
     { eyebrow: "Surface", body: variant.problem.surface },
@@ -15,40 +27,50 @@ export default function ProblemBlock({ variant }: { variant: Variant }) {
 
   return (
     <section className="section-wrap cream-field" id="problem">
-      <div className="container-rail">
+      <div className="container-narrow">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="grid gap-14 lg:grid-cols-12"
+          className="text-center mx-auto max-w-3xl"
         >
-          <motion.div variants={fadeUp} className="lg:col-span-5">
+          <motion.div variants={fadeUp}>
             <SectionLabel label={variant.problem.label} />
-            <h2 className="mt-5 font-display text-display-xl text-navy text-balance">
-              {variant.problem.headline}
-            </h2>
-            <p className="mt-7 max-w-md text-lg leading-relaxed text-ink/80">
-              {variant.problem.intro}
-            </p>
           </motion.div>
-
-          <motion.div variants={fadeUp} className="lg:col-span-7">
-            <ol className="space-y-8">
-              {layers.map((l, i) => (
-                <li key={l.eyebrow} className="grid grid-cols-[auto_1fr] gap-6 sm:gap-8">
-                  <span className="font-display text-3xl text-accent leading-none pt-1">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <p className="small-caps-line text-muted">{l.eyebrow}</p>
-                    <p className="mt-2 text-lg leading-relaxed text-ink">{l.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </motion.div>
+          <motion.h2
+            variants={fadeUp}
+            className="mt-5 font-display text-display-xl text-navy"
+          >
+            <Highlighted text={variant.problem.headline} phrase="you're stalling" />
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            className="mt-7 mx-auto max-w-2xl text-lg leading-relaxed text-ink/80"
+          >
+            {variant.problem.intro}
+          </motion.p>
         </motion.div>
+
+        <motion.ol
+          initial="hidden"
+          whileInView="visible"
+          viewport={inViewOnce}
+          variants={stagger}
+          className="mt-14 mx-auto max-w-2xl space-y-10 text-left"
+        >
+          {layers.map((l, i) => (
+            <motion.li key={l.eyebrow} variants={fadeUp} className="grid grid-cols-[auto_1fr] gap-5">
+              <span className="font-display text-4xl text-accent leading-none">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <p className="small-caps-line text-muted">{l.eyebrow}</p>
+                <p className="mt-2 text-lg leading-relaxed text-ink">{l.body}</p>
+              </div>
+            </motion.li>
+          ))}
+        </motion.ol>
       </div>
     </section>
   );

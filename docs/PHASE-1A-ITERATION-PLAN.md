@@ -418,7 +418,7 @@ Per Pascal's King Kong reference. Same Header component, just toggle the desktop
 | F9 | Module 1 PDF download: do we have a real handout? | Module 1 Preview section §D.12. | Use Bonus #2 (BFR Patient Screening Form) as the download. |
 | F10 | Real module names per course: Teachable export available? | Per-module curriculum accordion §D.11. | Use placeholder generic names ("Module 1: Foundations of BFR" etc.) and flag for replacement. |
 | F11 | Demand graph: OK to use Google Trends data with citation? | New §D.25 section. | Yes, build static SVG with citation. |
-| F12 | Webfont licensing for Compacta Bold (final paperwork): confirmed? | Public deploy gating item. | Pascal confirmed verbally; asking for written confirmation before push. |
+| F12 | Webfont licensing for Compacta Bold (final paperwork): confirmed? | ~~Public deploy gating item.~~ **RESOLVED 2026-05-07** — verbal + written confirmation logged in `Agency/Clients/The BFR Pros/brand-guide.md` typography section + 2026-05-06 + 2026-05-07 changelog entries. Cleared for public Vercel deploy. **Do NOT re-flag this as a blocker.** |
 
 ---
 
@@ -847,6 +847,13 @@ The next session should pull from these:
 ## N. Pascal's Round 2 review (2026-05-07, after Waves 1-4 + 5.E.2 + demand graph executed)
 
 The other session shipped most of the plan. This section captures what Pascal flagged on review of the live build. **Treat as a punch list for the next session.** Every item below is a defect or a refinement, not a re-litigation.
+
+> **Execution status as of 2026-05-08 — every N item below is shipped or deferred:**
+>
+> - **DONE:** N.1 (4.8/767 stars), N.2 (fractional fill), N.3 (marquee animating), N.5 (StatsBlock moved after Problem), N.6 (demand graph annotations), N.7 (Dream Vision text-balance dropped), N.9 (pillar cards: hover off, icons in), N.10 (Mike Reinold 6.0 CEUs), N.11 (curriculum overhaul: type icons removed, video-first reorder, "What you can expect" rename, course icon enlarged + frame removed, CEUs+value below icon, "See Module 1 Free" CTA killed, Module 0 bibliography only, fluff caption removed), N.12 (Rolnick card matches Licameli card pattern, larger), N.13 (Strategy A realistic values shipped: $1,000 bonus subtotal + $640 cuff savings, $1,654 advertised, save $1,205; hover dropped on bonus cards; Bonus 12 rendered as 12th card), N.14 through N.21 (buttons, certificate, body logos, testimonial tail, guarantee gap, P.S. padding, mobile rail, Rolnick research+podcast logos), J.12 (verbatim duration phrase in curriculum).
+> - **DEFERRED (Pascal call):** J.11 section transitions (need shape spec from Pascal).
+> - **OPEN (need source from Pascal):** N.11 module descriptions verbatim — old course page HTML doesn't expose them programmatically; Pascal to drop a copy in `_Inbox/3/` if he wants per-module descriptions added.
+> - **OBSOLETE:** N.8 EB Garamond Italic for bridge quote — superseded by Pascal's later "Use the font. Stop killing me." → Compacta on bridge quote stays. Brand-guide says no third font.
 
 ### N.1 — Real survey rating numbers: 4.8 from 767 (Pascal-confirmed)
 

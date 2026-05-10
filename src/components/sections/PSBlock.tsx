@@ -6,7 +6,7 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 export default function PSBlock({ variant }: { variant: Variant }) {
   return (
-    <section className="bg-white pt-4 pb-24 lg:pb-32" aria-label="Postscript">
+    <section className="bg-white pt-16 lg:pt-20 pb-24 lg:pb-32" aria-label="Postscript">
       <div className="container-rail">
         <motion.div
           initial="hidden"

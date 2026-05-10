@@ -28,7 +28,7 @@ export default function GuaranteeSection() {
               />
             </div>
           </motion.div>
-          <motion.div variants={fadeUp}>
+          <motion.div variants={fadeUp} className="mt-6">
             <SectionLabel label="The guarantee" />
           </motion.div>
           <motion.h2

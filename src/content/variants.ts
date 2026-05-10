@@ -236,10 +236,10 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     hero: {
       eyebrow: "The Complete BFR Certification",
-      headline: "Your patients are already asking for BFR. Be the clinic that delivers it.",
+      headline: "Your patients are already asking for BFR. Be the clinic that delivers it",
       subhead:
-        "Worldwide searches for blood flow restriction climbed from roughly 19,000 per month in July 2025 to roughly 84,000 per month in February 2026. That is a 4.4× jump, +342%, in seven months. The previous all-time high, set in September 2021, was about 33,000 searches per month. The new peak is 2.6× higher than that record. Your patients are searching now. The question is whether you are the clinic they find first, or the clinic across the street.",
-      primaryCta: "Get Certified for $449",
+        "37 modules, 11.75 CEUs, taught by Dr. Nicholas Rolnick. The most research-backed BFR certification in the world.",
+      primaryCta: "Get BFR Certified",
       secondaryCta: "See the curriculum",
       supportingStat: [
         { value: "100+", label: "clinics already certified through us" },
@@ -252,7 +252,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     problem: {
       label: "The problem",
-      headline: "Patients can tell when you're stalling.",
+      headline: "Patients can tell when you're stalling",
       intro:
         "BFR has crossed into patient-facing media. The post-op ACL bookmarked a Cleveland Clinic article. The marathoner heard about it on a podcast. The lifter saw it in Men's Health. They are not asking if you've heard of it. They are asking which cuff you use.",
       surface:
@@ -266,7 +266,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     dreamVision: {
       label: "The destination",
-      headline: "Six months from now, the patients who Googled BFR in your zip code book with you, by name.",
+      headline: "Six months from now, the patients who Googled BFR in your zip code book with you, by name",
       paragraphs: [
         "Three weeks post-op, the patient walks in for the first time. They had been to two clinics and searched between visits. They found you because your website says BFR provided here and your reviews mention specific outcomes. They came in for a consult and didn't leave for a second opinion.",
         "You apply the cuff. You set the pressure. You walk them through what the next eight weeks look like and you write it down. They are back at full duty by week sixteen. Six months later they send you a referral.",
@@ -275,7 +275,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     dreamDeep: {
       label: "Who you become",
-      headline: "You are the clinic the next BFR patient finds first.",
+      headline: "You are the clinic the next BFR patient finds first",
       paragraphs: [
         "Your Google reviews mention BFR by name. Your clinic's intake form has a box for blood flow restriction goals. Two surgeons in your zip code have you on their referral shortlist for late-stage post-op rehab. The cash-pay BFR program you launched last year covers your CE budget for the next three.",
         "You are not the only certified BFR clinician in your region. You are the first one a patient finds when they search. The certification is what got you in the door. The implementation is what kept you there.",
@@ -286,12 +286,12 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       line: "Patient demand is the only scarcity that's real in this market. The clinics getting certified now are the ones who will be on the search results page when your patient types \"BFR near me.\" The Complete BFR Certification is the fastest evidence-based path to being one of them.",
     },
     finalCta: {
-      headline: "The patient walks in tomorrow either way. The question is which clinic answers.",
+      headline: "The patient walks in tomorrow either way. The question is which clinic answers",
       subhead:
         "$449. 37 modules. 11.75 hours of video content. 11.75 CEUs. 30-day money-back guarantee. Do it in a weekend or take 4 weeks. The window to be the first BFR-certified clinic in your zip code is still open. It is not open forever.",
       warning:
         "Worldwide searches for blood flow restriction went from ~19,000 a month in July 2025 to ~84,000 a month in February 2026. That is +342% in seven months. The previous all-time high, ~33,000 searches a month set in September 2021, has been redrawn 2.6× higher. Fourteen years of slow climb, replaced in seven. The clinics certifying this quarter are the ones that show up first when those patients search next quarter. The wave is not coming. It is here.",
-      primary: "Get Certified for $449",
+      primary: "Get BFR Certified",
     },
     ps: [
       "P.S. The certification is the technique, not the cuff. Your patients don't care which brand you bought. They care whether you can apply BFR safely, prescribe the pressure correctly, and hit their outcome goals. The 30-day money-back guarantee is the rest of the trade.",

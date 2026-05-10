@@ -39,14 +39,14 @@ export default function StatsBlock() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="max-w-3xl"
+          className="max-w-3xl mx-auto text-center"
         >
           <motion.div variants={fadeUp}>
             <SectionLabel label="Authority by the numbers" />
           </motion.div>
           <motion.h2
             variants={fadeUp}
-            className="mt-5 font-display text-display-xl text-navy text-balance"
+            className="mt-5 font-display text-display-xl text-navy"
           >
             Four numbers that don't show up on any other BFR certification page.
           </motion.h2>
@@ -63,7 +63,7 @@ export default function StatsBlock() {
             <motion.div
               key={tile.label}
               variants={fadeUp}
-              className="rounded-2xl border border-line bg-white p-6 sm:p-8 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
+              className="rounded-lg border border-line bg-white p-6 sm:p-8 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
             >
               <dt
                 className="font-display text-navy leading-none"

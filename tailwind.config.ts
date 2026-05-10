@@ -27,14 +27,16 @@ const config: Config = {
         body: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        // Compacta Bold ALL CAPS with slight negative tracking. Tighter caps
-        // scan as word-shapes faster; the heavy condensed weight can take it.
-        // Eyebrow labels at 13px are the exception, they need positive tracking.
-        "display-2xl": ["clamp(3rem, 6.4vw, 5.25rem)", { lineHeight: "0.96", letterSpacing: "-0.02em" }],
-        "display-xl": ["clamp(2.4rem, 5vw, 4rem)", { lineHeight: "0.98", letterSpacing: "-0.018em" }],
-        "display-lg": ["clamp(2rem, 3.6vw, 3rem)", { lineHeight: "1.02", letterSpacing: "-0.015em" }],
-        "display-md": ["clamp(1.6rem, 2.8vw, 2.25rem)", { lineHeight: "1.06", letterSpacing: "-0.012em" }],
-        eyebrow: ["0.78rem", { lineHeight: "1.2", letterSpacing: "0.18em" }],
+        // §Pascal-2026-05-08 v9: single line-height ramp shared by H1 and H2
+        // tier headlines. Bigger sizes stay slightly tighter, smaller sizes
+        // breathe more — typographic norm. Hero (display-2xl/3xl) now reads
+        // with the same proportional rhythm as the H2s.
+        "display-3xl": ["clamp(3.5rem, 7.4vw, 6rem)", { lineHeight: "0.92", letterSpacing: "-0.02em" }],
+        "display-2xl": ["clamp(3.4rem, 7vw, 5.75rem)", { lineHeight: "0.94", letterSpacing: "-0.02em" }],
+        "display-xl": ["clamp(2.75rem, 5.6vw, 4.4rem)", { lineHeight: "0.96", letterSpacing: "-0.018em" }],
+        "display-lg": ["clamp(2.25rem, 4vw, 3.4rem)", { lineHeight: "0.98", letterSpacing: "-0.015em" }],
+        "display-md": ["clamp(1.85rem, 3.1vw, 2.55rem)", { lineHeight: "1.02", letterSpacing: "-0.012em" }],
+        eyebrow: ["1rem", { lineHeight: "1.2", letterSpacing: "0.18em" }],
       },
       maxWidth: {
         "prose-narrow": "38rem",

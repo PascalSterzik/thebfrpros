@@ -5,40 +5,34 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PrimaryCTA from "@/components/shared/PrimaryCTA";
-import { CURRICULUM, type CourseModule, type ModuleType, VIDEOS } from "@/lib/constants";
+import { CURRICULUM, type CourseModule, VIDEOS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-const TYPE_ICON: Record<ModuleType, string> = {
-  video: "▶",
-  pdf: "📄",
-  quiz: "❓",
-  chart: "📊",
-};
-
-const TYPE_LABEL: Record<ModuleType, string> = {
-  video: "Video",
-  pdf: "PDF",
-  quiz: "Quiz",
-  chart: "Chart",
-};
-
+// Module rows: number, bold navy title, optional muted description, duration on right.
 function ModuleRow({ module }: { module: CourseModule }) {
+  const num = typeof module.n === "number" ? String(module.n).padStart(2, "0") : module.n;
   return (
-    <li className="grid grid-cols-[28px_24px_1fr_auto] items-baseline gap-3 border-b border-line/60 py-3 last:border-b-0">
-      <span className="font-display text-base text-muted tabular-nums">
-        {typeof module.n === "number" ? String(module.n).padStart(2, "0") : module.n}
+    <li className="grid grid-cols-[28px_1fr_auto] gap-x-3 gap-y-1 border-b border-line/60 py-4 last:border-b-0 text-left">
+      <span className="font-display text-base text-muted tabular-nums pt-0.5">
+        {num}
       </span>
-      <span aria-label={TYPE_LABEL[module.type]} className="text-base">
-        {TYPE_ICON[module.type]}
+      <p className="text-sm sm:text-base leading-snug text-navy font-bold">
+        {module.title}
+      </p>
+      <span className="text-xs text-muted tabular-nums whitespace-nowrap pt-1">
+        {module.duration}
       </span>
-      <p className="text-sm sm:text-base leading-relaxed text-ink/85">{module.title}</p>
-      <span className="text-xs text-muted tabular-nums">{module.duration}</span>
+      {module.description && (
+        <p className="col-start-2 text-sm leading-relaxed text-muted">
+          {module.description}
+        </p>
+      )}
     </li>
   );
 }
 
 export default function CurriculumSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section id="curriculum" className="section-wrap cream-field">
@@ -48,22 +42,28 @@ export default function CurriculumSection() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="max-w-3xl"
+          className="max-w-3xl mx-auto text-center"
         >
           <motion.div variants={fadeUp}>
             <SectionLabel label="The curriculum" />
           </motion.div>
           <motion.h2
             variants={fadeUp}
-            className="mt-5 font-display text-display-xl text-navy text-balance"
+            className="mt-5 font-display text-display-xl text-navy"
           >
-            4 courses. 37 modules. 11.75 CEUs.
+            4 courses. 37 modules. <span className="underline-accent">11.75 CEUs.</span>
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mt-6 text-lg leading-relaxed text-ink/80"
+            className="mt-6 text-lg leading-relaxed text-ink/80 mx-auto max-w-2xl text-left"
           >
             Built on 72+ peer-reviewed publications by the lead instructor. Every module ships with the citation list, so the science is auditable from inside the course.
+          </motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="mt-4 text-lg leading-relaxed text-ink/80 mx-auto max-w-2xl text-left"
+          >
+            11.75 hours of video content. Do it in a weekend or take 4 weeks. On-demand, your pace.
           </motion.p>
         </motion.div>
 
@@ -72,99 +72,119 @@ export default function CurriculumSection() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-14 space-y-5"
+          className="mt-20 mx-auto max-w-6xl space-y-16"
         >
           {CURRICULUM.map((c, i) => {
             const open = openIndex === i;
             const promoVideoSrc = VIDEOS[c.promoVideoKey];
+            const courseLabel = `Course ${String(i + 1).padStart(2, "0")}`;
             return (
               <motion.li
                 key={c.slug}
                 variants={fadeUp}
-                className="rounded-2xl border border-line bg-white overflow-hidden"
+                className="relative rounded-lg border border-line bg-white pt-9 pb-7 px-5 sm:px-7"
               >
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(open ? null : i)}
-                  aria-expanded={open}
-                  aria-controls={`${c.slug}-panel`}
-                  className="grid w-full grid-cols-[64px_1fr_auto] sm:grid-cols-[80px_1fr_auto_64px] gap-4 sm:gap-6 items-center p-5 sm:p-7 text-left transition hover:bg-cream/60"
-                >
-                  <div className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 overflow-hidden rounded-xl ring-1 ring-line bg-white">
-                    <Image
-                      src={c.coatOfArmsSrc}
-                      alt={`${c.title} course logo`}
-                      fill
-                      sizes="80px"
-                      className="object-contain p-1.5"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="small-caps-line text-accent">
-                      Course {String(i + 1).padStart(2, "0")} · {c.totalDuration} · {c.moduleCount} modules
+                {/* Pill says ONLY "Course 01". DM Sans eyebrow style. */}
+                <span className="absolute left-1/2 -top-3 -translate-x-1/2 inline-flex items-center bg-navy text-white px-4 py-1.5 rounded-full font-body font-semibold text-xs tracking-[0.18em] uppercase whitespace-nowrap">
+                  {courseLabel}
+                </span>
+
+                {/* §Pascal-2026-05-08 v9: desktop two-column layout. Left side
+                   (course meta) is sticky; right side (video + module list)
+                   scrolls. Mobile keeps the existing single-column flow. */}
+                <div className="lg:grid lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)] lg:gap-10">
+                  {/* Left column — sticky on desktop. */}
+                  <div className="lg:sticky lg:top-[80px] lg:self-start lg:py-2">
+                    <div className="grid grid-cols-[96px_1fr] sm:grid-cols-[128px_1fr] lg:grid-cols-1 gap-5 sm:gap-7 lg:gap-0 items-start lg:items-center lg:text-center">
+                      <div className="flex flex-col items-center text-center lg:order-1">
+                        <div className="relative h-20 w-20 sm:h-28 sm:w-28 lg:h-32 lg:w-32 shrink-0">
+                          <Image
+                            src={c.coatOfArmsSrc}
+                            alt={`${c.title} course logo`}
+                            fill
+                            sizes="128px"
+                            className="object-contain"
+                          />
+                        </div>
+                        <p className="mt-3 font-display text-xl sm:text-2xl text-navy leading-none">
+                          {c.ceus} CEUs
+                        </p>
+                        <p className="mt-1 text-xs text-muted tabular-nums">
+                          ${c.courseValue} value
+                        </p>
+                      </div>
+                      <div className="min-w-0 lg:order-2 lg:mt-6">
+                        <h3 className="font-display text-2xl sm:text-display-md text-navy text-balance leading-tight">
+                          {c.title}
+                        </h3>
+                        <p className="mt-2 small-caps-line text-accent">
+                          {c.totalDuration} · {c.moduleCount} modules
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="mt-6 lg:mt-5 text-base leading-relaxed text-ink/85 lg:text-left">
+                      {c.summary}
                     </p>
-                    <h3 className="mt-2 font-display text-xl sm:text-2xl text-navy text-balance">
-                      {c.title}
-                    </h3>
                   </div>
-                  {/* Navy CEU pill, stacked number + label */}
-                  <div className="hidden sm:flex flex-col items-center justify-center rounded-2xl bg-navy text-white px-3 py-3 leading-none">
-                    <span className="font-display text-2xl">{c.ceus}</span>
-                    <span className="mt-1 text-[0.6rem] uppercase tracking-[0.16em] opacity-85">CEUs</span>
-                  </div>
-                  <span
-                    aria-hidden
-                    className={`shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-navy transition ${
-                      open ? "rotate-45 border-accent text-accent" : ""
-                    }`}
-                  >
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M7 1v12M1 7h12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                    </svg>
-                  </span>
-                </button>
 
-                <div
-                  id={`${c.slug}-panel`}
-                  role="region"
-                  aria-hidden={!open}
-                  className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                    open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <div className="border-t border-line px-5 sm:px-7 pt-6 pb-7">
-                      <p className="max-w-2xl text-base leading-relaxed text-ink/85">{c.summary}</p>
+                  {/* Right column — video + module list + toggle. Scrolls past
+                     the sticky left column on desktop. The toggle lives INSIDE
+                     this column so it only spans the video/curriculum area,
+                     not the entire card. */}
+                  <div className="mt-6 lg:mt-0">
+                    <div className="relative w-full overflow-hidden rounded-lg bg-black/5 ring-1 ring-line">
+                      <div className="relative pb-[56.25%]">
+                        <iframe
+                          src={promoVideoSrc}
+                          title={`${c.title} promo`}
+                          loading="lazy"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          allowFullScreen
+                          className="absolute inset-0 h-full w-full border-0"
+                        />
+                      </div>
+                    </div>
 
-                      <div className="mt-6 grid gap-7 lg:grid-cols-12">
-                        <div className="lg:col-span-7">
-                          <p className="small-caps-line text-muted">What's inside</p>
-                          <ul className="mt-4 divide-y divide-line/40">
+                    <div
+                      id={`${c.slug}-panel`}
+                      role="region"
+                      aria-hidden={!open}
+                      className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="mt-7 border-t border-line/60 pt-6">
+                          <ul className="divide-y divide-line/40">
                             {c.modules.map((m) => (
                               <ModuleRow key={`${c.slug}-${m.n}`} module={m} />
                             ))}
                           </ul>
                         </div>
-                        <div className="lg:col-span-5">
-                          <p className="small-caps-line text-muted">Course preview</p>
-                          <div className="mt-4 relative w-full overflow-hidden rounded-xl bg-black/5 ring-1 ring-line">
-                            <div className="relative pb-[56.25%]">
-                              <iframe
-                                src={promoVideoSrc}
-                                title={`${c.title} promo`}
-                                loading="lazy"
-                                allow="autoplay; fullscreen; picture-in-picture"
-                                allowFullScreen
-                                className="absolute inset-0 h-full w-full border-0"
-                              />
-                            </div>
-                          </div>
-                          <p className="mt-3 text-xs text-muted">
-                            Course value: ${c.courseValue}. Bundled with the other 3 courses + 11 bonuses for $449 total.
-                          </p>
-                        </div>
                       </div>
                     </div>
+
+                    {/* Toggle scoped to the right column. */}
+                    <button
+                      type="button"
+                      onClick={() => setOpenIndex(open ? null : i)}
+                      aria-expanded={open}
+                      aria-controls={`${c.slug}-panel`}
+                      className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-lg border border-line bg-cream/60 hover:bg-cream transition py-4 font-body font-semibold text-sm tracking-[0.18em] uppercase text-navy/80"
+                    >
+                      <span>{open ? "Hide curriculum" : "View curriculum"}</span>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        aria-hidden
+                        className={`transition-transform ${open ? "rotate-180" : ""}`}
+                      >
+                        <path d="M2.5 5l4.5 4.5L11.5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </motion.li>
@@ -172,12 +192,17 @@ export default function CurriculumSection() {
           })}
         </motion.ul>
 
-        <div className="mt-12 flex flex-wrap items-center gap-4">
-          <PrimaryCTA label="See Module 1 Free" href="#module-preview" variant="secondary" />
-          <p className="text-sm text-muted">
-            Watch the orientation video and download the screening form before deciding.
-          </p>
-        </div>
+        {/* CTA at the bottom of the curriculum block — Pascal: people see the
+           offer breakdown, then act. */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={inViewOnce}
+          transition={{ duration: 0.7 }}
+          className="mt-16 flex justify-center"
+        >
+          <PrimaryCTA />
+        </motion.div>
       </div>
     </section>
   );

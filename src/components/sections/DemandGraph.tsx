@@ -55,41 +55,67 @@ export default function DemandGraph() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="grid gap-12 lg:grid-cols-12 lg:items-center"
+          className="max-w-3xl mx-auto"
         >
-          <motion.div variants={fadeUp} className="lg:col-span-5">
+          <motion.div variants={fadeUp} className="text-center">
             <SectionLabel label="Patient demand trajectory" />
-            <h2 className="mt-5 font-display text-display-xl text-navy text-balance">
-              Worldwide searches for blood flow restriction just {SURGE_MULTIPLE}×&apos;d in {SURGE_DURATION_MONTHS} months.
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-ink/85">
-              From {PRE_SURGE_MONTH} to {PEAK_MONTH}, Google searches for &ldquo;blood flow restriction&rdquo; climbed from roughly {PRE_SURGE_VOLUME} per month to roughly {PEAK_VOLUME} per month. That is +{SURGE_PERCENT}% in {SURGE_DURATION_MONTHS} months.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-ink/85">
-              The previous all-time high was {PRIOR_ALL_TIME_HIGH_VOLUME} per month, set in {PRIOR_ALL_TIME_HIGH_MONTH}. The new peak cleared it by {PEAK_VS_PRIOR}×.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-ink/80">
-              We are not waiting for the wave. We are at the inflection point right now. The clinics that get certified this quarter are the ones that show up first when those new patients search next quarter.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-muted">
-              All-time peak was {peakAgoLabel}. The trajectory took fourteen years to build. The last seven months redrew it.
-            </p>
           </motion.div>
+          <motion.h2
+            variants={fadeUp}
+            className="mt-5 font-display text-display-xl text-navy text-center"
+          >
+            Worldwide searches for blood flow restriction just{" "}
+            <span className="underline-accent">
+              {SURGE_MULTIPLE}×&apos;d in {SURGE_DURATION_MONTHS} months
+            </span>
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 text-lg leading-relaxed text-ink/85 mx-auto max-w-2xl text-left"
+          >
+            From {PRE_SURGE_MONTH} to {PEAK_MONTH}, Google searches for &ldquo;blood flow restriction&rdquo; climbed from roughly {PRE_SURGE_VOLUME} per month to roughly {PEAK_VOLUME} per month. That is +{SURGE_PERCENT}% in {SURGE_DURATION_MONTHS} months.
+          </motion.p>
+        </motion.div>
 
-          <motion.figure variants={fadeUp} className="lg:col-span-7">
-            <Image
-              src="/images/demand-trend.jpg"
-              alt={`Annotated Google Trends chart showing worldwide search interest for "blood flow restriction" from January 2012 to May 2026. Two anchor points: take-off at July 2025 (~19,000 searches per month) and the all-time high in ${PEAK_MONTH} (~84,000 searches per month).`}
-              width={2000}
-              height={1500}
-              sizes="(max-width: 1024px) 100vw, 600px"
-              className="block h-auto w-full"
-              style={{ width: "100%", height: "auto" }}
-            />
-            <figcaption className="mt-3 text-xs leading-relaxed text-muted">
-              Source: Google Trends + Glimpse, search term &ldquo;blood flow restriction,&rdquo; Worldwide, January 2012 to May 2026. Index normalized 0-100 where 100 represents peak interest. Absolute monthly volumes anchored to Glimpse&apos;s peak figure (~84,000/month). Full time series at <code className="font-mono">docs/data/google-trends-bfr-worldwide.csv</code>.
-            </figcaption>
-          </motion.figure>
+        <motion.figure
+          initial="hidden"
+          whileInView="visible"
+          viewport={inViewOnce}
+          variants={fadeUp}
+          className="mt-12 mx-auto max-w-4xl"
+        >
+          <Image
+            src="/images/demand-trend.jpg"
+            alt={`Annotated Google Trends chart showing worldwide search interest for "blood flow restriction" from January 2012 to May 2026. Two anchor points: take-off at July 2025 (~19,000 searches per month) and the all-time high in ${PEAK_MONTH} (~84,000 searches per month).`}
+            width={2000}
+            height={1500}
+            sizes="(max-width: 1024px) 100vw, 900px"
+            className="block h-auto w-full rounded-lg"
+            style={{ width: "100%", height: "auto" }}
+          />
+          {/* §Pascal-2026-05-08 v6: image already has its own internal whitespace,
+             so the figcaption sits flush (no top margin). */}
+          <figcaption className="text-center text-xs leading-relaxed text-muted">
+            Source: Google Trends + Glimpse, search term &ldquo;blood flow restriction,&rdquo; Worldwide, January 2012 to May 2026. Index normalized 0-100 where 100 represents peak interest.
+          </figcaption>
+        </motion.figure>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={inViewOnce}
+          variants={stagger}
+          className="mt-10 mx-auto max-w-2xl text-left"
+        >
+          <motion.p variants={fadeUp} className="text-lg leading-relaxed text-ink/85">
+            The previous all-time high was {PRIOR_ALL_TIME_HIGH_VOLUME} per month, set in {PRIOR_ALL_TIME_HIGH_MONTH}. The new peak cleared it by {PEAK_VS_PRIOR}×.
+          </motion.p>
+          <motion.p variants={fadeUp} className="mt-4 text-lg leading-relaxed text-ink/85">
+            We are not waiting for the wave. We are at the inflection point right now. The clinics that get certified this quarter are the ones that show up first when those new patients search next quarter.
+          </motion.p>
+          <motion.p variants={fadeUp} className="mt-4 text-lg leading-relaxed text-ink/85">
+            All-time peak was {peakAgoLabel}. The trajectory took fourteen years to build. The last seven months redrew it.
+          </motion.p>
         </motion.div>
       </div>
     </section>

@@ -27,16 +27,16 @@ export default function CEUBadgesSection() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="max-w-3xl"
+          className="max-w-3xl mx-auto text-center"
         >
           <motion.div variants={fadeUp}>
             <SectionLabel label="CEU credits + approvals" />
           </motion.div>
           <motion.h2
             variants={fadeUp}
-            className="mt-5 font-display text-display-xl text-navy text-balance"
+            className="mt-5 font-display text-display-xl text-navy"
           >
-            {STATS.ceus} CEUs that satisfy license requirements across most of the United States.
+            {STATS.ceus} CEUs that satisfy license requirements across most of the United States
           </motion.h2>
           <motion.p
             variants={fadeUp}
@@ -51,7 +51,7 @@ export default function CEUBadgesSection() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={fadeUp}
-          className="mt-12 overflow-hidden rounded-2xl border border-line bg-white"
+          className="mt-12 overflow-hidden rounded-lg border border-line bg-white"
         >
           <Image
             src="/images/ceus/approval-map.jpg"
@@ -83,10 +83,25 @@ export default function CEUBadgesSection() {
               {CEU_COURSE_APPROVALS.map((a) => (
                 <li
                   key={a.body}
-                  className="rounded-2xl border border-line bg-white p-5"
+                  className="rounded-lg border border-line bg-white p-5"
                 >
-                  <p className="font-display text-lg text-navy leading-tight">{a.body}</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.16em] text-accent">For {a.audience}</p>
+                  <div className="flex items-start gap-4">
+                    {a.logoSrc && (
+                      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md bg-cream/60">
+                        <Image
+                          src={a.logoSrc}
+                          alt={`${a.body} logo`}
+                          fill
+                          sizes="56px"
+                          className="object-contain p-1"
+                        />
+                      </div>
+                    )}
+                    <div className="min-w-0">
+                      <p className="font-display text-lg text-navy leading-tight">{a.body}</p>
+                      <p className="mt-1 text-xs uppercase tracking-[0.16em] text-accent">For {a.audience}</p>
+                    </div>
+                  </div>
                   <p className="mt-3 text-sm leading-relaxed text-ink/85">{a.detail}</p>
                   <p className="mt-2 text-xs leading-relaxed text-muted">{a.note}</p>
                 </li>
@@ -103,7 +118,7 @@ export default function CEUBadgesSection() {
               {CEU_PROFESSION_SCOPE.map((a) => (
                 <li
                   key={a.body}
-                  className="rounded-2xl border border-line bg-white p-5"
+                  className="rounded-lg border border-line bg-white p-5"
                 >
                   <p className="font-display text-lg text-navy leading-tight">{a.body}</p>
                   <p className="mt-3 text-sm leading-relaxed text-ink/85">{a.detail}</p>
@@ -120,7 +135,7 @@ export default function CEUBadgesSection() {
           variants={stagger}
           className="mt-14 grid gap-8 lg:grid-cols-2"
         >
-          <motion.div variants={fadeUp} className="rounded-2xl border border-line bg-white p-6">
+          <motion.div variants={fadeUp} className="rounded-lg border border-line bg-white p-6">
             <h3 className="small-caps-line text-accent">
               Reciprocal coverage ({CEU_RECIPROCAL_STATES.length} states)
             </h3>
@@ -139,7 +154,7 @@ export default function CEUBadgesSection() {
             </ul>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="rounded-2xl border border-line bg-white p-6">
+          <motion.div variants={fadeUp} className="rounded-lg border border-line bg-white p-6">
             <h3 className="small-caps-line text-accent">
               File individually ({CEU_INDIVIDUAL_FILING_STATES.length} states)
             </h3>

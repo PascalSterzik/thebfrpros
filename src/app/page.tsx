@@ -55,9 +55,9 @@ export default function ReviewIndex() {
               <li key={slug}>
                 <Link
                   href={v.routePath}
-                  className="group block rounded-3xl border border-line bg-white p-7 transition hover:-translate-y-1 hover:border-navy/40 hover:shadow-navy-lg"
+                  className="group block rounded-lg border border-line bg-white p-7 transition hover:-translate-y-1 hover:border-navy/40 hover:shadow-navy-lg"
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-cream ring-1 ring-line">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-cream ring-1 ring-line">
                     <Image
                       src={v.hero.photoSrc}
                       alt={v.hero.photoAlt}
@@ -85,7 +85,7 @@ export default function ReviewIndex() {
           })}
         </ul>
 
-        <section className="mt-20 rounded-3xl border border-line bg-white p-7 lg:p-10">
+        <section className="mt-20 rounded-lg border border-line bg-white p-7 lg:p-10">
           <p className="small-caps-line text-muted">Build notes</p>
           <h2 className="mt-3 font-display text-display-md text-navy text-balance">
             What's shared, what's variant-specific, and what's still pending.

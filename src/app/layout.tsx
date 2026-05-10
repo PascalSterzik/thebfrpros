@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, EB_Garamond } from "next/font/google";
 import "./globals.css";
 
 // Compacta Bold is The BFR Pros' brand display font (self-hosted from Assets/Fonts).
-// Web licensing must be confirmed before public deploy.
 const fontDisplay = localFont({
   src: [
     {
@@ -15,8 +14,6 @@ const fontDisplay = localFont({
   ],
   variable: "--font-display",
   display: "swap",
-  // Adjust the fallback metric so the FOUT swap doesn't reflow the page.
-  // Compacta is a heavy condensed sans, so the fallback chain matches that family.
   fallback: ["Helvetica Neue Condensed", "Arial Narrow", "Impact", "sans-serif"],
 });
 
@@ -24,6 +21,17 @@ const fontBody = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body",
+  display: "swap",
+});
+
+// EB Garamond Italic is the editorial-quote-only exception to the brand type
+// system. Used exclusively in `.editorial-quote` (BridgeBlock and any future
+// pull quotes). Loaded weight 400 italic only to keep payload minimal.
+const fontQuote = EB_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["italic"],
+  variable: "--font-quote",
   display: "swap",
 });
 
@@ -76,7 +84,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable}`}>
+    <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable} ${fontQuote.variable}`}>
       <body>{children}</body>
     </html>
   );

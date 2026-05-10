@@ -4,9 +4,20 @@ import { motion } from "framer-motion";
 import type { Variant } from "@/content/variants";
 import PrimaryCTA from "@/components/shared/PrimaryCTA";
 import SectionLabel from "@/components/shared/SectionLabel";
-import Stars from "@/components/shared/Stars";
 import { PRICING, STATS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
+
+function Highlighted({ text, phrase }: { text: string; phrase: string }) {
+  const i = text.indexOf(phrase);
+  if (i === -1) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, i)}
+      <span className="underline-accent">{phrase}</span>
+      {text.slice(i + phrase.length)}
+    </>
+  );
+}
 
 export default function FinalCTABlock({ variant }: { variant: Variant }) {
   return (
@@ -25,7 +36,7 @@ export default function FinalCTABlock({ variant }: { variant: Variant }) {
             variants={fadeUp}
             className="mt-5 font-display text-display-2xl text-white text-balance"
           >
-            {variant.finalCta.headline}
+            <Highlighted text={variant.finalCta.headline} phrase="which clinic answers" />
           </motion.h2>
           <motion.p
             variants={fadeUp}
@@ -36,24 +47,20 @@ export default function FinalCTABlock({ variant }: { variant: Variant }) {
 
           <motion.div
             variants={fadeUp}
-            className="mt-10 flex flex-col items-center gap-5"
+            className="mt-10 flex justify-center"
           >
-            <div className="w-full sm:w-auto">
-              <PrimaryCTA
-                size="lg"
-                label={variant.finalCta.primary}
-                className="w-full sm:w-auto"
-              />
-            </div>
-            <Stars variant="dark" size="md" />
-            <p className="text-sm text-white/70">
-              {PRICING.guaranteeDays}-day money-back guarantee · 1 of {STATS.certifiedPractitioners} graduates has ever taken it
-            </p>
+            <PrimaryCTA
+              size="lg"
+              label="Get BFR Certified From Home"
+              secondary="Be quick. Patient demand is rising."
+              starsVariant="dark"
+              hint={`${PRICING.guaranteeDays}-day money-back guarantee · 1 of ${STATS.certifiedPractitioners} graduates has ever taken it`}
+            />
           </motion.div>
 
           <motion.aside
             variants={fadeUp}
-            className="mt-14 mx-auto max-w-prose-narrow rounded-2xl border border-accent/40 bg-accent/[0.08] p-7 text-left"
+            className="mt-14 mx-auto max-w-prose-narrow rounded-lg border border-accent/40 bg-accent/[0.08] p-7 text-center"
             aria-label="Cost of inaction"
           >
             <p className="small-caps-line text-accent">A warning</p>
