@@ -71,8 +71,15 @@ export default function StatsBlock() {
               >
                 {tile.value}
               </dt>
-              <dd className="mt-3 small-caps-line text-accent">{tile.label}</dd>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{tile.sub}</p>
+              {/* §Pascal-2026-05-08 v11: <p> sibling to <dt>/<dd> inside the
+                 wrapper invalidated the dl-group structure (Lighthouse a11y).
+                 Sub text moved inside the <dd> as a span instead. */}
+              <dd className="mt-3 small-caps-line text-accent">
+                {tile.label}
+                <span className="mt-2 block text-sm leading-relaxed text-muted normal-case tracking-normal font-normal">
+                  {tile.sub}
+                </span>
+              </dd>
             </motion.div>
           ))}
         </motion.dl>
