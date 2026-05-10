@@ -23,16 +23,16 @@ export default function VideoPoster({
   const [playing, setPlaying] = useState(false);
 
   if (playing) {
-    // §Pascal-2026-05-08 v13: append autoplay=1 + muted=0 so VEED autoplays
-    // with sound on (Pascal's request). User gesture from the poster click
-    // is what authorizes the unmuted autoplay; if the browser still forces
-    // muted (rare), the user can unmute via the player's volume control.
-    const sep = videoSrc.includes("?") ? "&" : "?";
-    const autoplaySrc = `${videoSrc}${sep}autoplay=1&muted=0`;
+    // §Pascal-2026-05-08 v14: no autoplay query param. The browser/VEED
+    // combo was forcing muted-autoplay across the iframe boundary; dropping
+    // autoplay restores the original flow — VEED's player loads with its
+    // own play button on the first frame, user clicks it once, video plays
+    // with sound. Two clicks total (poster → VEED play button) but the LCP
+    // win still applies because the iframe only loads on the first click.
     return (
       <div className="relative w-full pb-[56.25%]">
         <iframe
-          src={autoplaySrc}
+          src={videoSrc}
           title={title}
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
