@@ -69,10 +69,10 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     routePath: "/get-certified-v1",
     belief: "Belief 5: research-source authority",
     beliefNumber: 5,
-    metaTitle: "BFR Certification Built on 72+ Peer-Reviewed Publications | The BFR Pros",
+    metaTitle: "BFR Certification Built on 72+ Peer-Reviewed Publications",
     metaDescription:
       "Earn 11.75 CEUs in 37 modules taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. Equipment-agnostic, evidence-based, 30-day money-back guarantee.",
-    ogImage: "/images/og/og-v1.png",
+    ogImage: "/images/hero/hero-banner.jpg",
     announcement: {
       eyebrow: "New cohort open",
       line: "Learn BFR from the source of 72+ peer-reviewed publications.",
@@ -147,10 +147,10 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     routePath: "/get-certified-v2",
     belief: "Belief 3: equipment-agnostic differentiator",
     beliefNumber: 3,
-    metaTitle: "The Only BFR Certification That Doesn't Sell You a Cuff | The BFR Pros",
+    metaTitle: "The Only BFR Certification That Doesn't Sell You a Cuff",
     metaDescription:
       "Equipment-agnostic BFR certification. Works with Delfi, SmartCuffs, B Strong, LiveBand. 37 modules, 11.75 CEUs, 72+ peer-reviewed publications. 30-day money-back.",
-    ogImage: "/images/og/og-v2.png",
+    ogImage: "/images/hero/hero-banner.jpg",
     announcement: {
       eyebrow: "Equipment-agnostic by design",
       line: "The only BFR certification that doesn't sell you a cuff.",
@@ -225,10 +225,10 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     routePath: "/get-certified",
     belief: "Belief 6: patient-demand and competitor adoption",
     beliefNumber: 6,
-    metaTitle: "Your Patients Are Already Asking for BFR. Be the Clinic That Delivers. | The BFR Pros",
+    metaTitle: "Your Patients Are Already Asking for BFR. Be the Clinic That Delivers.",
     metaDescription:
       "Patients are searching for BFR providers in your zip code. Get certified in 37 modules and 11.75 CEUs before the clinic across the street does. 30-day money-back guarantee.",
-    ogImage: "/images/og/og-v3.png",
+    ogImage: "/images/hero/hero-banner.jpg",
     announcement: {
       eyebrow: "Patient demand is rising",
       line: "Your competitors are getting certified. Be the BFR clinic patients in your zip code find first.",
