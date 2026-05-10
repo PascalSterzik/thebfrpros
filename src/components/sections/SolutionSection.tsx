@@ -93,7 +93,7 @@ export default function SolutionSection() {
             variants={fadeUp}
             className="mt-6 mx-auto max-w-2xl text-lg leading-relaxed text-ink/80"
           >
-            Every BFR course you've shopped is research-led <em>or</em> equipment-led <em>or</em> implementation-focused. The Complete BFR Certification is the only one that does all three at once, by design.
+            Every BFR course you've shopped is research-led <em>or</em> equipment-led <em>or</em> implementation-focused. The Complete BFR Certification combines all three at once, by design.
           </motion.p>
         </motion.div>
 

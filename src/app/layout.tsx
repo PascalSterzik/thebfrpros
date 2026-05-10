@@ -38,7 +38,7 @@ const fontQuote = EB_Garamond({
 export const metadata: Metadata = {
   metadataBase: new URL("https://thebfrpros.com"),
   title: {
-    default: "The BFR Pros | The Gold Standard in Blood Flow Restriction Certification",
+    default: "The BFR Pros | Online BFR Certification by Dr. Nicholas Rolnick",
     template: "%s | The BFR Pros",
   },
   description:
