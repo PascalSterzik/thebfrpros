@@ -23,12 +23,15 @@ export const SITE = {
     tiktok: "https://www.tiktok.com/@thebfrpros",
     twitter: "https://x.com/thebfrpros",
   },
-  // The same Cloudflare-fronted Vercel project serves all variants; review index is at /.
+  // The same Cloudflare-fronted Vercel project serves the homepage at / and the
+  // /get-certified variants at /get-certified (default v3) plus -v1 / -v2.
+  // The internal variant-review index has moved to /preview.
   routes: {
-    index: "/",
+    home: "/",
+    preview: "/preview",
     v1: "/get-certified-v1",
     v2: "/get-certified-v2",
-    v3: "/get-certified-v3",
+    v3: "/get-certified",
   },
 } as const;
 

@@ -1,123 +1,138 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { VARIANTS } from "@/content/variants";
+import Header, { type HeaderMenuLink } from "@/components/shared/Header";
+import Footer from "@/components/shared/Footer";
+import HomeHero from "@/components/sections/home/HomeHero";
+import CredibilityBar from "@/components/sections/CredibilityBar";
+import WhatBFRDoes from "@/components/sections/home/WhatBFRDoes";
+import WhyBFRMattersNow from "@/components/sections/home/WhyBFRMattersNow";
+import StatsBlock from "@/components/sections/StatsBlock";
+import HomeSolution from "@/components/sections/home/HomeSolution";
+import HomeCourseOverview from "@/components/sections/home/HomeCourseOverview";
+import WhoItsForCards from "@/components/sections/home/WhoItsForCards";
+import HomeInstructor from "@/components/sections/home/HomeInstructor";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import HomeProofRow from "@/components/sections/home/HomeProofRow";
+import FAQSection from "@/components/sections/FAQSection";
+import HomeFinalCTA from "@/components/sections/home/HomeFinalCTA";
+import { HOME_FAQ, HOME_META } from "@/content/home";
+import { ENROLL_URL } from "@/lib/constants";
+import { buildHomeSchemaGraph } from "@/lib/schema";
+
+// Public homepage at "/". Phase 1A pair to /get-certified (already shipped).
+// Section flow follows the funnel-position audit in the plan: hero installs
+// Belief 1 (modality value), sections 4-5 deepen Belief 1, section 7 installs
+// Beliefs 3 + 4, section 10 formalizes Belief 5, section 14 closes with Belief 6
+// urgency. The internal variant-review index moved to /preview.
 
 export const metadata: Metadata = {
-  title: "Phase 1A Concept Variants | The BFR Pros (private review)",
-  description: "Internal review index for the three /get-certified concept variants. Not for public traffic.",
-  robots: { index: false, follow: false },
+  title: HOME_META.title,
+  description: HOME_META.description,
+  alternates: {
+    canonical: HOME_META.canonicalPath,
+  },
+  openGraph: {
+    title: HOME_META.title,
+    description: HOME_META.description,
+    url: HOME_META.canonicalPath,
+    type: "website",
+    images: [
+      {
+        url: HOME_META.ogImagePath,
+        width: 1200,
+        height: 630,
+        alt: "The BFR Pros — online BFR certification by Dr. Nicholas Rolnick",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: HOME_META.title,
+    description: HOME_META.description,
+    images: [HOME_META.ogImagePath],
+  },
 };
 
-const VARIANT_NOTES: Record<"v1" | "v2" | "v3", { tagline: string; angle: string; oneLiner: string }> = {
-  v1: {
-    angle: "Research-authority lead",
-    tagline: "Belief 5: 72+ peer-reviewed publications as the source of truth",
-    oneLiner:
-      "Earned-authority opening. The hero stat is publication count, the dream is the clinician who cites the research, the warning is staying generic in a field that's specializing.",
-  },
-  v2: {
-    angle: "Equipment-agnostic lead",
-    tagline: "Belief 3: the only BFR certification that doesn't sell you a cuff",
-    oneLiner:
-      "Differentiation opening. Names the competitors, calls out what they're selling, positions us as the neutral curriculum. Strongest for clinicians already cuff-skeptical.",
-  },
-  v3: {
-    angle: "Patient-demand lead",
-    tagline: "Belief 6: your patients are already asking. Be the clinic that delivers.",
-    oneLiner:
-      "Loss-aversion opening. The competitor down the street, the firefighter who Googled, the surgeon's referrals shifting. Strongest for clinic-owner readers.",
-  },
-};
+// Homepage menu. Phase 1A simplified: items pointing at Phase 2/3 pages render
+// as visibly disabled "Coming soon" links so the brand nav reads as planned
+// without shipping broken navigation.
+const HOME_MENU_LINKS: HeaderMenuLink[] = [
+  { href: "/get-certified", label: "Get Certified" },
+  { href: "/for/physical-therapists", label: "For Physical Therapists", comingSoon: true },
+  { href: "/for/athletic-trainers", label: "For Athletic Trainers", comingSoon: true },
+  { href: "/for/strength-coaches", label: "For Strength Coaches", comingSoon: true },
+  { href: "/about", label: "About", comingSoon: true },
+  { href: "/research", label: "Research", comingSoon: true },
+  { href: "/reviews", label: "Reviews", comingSoon: true },
+  { href: "https://bfrproviders.com", label: "Find a Provider", external: true },
+  { href: ENROLL_URL, label: "Enroll Now", external: true },
+];
 
-export default function ReviewIndex() {
+export default function HomePage() {
+  const schema = buildHomeSchemaGraph({
+    pageTitle: HOME_META.title,
+    pageDescription: HOME_META.description,
+    faq: HOME_FAQ,
+  });
+
   return (
-    <main className="min-h-screen bg-cream">
-      <div className="container-rail py-20 lg:py-28">
-        <header className="max-w-2xl">
-          <p className="small-caps-line text-accent">The BFR Pros · Phase 1A · private review</p>
-          <h1 className="mt-5 font-display text-display-2xl text-navy text-balance">
-            Three concept variants of /get-certified.
-          </h1>
-          <p className="mt-6 text-lg leading-relaxed text-ink/80">
-            Same offer, same brand, same component library. Each variant leads with a different belief from the dossier. Click any card to open the full variant.
-          </p>
-          <p className="mt-3 text-sm text-muted">
-            <strong>For Pascal + Dr. Rolnick.</strong> Not for public traffic. Each variant is identical from section 9 (the BFR Pros difference) onward; the positioning differs in the announcement bar, hero, problem, dream, bridge, final CTA, and P.S.
-          </p>
-        </header>
+    <>
+      {/* 1. Sticky header with full multi-page nav (Coming-Soon pills for Phase 2/3) */}
+      <Header menuLinks={HOME_MENU_LINKS} />
 
-        <ul className="mt-14 grid gap-6 lg:grid-cols-3">
-          {(Object.keys(VARIANT_NOTES) as Array<"v1" | "v2" | "v3">).map((slug) => {
-            const v = VARIANTS[slug];
-            const meta = VARIANT_NOTES[slug];
-            return (
-              <li key={slug}>
-                <Link
-                  href={v.routePath}
-                  className="group block rounded-lg border border-line bg-white p-7 transition hover:-translate-y-1 hover:border-navy/40 hover:shadow-navy-lg"
-                >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-cream ring-1 ring-line">
-                    <Image
-                      src={v.hero.photoSrc}
-                      alt={v.hero.photoAlt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 360px"
-                      className="object-cover transition duration-700 group-hover:scale-[1.04]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-deeper/60 via-transparent to-transparent" aria-hidden />
-                    <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-navy">
-                      {slug}
-                    </span>
-                  </div>
-                  <p className="mt-5 small-caps-line text-accent">{meta.angle}</p>
-                  <h2 className="mt-3 font-display text-2xl text-navy text-balance leading-snug">
-                    {v.hero.headline}
-                  </h2>
-                  <p className="mt-3 text-sm text-muted">{meta.tagline}</p>
-                  <p className="mt-5 text-sm leading-relaxed text-ink/80">{meta.oneLiner}</p>
-                  <p className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                    Open the variant →
-                  </p>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      <main id="main">
+        {/* 2. Hero — Belief 1 (modality value) leads, Belief 5 (research source) echoes */}
+        <HomeHero />
 
-        <section className="mt-20 rounded-lg border border-line bg-white p-7 lg:p-10">
-          <p className="small-caps-line text-muted">Build notes</p>
-          <h2 className="mt-3 font-display text-display-md text-navy text-balance">
-            What's shared, what's variant-specific, and what's still pending.
-          </h2>
-          <div className="mt-6 grid gap-8 md:grid-cols-3">
-            <div>
-              <p className="small-caps-line text-accent">Variant-specific (8)</p>
-              <p className="mt-2 text-sm text-ink/85">
-                Announcement bar, hero, problem, dream vision, dream deep dive, solution bridge, final CTA frame, P.S.
-              </p>
-            </div>
-            <div>
-              <p className="small-caps-line text-accent">Shared (14)</p>
-              <p className="mt-2 text-sm text-ink/85">
-                Header, credibility bar, BFR Pros difference + comparison table, curriculum, instructor authority, bonuses, CEU approvals, visual proof, testimonials, partners, pricing, guarantee, FAQ, footer.
-              </p>
-            </div>
-            <div>
-              <p className="small-caps-line text-accent">Still pending</p>
-              <p className="mt-2 text-sm text-ink/85">
-                OG share images per variant, Lighthouse run, schema validator pass, and the full website-qa quality gate. Documented in this project README.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* 3. Credibility Bar — Featured-In marquee */}
+        <CredibilityBar />
 
-        <footer className="mt-16 text-xs text-muted">
-          <p>
-            Build started 2026-05-06 (Phase 1A rerun). Aesthetic direction: editorial clinical authority. Tech stack: Next.js 14 + Tailwind 3 + Framer Motion 12. Static export, Vercel hosting.
-          </p>
-        </footer>
-      </div>
-    </main>
+        {/* 4. What BFR Does — modality explainer (Belief 1 deepening) */}
+        <WhatBFRDoes />
+
+        {/* 5. Why BFR Matters Now — Belief 1 evidence stack */}
+        <WhyBFRMattersNow />
+
+        {/* 6. Stats Strip — bridges modality to certification authority */}
+        <StatsBlock />
+
+        {/* 7. The BFR Pros Difference — Beliefs 3 + 4 (cuff-bias + right shape) */}
+        <HomeSolution />
+
+        {/* 8. Course Overview teaser — bridges to /get-certified */}
+        <HomeCourseOverview />
+
+        {/* 9. Who It's For — three profession cards */}
+        <WhoItsForCards />
+
+        {/* 10. Instructor Authority — Belief 5 formal install */}
+        <HomeInstructor />
+
+        {/* 11. Testimonials — outcome-specific named credentials */}
+        <TestimonialsSection />
+
+        {/* 12. Partners + Approvals — brand legitimacy */}
+        <HomeProofRow />
+
+        {/* 13. FAQ — top 5 objections, leads with the modality-belief pair */}
+        <FAQSection
+          items={HOME_FAQ}
+          eyebrow="Common questions"
+          title="The 5 questions every clinician asks before deciding."
+          intro="Answered in plain language, with citations where the science supports the answer."
+        />
+
+        {/* 14. Final CTA — Belief 6 (patient-demand) lands HERE only, by design */}
+        <HomeFinalCTA />
+      </main>
+
+      {/* 15. Footer */}
+      <Footer />
+
+      {/* JSON-LD @graph: Organization, WebSite (with SearchAction), Course, Person, AggregateRating, FAQPage, WebPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+    </>
   );
 }

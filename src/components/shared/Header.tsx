@@ -5,9 +5,17 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ENROLL_URL, SITE } from "@/lib/constants";
 
-// Burger menu contents per §D.2. In-page anchors for sections that exist on
-// /get-certified; ENROLL_URL for the conversion path; tel:/mailto: for contact.
-const MENU_LINKS: { href: string; label: string; external?: boolean }[] = [
+export type HeaderMenuLink = {
+  href: string;
+  label: string;
+  external?: boolean;
+  comingSoon?: boolean;
+};
+
+// Default menu used on /get-certified variants. In-page anchors target sections
+// that exist there. Homepage and any future page passes its own menu via the
+// menuLinks prop.
+const DEFAULT_MENU_LINKS: HeaderMenuLink[] = [
   { href: ENROLL_URL, label: "Get BFR Certified", external: true },
   { href: "#curriculum", label: "The Curriculum" },
   { href: "#instructor", label: "About Dr. Rolnick" },
@@ -17,7 +25,13 @@ const MENU_LINKS: { href: string; label: string; external?: boolean }[] = [
   { href: "#faq", label: "FAQ" },
 ];
 
-export default function Header({ variantHome = "/" }: { variantHome?: string }) {
+export default function Header({
+  variantHome = "/",
+  menuLinks = DEFAULT_MENU_LINKS,
+}: {
+  variantHome?: string;
+  menuLinks?: HeaderMenuLink[];
+}) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   // §King-Kong-style sticky behavior: hide on scroll-down, show on scroll-up only
@@ -156,21 +170,42 @@ export default function Header({ variantHome = "/" }: { variantHome?: string }) 
       >
         <div className="container-rail flex h-full flex-col bg-white py-10">
           <ul className="flex flex-col">
-            {MENU_LINKS.map((l) =>
-              l.external ? (
-                <li key={l.href} className="border-b border-line/60 last:border-b-0">
-                  <a
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setOpen(false)}
-                    className="flex items-center justify-between gap-4 py-5 font-display text-2xl sm:text-3xl text-accent"
-                  >
-                    {l.label}
-                    <span aria-hidden className="text-base">→</span>
-                  </a>
-                </li>
-              ) : (
+            {menuLinks.map((l) => {
+              if (l.comingSoon) {
+                return (
+                  <li key={l.href} className="border-b border-line/60 last:border-b-0">
+                    <span
+                      aria-disabled="true"
+                      className="flex items-center justify-between gap-4 py-5 font-display text-2xl sm:text-3xl text-navy/40 cursor-not-allowed"
+                    >
+                      <span className="flex items-baseline gap-3">
+                        {l.label}
+                        <span className="font-body text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted/70 normal-case rounded-full border border-line px-2 py-0.5">
+                          Coming soon
+                        </span>
+                      </span>
+                      <span aria-hidden className="text-base text-muted/40">→</span>
+                    </span>
+                  </li>
+                );
+              }
+              if (l.external) {
+                return (
+                  <li key={l.href} className="border-b border-line/60 last:border-b-0">
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
+                      className="flex items-center justify-between gap-4 py-5 font-display text-2xl sm:text-3xl text-accent"
+                    >
+                      {l.label}
+                      <span aria-hidden className="text-base">→</span>
+                    </a>
+                  </li>
+                );
+              }
+              return (
                 <li key={l.href} className="border-b border-line/60 last:border-b-0">
                   <Link
                     href={l.href}
@@ -181,8 +216,8 @@ export default function Header({ variantHome = "/" }: { variantHome?: string }) 
                     <span aria-hidden className="text-base text-muted">→</span>
                   </Link>
                 </li>
-              ),
-            )}
+              );
+            })}
           </ul>
 
           <div className="mt-auto pt-10 border-t border-line/60">

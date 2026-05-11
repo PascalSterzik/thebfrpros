@@ -3,10 +3,22 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
-import { FAQ } from "@/content/faq";
+import { FAQ, type FAQItem } from "@/content/faq";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-export default function FAQSection() {
+type FAQSectionProps = {
+  items?: readonly FAQItem[];
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+};
+
+export default function FAQSection({
+  items = FAQ,
+  eyebrow = "Common questions",
+  title = "The 9 questions every clinician asks before enrolling.",
+  intro = "Pulled from the actual support inbox. Answered here in plain language.",
+}: FAQSectionProps = {}) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -20,17 +32,17 @@ export default function FAQSection() {
           className="grid gap-12 lg:grid-cols-12"
         >
           <motion.div variants={fadeUp} className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
-            <SectionLabel label="Common questions" />
+            <SectionLabel label={eyebrow} />
             <h2 className="mt-5 font-display text-display-xl text-navy text-balance">
-              The 9 questions every clinician asks before enrolling.
+              {title}
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted">
-              Pulled from the actual support inbox. Answered here in plain language.
+              {intro}
             </p>
           </motion.div>
 
           <motion.ul variants={fadeUp} className="lg:col-span-8 divide-y divide-line border-t border-b border-line">
-            {FAQ.map((item, i) => {
+            {items.map((item, i) => {
               const open = openIndex === i;
               return (
                 <li key={item.q}>
