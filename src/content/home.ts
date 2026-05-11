@@ -11,27 +11,37 @@
 import type { FAQItem } from "@/content/faq";
 
 export const HOME_META = {
-  title: "BFR Certification by the Most-Published BFR Researcher | The BFR Pros",
+  // Absolute title (bypasses layout.tsx title.template suffix) — homepage owns its own
+  // root title rather than appending "| The BFR Pros" suffix on top of an existing
+  // "| The BFR Pros" string. Set as { absolute } in app/page.tsx metadata.
+  title: "The BFR Pros | Online BFR Certification by Dr. Nicholas Rolnick",
   description:
-    "Online BFR certification taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed publications. 37 modules, 11.75 CEUs, equipment-agnostic, 30-day money-back guarantee.",
+    "Online BFR certification taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. 37 modules, 11.75 CEUs, equipment-agnostic, 30-day money-back guarantee.",
   canonicalPath: "/",
   ogImagePath: "/og/home",
 } as const;
 
-// Hero — Section 2. Belief 1 (modality value) leads. Belief 5 (research source)
-// echoes immediately in eyebrow + subhead.
+// Hero — Section 2. Belief 1 (modality value at 30% load) leads, and EVERY
+// element in the section is sourced from the same belief layer: eyebrow
+// orients on BFR + audience, headline is the science claim, subhead extends
+// the science claim, CTA frames the cert as exploration (visitor doesn't
+// know what BFR is yet — pushing "Get Certified" here jumps too far down
+// the funnel). The trust line below names Dr. Rolnick by his peer-reviewed
+// publication COUNT, never a comparative superlative (see brand-guide.md
+// Forbidden Claims table for the literal blocked phrases and approved
+// replacements).
+// The secondary "What is BFR?" anchor button was removed because the
+// destination is literally the next section on scroll — the button adds
+// no value (the visitor will scroll anyway).
 export const HOME_HERO = {
-  eyebrow: "Online BFR certification taught by the most-published BFR researcher",
-  // Pascal: "people on the page need to be convinced that BFR is the solution"
-  // before pushing the cert. This headline leads with the modality stat (Belief 1)
-  // and uses the research source (Belief 5) as the immediate proof.
+  eyebrow: "BFR training for licensed clinicians",
   headline: "BFR builds the same strength as heavy lifting. At 30% of the load.",
   highlightPhrase: "30% of the load",
   subhead:
-    "Get certified by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. 11.75 CEUs. 37 modules. Equipment-agnostic.",
-  primaryCta: "Get Certified",
-  secondaryCta: "What is BFR?",
-  secondaryCtaHref: "#what-bfr-does",
+    "The rehab tool with sixty years of research and a growing peer-reviewed evidence base. Built for licensed PTs, ATs, and S&C coaches who want to apply BFR in their practice.",
+  primaryCta: "Explore the certification",
+  trustLine:
+    "Built on 72+ peer-reviewed BFR publications by Dr. Nicholas Rolnick. 11.75 CEUs. Equipment-agnostic.",
   photoSrc: "/images/hero/hero-banner.jpg",
   photoAlt: "Dr. Nicholas Rolnick applying a blood flow restriction cuff to a patient's leg",
 } as const;
@@ -194,8 +204,10 @@ export const HOME_AUDIENCES = [
 export const HOME_INSTRUCTOR = {
   eyebrow: "Your instructors",
   headline: "Learn from the source.",
+  // Belief 5 (research source) framed with the specific count, never a
+  // comparative superlative — see Forbidden Claims in brand-guide.md.
   intro:
-    "The Complete BFR Certification is taught by the clinician who has authored more peer-reviewed BFR research than anyone else in the field, plus a co-instructor who bridges rehab and athletic performance.",
+    "The Complete BFR Certification is taught by Dr. Nicholas Rolnick, whose 72+ peer-reviewed BFR publications form the curriculum's evidence base, alongside a co-instructor who bridges rehab and athletic performance.",
   ctaLabel: "Read the instructor profile",
   ctaHref: "/about/nicholas-rolnick",
   ctaComingSoon: true,

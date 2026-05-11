@@ -36,7 +36,7 @@ export async function GET() {
             fontWeight: 600,
           }}
         >
-          The BFR Pros · Online Certification
+          The BFR Pros · BFR Training for Licensed Clinicians
         </div>
 
         <div

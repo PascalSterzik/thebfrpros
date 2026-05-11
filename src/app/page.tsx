@@ -25,7 +25,9 @@ import { buildHomeSchemaGraph } from "@/lib/schema";
 // urgency. The internal variant-review index moved to /preview.
 
 export const metadata: Metadata = {
-  title: HOME_META.title,
+  // Absolute bypasses layout.tsx's title.template suffix so the homepage
+  // doesn't double-suffix "| The BFR Pros" on a string that already contains it.
+  title: { absolute: HOME_META.title },
   description: HOME_META.description,
   alternates: {
     canonical: HOME_META.canonicalPath,
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
         url: HOME_META.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "The BFR Pros — online BFR certification by Dr. Nicholas Rolnick",
+        alt: "The BFR Pros, online BFR certification by Dr. Nicholas Rolnick",
       },
     ],
   },

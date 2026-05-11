@@ -159,6 +159,13 @@ Each variant ships with:
 - Weasel words: "might", "could", "may help"
 - Fonts: Inter, Roboto, Arial, system-ui, Space Grotesk, Playfair Display
 - Colors: default Tailwind blue/indigo/purple, purple-on-white gradients
+- **Forbidden Claims (full list in `brand-guide.md` Forbidden Claims table, source-of-truth).** Phrases like "most-published BFR researcher", "more peer-reviewed BFR research than anyone", "the leading BFR certification", "the gold standard in BFR", and "the most comprehensive BFR certification in the world" are unverifiable comparative superlatives and are blocked. Use the specific publication count (72+) or specific scope numbers (37 modules, 11.75 CEUs) instead. Grep before every ship:
+
+```bash
+grep -rEi "most.?published|more peer.?reviewed.+than|highest.?published|more research than|more publications than|the leading BFR|gold standard in BFR|most comprehensive BFR" src/
+```
+
+This grep must return ZERO matches. The brand-guide.md Forbidden Claims section is the rule; this grep is the gate. Two prior reviews of "most-published BFR researcher" were closed without a structural fix, which let the same phrase reappear on the 2026-05-10 homepage build. The gate is the fix.
 
 ## 9. Lighthouse Scores (per variant)
 
