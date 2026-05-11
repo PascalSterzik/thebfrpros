@@ -185,6 +185,9 @@ export const VIDEOS = {
   module0Preview: "https://www.veed.io/embed/6090711f-f32f-41ac-a6a2-4840df4eb9e1?watermark=0&color=blue&sharing=0&title=0",
   testimonial: "https://www.veed.io/embed/447b2350-3678-4c64-b638-727760e4534f?watermark=0&color=blue&sharing=0&title=0",
   whatIsBFR: "https://www.veed.io/embed/c9d62acf-0808-4194-a27c-6ec3d94ea85a?watermark=0&color=blue&sharing=0&title=0",
+  // Homepage hero video: Nick covering common questions about BFR. Stage-2
+  // friendly (no cert pitch). Used in HomeHero.tsx below the subhead.
+  homepageHero: "https://www.veed.io/embed/a6ceb7f2-af2c-411c-aaf5-c8121e59816b?watermark=0&color=blue&sharing=0&title=0",
   course1Promo: "https://www.veed.io/embed/277fd3eb-8c96-419c-86a1-f928bf84abe0?watermark=0&color=blue&sharing=0&title=0",
   course2Promo: "https://www.veed.io/embed/e1723f87-a5c7-4f54-9c4f-e8c8dfb83488?watermark=0&color=blue&sharing=0&title=0",
   course3Promo: "https://www.veed.io/embed/0f0f4e0f-a62a-41a4-8880-5c4f941d1671?watermark=0&color=blue&sharing=0&title=0",
