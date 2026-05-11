@@ -1,19 +1,21 @@
 // Homepage copy. Single source of truth for the public landing page at "/".
-// Per the funnel-position audit in the plan: every section maps to a specific
-// belief and awareness stage. Copy is written for the homepage's job (top of
-// funnel, mixed awareness), not borrowed from /get-certified.
 //
-// Brand-guide compliance:
-//   - Headings render in Compacta Bold ALL CAPS via .font-display + uppercase utilities.
-//     Strings here are written sentence-cased for editing readability; CSS uppercases.
-//   - No em-dashes, no AI words, no false scarcity (no "cohort", no "spots left").
-
-import type { FAQItem } from "@/content/faq";
+// Scope discipline (brand-guide.md Copy & Customer Journey Principles, Principle 6):
+//   - Homepage sells the MODALITY and the practitioner outcome.
+//   - /get-certified sells the certification.
+//   - The two never overlap. The homepage has NO pricing, NO curriculum
+//     preview, NO competitor comparison, NO cert-mechanics FAQ. Cert
+//     sections (HOME_SOLUTION, HOME_COURSE_OVERVIEW, HOME_FAQ) that
+//     previously lived here were removed because they belonged at
+//     /get-certified, not /.
+//
+// Headline punctuation (brand-guide.md Principle 5):
+//   - Display headlines never end with a terminal period.
+//   - Subhead body copy follows normal sentence punctuation.
 
 export const HOME_META = {
-  // Absolute title (bypasses layout.tsx title.template suffix) — homepage owns its own
-  // root title rather than appending "| The BFR Pros" suffix on top of an existing
-  // "| The BFR Pros" string. Set as { absolute } in app/page.tsx metadata.
+  // Absolute title (set as { absolute } in app/page.tsx metadata) bypasses
+  // layout.tsx title.template so "| The BFR Pros" doesn't double-suffix.
   title: "The BFR Pros | Online BFR Certification by Dr. Nicholas Rolnick",
   description:
     "Online BFR certification taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. 37 modules, 11.75 CEUs, equipment-agnostic, 30-day money-back guarantee.",
@@ -21,76 +23,69 @@ export const HOME_META = {
   ogImagePath: "/og/home",
 } as const;
 
-// Hero — Section 2. Lead with the practitioner's outcome, not the certification.
-// Stage-2 awareness traffic (problem-aware, doesn't know BFR is the answer
-// yet) lands here. The hero hooks on the clinical scenario the practitioner
-// already recognizes ("heavy loading off the table" — direct avatar
-// vocabulary from 02-avatar-sheet.md), names BFR as the protocol that
-// answers it, and earns credibility with the institutions adopting it. No
-// CTA: a "Get Certified" or "Explore the certification" ask at Stage 2 is
-// Stage-4 framing aimed at Stage-2 traffic and signals "this site is
-// selling me" — see brand-guide.md Copy & Customer Journey Principles for
-// the full reasoning. The first cert-pointing CTA appears in Course
-// Overview (section 8), after Beliefs 1, 3, 4, and 5 are installed.
+// Hero — Stage-2 awareness traffic (problem-aware, doesn't yet know BFR is
+// the answer). Hooks on the practitioner's specific clinical pain ("post-op
+// patients plateau" — avatar vocabulary from 02-avatar-sheet.md), names BFR
+// as the protocol, lands credibility via Mayo / Cleveland / SOCOM in two
+// sentences. No CTA: the homepage's only conversion path is the single
+// soft gateway in HOME_FINAL_CTA at the end of the page.
 export const HOME_HERO = {
   eyebrow: "Evidence-based BFR for licensed PTs, ATs, and S&C coaches",
-  headline: "When heavy loading is off the table, your patients plateau.",
+  headline: "Stop watching post-op patients plateau",
   highlightPhrase: "plateau",
   subhead:
-    "Blood flow restriction (BFR) is the protocol clinicians reach for when post-op caseload, in-season athletes, or geriatric patients can't tolerate heavy resistance. It drives strength and hypertrophy adaptations comparable to heavy lifting, at 20-40% of one-rep max. Sixty years of research. Adopted at Mayo Clinic, Cleveland Clinic, and US Special Operations Command. In PT scope per APTA, approved for ATs per NATA.",
+    "Blood flow restriction (BFR) accelerates strength gains for post-op, in-season, and geriatric patients. Mayo Clinic, Cleveland Clinic, and US Special Operations Command all use it.",
   photoSrc: "/images/hero/hero-banner.jpg",
   photoAlt: "Dr. Nicholas Rolnick applying a blood flow restriction cuff to a patient's leg",
 } as const;
 
-// Section 4 — What BFR Does. Modality explainer. Belief 1 deepening.
-// Outcome FIRST, mechanism second: the practitioner cares what BFR will
-// do for their caseload, then how it works. See brand-guide.md Copy &
-// Customer Journey Principles, Principle 1.
+// What BFR Does — modality explainer. Outcome FIRST, mechanism second.
 export const WHAT_BFR_DOES = {
   eyebrow: "What BFR does for your practice",
-  headline: "Build strength when heavy loads are off the table.",
+  headline: "Build strength when heavy loads aren't an option",
   intro:
-    "Blood flow restriction (BFR) drives strength and hypertrophy adaptations comparable to heavy resistance training using just 20-40% of one-rep max. A calibrated pneumatic cuff on the proximal limb restricts venous return while arterial flow continues, so the muscle works harder at lighter loads and the body adapts as if the load were heavy. Useful when heavy loading is contraindicated (post-op, in-season, geriatric) or simply not the priority.",
+    "Blood flow restriction (BFR) drives strength and hypertrophy adaptations comparable to heavy resistance training using just 20-40% of one-rep max. A calibrated pneumatic cuff restricts venous return on the proximal limb while arterial flow continues, so the muscle works harder at lighter loads and the body adapts as if the load were heavy. Useful when heavy loading is contraindicated (post-op, in-season, geriatric) or simply isn't the priority.",
   pillars: [
     {
       eyebrow: "Mechanism",
-      title: "Heavy-load gains at light-load tolerances.",
+      title: "Heavy-load gains at light-load tolerances",
       body: "Cell swelling, metabolite accumulation, and elevated motor-unit recruitment under restriction produce hypertrophy and strength adaptations across multiple muscle groups in published trials.",
     },
     {
       eyebrow: "Safety",
-      title: "Lower event rates than standard resistance training.",
+      title: "Lower event rates than standard resistance training",
       body: "The largest published BFR safety survey across 12,642 sessions reported deep vein thrombosis at 0.06%, pulmonary embolism at 0.01%, and rhabdomyolysis at 0.01%. Screening protocols and pressure prescription drive that record.",
     },
     {
       eyebrow: "Breadth",
-      title: "ACL rehab. Rotator cuff. Geriatrics. In-season athletes.",
-      body: "BFR has published evidence in post-surgical loading, sarcopenia, tendon adaptation, in-season maintenance, and aerobic conditioning. The certification covers protocols across each clinical and performance setting.",
+      title: "Post-op ACL, rotator cuff, geriatrics, in-season athletes",
+      body: "BFR has published evidence in post-surgical loading, sarcopenia, tendon adaptation, in-season maintenance, and aerobic conditioning across rehab and performance settings.",
     },
   ],
 } as const;
 
-// Section 5 — Why BFR Matters Now. Belief 1 evidence stack: 60-year history,
-// mainstream adoption, and the strength stat as the closing punch. Awareness 2-3.
+// Why BFR Matters Now — the literature has matured, the clinic floor is
+// catching up. Stage-2 / Stage-3 framing: the visitor decides BFR is
+// credible and the time to learn it is now.
 export const WHY_BFR_MATTERS_NOW = {
   eyebrow: "Why now",
-  headline: "Sixty years of research. Decades of clinical adoption.",
+  headline: "Sixty years of research, decades of clinical adoption",
   intro:
-    "The technique is not new. The application in modern outpatient rehab and S&C is. The literature has matured, the equipment has standardized, and major institutions are bringing BFR into clinical and performance practice.",
+    "The technique isn't new. The application in modern outpatient rehab and S&C is. The literature has matured, the equipment has standardized, and major institutions are bringing BFR into clinical and performance practice.",
   proofPoints: [
     {
       stat: "1966",
-      title: "Sato develops the original protocol in Japan.",
+      title: "Sato develops the original protocol in Japan",
       body: "The KAATSU patent followed in 1994. Adoption in US clinical settings accelerated through the 2010s as research output expanded.",
     },
     {
       stat: "12,642",
-      title: "Sessions in the largest published safety survey.",
+      title: "Sessions in the largest published safety survey",
       body: "Adverse event rates comparable to or lower than standard resistance training, when applied with screening and pressure protocols.",
     },
     {
       stat: "30%",
-      title: "Of one-rep max produces heavy-lifting strength gains.",
+      title: "Of one-rep max produces heavy-lifting strength gains",
       body: "Published trials demonstrate hypertrophy and strength adaptations at 20-40% 1RM under restriction that match traditional 70-80% 1RM training.",
     },
   ],
@@ -98,162 +93,60 @@ export const WHY_BFR_MATTERS_NOW = {
     "Mayo Clinic, Cleveland Clinic, Northwestern Medicine, and US Special Operations Command all use BFR. The American Physical Therapy Association recognizes BFR within PT scope. The National Athletic Trainers Association approves BFR for athletic trainers.",
 } as const;
 
-// Section 7 — The BFR Pros Difference. Beliefs 3 (cuff bias) + 4 (right shape).
-// Awareness 3-4. Three pillars condensed; full comparison table lives on /get-certified.
-export const HOME_SOLUTION = {
-  eyebrow: "The BFR Pros difference",
-  headline: "Three things no other BFR certification combines.",
-  intro:
-    "Every BFR course on the market is research-led, or equipment-led, or implementation-focused. The Complete BFR Certification gives you all three.",
-  pillars: [
-    {
-      // Pillar TITLES lead with the practitioner outcome from the underlying
-      // feature; the feature lives in the body as proof. See brand-guide.md
-      // Copy & Customer Journey Principles, Principle 1.
-      title: "Stay current with the literature, not with a manufacturer's marketing.",
-      body: "Built on 72+ peer-reviewed BFR publications by Dr. Nicholas Rolnick. The curriculum updates as the evidence base evolves, so what you apply on Monday is what the field knows today.",
-    },
-    {
-      title: "Use whatever cuff your clinic already owns.",
-      body: "The protocols work with Delfi, SmartCuffs, B Strong, LiveBand, KAATSU, or any quality cuff. You don't get locked into one manufacturer for the next five years, and you don't pay $5,000 for a device before you start.",
-    },
-    {
-      title: "Apply BFR with your first patient by week two, not month two.",
-      body: "11 implementation bonuses (screening forms, liability waiver, RPE tools, device discount codes, a private community of 1,467+ certified clinicians) close the gap between learning the technique and using it on a real patient.",
-    },
-  ],
-  closing:
-    "The full side-by-side against Owens Recovery Science, NE Seminars, PESI, and Mike Reinold lives on the certification page.",
-  ctaLabel: "See the full comparison",
-  ctaHref: "/get-certified#solution",
-} as const;
-
-// Section 8 — Course Overview. Bridges to /get-certified. Awareness 4-5.
-// Intro leads with what the practitioner will be ABLE TO DO after the
-// curriculum (the outcome), with the module/CEU/format specs supporting
-// that claim. Not the other way around. See brand-guide.md Copy &
-// Customer Journey Principles, Principle 1 (sell the thing that sells
-// the thing) and Principle 3 (Course Overview's job is "what will I
-// actually learn?", not "how is it packaged?").
-export const HOME_COURSE_OVERVIEW = {
-  eyebrow: "The certification",
-  headline: "The Complete BFR Certification.",
-  summary:
-    "After the curriculum, you'll be able to screen patients for BFR readiness, calculate occlusion pressure on any limb, program BFR into existing rehab and performance plans, and apply it across post-op, in-season, and geriatric caseloads. 37 modules across 4 courses, 11.75 CEUs, on-demand video plus downloadable resources. Do it in a weekend or take 4 weeks.",
-  highlights: [
-    { value: "4", label: "Courses" },
-    { value: "37", label: "Modules" },
-    { value: "11.75", label: "CEUs" },
-    { value: "$449", label: "Single bundle" },
-  ],
-  courses: [
-    {
-      n: "1",
-      title: "Introduction to BFR Training",
-      detail: "14 modules · 5h 16m · 5.5 CEUs",
-      summary: "Foundation. Mechanism, screening, pressure prescription, and the three pillars of BFR application.",
-    },
-    {
-      n: "2",
-      title: "BFR Masters Series Clinical Rounds",
-      detail: "12 modules · 1h 32m · 2.25 CEUs",
-      summary: "Six case-based clinical rounds with Dr. Rolnick walking through real patient decisions.",
-    },
-    {
-      n: "3",
-      title: "Masters Webinar: What's New in BFR 2021",
-      detail: "6 modules · 1h 35m · 2 CEUs",
-      summary: "Five 2021 papers with the lead author's commentary on what each finding means clinically.",
-    },
-    {
-      n: "4",
-      title: "Masters Webinar: Device Features 2024",
-      detail: "2 modules · 1h 38m · 2 CEUs",
-      summary: "Comparative review of 2024 cuff design data plus a practical assessment on wrap straps vs elastic bands.",
-    },
-  ],
-  ctaLabel: "Get Certified",
-  ctaSecondaryLabel: "See the full curriculum",
-  ctaSecondaryHref: "/get-certified#curriculum",
-} as const;
-
-// Section 9 — Who It's For. 3 profession cards. Awareness 2-4.
-// Cards link to /for/* (Phase 2, comingSoon: true).
+// Who It's For — three audience identification cards. NOT cert selling.
+// Body lines describe what each audience applies BFR to, not what the
+// curriculum covers. License-scope line tells the reader "this is in
+// scope for your credential" as identification proof, not as a CEU sell.
 export const HOME_AUDIENCES = [
   {
     audience: "Physical Therapists",
     eyebrow: "For PTs",
-    body: "BFR is within PT scope of practice per APTA. The curriculum covers post-op loading, ACL rehab, rotator cuff, and the geriatric population PT school underserved.",
-    ceus: "11.75 CEUs · BOC + NY State PT + NJ State PT approved",
+    body: "Apply BFR to post-op loading, ACL rehab, rotator cuff, the total knee at month four, and the geriatric population whose joints can't tolerate heavy resistance.",
+    scopeLine: "BFR is within PT scope of practice per APTA",
     href: "/for/physical-therapists",
     comingSoon: true,
   },
   {
     audience: "Athletic Trainers",
     eyebrow: "For ATs",
-    body: "BFR is approved for ATs by NATA. AT-specific use cases run through the curriculum: in-season maintenance, sideline-friendly equipment recommendations, and return-to-sport timelines.",
-    ceus: "11.75 CEUs · BOC AP# P10226",
+    body: "Apply BFR to in-season maintenance, sideline-friendly recovery, post-injury return-to-sport, and the athlete who can't load heavy in-season but still needs to maintain strength.",
+    scopeLine: "BFR is approved for ATs per NATA",
     href: "/for/athletic-trainers",
     comingSoon: true,
   },
   {
     audience: "Strength & Conditioning Coaches",
     eyebrow: "For S&C",
-    body: "Bonus #9 (Athletic BFR Programming) covers in-season maintenance, low-load hypertrophy, and ischemic preconditioning protocols for the performance setting.",
-    ceus: "Performance + rehab applications across the curriculum",
+    body: "Apply BFR to in-season hypertrophy at low loads, ischemic preconditioning, and the athlete whose schedule won't allow heavy training but who still needs to progress.",
+    scopeLine: "Performance applications across rehab and S&C settings",
     href: "/for/strength-coaches",
     comingSoon: true,
   },
 ] as const;
 
-// Section 10 — Instructor Authority condensed. Belief 5 formal install.
-// Stays lighter than /get-certified InstructorsSection (no facts grid, no marquee).
+// Instructor — brief Belief 5 (research source) installation. Names
+// Dr. Rolnick by the specific publication count, never a superlative
+// (Forbidden Claims in brand-guide.md).
 export const HOME_INSTRUCTOR = {
   eyebrow: "Your instructors",
-  headline: "Learn from the source.",
-  // Belief 5 (research source) framed with the specific count, never a
-  // comparative superlative — see Forbidden Claims in brand-guide.md.
+  headline: "Learn from the source",
   intro:
-    "The Complete BFR Certification is taught by Dr. Nicholas Rolnick, whose 72+ peer-reviewed BFR publications form the curriculum's evidence base, alongside a co-instructor who bridges rehab and athletic performance.",
+    "Dr. Nicholas Rolnick has authored 72+ peer-reviewed BFR publications and maintains an active clinical practice in Manhattan. Dr. Nicholas Licameli, the co-instructor, bridges rehab-side BFR programming and athletic performance applications.",
   ctaLabel: "Read the instructor profile",
   ctaHref: "/about/nicholas-rolnick",
   ctaComingSoon: true,
 } as const;
 
-// Section 14 — Final CTA. Belief 6 patient-demand framing as the closing urgency
-// hook. This is the ONLY place patient-demand leads on the homepage; Beliefs 1-5
-// have been installed by now, so Belief 6 lands.
+// Final CTA — the homepage's ONE soft gateway to /get-certified. Per
+// Principle 6 in brand-guide.md, the homepage does not sell the cert.
+// This block is the single exit point: it tells the convinced visitor
+// where to go next without selling the offer. Pricing, guarantee,
+// bonuses, and module breakdown all live at /get-certified.
 export const HOME_FINAL_CTA = {
-  eyebrow: "The next logical step",
-  headline: "Your patients are already asking for BFR. The clinic across the street is starting to deliver it.",
+  eyebrow: "The next step",
+  headline: "Apply BFR in your practice",
   body:
-    "First-mover clinics in major metros are already building cash-pay BFR programs. The certification is the path from \"we don't do that\" to \"we're the BFR clinic in this zip code.\"",
-  primaryCta: "Get Certified",
-  reassurance:
-    "11.75 CEUs · 30-day money-back guarantee · 1,467+ practitioners certified · works with any quality cuff",
+    "The Complete BFR Certification teaches the protocols, screening, and pressure science. Taught by Dr. Nicholas Rolnick, equipment-agnostic, online and self-paced.",
+  primaryCta: "See the certification",
+  primaryCtaHref: "/get-certified",
 } as const;
-
-// Section 13 — HOME_FAQ. Five questions per SITE-ARCHITECTURE §8. Pulled from
-// 04-offer-brief.md and ordered modality-belief first, then cert mechanics.
-export const HOME_FAQ: readonly FAQItem[] = [
-  {
-    q: "Is BFR a fad?",
-    a: "No. BFR has 60 years of research history starting with Sato in 1966 and a peer-reviewed evidence base that has expanded sharply over the past two decades. Mayo Clinic, Cleveland Clinic, Northwestern Medicine, and US Special Operations Command have all integrated BFR. The American Physical Therapy Association recognizes BFR within PT scope, and the National Athletic Trainers Association approves it for ATs.",
-  },
-  {
-    q: "Is BFR safe?",
-    a: "Yes, when applied by a screened practitioner with appropriate pressures. The largest published BFR safety survey (n=12,642 sessions) reported deep vein thrombosis at 0.06%, pulmonary embolism at 0.01%, and rhabdomyolysis at 0.01%, rates comparable to or lower than standard resistance training. Safety depends on screening, equipment quality, and pressure prescription, all of which the certification covers in detail.",
-  },
-  {
-    q: "Do I need to buy a specific cuff?",
-    a: "No. The certification is equipment-agnostic by design. You can use Delfi PTS, SmartCuffs, B Strong, LiveBand, KAATSU, or any other quality cuff. Bonus #4 includes negotiated discount codes across the major manufacturers, so you pick the cuff that fits your practice and budget after the curriculum has taught you what to look for.",
-  },
-  {
-    q: "How long does the certification take?",
-    a: "11.75 hours of video content. You can complete it in a weekend, take 4 weeks at 2-3 modules per week, or work through it slower. The format is on-demand video plus downloadable resources, so you can complete it on your commute or between patients. Modules are searchable, and you have lifetime access for future reference.",
-  },
-  {
-    q: "What if I get certified and still don't feel confident?",
-    a: "100% money-back guarantee within 30 days, no questions asked. Bonus #11 is a private Facebook group with Dr. Rolnick and 1,467+ certified clinicians answering implementation questions in real time. Of 1,467 graduates to date, one has taken the refund.",
-  },
-] as const;

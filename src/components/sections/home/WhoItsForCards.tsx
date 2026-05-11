@@ -27,7 +27,7 @@ export default function WhoItsForCards() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            Built for licensed clinicians and performance professionals.
+            Built for licensed clinicians and performance professionals
           </motion.h2>
           <motion.p
             variants={fadeUp}
@@ -53,7 +53,7 @@ export default function WhoItsForCards() {
               <p className="small-caps-line text-accent">{a.eyebrow}</p>
               <h3 className="mt-3 font-display text-2xl text-navy text-balance">{a.audience}</h3>
               <p className="mt-4 text-base leading-relaxed text-ink/80 flex-1">{a.body}</p>
-              <p className="mt-5 text-sm text-muted">{a.ceus}</p>
+              <p className="mt-5 text-sm text-muted">{a.scopeLine}</p>
               <span
                 aria-disabled="true"
                 className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy/40 cursor-not-allowed"

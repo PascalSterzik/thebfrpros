@@ -1,13 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import PrimaryCTA from "@/components/shared/PrimaryCTA";
 import { HOME_FINAL_CTA } from "@/content/home";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// Section 14 — Final CTA. Belief 6 (patient-demand urgency) lands HERE only.
-// By this point, Beliefs 1, 3, 4, 5 have been installed across sections 2-12,
-// so the urgency frame is honest closure, not a top-of-funnel pressure tactic.
+// Final CTA — the ONE soft gateway from the homepage to /get-certified.
+// Brand-guide.md Copy & Customer Journey Principles, Principle 6: the
+// homepage does not sell the cert. No pricing, no guarantee callout, no
+// CEU subline, no stars, no reassurance line. The button is a plain
+// exploratory link. The selling happens AT /get-certified, not here.
 
 export default function HomeFinalCTA() {
   return (
@@ -37,20 +39,10 @@ export default function HomeFinalCTA() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-10 flex justify-center">
-            <PrimaryCTA
-              label={HOME_FINAL_CTA.primaryCta}
-              secondary="11.75 CEUs · 30-day guarantee"
-              href="/get-certified"
-              starsVariant="dark"
-            />
+            <Link href={HOME_FINAL_CTA.primaryCtaHref} className="btn-primary">
+              {HOME_FINAL_CTA.primaryCta}
+            </Link>
           </motion.div>
-
-          <motion.p
-            variants={fadeUp}
-            className="mt-7 text-sm text-white/70 leading-relaxed"
-          >
-            {HOME_FINAL_CTA.reassurance}
-          </motion.p>
         </motion.div>
       </div>
     </section>

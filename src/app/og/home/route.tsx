@@ -45,14 +45,14 @@ export async function GET() {
             display: "flex",
             color: "white",
             fontFamily: "Compacta",
-            fontSize: 96,
+            fontSize: 104,
             lineHeight: 0.94,
             letterSpacing: "-0.02em",
             textTransform: "uppercase",
             maxWidth: 1040,
           }}
         >
-          BFR builds the same strength as heavy lifting. At 30% of the load.
+          Stop watching post-op patients plateau
         </div>
 
         <div

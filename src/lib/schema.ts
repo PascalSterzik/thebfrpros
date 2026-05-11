@@ -6,12 +6,16 @@ import { CEU_APPROVALS, ENROLL_URL, PRICING, ROLNICK, SITE, STATS } from "./cons
 type HomeSchemaInput = {
   pageTitle: string;
   pageDescription: string;
-  faq: ReadonlyArray<{ q: string; a: string }>;
+  // FAQ is OPTIONAL on the homepage. Per brand-guide.md Copy & Customer
+  // Journey Principles Principle 6, the homepage does not host a cert-
+  // mechanics FAQ; that lives at /get-certified. The FAQPage @graph entry
+  // is only emitted when a real FAQ section is rendered on the page.
+  faq?: ReadonlyArray<{ q: string; a: string }>;
 };
 
 // Homepage @graph. Differs from buildSchemaGraph: no BreadcrumbList (root page),
 // WebPage URL is SITE.origin, WebSite includes a SearchAction (sitelinks
-// searchbox eligibility), and the FAQ is the homepage's 5-item set.
+// searchbox eligibility). FAQPage entry only present when faq is supplied.
 export function buildHomeSchemaGraph({ pageTitle, pageDescription, faq }: HomeSchemaInput) {
   const pageUrl = `${SITE.origin}/`;
   const orgId = `${SITE.origin}#organization`;
@@ -120,15 +124,19 @@ export function buildHomeSchemaGraph({ pageTitle, pageDescription, faq }: HomeSc
         bestRating: 5,
         worstRating: 1,
       },
-      {
-        "@type": "FAQPage",
-        "@id": faqId,
-        mainEntity: faq.map(({ q, a }) => ({
-          "@type": "Question",
-          name: q,
-          acceptedAnswer: { "@type": "Answer", text: a },
-        })),
-      },
+      ...(faq && faq.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": faqId,
+              mainEntity: faq.map(({ q, a }) => ({
+                "@type": "Question",
+                name: q,
+                acceptedAnswer: { "@type": "Answer", text: a },
+              })),
+            },
+          ]
+        : []),
       {
         "@type": "WebPage",
         "@id": pageUrl,

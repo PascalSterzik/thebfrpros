@@ -29,7 +29,7 @@ export default function HomeProofRow() {
             variants={fadeUp}
             className="mt-5 font-display text-display-md text-navy text-balance"
           >
-            Approved by the credentialing bodies. Adopted by the clinic networks.
+            Approved by credentialing bodies, adopted by clinic networks
           </motion.h2>
         </motion.div>
 

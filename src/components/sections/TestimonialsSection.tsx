@@ -35,7 +35,7 @@ export default function TestimonialsSection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-white"
           >
-            {STATS.ratingValue} stars from {STATS.reviewCount}+ reviews. {STATS.certifiedPractitioners} certified practitioners.
+            {STATS.ratingValue} stars from {STATS.reviewCount}+ reviews, {STATS.certifiedPractitioners} certified practitioners
           </motion.h2>
           <motion.div variants={fadeUp} className="mt-6 flex justify-center">
             <Stars variant="dark" size="md" />
