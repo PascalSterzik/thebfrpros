@@ -7,7 +7,6 @@ import WhatBFRDoes from "@/components/sections/home/WhatBFRDoes";
 import WhyBFRMattersNow from "@/components/sections/home/WhyBFRMattersNow";
 import WhoItsForCards from "@/components/sections/home/WhoItsForCards";
 import HomeInstructor from "@/components/sections/home/HomeInstructor";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import HomeProofRow from "@/components/sections/home/HomeProofRow";
 import HomeFinalCTA from "@/components/sections/home/HomeFinalCTA";
 import { HOME_META } from "@/content/home";
@@ -99,10 +98,11 @@ export default function HomePage() {
         {/* Instructor Authority — brief Rolnick + Licameli intro */}
         <HomeInstructor />
 
-        {/* Testimonials — practitioner outcomes from applying BFR */}
-        <TestimonialsSection />
-
-        {/* Proof — mainstream BFR credibility (BOC + APTA scope + partner clinics) */}
+        {/* Proof — BFR-modality scope (APTA + NATA) + clinic network adoption.
+            TestimonialsSection lives at /get-certified only: it's cert
+            testimonials with cert-stats framing and duplicating it onto the
+            homepage violates page-to-page hand-off (website-builder Site-Level
+            Congruence Principle, brand-guide Principle 6). */}
         <HomeProofRow />
 
         {/* Final CTA — single soft gateway → /get-certified */}
