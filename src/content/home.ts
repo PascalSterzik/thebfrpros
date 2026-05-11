@@ -21,38 +21,36 @@ export const HOME_META = {
   ogImagePath: "/og/home",
 } as const;
 
-// Hero — Section 2. Belief 1 (modality value at 30% load) leads, and EVERY
-// element in the section is sourced from the same belief layer: eyebrow
-// orients on BFR + audience, headline is the science claim, subhead extends
-// the science claim, CTA frames the cert as exploration (visitor doesn't
-// know what BFR is yet — pushing "Get Certified" here jumps too far down
-// the funnel). The trust line below names Dr. Rolnick by his peer-reviewed
-// publication COUNT, never a comparative superlative (see brand-guide.md
-// Forbidden Claims table for the literal blocked phrases and approved
-// replacements).
-// The secondary "What is BFR?" anchor button was removed because the
-// destination is literally the next section on scroll — the button adds
-// no value (the visitor will scroll anyway).
+// Hero — Section 2. Lead with the practitioner's outcome, not the certification.
+// Stage-2 awareness traffic (problem-aware, doesn't know BFR is the answer
+// yet) lands here. The hero hooks on the clinical scenario the practitioner
+// already recognizes ("heavy loading off the table" — direct avatar
+// vocabulary from 02-avatar-sheet.md), names BFR as the protocol that
+// answers it, and earns credibility with the institutions adopting it. No
+// CTA: a "Get Certified" or "Explore the certification" ask at Stage 2 is
+// Stage-4 framing aimed at Stage-2 traffic and signals "this site is
+// selling me" — see brand-guide.md Copy & Customer Journey Principles for
+// the full reasoning. The first cert-pointing CTA appears in Course
+// Overview (section 8), after Beliefs 1, 3, 4, and 5 are installed.
 export const HOME_HERO = {
-  eyebrow: "BFR training for licensed clinicians",
-  headline: "BFR builds the same strength as heavy lifting. At 30% of the load.",
-  highlightPhrase: "30% of the load",
+  eyebrow: "Evidence-based BFR for licensed PTs, ATs, and S&C coaches",
+  headline: "When heavy loading is off the table, your patients plateau.",
+  highlightPhrase: "plateau",
   subhead:
-    "The rehab tool with sixty years of research and a growing peer-reviewed evidence base. Built for licensed PTs, ATs, and S&C coaches who want to apply BFR in their practice.",
-  primaryCta: "Explore the certification",
-  trustLine:
-    "Built on 72+ peer-reviewed BFR publications by Dr. Nicholas Rolnick. 11.75 CEUs. Equipment-agnostic.",
+    "Blood flow restriction (BFR) is the protocol clinicians reach for when post-op caseload, in-season athletes, or geriatric patients can't tolerate heavy resistance. It drives strength and hypertrophy adaptations comparable to heavy lifting, at 20-40% of one-rep max. Sixty years of research. Adopted at Mayo Clinic, Cleveland Clinic, and US Special Operations Command. In PT scope per APTA, approved for ATs per NATA.",
   photoSrc: "/images/hero/hero-banner.jpg",
   photoAlt: "Dr. Nicholas Rolnick applying a blood flow restriction cuff to a patient's leg",
 } as const;
 
 // Section 4 — What BFR Does. Modality explainer. Belief 1 deepening.
-// Awareness stages 2 and 3 served. Three pillars: mechanism + safety + breadth.
+// Outcome FIRST, mechanism second: the practitioner cares what BFR will
+// do for their caseload, then how it works. See brand-guide.md Copy &
+// Customer Journey Principles, Principle 1.
 export const WHAT_BFR_DOES = {
-  eyebrow: "What BFR is",
-  headline: "Low-load resistance training that drives heavy-load adaptations.",
+  eyebrow: "What BFR does for your practice",
+  headline: "Build strength when heavy loads are off the table.",
   intro:
-    "Blood flow restriction (BFR) places a calibrated pneumatic or pneumatic-equivalent cuff on the proximal limb during exercise. Venous return is restricted while arterial flow continues. The result: muscle works harder at lighter loads, and the body responds with strength and hypertrophy gains comparable to heavy resistance training, at 20-40% of one-rep max.",
+    "Blood flow restriction (BFR) drives strength and hypertrophy adaptations comparable to heavy resistance training using just 20-40% of one-rep max. A calibrated pneumatic cuff on the proximal limb restricts venous return while arterial flow continues, so the muscle works harder at lighter loads and the body adapts as if the load were heavy. Useful when heavy loading is contraindicated (post-op, in-season, geriatric) or simply not the priority.",
   pillars: [
     {
       eyebrow: "Mechanism",
@@ -106,19 +104,22 @@ export const HOME_SOLUTION = {
   eyebrow: "The BFR Pros difference",
   headline: "Three things no other BFR certification combines.",
   intro:
-    "Every BFR course on the market is research-led, or equipment-led, or implementation-focused. The Complete BFR Certification combines all three by design.",
+    "Every BFR course on the market is research-led, or equipment-led, or implementation-focused. The Complete BFR Certification gives you all three.",
   pillars: [
     {
-      title: "Research-led, not product-led",
-      body: "Built on 72+ peer-reviewed BFR publications by Dr. Rolnick. Updated as the literature evolves.",
+      // Pillar TITLES lead with the practitioner outcome from the underlying
+      // feature; the feature lives in the body as proof. See brand-guide.md
+      // Copy & Customer Journey Principles, Principle 1.
+      title: "Stay current with the literature, not with a manufacturer's marketing.",
+      body: "Built on 72+ peer-reviewed BFR publications by Dr. Nicholas Rolnick. The curriculum updates as the evidence base evolves, so what you apply on Monday is what the field knows today.",
     },
     {
-      title: "Equipment-agnostic by design",
-      body: "Works with Delfi, SmartCuffs, B Strong, LiveBand, KAATSU, or any quality cuff. The certification is the technique, not the cuff.",
+      title: "Use whatever cuff your clinic already owns.",
+      body: "The protocols work with Delfi, SmartCuffs, B Strong, LiveBand, KAATSU, or any quality cuff. You don't get locked into one manufacturer for the next five years, and you don't pay $5,000 for a device before you start.",
     },
     {
-      title: "Implementation-focused",
-      body: "11 bonuses cover screening forms, liability waiver, RPE tools, cuff discount codes, and a private community. Apply BFR with your first patient by week two, not month two.",
+      title: "Apply BFR with your first patient by week two, not month two.",
+      body: "11 implementation bonuses (screening forms, liability waiver, RPE tools, device discount codes, a private community of 1,467+ certified clinicians) close the gap between learning the technique and using it on a real patient.",
     },
   ],
   closing:
@@ -128,11 +129,17 @@ export const HOME_SOLUTION = {
 } as const;
 
 // Section 8 — Course Overview. Bridges to /get-certified. Awareness 4-5.
+// Intro leads with what the practitioner will be ABLE TO DO after the
+// curriculum (the outcome), with the module/CEU/format specs supporting
+// that claim. Not the other way around. See brand-guide.md Copy &
+// Customer Journey Principles, Principle 1 (sell the thing that sells
+// the thing) and Principle 3 (Course Overview's job is "what will I
+// actually learn?", not "how is it packaged?").
 export const HOME_COURSE_OVERVIEW = {
   eyebrow: "The certification",
   headline: "The Complete BFR Certification.",
   summary:
-    "37 modules across 4 courses. 11.75 CEUs. On-demand video plus downloadable resources. Self-paced: do it in a weekend or take 4 weeks.",
+    "After the curriculum, you'll be able to screen patients for BFR readiness, calculate occlusion pressure on any limb, program BFR into existing rehab and performance plans, and apply it across post-op, in-season, and geriatric caseloads. 37 modules across 4 courses, 11.75 CEUs, on-demand video plus downloadable resources. Do it in a weekend or take 4 weeks.",
   highlights: [
     { value: "4", label: "Courses" },
     { value: "37", label: "Modules" },
