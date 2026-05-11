@@ -74,7 +74,9 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       "Earn 11.75 CEUs in 37 modules taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. Equipment-agnostic, evidence-based, 30-day money-back guarantee.",
     ogImage: "/og/v1",
     announcement: {
-      eyebrow: "New cohort open",
+      // No "cohort" framing — the cert is on-demand self-paced. Forbidden
+      // Claims grep gate in brand-guide.md blocks "cohort" sitewide.
+      eyebrow: "Built on 72+ peer-reviewed publications",
       line: "Learn BFR from the source of 72+ peer-reviewed publications.",
       cta: "See the certification",
     },
@@ -232,7 +234,11 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     announcement: {
       eyebrow: "Patient demand is rising",
       line: "Your competitors are getting certified. Be the BFR clinic patients in your zip code find first.",
-      cta: "Get certified before the next one does",
+      // CTA framed without time-pressure tail. "Get certified" is fine on
+      // /get-certified (Stage-4 sales page), but "before the next one does"
+      // is a fake-urgency tactic and brand-guide.md Forbidden Claims grep
+      // blocks the "act now / hurry / before X" family of phrasings.
+      cta: "Get certified",
     },
     hero: {
       eyebrow: "The Complete BFR Certification",
@@ -295,7 +301,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     ps: [
       "P.S. The certification is the technique, not the cuff. Your patients don't care which brand you bought. They care whether you can apply BFR safely, prescribe the pressure correctly, and hit their outcome goals. The 30-day money-back guarantee is the rest of the trade.",
-      "P.P.S. The 30-day refund means you can finish the curriculum, run BFR with your first patient, and refund out if it's not for your practice. The guarantee asks you to act now, not commit forever. 1 out of 1,467 graduates has ever taken it.",
+      "P.P.S. The 30-day refund means you can finish the curriculum, run BFR with your first patient, and refund out if it's not for your practice. The guarantee asks you to try, not commit forever. 1 out of 1,467 graduates has ever taken it.",
     ],
   },
 };
