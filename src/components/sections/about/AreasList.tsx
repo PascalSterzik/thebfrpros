@@ -2,14 +2,21 @@
 
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
-import { LICAMELI_AREAS } from "@/content/about";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// What Dr. Licameli covers in the certification. Five-item bullet list
-// framed as "where his chapters fit" — defines his role inside the cert
-// without overstating his solo authority.
+// Generic bullet-list section used across bio pages for "what they cover" /
+// "certifications and disciplines" / similar enumerations. Same visual
+// rhythm wherever it appears, content passed by the consuming page.
 
-export default function LicameliAreas() {
+export default function AreasList({
+  eyebrow,
+  headline,
+  items,
+}: {
+  eyebrow: string;
+  headline: string;
+  items: ReadonlyArray<string>;
+}) {
   return (
     <section className="section-wrap bg-white">
       <div className="container-rail">
@@ -21,16 +28,16 @@ export default function LicameliAreas() {
           className="max-w-prose-wide"
         >
           <motion.div variants={fadeUp}>
-            <SectionLabel label={LICAMELI_AREAS.eyebrow} />
+            <SectionLabel label={eyebrow} />
           </motion.div>
           <motion.h2
             variants={fadeUp}
             className="mt-5 font-display text-display-md text-navy text-balance"
           >
-            {LICAMELI_AREAS.headline}
+            {headline}
           </motion.h2>
           <motion.ul variants={stagger} className="mt-10 space-y-4">
-            {LICAMELI_AREAS.items.map((item) => (
+            {items.map((item) => (
               <motion.li
                 key={item}
                 variants={fadeUp}

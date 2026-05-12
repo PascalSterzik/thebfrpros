@@ -5,11 +5,12 @@ import BioHero from "@/components/sections/about/BioHero";
 import BioBody from "@/components/sections/about/BioBody";
 import BioCredentials from "@/components/sections/about/BioCredentials";
 import BioFinalCTA from "@/components/sections/about/BioFinalCTA";
-import LicameliAreas from "@/components/sections/about/LicameliAreas";
+import AreasList from "@/components/sections/about/AreasList";
 import {
   LICAMELI_META,
   LICAMELI_HERO,
   LICAMELI_BODY,
+  LICAMELI_AREAS,
   LICAMELI_ROLES,
   LICAMELI_FINAL_CTA,
 } from "@/content/about";
@@ -82,7 +83,11 @@ export default function LicameliPage() {
           headline={LICAMELI_BODY.headline}
           paragraphs={LICAMELI_BODY.paragraphs}
         />
-        <LicameliAreas />
+        <AreasList
+          eyebrow={LICAMELI_AREAS.eyebrow}
+          headline={LICAMELI_AREAS.headline}
+          items={LICAMELI_AREAS.items}
+        />
         <BioCredentials
           eyebrow={LICAMELI_ROLES.eyebrow}
           headline={LICAMELI_ROLES.headline}

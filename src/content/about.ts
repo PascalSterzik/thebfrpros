@@ -123,24 +123,30 @@ export const ABOUT_TEAM = {
       role: "Clinical Instructor",
       credentials: "Sports Physical Therapist",
       bio:
-        "Belgian Sports Physical Therapist at Anna TopSupport Eindhoven in The Netherlands. Works daily with Sports Doctors and Orthopedic Surgeons on conservative and post-operative rehabilitation of recreational and elite athletes. Graduated cum laude from Hasselt University in 2020 with a BSc and MSc in Rehabilitation Sciences & Sports Physical Therapy. Teaches BFR Workshops in Belgium and The Netherlands for The BFR Pros and is engaged in research on BFR training in post-operative patients.",
+        "Belgian Sports Physical Therapist at Anna TopSupport Eindhoven in The Netherlands. Works with Sports Doctors and Orthopedic Surgeons on conservative and post-operative rehabilitation of athletes from recreational to elite. Teaches BFR Workshops in Belgium and The Netherlands for The BFR Pros.",
       photoSrc: "/images/team/mathias-thoelen.webp",
+      profileHref: "/about/mathias-thoelen",
+      profileLabel: "Read the full profile",
     },
     {
       name: "Marty Rolnick",
       role: "Philosopher / Marketing Lunatic / Ideaholic",
       credentials: "",
       bio:
-        "Philosopher, marketing lunatic, and ideaholic whose craft is the conceiving and spreading of sustainable ideas. An idealist who believes the best solutions are those where all stakeholders benefit. Across his life he has been father, athlete, corporate executive, and entrepreneur. Now a teacher, coach, and mentor who helps small business owners and entrepreneurs achieve their dreams.",
+        "Philosopher, marketing lunatic, and ideaholic whose craft is the conceiving and spreading of sustainable ideas. An idealist who believes the best solutions are those where all stakeholders benefit. Teacher, coach, and mentor to small business owners and entrepreneurs.",
       photoSrc: "/images/team/marty-rolnick.webp",
+      profileHref: "/about/marty-rolnick",
+      profileLabel: "Read the full profile",
     },
     {
       name: "Erica Marcano",
       role: "Consultant",
       credentials: "MS, ATC, CSCS",
       bio:
-        "The Notorious ATC. BOC-certified and NYS-licensed Athletic Trainer, NSCA-certified Strength and Conditioning Specialist, American Red Cross CPR Instructor, BFR-certified, Reiki Master, and Breathwork & Meditation practitioner. MS in Athletic Training from LIU Brooklyn (2005). Past Sports Medicine at Penn State, then back to LIU Brooklyn as Assistant Athletic Trainer and Associate Professor. Northeast Regional Coordinator with The Rugby Research and Injury Prevention Group and Athletic Trainer for the USOC-sanctioned Northeast Rugby Academy.",
+        "The Notorious ATC. BOC-certified Athletic Trainer, NSCA Strength & Conditioning Specialist, BFR-certified, Reiki Master. Associate Professor at LIU Brooklyn and Northeast Regional Coordinator with The Rugby Research and Injury Prevention Group.",
       photoSrc: "/images/team/erica-marcano.webp",
+      profileHref: "/about/erica-marcano",
+      profileLabel: "Read the full profile",
     },
   ] as ReadonlyArray<TeamMember>,
   mascot: {
@@ -328,6 +334,188 @@ export const LICAMELI_FINAL_CTA = {
   headline: "Where Dr. Licameli's material fits in your practice",
   body:
     "The Complete BFR Certification teaches both rehab-side protocols and athletic applications. Dr. Licameli's chapters cover everything from in-season maintenance to ischemic preconditioning to the bodybuilding-adjacent applications most rehab courses skip.",
+  primaryCta: "See the certification",
+  primaryCtaHref: "/get-certified",
+} as const;
+
+// ----- /about/mathias-thoelen --------------------------------------------------
+// Source: live thebfrpros.com/mathias-thoelen page, pulled 2026-05-12.
+
+export const THOELEN_META = {
+  title: "Mathias Thoelen | Clinical Instructor, The BFR Pros",
+  description:
+    "Sports Physical Therapist at Anna TopSupport Eindhoven (The Netherlands). Clinical Instructor for The BFR Pros, teaching BFR workshops in Belgium and The Netherlands. Cum laude MSc in Rehabilitation Sciences and Sports Physical Therapy, Hasselt University.",
+  canonicalPath: "/about/mathias-thoelen",
+  ogImagePath: "/og/home",
+} as const;
+
+export const THOELEN_HERO = {
+  eyebrow: "Clinical Instructor",
+  headline: "Mathias Thoelen",
+  credentialsLine: "Sports Physical Therapist",
+  tagline: "Anna TopSupport Eindhoven",
+  subhead:
+    "Belgian Sports Physical Therapist working in The Netherlands. Clinical Instructor for The BFR Pros across Belgium and The Netherlands. Engaged in research on BFR training in post-operative patients.",
+  photoSrc: "/images/team/mathias-thoelen.webp",
+} as const;
+
+export const THOELEN_BODY = {
+  eyebrow: "The work",
+  headline: "Sports rehab from acute trauma to elite return-to-sport",
+  paragraphs: [
+    "Mathias Thoelen works at Anna TopSupport Eindhoven in The Netherlands, a sports-medicine center where Sports Physical Therapists collaborate daily with Sports Doctors and Orthopedic Surgeons on the conservative and post-operative rehabilitation of athletes at every level, from recreational to elite. He is responsible for on-field rehabilitation and for screening athletes with acute traumas.",
+    "He graduated cum laude from Hasselt University in 2020 with a Bachelor's and Master's of Science in Rehabilitation Sciences and Sports Physical Therapy. He attends new courses regularly to keep his practice grounded in the most current, evidence-based care. He has always sought to surround himself with people who are better at their craft, treating each interaction as a way to push himself further.",
+    "Within The BFR Pros, Mathias teaches BFR Workshops across Belgium and The Netherlands. His ambition is to make BFR Training great in Europe by providing evidence-based workshops on the safe and objective application of BFR in different populations. He is also engaged in research on the use of BFR training in post-operative patients.",
+  ],
+} as const;
+
+export const THOELEN_AREAS = {
+  eyebrow: "What he covers in the workshops",
+  headline: "Where Mathias's chapters fit",
+  items: [
+    "On-field rehabilitation and acute-trauma screening for athletes",
+    "Conservative and post-operative rehabilitation across recreational and elite athletes",
+    "Safe and objective BFR application across different patient and athlete populations",
+    "BFR Workshops for clinicians and S&C professionals in Belgium and The Netherlands",
+    "Active research on BFR training in post-operative patients",
+  ],
+} as const;
+
+export const THOELEN_ROLES = {
+  eyebrow: "Practice and affiliations",
+  headline: "Where the work happens",
+  items: [
+    { role: "Sports Physical Therapist", org: "Anna TopSupport Eindhoven (The Netherlands)" },
+    { role: "Clinical Instructor (Europe)", org: "The BFR Pros" },
+    { role: "MSc, Rehabilitation Sciences and Sports Physical Therapy (cum laude, 2020)", org: "Hasselt University" },
+    { role: "BSc, Rehabilitation Sciences and Sports Physical Therapy", org: "Hasselt University" },
+  ],
+} as const;
+
+export const THOELEN_FINAL_CTA = {
+  eyebrow: "Inside the certification",
+  headline: "Apply BFR with confidence, from clinic floor to field",
+  body:
+    "The Complete BFR Certification covers the same screening, programming, and protocol decisions Mathias walks practitioners through in his European workshops. 37 modules, 11.75 CEUs, on-demand and self-paced.",
+  primaryCta: "See the certification",
+  primaryCtaHref: "/get-certified",
+} as const;
+
+// ----- /about/marty-rolnick ----------------------------------------------------
+// Source: live thebfrpros.com/marty-rolnick page, pulled 2026-05-12.
+
+export const MARTY_META = {
+  title: "Marty Rolnick | Philosopher and Brand Voice, The BFR Pros",
+  description:
+    "Philosopher, marketing lunatic, and ideaholic at The BFR Pros. Teacher, coach, and mentor to small business owners and entrepreneurs. The brand voice behind The BFR Pros' message.",
+  canonicalPath: "/about/marty-rolnick",
+  ogImagePath: "/og/home",
+} as const;
+
+export const MARTY_HERO = {
+  eyebrow: "Philosopher / Marketing Lunatic / Ideaholic",
+  headline: "Marty Rolnick",
+  credentialsLine: "Brand and message",
+  tagline: "Sustainable ideas built for every stakeholder",
+  subhead:
+    "Philosopher, marketing lunatic, and ideaholic whose craft is the conceiving and spreading of sustainable ideas. The voice that keeps The BFR Pros' message clear, grounded, and aimed at every stakeholder it touches.",
+  photoSrc: "/images/team/marty-rolnick.webp",
+} as const;
+
+export const MARTY_BODY = {
+  eyebrow: "The craft",
+  headline: "Ideas that work for every stakeholder",
+  paragraphs: [
+    "Marty's craft is the conceiving and spreading of sustainable ideas. He is an idealist who believes the best solutions are the ones where all stakeholders benefit, not the ones that trade one party's gain for another party's loss. That stance shows up in how The BFR Pros writes, sells, and shows up for practitioners and the patients they serve.",
+    "He has played many different roles across his life: father, athlete, corporate executive, and entrepreneur. He now works as a teacher, coach, and mentor to small business owners and entrepreneurs, helping them clarify the ideas worth spreading and the businesses worth building. At The BFR Pros, that work translates into the voice and the brand stance behind every piece of communication that goes out.",
+  ],
+} as const;
+
+export const MARTY_ROLES = {
+  eyebrow: "Roles and craft",
+  headline: "Where the work happens",
+  items: [
+    { role: "Philosopher / Marketing Lunatic / Ideaholic", org: "The BFR Pros" },
+    { role: "Teacher, coach, and mentor", org: "Small business owners and entrepreneurs" },
+    { role: "Past corporate executive and entrepreneur", org: "" },
+    { role: "Lifelong athlete and father", org: "" },
+  ],
+} as const;
+
+export const MARTY_FINAL_CTA = {
+  eyebrow: "Inside the certification",
+  headline: "The work the message points at",
+  body:
+    "The voice you hear across The BFR Pros points at one thing: practitioners who can apply BFR with their first patient. The Complete BFR Certification is the work the message points at.",
+  primaryCta: "See the certification",
+  primaryCtaHref: "/get-certified",
+} as const;
+
+// ----- /about/erica-marcano ----------------------------------------------------
+// Source: live thebfrpros.com/erica-marcano page, pulled 2026-05-12.
+
+export const MARCANO_META = {
+  title: "Erica Marcano | Consultant, The BFR Pros",
+  description:
+    "BOC-certified Athletic Trainer, NSCA-certified Strength & Conditioning Specialist, BFR-certified, Reiki Master. Associate Professor at LIU Brooklyn. Northeast Regional Coordinator with The Rugby Research and Injury Prevention Group. Consultant for The BFR Pros.",
+  canonicalPath: "/about/erica-marcano",
+  ogImagePath: "/og/home",
+} as const;
+
+export const MARCANO_HERO = {
+  eyebrow: "Consultant",
+  headline: "Erica Marcano",
+  credentialsLine: "MS, ATC, CSCS",
+  tagline: "The Notorious ATC",
+  subhead:
+    "BOC-certified and NYS-licensed Athletic Trainer. NSCA-certified Strength & Conditioning Specialist. American Red Cross CPR Instructor. BFR-certified. Reiki Master. Breathwork and Meditation practitioner. Associate Professor at LIU Brooklyn.",
+  photoSrc: "/images/team/erica-marcano.webp",
+} as const;
+
+export const MARCANO_BODY = {
+  eyebrow: "The work",
+  headline: "Athletic training, performance, and the academy",
+  paragraphs: [
+    "Erica Marcano, known as The Notorious ATC, earned her Bachelor of Science in Sports Sciences and her Master of Science in Athletic Training from LIU Brooklyn in 2005. She began her career in the Sports Medicine department at Penn State, handling acute care and rehabilitation of rugby, ice hockey, and tennis athletes, before returning to LIU Brooklyn Sports Medicine as Assistant Athletic Trainer for men's soccer, women's volleyball, track and field, women's lacrosse, and baseball.",
+    "Today she is an Associate Professor at LIU Brooklyn, teaching undergraduate and graduate classes for the Athletic Training, Health and Exercise Sciences Division, the Physical Education department, and the Honors Program. She is the Northeast Regional Coordinator with The Rugby Research and Injury Prevention Group and an Athletic Trainer for the Northeast Rugby Academy, a USOC-sanctioned Community Olympic Development Program.",
+    "She lectures at continuing education conferences for Sports Medicine professionals and serves as a mentor to the next generation of Athletic Trainers. Outside of the academy and the sideline, she offers her blend of high-performance services, BFR-certified care, and recovery-focused practices to clients throughout New York City.",
+  ],
+} as const;
+
+export const MARCANO_CERTIFICATIONS = {
+  eyebrow: "Certifications and disciplines",
+  headline: "The credential stack",
+  items: [
+    "Board of Certification (BOC) Athletic Trainer",
+    "New York State licensed Athletic Trainer",
+    "NSCA Certified Strength and Conditioning Specialist (CSCS)",
+    "American Red Cross CPR Instructor",
+    "BFR-certified practitioner",
+    "Reiki Master",
+    "Breathwork and Meditation practitioner",
+  ],
+} as const;
+
+export const MARCANO_ROLES = {
+  eyebrow: "Practice and affiliations",
+  headline: "Where the work happens",
+  items: [
+    { role: "Associate Professor", org: "LIU Brooklyn (Athletic Training, Health and Exercise Sciences, Physical Education, Honors Program)" },
+    { role: "Northeast Regional Coordinator", org: "The Rugby Research and Injury Prevention Group" },
+    { role: "Athletic Trainer", org: "Northeast Rugby Academy (USOC-sanctioned Community Olympic Development Program)" },
+    { role: "Consultant", org: "The BFR Pros" },
+    { role: "Past Assistant Athletic Trainer", org: "LIU Brooklyn Sports Medicine (men's soccer, women's volleyball, track and field, women's lacrosse, baseball)" },
+    { role: "Past Sports Medicine", org: "Penn State (rugby, ice hockey, tennis)" },
+    { role: "MS, Athletic Training (2005)", org: "LIU Brooklyn" },
+    { role: "BS, Sports Sciences", org: "LIU Brooklyn" },
+  ],
+} as const;
+
+export const MARCANO_FINAL_CTA = {
+  eyebrow: "Inside the certification",
+  headline: "Add BFR to the athletic trainer's toolkit",
+  body:
+    "The Complete BFR Certification covers the screening, pressure science, and programming that an Athletic Trainer applies on the sideline and in the rehab room. 37 modules, 11.75 CEUs, BOC-approved.",
   primaryCta: "See the certification",
   primaryCtaHref: "/get-certified",
 } as const;
