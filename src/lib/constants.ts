@@ -5,6 +5,13 @@
 export const ENROLL_URL =
   "https://bfr-pros.teachable.com/bundles/the-complete-bfr-certification?affcode=626725_rzfv6exi";
 
+// Where the /contact form posts. Default is a `mailto:` so the static site
+// works immediately without an external service. When MailerLite / GoHighLevel
+// is wired (per BUILD-BRIEF email-tool decision), swap this to the real POST
+// endpoint URL — the ContactForm component handles both mailto: and http:
+// transports. One-line swap, no other code changes needed.
+export const CONTACT_FORM_ENDPOINT = "mailto:nick@thebfrpros.com";
+
 export const SITE = {
   domain: "thebfrpros.com",
   origin: "https://thebfrpros.com",

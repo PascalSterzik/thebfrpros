@@ -250,6 +250,79 @@ export function buildAboutSchemaGraph({ pageTitle, pageDescription }: AboutSchem
   };
 }
 
+// /contact ContactPage. Minimal @graph: Organization + WebSite + BreadcrumbList
+// + ContactPage. The Organization carries the canonical contactPoint that
+// search engines surface in knowledge-panel results, and the ContactPage
+// mainEntity links back to it.
+type ContactSchemaInput = {
+  pageTitle: string;
+  pageDescription: string;
+};
+
+export function buildContactSchemaGraph({ pageTitle, pageDescription }: ContactSchemaInput) {
+  const pageUrl = `${SITE.origin}/contact`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+        sameAs: [
+          SITE.social.instagram,
+          SITE.social.facebook,
+          SITE.social.youtube,
+          SITE.social.tiktok,
+          SITE.social.twitter,
+        ],
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: SITE.phone,
+            email: SITE.contactEmail,
+            contactType: "customer support",
+            areaServed: "US",
+            availableLanguage: ["English"],
+          },
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "Contact", item: pageUrl },
+        ],
+      },
+      {
+        "@type": "ContactPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        mainEntity: { "@id": orgId },
+        breadcrumb: { "@id": breadcrumbId },
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
 // /about/[bio] bio sub-pages. ProfilePage type with a Person mainEntity.
 // PersonId mirrors the @id used in the Course / About / Home schemas so all
 // references resolve as the same entity across the site.
