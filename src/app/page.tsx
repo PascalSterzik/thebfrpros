@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Header, { type HeaderMenuLink } from "@/components/shared/Header";
+import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import HomeHero from "@/components/sections/home/HomeHero";
 import CredibilityBar from "@/components/sections/CredibilityBar";
@@ -10,7 +10,7 @@ import HomeInstructor from "@/components/sections/home/HomeInstructor";
 import HomeProofRow from "@/components/sections/home/HomeProofRow";
 import HomeFinalCTA from "@/components/sections/home/HomeFinalCTA";
 import { HOME_META } from "@/content/home";
-import { ENROLL_URL } from "@/lib/constants";
+import { SITE_MENU_LINKS } from "@/lib/menus";
 import { buildHomeSchemaGraph } from "@/lib/schema";
 
 // Public homepage at "/". Sells the MODALITY and the practitioner outcome.
@@ -49,24 +49,10 @@ export const metadata: Metadata = {
   },
 };
 
-// Phase 2/3 routes render as visibly disabled "Coming soon" links so the
-// full SITE-ARCHITECTURE §3 nav reads as planned without shipping broken
-// navigation. Get Certified + Find a Provider + Enroll Now are live.
-const HOME_MENU_LINKS: HeaderMenuLink[] = [
-  // Nav label is "Certification" (descriptive, not "Get Certified" action-led)
-  // because the homepage visitor is Stage 2 and the action-verb framing reads
-  // as a sales push. The button-style "Enroll Now" stays as the explicit
-  // Stage-5 shortcut for visitors who already know they want to buy.
-  { href: "/get-certified", label: "Certification" },
-  { href: "/for/physical-therapists", label: "For Physical Therapists", comingSoon: true },
-  { href: "/for/athletic-trainers", label: "For Athletic Trainers", comingSoon: true },
-  { href: "/for/strength-coaches", label: "For Strength Coaches", comingSoon: true },
-  { href: "/about", label: "About" },
-  { href: "/research", label: "Research", comingSoon: true },
-  { href: "/reviews", label: "Reviews", comingSoon: true },
-  { href: "https://bfrproviders.com", label: "Find a Provider", external: true },
-  { href: ENROLL_URL, label: "Enroll Now", external: true },
-];
+// Homepage shares the SITE_MENU_LINKS multi-page nav with /about, /contact,
+// and every future non-cert route. One source of truth in src/lib/menus.ts —
+// the previous inline copy was a duplication-risk (caught when /contact
+// shipped and the inline copy didn't get the Contact entry).
 
 export default function HomePage() {
   const schema = buildHomeSchemaGraph({
@@ -76,8 +62,8 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Header — full multi-page nav with Coming-Soon pills for Phase 2/3 */}
-      <Header menuLinks={HOME_MENU_LINKS} />
+      {/* Header — shared SITE_MENU_LINKS multi-page nav with Coming-Soon pills */}
+      <Header menuLinks={SITE_MENU_LINKS} />
 
       <main id="main">
         {/* Hero — Stage-2 hook, no CTA */}

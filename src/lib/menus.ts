@@ -30,6 +30,7 @@ export const SITE_MENU_LINKS: HeaderMenuLink[] = [
   { href: "/about", label: "About" },
   { href: "/research", label: "Research", comingSoon: true },
   { href: "/reviews", label: "Reviews", comingSoon: true },
+  { href: "/contact", label: "Contact" },
   { href: "https://bfrproviders.com", label: "Find a Provider", external: true },
   { href: ENROLL_URL, label: "Enroll Now", external: true },
 ];
