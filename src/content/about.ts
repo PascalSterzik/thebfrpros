@@ -104,7 +104,7 @@ export const ABOUT_TEAM = {
       credentials: "PT, MS, CSCS",
       bio:
         "Author of 72+ peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Faculty at Lehman College CUNY and Concordia University Chicago. Active clinical practice in Manhattan. Featured in CNN, the Wall Street Journal, Forbes, ESPN, and PubMed.",
-      photoSrc: "/images/instructors/rolnick-large.jpg",
+      photoSrc: "/images/team/nick-rolnick.webp",
       profileHref: "/about/nicholas-rolnick",
       profileLabel: "Read the full profile",
     },
@@ -114,7 +114,7 @@ export const ABOUT_TEAM = {
       credentials: "PT, DPT",
       bio:
         "Director of an outpatient therapy clinic and Injury Reduction Specialist for 3D Muscle Journey. Active natural bodybuilder competitor. Bridges rehab-side BFR programming and athletic performance applications across the curriculum.",
-      photoSrc: "/images/instructors/licameli.jpg",
+      photoSrc: "/images/team/nick-licameli.webp",
       profileHref: "/about/nicholas-licameli",
       profileLabel: "Read the full profile",
     },
@@ -124,7 +124,7 @@ export const ABOUT_TEAM = {
       credentials: "Sports Physical Therapist",
       bio:
         "Belgian Sports Physical Therapist at Anna TopSupport Eindhoven in The Netherlands. Works daily with Sports Doctors and Orthopedic Surgeons on conservative and post-operative rehabilitation of recreational and elite athletes. Graduated cum laude from Hasselt University in 2020 with a BSc and MSc in Rehabilitation Sciences & Sports Physical Therapy. Teaches BFR Workshops in Belgium and The Netherlands for The BFR Pros and is engaged in research on BFR training in post-operative patients.",
-      initials: "MT",
+      photoSrc: "/images/team/mathias-thoelen.webp",
     },
     {
       name: "Marty Rolnick",
@@ -132,7 +132,7 @@ export const ABOUT_TEAM = {
       credentials: "",
       bio:
         "Philosopher, marketing lunatic, and ideaholic whose craft is the conceiving and spreading of sustainable ideas. An idealist who believes the best solutions are those where all stakeholders benefit. Across his life he has been father, athlete, corporate executive, and entrepreneur. Now a teacher, coach, and mentor who helps small business owners and entrepreneurs achieve their dreams.",
-      initials: "MR",
+      photoSrc: "/images/team/marty-rolnick.webp",
     },
     {
       name: "Erica Marcano",
@@ -140,14 +140,14 @@ export const ABOUT_TEAM = {
       credentials: "MS, ATC, CSCS",
       bio:
         "The Notorious ATC. BOC-certified and NYS-licensed Athletic Trainer, NSCA-certified Strength and Conditioning Specialist, American Red Cross CPR Instructor, BFR-certified, Reiki Master, and Breathwork & Meditation practitioner. MS in Athletic Training from LIU Brooklyn (2005). Past Sports Medicine at Penn State, then back to LIU Brooklyn as Assistant Athletic Trainer and Associate Professor. Northeast Regional Coordinator with The Rugby Research and Injury Prevention Group and Athletic Trainer for the USOC-sanctioned Northeast Rugby Academy.",
-      initials: "EM",
+      photoSrc: "/images/team/erica-marcano.webp",
     },
   ] as ReadonlyArray<TeamMember>,
   mascot: {
     name: "Buff",
     role: "Mascot",
     tagline: "#CHASETHEPUMP!",
-    photoSrc: "/images/team/buff.png",
+    photoSrc: "/images/team/buff.webp",
   },
 } as const;
 
