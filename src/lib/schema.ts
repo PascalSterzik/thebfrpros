@@ -250,6 +250,71 @@ export function buildAboutSchemaGraph({ pageTitle, pageDescription }: AboutSchem
   };
 }
 
+// /faq page. Full FAQPage + BreadcrumbList + Organization + WebSite. The
+// FAQPage entries carry every Q+A from the page so Google can surface
+// rich-result snippets.
+type FAQPageSchemaInput = {
+  pageTitle: string;
+  pageDescription: string;
+  items: ReadonlyArray<{ q: string; a: string }>;
+};
+
+export function buildFAQPageSchemaGraph({
+  pageTitle,
+  pageDescription,
+  items,
+}: FAQPageSchemaInput) {
+  const pageUrl = `${SITE.origin}/faq`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+  const faqId = `${pageUrl}#faq`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "FAQ", item: pageUrl },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": faqId,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        breadcrumb: { "@id": breadcrumbId },
+        mainEntity: items.map(({ q, a }) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
 // Audience landing pages (/for/[profession]). WebPage + BreadcrumbList +
 // Organization + Course reference, so search engines connect the audience
 // page to the canonical Course entity. The page itself is a CollectionPage-
