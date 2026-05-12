@@ -469,7 +469,11 @@ export const MARCANO_HERO = {
   tagline: "The Notorious ATC",
   subhead:
     "BOC-certified and NYS-licensed Athletic Trainer. NSCA-certified Strength & Conditioning Specialist. American Red Cross CPR Instructor. BFR-certified. Reiki Master. Breathwork and Meditation practitioner. Associate Professor at LIU Brooklyn.",
-  photoSrc: "/images/team/erica-marcano.webp",
+  // Second portrait (Pascal-supplied 2026-05-12) used here; the original
+  // erica-marcano.webp stays on the AboutTeam card on /about so the two
+  // contexts show different photos. Both photos available in /public/images/team/
+  // and /Assets/Team/.
+  photoSrc: "/images/team/erica-marcano-2.webp",
 } as const;
 
 export const MARCANO_BODY = {
