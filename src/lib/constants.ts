@@ -359,6 +359,145 @@ export const BFR_PODCAST_EPISODES: ReadonlyArray<BFRPodcastEpisode> = [
   { number: 20, title: "PT Pet Peeves, Rehab BFR, & Social Media", topic: "Clinical practice" },
 ];
 
+// Blog posts published on the live site at thebfrpros.com/bfr-blog/[slug].
+// Per WEBSITE-PROJECT-ORCHESTRATOR Phase 3 + SITE-ARCHITECTURE §6 redirect
+// plan, these will eventually live at thebfrpros.com/blog/[slug] on this
+// new site (full content migrated). For now the /blog index lists each
+// post and links OUT to the live URL — transition state until the
+// migration happens. Titles pulled verbatim from the live /bfr-blog
+// index on 2026-05-12.
+export type BlogPost = {
+  slug: string;
+  title: string;
+  category: string;
+  externalUrl: string;
+};
+
+const BLOG_BASE = "https://www.thebfrpros.com/bfr-blog";
+
+export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
+  {
+    slug: "methodological-concerns-future-bfr-research",
+    title: "Important Methodological Concerns for the Future of BFR Research",
+    category: "Research methodology",
+    externalUrl: `${BLOG_BASE}/methodological-concerns-future-bfr-research`,
+  },
+  {
+    slug: "who-better-than-us",
+    title: "Who Better Than Us?",
+    category: "Practice",
+    externalUrl: `${BLOG_BASE}/who-better-than-us`,
+  },
+  {
+    slug: "low-load-dynamic-vs-estim",
+    title: "Low-Load BFR Dynamic Exercise Superior to Electrical Stimulation with BFR",
+    category: "Comparative research",
+    externalUrl: `${BLOG_BASE}/low-load-dynamic-vs-estim`,
+  },
+  {
+    slug: "healing-heel-pain",
+    title: "Another BFR Success Story: Healing Heel Pain",
+    category: "Case study",
+    externalUrl: `${BLOG_BASE}/healing-heel-pain`,
+  },
+  {
+    slug: "smart-tools-compare",
+    title: "Smart Cuffs Pro Generation 3 Validated Compared To Doppler Ultrasound",
+    category: "Device research",
+    externalUrl: `${BLOG_BASE}/smart-tools-compare`,
+  },
+  {
+    slug: "meniscal-repair-acl-akrx7",
+    title: "Another BFR Success Story: The Crucial Role of BFR After a Second Meniscal Repair within ACL Rehab (Part 2)",
+    category: "Case study",
+    externalUrl: `${BLOG_BASE}/meniscal-repair-acl-akrx7`,
+  },
+  {
+    slug: "meniscal-repair-acl-2",
+    title: "Another BFR Success Story: The Crucial Role of BFR After a Second Meniscal Repair within ACL Rehab (Part 1)",
+    category: "Case study",
+    externalUrl: `${BLOG_BASE}/meniscal-repair-acl-2`,
+  },
+  {
+    slug: "adjust-cuff-pressure-2",
+    title: "Should We Adjust Cuff Pressure Over the Course of an Intervention? Part 2",
+    category: "Programming",
+    externalUrl: `${BLOG_BASE}/adjust-cuff-pressure-2`,
+  },
+  {
+    slug: "adjust-cuff-pressure",
+    title: "Should We Adjust Cuff Pressure Over the Course of an Intervention? Part 1",
+    category: "Programming",
+    externalUrl: `${BLOG_BASE}/adjust-cuff-pressure`,
+  },
+  {
+    slug: "exercise-pressor-reflex-1-cb6t9",
+    title: "The Exercise Pressor Reflex: Should We Be Concerned? Part 2",
+    category: "Safety research",
+    externalUrl: `${BLOG_BASE}/exercise-pressor-reflex-1-cb6t9`,
+  },
+  {
+    slug: "exercise-pressor-reflex-1",
+    title: "The Exercise Pressor Reflex: Should We Be Concerned? Part 1",
+    category: "Safety research",
+    externalUrl: `${BLOG_BASE}/exercise-pressor-reflex-1`,
+  },
+  {
+    slug: "protect-and-serve",
+    title: "Another BFR Success Story: Protect and Serve",
+    category: "Case study",
+    externalUrl: `${BLOG_BASE}/protect-and-serve`,
+  },
+  {
+    slug: "bfr-and-the-elderly",
+    title: "Blood Flow Restriction and the Elderly",
+    category: "Population research",
+    externalUrl: `${BLOG_BASE}/bfr-and-the-elderly`,
+  },
+  {
+    slug: "success-story-chris-hemsworth-revisited",
+    title: "Another BFR Success Story: Chris Hemsworth Revisited",
+    category: "Case study",
+    externalUrl: `${BLOG_BASE}/success-story-chris-hemsworth-revisited`,
+  },
+  {
+    slug: "bfr-and-tendinopathy-part-2",
+    title: "A One-Two Punch for BFR and Tendinopathy: Part 2",
+    category: "Conditions",
+    externalUrl: `${BLOG_BASE}/bfr-and-tendinopathy-part-2`,
+  },
+  {
+    slug: "bfr-and-tendinopathy-part-1",
+    title: "A One-Two Punch for BFR and Tendinopathy: Part 1",
+    category: "Conditions",
+    externalUrl: `${BLOG_BASE}/bfr-and-tendinopathy-part-1`,
+  },
+  {
+    slug: "think-passive-bfr-is-boring-think-again-part-2",
+    title: "Think Passive BFR Is Boring? Think Again! Part 2",
+    category: "Programming",
+    externalUrl: `${BLOG_BASE}/think-passive-bfr-is-boring-think-again-part-2`,
+  },
+  {
+    slug: "think-passive-bfr-is-boring-think-again-part-1",
+    title: "Think Passive BFR Is Boring? Think Again! Part 1",
+    category: "Programming",
+    externalUrl: `${BLOG_BASE}/think-passive-bfr-is-boring-think-again-part-1`,
+  },
+  {
+    slug: "return-to-running",
+    title: "Another BFR Success Story: A Return to Running",
+    category: "Case study",
+    externalUrl: `${BLOG_BASE}/return-to-running`,
+  },
+  {
+    slug: "post-surgical",
+    title: "When Should We Start Blood Flow Restriction Training Post Operatively?",
+    category: "Programming",
+    externalUrl: `${BLOG_BASE}/post-surgical`,
+  },
+];
+
 // 15 podcast appearances. Renders as a marquee under the Rolnick card per §N.21.
 export const ROLNICK_PODCASTS = [
   { name: "(P)REHAB Podcast", src: "/images/podcasts/prehab.jpg", w: 140, h: 56 },

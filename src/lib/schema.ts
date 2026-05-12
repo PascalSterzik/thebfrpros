@@ -250,6 +250,86 @@ export function buildAboutSchemaGraph({ pageTitle, pageDescription }: AboutSchem
   };
 }
 
+// /blog index. Transition-state schema: a CollectionPage carrying a
+// Blog with BlogPosting ItemList. Each BlogPosting points at the
+// external (legacy) URL via `url`. When Phase 4 migration moves the
+// posts onto this site, each BlogPosting `url` will switch to the
+// internal /blog/[slug] path.
+type BlogSchemaInput = {
+  pageTitle: string;
+  pageDescription: string;
+  posts: ReadonlyArray<{ title: string; externalUrl: string; category: string }>;
+};
+
+export function buildBlogSchemaGraph({
+  pageTitle,
+  pageDescription,
+  posts,
+}: BlogSchemaInput) {
+  const pageUrl = `${SITE.origin}/blog`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const blogId = `${pageUrl}#blog`;
+  const personId = `${SITE.origin}/about/nicholas-rolnick#person`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "Blog", item: pageUrl },
+        ],
+      },
+      {
+        "@type": "Blog",
+        "@id": blogId,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        publisher: { "@id": orgId },
+        blogPost: posts.map((p) => ({
+          "@type": "BlogPosting",
+          headline: p.title,
+          url: p.externalUrl,
+          author: { "@id": personId },
+          publisher: { "@id": orgId },
+          articleSection: p.category,
+        })),
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": blogId },
+        breadcrumb: { "@id": breadcrumbId },
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
 // /podcast. PodcastSeries carrying a PodcastEpisode ItemList. Host
 // references the canonical Rolnick Person @id. Platform links surfaced
 // as sameAs entries on the PodcastSeries so Google can disambiguate the
