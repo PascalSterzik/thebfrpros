@@ -299,11 +299,27 @@ export const LICAMELI_BODY = {
   eyebrow: "The work",
   headline: "The bridge between rehab and performance",
   paragraphs: [
-    "Dr. Licameli directs an outpatient physical therapy clinic and serves as Injury Reduction Specialist for 3D Muscle Journey, a coaching practice for natural bodybuilders. He is himself a competitive natural bodybuilder. The clinical-floor practitioner and the under-the-bar lifter live in the same person. That dual lens is rare in BFR education.",
-    "Most BFR certifications are written by rehab specialists. The protocols read like rehab. The case examples are rehab. The athletic side, in-season maintenance, hypertrophy at low loads, performance applications, return-to-sport, get a paragraph and a footnote. Dr. Licameli's chapters in The Complete BFR Certification cover that side at the same depth Dr. Rolnick covers the rehab side.",
+    "Dr. Licameli graduated summa cum laude from Ramapo College of New Jersey with a bachelor's in biology, then earned his Doctor of Physical Therapy at Rutgers School of Biomedical and Health Sciences at age 24. He directs an outpatient physical and occupational therapy clinic, serves as the Injury Reduction and Management Specialist for 3D Muscle Journey, and runs his own online physical therapy and wellness company, Strength Together Inc.",
+    "He is also a professional natural bodybuilder. The clinical-floor practitioner and the under-the-bar lifter live in the same person. That dual lens is rare in BFR education: most BFR certifications are written by rehab specialists, the protocols read like rehab, and the case examples are rehab. The athletic side, in-season maintenance, hypertrophy at low loads, performance applications, return-to-sport, gets a paragraph and a footnote. Dr. Licameli's chapters in The Complete BFR Certification cover that side at the same depth Dr. Rolnick covers the rehab side.",
     "When a graduate of the certification asks how to integrate BFR with an athlete in-season, or how to layer ischemic preconditioning into a strength program, or how to apply BFR to the patient who recovered enough to load harder, Dr. Licameli's material is the answer.",
   ],
 } as const;
+
+// Stats grid for /about/nicholas-licameli. Anchored on the verifiable
+// facts from his live bio page (thebfrpros.com/nick-licameli pulled
+// 2026-05-12): the DPT credential from Rutgers, the summa cum laude
+// undergraduate distinction from Ramapo, the three current business
+// affiliations (outpatient clinic director, 3D Muscle Journey specialist,
+// Strength Together Inc. founder), and his professional natural-
+// bodybuilder status. Numeric where the data supports a count; short
+// labels where the achievement itself is the headline. Same BioStats
+// component as the Rolnick page.
+export const LICAMELI_STATS = [
+  { value: "DPT", label: "Doctor of Physical Therapy (Rutgers)" },
+  { value: "Summa", label: "Cum laude BSc, Biology (Ramapo)" },
+  { value: "3", label: "Active practice and brand affiliations" },
+  { value: "Pro", label: "Natural bodybuilder competitor" },
+] as const;
 
 export const LICAMELI_AREAS = {
   eyebrow: "What he covers in the certification",
@@ -318,13 +334,15 @@ export const LICAMELI_AREAS = {
 } as const;
 
 export const LICAMELI_ROLES = {
-  eyebrow: "Practice and affiliations",
+  eyebrow: "Education and practice",
   headline: "Where the work happens",
   items: [
-    { role: "Doctor of Physical Therapy", org: "" },
-    { role: "Director, outpatient therapy clinic", org: "" },
-    { role: "Injury Reduction Specialist", org: "3D Muscle Journey" },
-    { role: "Active natural bodybuilder competitor", org: "" },
+    { role: "Doctor of Physical Therapy", org: "Rutgers School of Biomedical and Health Sciences" },
+    { role: "BSc, Biology (summa cum laude)", org: "Ramapo College of New Jersey" },
+    { role: "Director", org: "Outpatient physical and occupational therapy clinic" },
+    { role: "Injury Reduction and Management Specialist", org: "3D Muscle Journey" },
+    { role: "Founder", org: "Strength Together Inc. (online PT and wellness)" },
+    { role: "Professional natural bodybuilder", org: "" },
     { role: "Co-founder and co-instructor", org: "The BFR Pros" },
   ],
 } as const;

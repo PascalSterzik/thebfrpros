@@ -3,6 +3,7 @@ import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import BioHero from "@/components/sections/about/BioHero";
 import BioBody from "@/components/sections/about/BioBody";
+import BioStats from "@/components/sections/about/BioStats";
 import BioCredentials from "@/components/sections/about/BioCredentials";
 import BioFinalCTA from "@/components/sections/about/BioFinalCTA";
 import AreasList from "@/components/sections/about/AreasList";
@@ -10,6 +11,7 @@ import {
   LICAMELI_META,
   LICAMELI_HERO,
   LICAMELI_BODY,
+  LICAMELI_STATS,
   LICAMELI_AREAS,
   LICAMELI_ROLES,
   LICAMELI_FINAL_CTA,
@@ -78,6 +80,7 @@ export default function LicameliPage() {
           subhead={LICAMELI_HERO.subhead}
           photoSrc={LICAMELI_HERO.photoSrc}
         />
+        <BioStats stats={LICAMELI_STATS} />
         <BioBody
           eyebrow={LICAMELI_BODY.eyebrow}
           headline={LICAMELI_BODY.headline}
