@@ -250,6 +250,75 @@ export function buildAboutSchemaGraph({ pageTitle, pageDescription }: AboutSchem
   };
 }
 
+// Audience landing pages (/for/[profession]). WebPage + BreadcrumbList +
+// Organization + Course reference, so search engines connect the audience
+// page to the canonical Course entity. The page itself is a CollectionPage-
+// style landing; we use WebPage since it's the right neutral schema for a
+// long-form persuasion page.
+type AudienceSchemaInput = {
+  path: string;
+  audienceName: string;
+  pageTitle: string;
+  pageDescription: string;
+};
+
+export function buildAudienceSchemaGraph({
+  path,
+  audienceName,
+  pageTitle,
+  pageDescription,
+}: AudienceSchemaInput) {
+  const pageUrl = `${SITE.origin}${path}`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const courseId = `${SITE.origin}#course`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: `BFR for ${audienceName}`, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "WebPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": courseId },
+        breadcrumb: { "@id": breadcrumbId },
+        audience: {
+          "@type": "Audience",
+          audienceType: audienceName,
+        },
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
 // Legal pages (/privacy, /terms, /disclaimer, /refund-policy). Minimal @graph:
 // Organization + WebSite + BreadcrumbList + WebPage. WebPage subtype carries
 // the right semantic for utility legal pages without inventing a non-standard

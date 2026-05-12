@@ -104,7 +104,7 @@ export const HOME_AUDIENCES = [
     body: "Apply BFR to post-op loading, ACL rehab, rotator cuff, the total knee at month four, and the geriatric population whose joints can't tolerate heavy resistance.",
     scopeLine: "BFR is within PT scope of practice per APTA",
     href: "/for/physical-therapists",
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     audience: "Athletic Trainers",
@@ -112,7 +112,7 @@ export const HOME_AUDIENCES = [
     body: "Apply BFR to in-season maintenance, sideline-friendly recovery, post-injury return-to-sport, and the athlete who can't load heavy in-season but still needs to maintain strength.",
     scopeLine: "BFR is approved for ATs per NATA",
     href: "/for/athletic-trainers",
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     audience: "Strength & Conditioning Coaches",
@@ -120,7 +120,7 @@ export const HOME_AUDIENCES = [
     body: "Apply BFR to in-season hypertrophy at low loads, ischemic preconditioning, and the athlete whose schedule won't allow heavy training but who still needs to progress.",
     scopeLine: "Performance applications across rehab and S&C settings",
     href: "/for/strength-coaches",
-    comingSoon: true,
+    comingSoon: false,
   },
 ] as const;
 

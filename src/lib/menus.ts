@@ -24,9 +24,9 @@ export const SITE_MENU_LINKS: HeaderMenuLink[] = [
   // "Certification" stays descriptive (not action-led) because non-cert pages
   // serve Stage-2/3 traffic that should not be hit with an action verb.
   { href: "/get-certified", label: "Certification" },
-  { href: "/for/physical-therapists", label: "For Physical Therapists", comingSoon: true },
-  { href: "/for/athletic-trainers", label: "For Athletic Trainers", comingSoon: true },
-  { href: "/for/strength-coaches", label: "For Strength Coaches", comingSoon: true },
+  { href: "/for/physical-therapists", label: "For Physical Therapists" },
+  { href: "/for/athletic-trainers", label: "For Athletic Trainers" },
+  { href: "/for/strength-coaches", label: "For Strength Coaches" },
   { href: "/about", label: "About" },
   { href: "/research", label: "Research", comingSoon: true },
   { href: "/reviews", label: "Reviews", comingSoon: true },
