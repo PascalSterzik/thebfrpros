@@ -250,6 +250,68 @@ export function buildAboutSchemaGraph({ pageTitle, pageDescription }: AboutSchem
   };
 }
 
+// Legal pages (/privacy, /terms, /disclaimer, /refund-policy). Minimal @graph:
+// Organization + WebSite + BreadcrumbList + WebPage. WebPage subtype carries
+// the right semantic for utility legal pages without inventing a non-standard
+// schema type.
+type LegalSchemaInput = {
+  path: string;
+  pageTitle: string;
+  pageDescription: string;
+  breadcrumbName: string;
+};
+
+export function buildLegalSchemaGraph({
+  path,
+  pageTitle,
+  pageDescription,
+  breadcrumbName,
+}: LegalSchemaInput) {
+  const pageUrl = `${SITE.origin}${path}`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: breadcrumbName, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "WebPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        breadcrumb: { "@id": breadcrumbId },
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
 // /contact ContactPage. Minimal @graph: Organization + WebSite + BreadcrumbList
 // + ContactPage. The Organization carries the canonical contactPoint that
 // search engines surface in knowledge-panel results, and the ContactPage
