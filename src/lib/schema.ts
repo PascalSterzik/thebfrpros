@@ -1,7 +1,7 @@
 // JSON-LD schema generators. One @graph per page so the rich-results test sees one
 // connected entity tree instead of competing snippets.
 
-import { CEU_APPROVALS, ENROLL_URL, PRICING, ROLNICK, SITE, STATS } from "./constants";
+import { CEU_APPROVALS, ENROLL_URL, LICAMELI, PRICING, ROLNICK, SITE, STATS } from "./constants";
 
 type HomeSchemaInput = {
   pageTitle: string;
@@ -149,6 +149,212 @@ export function buildHomeSchemaGraph({ pageTitle, pageDescription, faq }: HomeSc
         datePublished: "2026-05-10",
         dateModified: "2026-05-10",
         author: { "@id": personId },
+      },
+    ],
+  };
+}
+
+// /about parent page. AboutPage type. Links back to the canonical Person
+// @ids for Rolnick and Licameli so the team cards' deep bios resolve as the
+// same entities everywhere on the site.
+type AboutSchemaInput = {
+  pageTitle: string;
+  pageDescription: string;
+};
+
+export function buildAboutSchemaGraph({ pageTitle, pageDescription }: AboutSchemaInput) {
+  const pageUrl = `${SITE.origin}/about`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const rolnickId = `${SITE.origin}/about/nicholas-rolnick#person`;
+  const licameliId = `${SITE.origin}/about/nicholas-licameli#person`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+        founders: [{ "@id": rolnickId }, { "@id": licameliId }],
+        sameAs: [
+          SITE.social.instagram,
+          SITE.social.facebook,
+          SITE.social.youtube,
+          SITE.social.tiktok,
+          SITE.social.twitter,
+        ],
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: SITE.phone,
+            email: SITE.contactEmail,
+            contactType: "customer support",
+            areaServed: "US",
+            availableLanguage: ["English"],
+          },
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "Person",
+        "@id": rolnickId,
+        name: ROLNICK.fullName,
+        jobTitle: "Doctor of Physical Therapy",
+        description: `Co-founder of ${SITE.brandName}. ${ROLNICK.publicationsLine}.`,
+        image: `${SITE.origin}/images/instructors/rolnick-large.jpg`,
+        alumniOf: ROLNICK.alumniOf.map((a) => ({ "@type": "EducationalOrganization", name: a.name })),
+        affiliation: ROLNICK.affiliations.map((name) => ({ "@type": "Organization", name })),
+        worksFor: { "@id": orgId },
+      },
+      {
+        "@type": "Person",
+        "@id": licameliId,
+        name: LICAMELI.fullName,
+        jobTitle: "Doctor of Physical Therapy",
+        description: `Co-founder of ${SITE.brandName}. ${LICAMELI.tagline}.`,
+        image: `${SITE.origin}/images/instructors/licameli.jpg`,
+        worksFor: { "@id": orgId },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "About", item: pageUrl },
+        ],
+      },
+      {
+        "@type": "AboutPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": orgId },
+        mainEntity: { "@id": orgId },
+        breadcrumb: { "@id": breadcrumbId },
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
+// /about/[bio] bio sub-pages. ProfilePage type with a Person mainEntity.
+// PersonId mirrors the @id used in the Course / About / Home schemas so all
+// references resolve as the same entity across the site.
+type PersonPageSchemaInput = {
+  path: string;
+  personId: string;
+  pageTitle: string;
+  pageDescription: string;
+  personName: string;
+  jobTitle: string;
+  imageSrc: string;
+  alumniOf?: ReadonlyArray<{ name: string }>;
+  affiliation?: ReadonlyArray<string>;
+  sameAs?: ReadonlyArray<string>;
+  parentBreadcrumb: { name: string; path: string };
+};
+
+export function buildPersonPageSchemaGraph({
+  path,
+  personId,
+  pageTitle,
+  pageDescription,
+  personName,
+  jobTitle,
+  imageSrc,
+  alumniOf,
+  affiliation,
+  sameAs,
+  parentBreadcrumb,
+}: PersonPageSchemaInput) {
+  const pageUrl = `${SITE.origin}${path}`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+        sameAs: [
+          SITE.social.instagram,
+          SITE.social.facebook,
+          SITE.social.youtube,
+          SITE.social.tiktok,
+          SITE.social.twitter,
+        ],
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: SITE.phone,
+            email: SITE.contactEmail,
+            contactType: "customer support",
+            areaServed: "US",
+            availableLanguage: ["English"],
+          },
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "Person",
+        "@id": personId,
+        name: personName,
+        jobTitle,
+        description: pageDescription,
+        image: `${SITE.origin}${imageSrc}`,
+        ...(alumniOf
+          ? { alumniOf: alumniOf.map((a) => ({ "@type": "EducationalOrganization", name: a.name })) }
+          : {}),
+        ...(affiliation
+          ? { affiliation: affiliation.map((name) => ({ "@type": "Organization", name })) }
+          : {}),
+        worksFor: { "@id": orgId },
+        ...(sameAs && sameAs.length > 0 ? { sameAs } : {}),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: parentBreadcrumb.name, item: `${SITE.origin}${parentBreadcrumb.path}` },
+          { "@type": "ListItem", position: 3, name: personName, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        mainEntity: { "@id": personId },
+        breadcrumb: { "@id": breadcrumbId },
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
       },
     ],
   };

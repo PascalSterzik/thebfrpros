@@ -61,7 +61,7 @@ const HOME_MENU_LINKS: HeaderMenuLink[] = [
   { href: "/for/physical-therapists", label: "For Physical Therapists", comingSoon: true },
   { href: "/for/athletic-trainers", label: "For Athletic Trainers", comingSoon: true },
   { href: "/for/strength-coaches", label: "For Strength Coaches", comingSoon: true },
-  { href: "/about", label: "About", comingSoon: true },
+  { href: "/about", label: "About" },
   { href: "/research", label: "Research", comingSoon: true },
   { href: "/reviews", label: "Reviews", comingSoon: true },
   { href: "https://bfrproviders.com", label: "Find a Provider", external: true },

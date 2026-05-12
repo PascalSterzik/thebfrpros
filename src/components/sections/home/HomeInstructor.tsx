@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { HOME_INSTRUCTOR } from "@/content/home";
@@ -106,15 +107,13 @@ export default function HomeInstructor() {
           transition={{ duration: 0.7 }}
           className="mt-10 text-center"
         >
-          <span
-            aria-disabled="true"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-navy/40 cursor-not-allowed"
+          <Link
+            href={HOME_INSTRUCTOR.ctaHref}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-deeper transition"
           >
             {HOME_INSTRUCTOR.ctaLabel}
-            <span className="rounded-full border border-line px-2 py-0.5 text-[0.65rem] uppercase tracking-[0.18em] text-muted/70 normal-case">
-              Coming soon
-            </span>
-          </span>
+            <span aria-hidden>→</span>
+          </Link>
         </motion.div>
       </div>
     </section>

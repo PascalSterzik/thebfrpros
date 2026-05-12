@@ -134,7 +134,7 @@ export const HOME_INSTRUCTOR = {
     "Dr. Nicholas Rolnick has authored 72+ peer-reviewed BFR publications and maintains an active clinical practice in Manhattan. Dr. Nicholas Licameli, the co-instructor, bridges rehab-side BFR programming and athletic performance applications.",
   ctaLabel: "Read the instructor profile",
   ctaHref: "/about/nicholas-rolnick",
-  ctaComingSoon: true,
+  ctaComingSoon: false,
 } as const;
 
 // Final CTA — the homepage's ONE soft gateway to /get-certified. Per
