@@ -240,6 +240,75 @@ export const ROLNICK_PUBLICATIONS = [
   { name: "Strength & Conditioning Journal, BFR for the physique athlete", src: "/images/research/strength-conditioning-journal-2.jpg", w: 240, h: 80, href: "https://journals.lww.com/nsca-scj/Fulltext/2020/10000/Blood_Flow_Restriction_Training_and_the_Physique.4.aspx" },
 ] as const;
 
+// Featured peer-reviewed publications co-authored by Dr. Rolnick. Pulled
+// verbatim from the live thebfrpros.com/published-research page (titles +
+// abstracts) plus the source-of-truth URL list in
+// Research/dr-rolnick-publications-and-appearances.md. Used on /research
+// and /research/publications. Six papers are surfaced; the full 72+
+// publication body is represented by the journal marquee.
+export const ROLNICK_FEATURED_PAPERS = [
+  {
+    title:
+      "Blood Flow Restriction Training and the Physique Athlete: A Practical Research-Based Guide to Maximizing Muscle Size",
+    journal: "Strength and Conditioning Journal (NSCA)",
+    year: 2020,
+    abstract:
+      "Emerging evidence indicates that low-load blood flow restriction (BFR) training is an effective strategy to increase muscular adaptations. Yet, it remains questionable as to whether combining BFR with traditional resistance training can potentiate hypertrophic adaptations. This article provides an evidence-based review of current research on the topic, including underlying mechanisms of BFR training, and draws practical conclusions as to how BFR can be applied by physique athletes to optimize increases in muscle mass.",
+    url: "https://journals.lww.com/nsca-scj/Fulltext/2020/10000/Blood_Flow_Restriction_Training_and_the_Physique.4.aspx",
+    tags: ["hypertrophy", "physique"],
+  },
+  {
+    title:
+      "Can Blood Flow Restriction Used During Aerobic Training Enhance Body Composition in Physique Athletes?",
+    journal: "Strength and Conditioning Journal (NSCA)",
+    year: 2020,
+    abstract:
+      "Emerging evidence indicates low-load blood flow restriction (BFR) training is an effective strategy to increase muscular adaptations when performed during resistance training. Yet, it remains questionable as to whether combining BFR with traditional aerobic training can preserve or perhaps even potentiate hypertrophic adaptations. This article provides an evidence-based review of current research on the topic and draws practical conclusions as to how BFR can be applied by physique athletes to optimize increases in muscle mass.",
+    url: "https://journals.lww.com/nsca-scj/Abstract/2020/10000/Can_Blood_Flow_Restriction_Used_During_Aerobic.5.aspx",
+    tags: ["aerobic", "body composition"],
+  },
+  {
+    title:
+      "Low-intensity resistance exercise with blood flow restriction and arterial stiffness in humans: A systematic review",
+    journal: "Scandinavian Journal of Medicine and Science in Sports",
+    year: 2021,
+    abstract:
+      "Low-intensity resistance exercise with blood flow restriction is an emerging type of exercise recognition worldwide. This systematic review evaluated the effects of low-intensity resistance exercise performed with concurrent blood flow restriction (LIRE-BFR) on acute and chronic measures of arterial stiffness in humans.",
+    url: "https://onlinelibrary.wiley.com/doi/10.1111/sms.13902",
+    tags: ["arterial stiffness", "systematic review"],
+  },
+  {
+    title:
+      "Perceived Barriers to Blood Flow Restriction Training",
+    journal: "Frontiers in Rehabilitation Sciences",
+    year: 2021,
+    abstract:
+      "There are likely some perceived barriers that practitioners must overcome to effectively implement this modality into practice. These barriers include determining BFR training pressures, access to appropriate BFR training technologies for relevant demographics based on the current evidence, a comprehensive and systematic approach to medical screening for safe practice, and strategies to mitigate excessive perceptual demands of BFR training to foster long-term compliance. This manuscript discusses each of these barriers and provides evidence-based strategies and direction to guide clinical practice and future research.",
+    url: "https://www.frontiersin.org/articles/10.3389/fresc.2021.697082/full",
+    tags: ["clinical implementation", "screening"],
+  },
+  {
+    title:
+      "Comparison of blood flow restriction devices and their effect on quadriceps muscle activation",
+    journal: "Strength and Conditioning Journal (NSCA)",
+    year: 2021,
+    abstract:
+      "Letter to the editor addressing the methodology and conclusions of a comparison study between blood flow restriction devices and their effect on quadriceps muscle activation during low-load resistance exercise.",
+    url: null,
+    tags: ["devices", "EMG"],
+  },
+  {
+    title:
+      "Letter on the effectiveness of blood-flow restricted resistance training in the musculoskeletal rehabilitation of patients with lower limb disorders",
+    journal: "Letter to the editor on a systematic review and meta-analysis",
+    year: 2021,
+    abstract:
+      "Letter to the editor addressing methodology, inclusion criteria, and clinical-implementation conclusions in a published systematic review and meta-analysis on the effectiveness of BFR-restricted resistance training in the musculoskeletal rehabilitation of patients with lower limb disorders.",
+    url: null,
+    tags: ["lower limb", "rehab"],
+  },
+] as const;
+
 // 15 podcast appearances. Renders as a marquee under the Rolnick card per §N.21.
 export const ROLNICK_PODCASTS = [
   { name: "(P)REHAB Podcast", src: "/images/podcasts/prehab.jpg", w: 140, h: 56 },

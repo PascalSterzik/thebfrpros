@@ -250,6 +250,173 @@ export function buildAboutSchemaGraph({ pageTitle, pageDescription }: AboutSchem
   };
 }
 
+// /research and /research/publications. Both surface the same Person
+// (Dr. Rolnick) + a ScholarlyArticle ItemList. /research is the brand-
+// level page with the WebPage type; /research/publications is the deep
+// CollectionPage where each ScholarlyArticle gets author/headline/url
+// detail for Google's research-rich-result surfaces.
+type ResearchPaperItem = {
+  title: string;
+  abstract: string;
+  url: string | null;
+  journal: string;
+  year: number;
+};
+
+function rolnickPersonRef(orgId: string) {
+  return {
+    "@type": "Person",
+    "@id": `${SITE.origin}/about/nicholas-rolnick#person`,
+    name: ROLNICK.fullName,
+    jobTitle: "Doctor of Physical Therapy",
+    worksFor: { "@id": orgId },
+  };
+}
+
+type ResearchSchemaInput = {
+  pageTitle: string;
+  pageDescription: string;
+  papers: ReadonlyArray<ResearchPaperItem>;
+};
+
+export function buildResearchSchemaGraph({
+  pageTitle,
+  pageDescription,
+  papers,
+}: ResearchSchemaInput) {
+  const pageUrl = `${SITE.origin}/research`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+  const personId = `${SITE.origin}/about/nicholas-rolnick#person`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      rolnickPersonRef(orgId),
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "Research", item: pageUrl },
+        ],
+      },
+      {
+        "@type": "WebPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": personId },
+        breadcrumb: { "@id": breadcrumbId },
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: papers.map((p, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "ScholarlyArticle",
+              headline: p.title,
+              author: { "@id": personId },
+              datePublished: String(p.year),
+              isPartOf: { "@type": "Periodical", name: p.journal },
+              ...(p.url ? { url: p.url } : {}),
+            },
+          })),
+        },
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
+export function buildPublicationsSchemaGraph({
+  pageTitle,
+  pageDescription,
+  papers,
+}: ResearchSchemaInput) {
+  const pageUrl = `${SITE.origin}/research/publications`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+  const personId = `${SITE.origin}/about/nicholas-rolnick#person`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      rolnickPersonRef(orgId),
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "Research", item: `${SITE.origin}/research` },
+          { "@type": "ListItem", position: 3, name: "Publications", item: pageUrl },
+        ],
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": personId },
+        breadcrumb: { "@id": breadcrumbId },
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: papers.map((p, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "ScholarlyArticle",
+              headline: p.title,
+              abstract: p.abstract,
+              author: { "@id": personId },
+              datePublished: String(p.year),
+              isPartOf: { "@type": "Periodical", name: p.journal },
+              ...(p.url ? { url: p.url } : {}),
+            },
+          })),
+        },
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
 // /reviews page. CollectionPage carrying the canonical AggregateRating
 // for the Course plus a Review @list pulled from the same TESTIMONIALS +
 // STUDENT_TESTIMONIALS used on screen. Anchors the same #rating @id used

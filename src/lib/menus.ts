@@ -28,7 +28,7 @@ export const SITE_MENU_LINKS: HeaderMenuLink[] = [
   { href: "/for/athletic-trainers", label: "For Athletic Trainers" },
   { href: "/for/strength-coaches", label: "For Strength Coaches" },
   { href: "/about", label: "About" },
-  { href: "/research", label: "Research", comingSoon: true },
+  { href: "/research", label: "Research" },
   { href: "/reviews", label: "Reviews" },
   { href: "/contact", label: "Contact" },
   { href: "https://bfrproviders.com", label: "Find a Provider", external: true },
