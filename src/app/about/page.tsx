@@ -5,7 +5,6 @@ import AboutHero from "@/components/sections/about/AboutHero";
 import AboutStory from "@/components/sections/about/AboutStory";
 import AboutPrinciples from "@/components/sections/about/AboutPrinciples";
 import AboutTeam from "@/components/sections/about/AboutTeam";
-import AboutFeatured from "@/components/sections/about/AboutFeatured";
 import AboutFinalCTA from "@/components/sections/about/AboutFinalCTA";
 import { ABOUT_META } from "@/content/about";
 import { SITE_MENU_LINKS } from "@/lib/menus";
@@ -62,7 +61,6 @@ export default function AboutPage() {
         <AboutStory />
         <AboutPrinciples />
         <AboutTeam />
-        <AboutFeatured />
         <AboutFinalCTA />
       </main>
 

@@ -73,39 +73,82 @@ export const ABOUT_PRINCIPLES = {
   ],
 } as const;
 
-// Brief team cards on the parent /about page. Each links to a deep bio sub-page.
-// The deep authority work happens at /about/nicholas-rolnick and
-// /about/nicholas-licameli; this section gives the visitor a fast read.
-export const ABOUT_TEAM = {
-  eyebrow: "The team",
-  headline: "Built by clinicians who still see patients",
-  rolnick: {
-    eyebrow: "Co-founder, lead instructor",
-    name: "Dr. Nicholas Rolnick",
-    credentials: "PT, DPT, MS",
-    tagline: "The Human Performance Mechanic",
-    line:
-      "72+ peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Faculty at Lehman College CUNY and Concordia University Chicago. Active clinical practice in Manhattan. Featured in CNN, the Wall Street Journal, Forbes, ESPN, and PubMed.",
-    photoSrc: "/images/instructors/rolnick-large.jpg",
-    profileHref: "/about/nicholas-rolnick",
-    profileLabel: "Read Dr. Rolnick's profile",
-  },
-  licameli: {
-    eyebrow: "Co-founder, co-instructor",
-    name: "Dr. Nicholas Licameli",
-    credentials: "PT, DPT",
-    tagline: "Director of Outpatient Therapy",
-    line:
-      "Director of an outpatient therapy clinic and Injury Reduction Specialist for 3D Muscle Journey. Active natural bodybuilder competitor. Bridges rehab-side BFR programming and athletic performance applications across the curriculum.",
-    photoSrc: "/images/instructors/licameli.jpg",
-    profileHref: "/about/nicholas-licameli",
-    profileLabel: "Read Dr. Licameli's profile",
-  },
-} as const;
+// Team members on the parent /about page. Mirrors the live thebfrpros.com/our-team
+// roster verbatim: same 5 humans, same role labels, same bio framing. Rolnick
+// and Licameli link to deep bio sub-pages; the other three carry their bio
+// paragraph inline on the card until their deep bios ship.
+//
+// Source: https://www.thebfrpros.com/our-team plus individual bio pages
+// (/nick-rolnick, /nick-licameli, /mathias-thoelen, /marty-rolnick, /erica-marcano).
+// Pulled verbatim 2026-05-12. Role labels are the live-site SMALL-CAPS labels.
+export type TeamMember = {
+  name: string;
+  role: string;
+  credentials: string;
+  bio: string;
+  photoSrc?: string;
+  initials?: string;
+  profileHref?: string;
+  profileLabel?: string;
+};
 
-export const ABOUT_FEATURED = {
-  eyebrow: "Where the work has been featured",
-  headline: "BFR research from this team has appeared in mainstream and clinical press",
+export const ABOUT_TEAM = {
+  eyebrow: "Our team",
+  headline: "Built by passionate clinicians",
+  intro:
+    "The BFR Pros are proud to have a team of passionate clinicians working to ensure that both our colleagues and the populations they serve have the best possible experience with Blood Flow Restriction Training. Together, we're doing our part to make the world a happier place.",
+  members: [
+    {
+      name: "Dr. Nicholas Rolnick",
+      role: "Founder-Owner",
+      credentials: "PT, MS, CSCS",
+      bio:
+        "Author of 72+ peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Faculty at Lehman College CUNY and Concordia University Chicago. Active clinical practice in Manhattan. Featured in CNN, the Wall Street Journal, Forbes, ESPN, and PubMed.",
+      photoSrc: "/images/instructors/rolnick-large.jpg",
+      profileHref: "/about/nicholas-rolnick",
+      profileLabel: "Read the full profile",
+    },
+    {
+      name: "Nick Licameli",
+      role: "Clinical Instructor / Blog Author",
+      credentials: "PT, DPT",
+      bio:
+        "Director of an outpatient therapy clinic and Injury Reduction Specialist for 3D Muscle Journey. Active natural bodybuilder competitor. Bridges rehab-side BFR programming and athletic performance applications across the curriculum.",
+      photoSrc: "/images/instructors/licameli.jpg",
+      profileHref: "/about/nicholas-licameli",
+      profileLabel: "Read the full profile",
+    },
+    {
+      name: "Mathias Thoelen",
+      role: "Clinical Instructor",
+      credentials: "Sports Physical Therapist",
+      bio:
+        "Belgian Sports Physical Therapist at Anna TopSupport Eindhoven in The Netherlands. Works daily with Sports Doctors and Orthopedic Surgeons on conservative and post-operative rehabilitation of recreational and elite athletes. Graduated cum laude from Hasselt University in 2020 with a BSc and MSc in Rehabilitation Sciences & Sports Physical Therapy. Teaches BFR Workshops in Belgium and The Netherlands for The BFR Pros and is engaged in research on BFR training in post-operative patients.",
+      initials: "MT",
+    },
+    {
+      name: "Marty Rolnick",
+      role: "Philosopher / Marketing Lunatic / Ideaholic",
+      credentials: "",
+      bio:
+        "Philosopher, marketing lunatic, and ideaholic whose craft is the conceiving and spreading of sustainable ideas. An idealist who believes the best solutions are those where all stakeholders benefit. Across his life he has been father, athlete, corporate executive, and entrepreneur. Now a teacher, coach, and mentor who helps small business owners and entrepreneurs achieve their dreams.",
+      initials: "MR",
+    },
+    {
+      name: "Erica Marcano",
+      role: "Consultant",
+      credentials: "MS, ATC, CSCS",
+      bio:
+        "The Notorious ATC. BOC-certified and NYS-licensed Athletic Trainer, NSCA-certified Strength and Conditioning Specialist, American Red Cross CPR Instructor, BFR-certified, Reiki Master, and Breathwork & Meditation practitioner. MS in Athletic Training from LIU Brooklyn (2005). Past Sports Medicine at Penn State, then back to LIU Brooklyn as Assistant Athletic Trainer and Associate Professor. Northeast Regional Coordinator with The Rugby Research and Injury Prevention Group and Athletic Trainer for the USOC-sanctioned Northeast Rugby Academy.",
+      initials: "EM",
+    },
+  ] as ReadonlyArray<TeamMember>,
+  mascot: {
+    name: "Buff",
+    role: "Mascot",
+    tagline: "#CHASETHEPUMP!",
+    photoSrc: "/images/team/buff.png",
+  },
 } as const;
 
 export const ABOUT_FINAL_CTA = {
