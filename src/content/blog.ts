@@ -1,7 +1,5 @@
-// /blog index page copy. Transition state: posts are listed here and link
-// out to the live URLs on the legacy site. Full content migration to
-// /blog/[slug] on this site is Phase 4 work, per
-// Research/WEBSITE-PROJECT-ORCHESTRATOR.md.
+// /blog index page copy. All 20 posts are now migrated and live at
+// /blog/[slug] on this site. The cards in BlogPostsList link internally.
 
 import { BLOG_POSTS } from "@/lib/constants";
 
@@ -18,16 +16,10 @@ export const BLOG_HERO = {
   subhead: `Clinical commentary, programming questions, methodological deep-dives, and patient success stories from Dr. Rolnick and the team. ${BLOG_POSTS.length} published posts.`,
 } as const;
 
-export const BLOG_NOTICE = {
-  eyebrow: "Transition note",
-  body: "Posts currently open on the legacy blog at thebfrpros.com/bfr-blog while the migration to this site completes. The cards below link out; the URLs will resolve to /blog/{slug} on this site after the cutover.",
-} as const;
-
 export const BLOG_INDEX_INTRO = {
   eyebrow: "Recent posts",
   headline: "Every post on the blog, most recent first",
-  intro:
-    "Tap a card to open the post on the legacy site. Each card opens in a new tab.",
+  intro: "Tap a card to read the full post.",
 } as const;
 
 export const BLOG_FINAL_CTA = {

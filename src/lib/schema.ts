@@ -250,6 +250,95 @@ export function buildAboutSchemaGraph({ pageTitle, pageDescription }: AboutSchem
   };
 }
 
+// /blog/[slug]. Single BlogPosting per post with author + datePublished
+// + articleSection + articleBody (concatenated paragraph text).
+type BlogPostSchemaInput = {
+  slug: string;
+  title: string;
+  description: string;
+  author: string;
+  date: string;
+  category: string;
+  articleBody: string;
+};
+
+export function buildBlogPostSchemaGraph({
+  slug,
+  title,
+  description,
+  author,
+  date,
+  category,
+  articleBody,
+}: BlogPostSchemaInput) {
+  const pageUrl = `${SITE.origin}/blog/${slug}`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const postingId = `${pageUrl}#posting`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+  // Authors: Rolnick has a canonical Person @id; other authors are
+  // surfaced as plain Person without @id so they don't collide with the
+  // canonical entity.
+  const isRolnick = author.toLowerCase().includes("rolnick");
+  const authorRef = isRolnick
+    ? { "@id": `${SITE.origin}/about/nicholas-rolnick#person` }
+    : { "@type": "Person", name: author };
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE.origin}/blog` },
+          { "@type": "ListItem", position: 3, name: title, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "BlogPosting",
+        "@id": postingId,
+        url: pageUrl,
+        headline: title,
+        description,
+        author: authorRef,
+        publisher: { "@id": orgId },
+        datePublished: date,
+        articleSection: category,
+        mainEntityOfPage: pageUrl,
+        articleBody,
+      },
+      {
+        "@type": "WebPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: title,
+        description,
+        isPartOf: { "@id": websiteId },
+        breadcrumb: { "@id": breadcrumbId },
+        mainEntity: { "@id": postingId },
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
 // /blog index. Transition-state schema: a CollectionPage carrying a
 // Blog with BlogPosting ItemList. Each BlogPosting points at the
 // external (legacy) URL via `url`. When Phase 4 migration moves the
