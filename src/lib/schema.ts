@@ -250,6 +250,88 @@ export function buildAboutSchemaGraph({ pageTitle, pageDescription }: AboutSchem
   };
 }
 
+// /podcast. PodcastSeries carrying a PodcastEpisode ItemList. Host
+// references the canonical Rolnick Person @id. Platform links surfaced
+// as sameAs entries on the PodcastSeries so Google can disambiguate the
+// show across Apple/Spotify/YouTube.
+type PodcastSchemaInput = {
+  pageTitle: string;
+  pageDescription: string;
+  platforms: ReadonlyArray<{ name: string; href: string }>;
+  episodes: ReadonlyArray<{ number: number; title: string; topic: string }>;
+};
+
+export function buildPodcastSchemaGraph({
+  pageTitle,
+  pageDescription,
+  platforms,
+  episodes,
+}: PodcastSchemaInput) {
+  const pageUrl = `${SITE.origin}/podcast`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+  const seriesId = `${pageUrl}#series`;
+  const personId = `${SITE.origin}/about/nicholas-rolnick#person`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "Podcast", item: pageUrl },
+        ],
+      },
+      {
+        "@type": "PodcastSeries",
+        "@id": seriesId,
+        name: "BFR Better-For-Results Podcast",
+        url: pageUrl,
+        description: pageDescription,
+        publisher: { "@id": orgId },
+        author: { "@id": personId },
+        sameAs: platforms.map((p) => p.href),
+        episode: episodes.map((ep) => ({
+          "@type": "PodcastEpisode",
+          name: ep.title,
+          episodeNumber: ep.number,
+          partOfSeries: { "@id": seriesId },
+          about: ep.topic,
+        })),
+      },
+      {
+        "@type": "WebPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": seriesId },
+        breadcrumb: { "@id": breadcrumbId },
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
 // /research and /research/publications. Both surface the same Person
 // (Dr. Rolnick) + a ScholarlyArticle ItemList. /research is the brand-
 // level page with the WebPage type; /research/publications is the deep
