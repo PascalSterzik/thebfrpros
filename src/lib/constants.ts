@@ -302,6 +302,85 @@ export const TESTIMONIALS = [
       "Dr. Rolnick is a passionate instructor who optimizes the blend of science and practice which enabled me to utilize BFR training immediately. Because of Dr. Rolnick's instruction BFR training has become a well used tool with my special population, and clients as well.",
     angle: "clinical-outcomes",
   },
+  {
+    name: "Chantale Nightingale",
+    role: "Stapleford Health and Rehab, Regina",
+    quote:
+      "Just wanted to say thank you for putting up with us Canadians. We really appreciate you working with us to find the best way to deliver the course content. We all really enjoyed the in-person Webinar this past Saturday and found it quite helpful. We had quite a lively conversation after the webinar about the uses in clinic and potential clients that would benefit. We did a lot of research prior to going with the BFR Pros and we are happy we chose you. The presented research and clinical experience and insight was very much appreciated. Again, just wanted to say a big thank you from all of us at Stapleford Health and Rehab Centre in Regina.",
+    angle: "group-cohort",
+  },
+] as const;
+
+// Short student testimonials pulled verbatim from the bfrtraining.com course
+// page (Research/source-extracts-2026-05-07/course page.txt). These are the
+// "13 shorter testimonials" the brand-guide flags as held-in-reserve for a
+// dedicated reviews wall. Used on /reviews. No paraphrasing.
+export const STUDENT_TESTIMONIALS = [
+  {
+    name: "Christina Bentrewicz",
+    quote:
+      "Did a great job utilizing current and up to date research in the various modules to give the best information available.",
+  },
+  {
+    name: "Vincent Beatty",
+    quote:
+      "Truly helped me achieve a greater understanding of BFR and now I'm motivated to push harder to bring this modality to my clinic.",
+  },
+  {
+    name: "Earl Hayden",
+    quote:
+      "Easy to understand concepts thoroughly explained for those with little previous knowledge of BFR.",
+  },
+  {
+    name: "Brian Gargiul",
+    quote:
+      "The amount of information given. In addition, the quizzes were helpful as well once the sections became more in depth.",
+  },
+  {
+    name: "Giuseppe Sposito",
+    quote:
+      "I wish this [case study focus] was done more often. It helps take academia and theory and translate into practice. I think I took away a number of good strategies and ideas to use with patients, many of whom look very similar to the case study folks. The slides and materials look clean and nice. You guys are VERY good at speaking and presenting. Quality was top-notch there.",
+  },
+  {
+    name: "Conor McClure",
+    quote:
+      "Very practical and thorough for an introductory-level course. Can't wait to see the advanced course.",
+  },
+  {
+    name: "Michael Reeves",
+    quote:
+      "The videos, infographics and dissemination of the research in each video. The videos were easy to follow.",
+  },
+  {
+    name: "Matthew D'Elia",
+    quote:
+      "I liked the more in-depth information of the topics than just brushing over them, such as getting into hypertrophy of muscles and how it happens. Also, the amount of research provided and explained was great to further back what was being said.",
+  },
+  {
+    name: "Matt Girard",
+    quote:
+      "The content was very informative and well transmitted. Also the structure of the course is very clear and well interconnected. Moreover the questions afterwards are a good way to recap the content. All in all it was a good guided course and the level of the content was well prepared and selected for a beginners course.",
+  },
+  {
+    name: "Roberto Baumgartne",
+    quote:
+      "The course managed to answer every question that I had, whenever I had a new one such as 'how does this compare to heavy non-BFR training?' it was answered in the following module or slide. I was highly impressed with the way Nicholas presented this course and the information presented.",
+  },
+  {
+    name: "Shaquan Garnette",
+    quote:
+      "The depth of the content was fantastic. I will likely go through it again and take more notes now that I have a better understanding of how I will be applying BFR myself.",
+  },
+  {
+    name: "Brenden Aylward",
+    quote:
+      "Well organized, thorough, evidence based. Did a great job taking a topic that would seem to be only effective to teach in person and made me more confident to start practicing it.",
+  },
+  {
+    name: "Peter Schley",
+    quote:
+      "The different modules were good. Nice to break things up. The questions were helpful for some retention. Good overall format and flow of material.",
+  },
 ] as const;
 
 // 4 courses, full module breakdown verbatim from the live bfrtraining.com course page

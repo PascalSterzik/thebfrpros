@@ -250,6 +250,112 @@ export function buildAboutSchemaGraph({ pageTitle, pageDescription }: AboutSchem
   };
 }
 
+// /reviews page. CollectionPage carrying the canonical AggregateRating
+// for the Course plus a Review @list pulled from the same TESTIMONIALS +
+// STUDENT_TESTIMONIALS used on screen. Anchors the same #rating @id used
+// on the homepage and /get-certified so Google sees one consistent rating
+// entity sitewide.
+type ReviewsSchemaInput = {
+  pageTitle: string;
+  pageDescription: string;
+  longForm: ReadonlyArray<{ name: string; quote: string; role?: string }>;
+  shortForm: ReadonlyArray<{ name: string; quote: string }>;
+};
+
+export function buildReviewsSchemaGraph({
+  pageTitle,
+  pageDescription,
+  longForm,
+  shortForm,
+}: ReviewsSchemaInput) {
+  const pageUrl = `${SITE.origin}/reviews`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const courseId = `${SITE.origin}#course`;
+  const ratingId = `${SITE.origin}#rating`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+
+  const reviewItems = [
+    ...longForm.map((t) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: t.name },
+      reviewBody: t.quote,
+      itemReviewed: { "@id": courseId },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: 5,
+        bestRating: 5,
+        worstRating: 1,
+      },
+    })),
+    ...shortForm.map((t) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: t.name },
+      reviewBody: t.quote,
+      itemReviewed: { "@id": courseId },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: 5,
+        bestRating: 5,
+        worstRating: 1,
+      },
+    })),
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "AggregateRating",
+        "@id": ratingId,
+        itemReviewed: { "@id": courseId },
+        ratingValue: STATS.ratingValue,
+        reviewCount: STATS.reviewCount,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "Reviews", item: pageUrl },
+        ],
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": courseId },
+        breadcrumb: { "@id": breadcrumbId },
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: reviewItems,
+        },
+        datePublished: "2026-05-12",
+        dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
 // /faq page. Full FAQPage + BreadcrumbList + Organization + WebSite. The
 // FAQPage entries carry every Q+A from the page so Google can surface
 // rich-result snippets.

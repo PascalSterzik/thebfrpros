@@ -29,7 +29,7 @@ export const SITE_MENU_LINKS: HeaderMenuLink[] = [
   { href: "/for/strength-coaches", label: "For Strength Coaches" },
   { href: "/about", label: "About" },
   { href: "/research", label: "Research", comingSoon: true },
-  { href: "/reviews", label: "Reviews", comingSoon: true },
+  { href: "/reviews", label: "Reviews" },
   { href: "/contact", label: "Contact" },
   { href: "https://bfrproviders.com", label: "Find a Provider", external: true },
   { href: ENROLL_URL, label: "Enroll Now", external: true },
