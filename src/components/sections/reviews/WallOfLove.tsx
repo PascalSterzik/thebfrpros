@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { TESTIMONIALS } from "@/lib/constants";
 import { STUDENT_TESTIMONIALS } from "@/content/student-reviews";
@@ -22,8 +22,16 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 // so the testimonials were collected before then. Rating defaulted
 // to 5 for those four (the live course page renders them all as 5★).
 //
+// Pascal feedback round 2: 685 cards rendered at once pushed the video
+// testimonials section too far down the page. Now paginated 99 per
+// batch with a Show More button that reveals the next batch in place.
+// Initial render is 99 cards (about the same height as the WallOfLove
+// pre-expansion plus a comfortable gap to the soft gateway below).
+//
 // All cards are DM Sans body type — .editorial-quote serif italic is
 // reserved for the standalone PullQuoteSection below, per brand-guide.
+
+const PAGE_SIZE = 99;
 
 type WallEntry = {
   id: string;
@@ -89,6 +97,12 @@ function formatDate(iso: string): string {
 
 export default function WallOfLove() {
   const entries = useMemo(() => buildEntries(), []);
+  const [shown, setShown] = useState(PAGE_SIZE);
+
+  const visible = entries.slice(0, shown);
+  const remaining = entries.length - shown;
+  const hasMore = remaining > 0;
+  const nextBatch = Math.min(PAGE_SIZE, remaining);
 
   return (
     <section className="section-wrap cream-field">
@@ -118,7 +132,7 @@ export default function WallOfLove() {
         </motion.div>
 
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {entries.map((e) => (
+          {visible.map((e) => (
             <li
               key={e.id}
               className="flex flex-col rounded-lg border border-line bg-white p-6 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
@@ -143,6 +157,23 @@ export default function WallOfLove() {
             </li>
           ))}
         </ul>
+
+        {hasMore ? (
+          <div className="mt-12 flex flex-col items-center gap-3">
+            <button
+              type="button"
+              onClick={() =>
+                setShown((s) => Math.min(s + PAGE_SIZE, entries.length))
+              }
+              className="rounded-lg border border-line bg-white px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.14em] text-navy transition hover:border-accent hover:text-accent"
+            >
+              Show {nextBatch} more reviews
+            </button>
+            <p className="text-xs text-muted">
+              {shown.toLocaleString("en-US")} of {entries.length.toLocaleString("en-US")} shown
+            </p>
+          </div>
+        ) : null}
       </div>
     </section>
   );
