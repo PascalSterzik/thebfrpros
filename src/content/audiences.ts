@@ -145,7 +145,7 @@ export const PT: Audience = {
       {
         eyebrow: "Pillar 2",
         title: "Within your PT scope of practice",
-        body: "APTA recognizes BFR within the PT scope of practice — no additional license, no extra certification body. The course itself is approved by the New York State PT Board through December 2027 and the New Jersey State PT Board through January 2026, reciprocal across 35 additional states. The CEU stack alone is what most PTs need for renewal cycles.",
+        body: "APTA recognizes BFR within the PT scope of practice: no additional license, no extra certification body. The course itself is approved by the New York State PT Board through December 2027 and the New Jersey State PT Board through January 2026, reciprocal across 35 additional states. The CEU stack alone is what most PTs need for renewal cycles.",
       },
       {
         eyebrow: "Pillar 3",
@@ -266,12 +266,12 @@ export const AT: Audience = {
       {
         eyebrow: "Pillar 2",
         title: "NATA scope + BOC Category A CEUs",
-        body: "BFR is within the NATA scope of practice for Athletic Trainers. The Complete BFR Certification is approved by the Board of Certification (BOC) as Provider AP# P10226 for Category A CEUs across all four courses — one course, full credit cycle.",
+        body: "BFR is within the NATA scope of practice for Athletic Trainers. The Complete BFR Certification is approved by the Board of Certification (BOC) as Provider AP# P10226 for Category A CEUs across all four courses: one course, full credit cycle.",
       },
       {
         eyebrow: "Pillar 3",
         title: "Equipment-agnostic, sideline-realistic",
-        body: "Practical BFR with wrapping straps and elastic bands is covered alongside pneumatic systems, so you can match the cuff to the setting — clinic, training room, sideline, team bus. The cuff is the AT's choice, not the course's.",
+        body: "Practical BFR with wrapping straps and elastic bands is covered alongside pneumatic systems, so you can match the cuff to the setting: clinic, training room, sideline, team bus. The cuff is the AT's choice, not the course's.",
       },
     ],
   },
@@ -387,7 +387,7 @@ export const SC: Audience = {
       {
         eyebrow: "Pillar 3",
         title: "Cuff-agnostic, setting-flexible",
-        body: "Pneumatic Delfi systems, SmartCuffs, B Strong elastic bands, wrapping straps — the curriculum walks through the right tool for the setting. Locker room, pre-game, off-day, in private practice. The cuff is the coach's choice.",
+        body: "Pneumatic Delfi systems, SmartCuffs, B Strong elastic bands, wrapping straps. The curriculum walks through the right tool for the setting: locker room, pre-game, off-day, in private practice. The cuff is the coach's choice.",
       },
     ],
   },
@@ -425,7 +425,7 @@ export const SC: Audience = {
       },
       {
         body: "Practical assessment included",
-        detail: "Course 4 closes with a knowledge assessment on practical BFR with wrapping straps versus elastic bands — useful for coaches working without access to pneumatic systems.",
+        detail: "Course 4 closes with a knowledge assessment on practical BFR with wrapping straps versus elastic bands, useful for coaches working without access to pneumatic systems.",
       },
     ],
   },

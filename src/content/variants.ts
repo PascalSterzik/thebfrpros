@@ -82,7 +82,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     hero: {
       eyebrow: "The Complete BFR Certification",
-      headline: "Learn BFR from the source of 72+ peer-reviewed publications.",
+      headline: "Learn BFR from the source of 72+ peer-reviewed publications",
       subhead:
         "Dr. Nicholas Rolnick has authored 72+ peer-reviewed BFR publications, and The Complete BFR Certification is built on that body of work. 37 modules. 11.75 CEUs. Zero cuff sales pitches.",
       primaryCta: "Enroll Now for $449",
@@ -98,7 +98,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     problem: {
       label: "The problem",
-      headline: "You can keep reading abstracts on your lunch break. Or you can learn from the source.",
+      headline: "Keep reading abstracts on your lunch break, or learn from the source",
       intro:
         "You know what BFR is. You've watched the YouTube videos. You've read the Frontiers paper twice. You're not in the dark, you're in the wrong room.",
       surface:
@@ -112,7 +112,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     dreamVision: {
       label: "The destination",
-      headline: "Six months from now, your post-op ACL patients hit late-stage strength benchmarks on schedule.",
+      headline: "Six months from now, your post-op ACL patients hit late-stage strength benchmarks on schedule",
       paragraphs: [
         "It's a clinic afternoon. The patient on your table is week 18 post-op and the LSI is 86%. Last visit you applied the cuff yourself, set the pressure to 70% of limb occlusion, and walked them through the same low-load protocol you've used with the last seven post-op knees. They didn't ask if it would work. They trusted you, the way patients trust clinicians who know their tools.",
         "On the computer beside you is the screening form from Bonus #2, filled out for tomorrow's first BFR consult. The surgeon down the hall has started CC'ing you on post-op orders. The peer at the clinic across the street stopped by last week to ask which cuff you went with and why. You answered in two sentences.",
@@ -121,7 +121,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     dreamDeep: {
       label: "Who you become",
-      headline: "You are already the clinician who reads the research. You become the one who teaches it.",
+      headline: "You are already the clinician who reads the research, you become the one who teaches it",
       paragraphs: [
         "You're not chasing a fad and you never were. The science was always going to win and you bet on the side with the publication trail. That's who you've been since DPT school.",
         "Six months from now, the local APTA chapter asks you to present on BFR for post-op return-to-sport. You don't say yes because you need the credential. You say yes because you have the cases, the protocols, and the receipts. You stand at the front of the room and say specific things from memory.",
@@ -132,7 +132,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       line: "You don't need a different cuff. You need the curriculum the cuff manufacturers don't want you to see. The Complete BFR Certification is built on 72+ peer-reviewed publications by the practitioner teaching it, and it doesn't ship with a single product to upsell.",
     },
     finalCta: {
-      headline: "Learn BFR from the source of 72+ peer-reviewed publications. Or read another abstract.",
+      headline: "Learn BFR from the source of 72+ peer-reviewed publications, or read another abstract",
       subhead:
         "11.75 hours of video content. 11.75 CEUs. 37 modules. $449. 30-day money-back guarantee. Do it in a weekend or take 4 weeks. Lifetime access either way.",
       warning:
@@ -160,7 +160,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     hero: {
       eyebrow: "The Complete BFR Certification",
-      headline: "The only BFR certification that doesn't sell you a cuff.",
+      headline: "The only BFR certification that doesn't sell you a cuff",
       subhead:
         "Owens sells you Delfi. NE Seminars bundles you a cuff. Smart Tools sells you SmartCuffs. We don't sell anything you wear. We teach the technique, not the equipment, so the certification still works when the cuff in your closet doesn't.",
       primaryCta: "Enroll Now for $449",
@@ -176,7 +176,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     problem: {
       label: "The problem",
-      headline: "Half of being a clinician is being marketed to by people who used to be clinicians.",
+      headline: "Half of being a clinician is being marketed to by people who used to be clinicians",
       intro:
         "Every BFR course you've shopped came with a product attached. The curriculum is shaped by what the manufacturer wants you to buy. You can't tell where the education ends and the catalog begins.",
       surface:
@@ -190,7 +190,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     dreamVision: {
       label: "The destination",
-      headline: "Three years from now, you've been through three different cuff systems and the certification still works.",
+      headline: "Three years from now, you've been through three different cuff systems and the certification still works",
       paragraphs: [
         "Year one you used the Delfi the surgeon's office had on loan. Year two your clinic bought SmartCuffs because the price-to-feature ratio made sense for your patient mix. This year you're testing a LiveBand setup because the research data on cuff width is interesting and you want to see it on your own floor.",
         "None of those switches required a new course. The screening form from Bonus #2 didn't change. The pressure prescription framework didn't change. The patient outcomes didn't change.",
@@ -199,7 +199,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     },
     dreamDeep: {
       label: "Who you become",
-      headline: "You are the clinician who picks the equipment. You are not the clinician the equipment picks.",
+      headline: "You are the clinician who picks the equipment, not the clinician the equipment picks",
       paragraphs: [
         "Patients ask you which cuff is best. You don't recite a brand. You ask three questions about their goals, their schedule, and what their insurance will cover, and you make a recommendation that fits them.",
         "When a sales rep walks into your clinic with a new BFR product, you don't get pitched. You ask them about pressure-cycling protocols and arterial Doppler accuracy and watch them flip through their slide deck looking for the answer. You leave the meeting with information. They leave it with respect.",
@@ -210,7 +210,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       line: "The certification is the technique, not the cuff. The only way that's true is if the certification was designed without one. The Complete BFR Certification is the only program that was.",
     },
     finalCta: {
-      headline: "Buy the certification. Not the inventory.",
+      headline: "Buy the certification, not the inventory",
       subhead:
         "$449 for the full 37-module bundle, 11.75 CEUs, 11 implementation bonuses, and 30 days to ask for your money back. No cuff in the cart. No SKU at checkout. Just the curriculum.",
       warning:

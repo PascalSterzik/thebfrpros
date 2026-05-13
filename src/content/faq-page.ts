@@ -40,7 +40,7 @@ export const FAQ_PAGE: ReadonlyArray<FAQPageCategory> = [
     items: [
       {
         q: "What is The Complete BFR Certification?",
-        a: "A 37-module, 11.75-CEU professional certification in evidence-based blood flow restriction training. Built for licensed Physical Therapists, Athletic Trainers, and Strength & Conditioning Coaches. Taught primarily by Dr. Nicholas Rolnick (PT, MS, CSCS — author of 72+ peer-reviewed BFR publications) with co-instructor Dr. Nicholas Licameli (PT, DPT) covering the athletic-side chapters.",
+        a: "A 37-module, 11.75-CEU professional certification in evidence-based blood flow restriction training. Built for licensed Physical Therapists, Athletic Trainers, and Strength & Conditioning Coaches. Taught primarily by Dr. Nicholas Rolnick (PT, MS, CSCS, author of 72+ peer-reviewed BFR publications) with co-instructor Dr. Nicholas Licameli (PT, DPT) covering the athletic-side chapters.",
       },
       {
         q: "How long does the certification take to complete?",
@@ -67,7 +67,7 @@ export const FAQ_PAGE: ReadonlyArray<FAQPageCategory> = [
       },
       {
         q: "I'm an athletic trainer or strength coach, not a PT. Is this for me?",
-        a: "Yes. NATA recognizes BFR within the AT scope of practice and the certification is BOC-approved (Provider AP# P10226) for Category A CEUs. The athletic-side chapters — in-season hypertrophy, ischemic preconditioning, return-to-sport bridging — are written by Dr. Licameli, a competitive natural bodybuilder and DPT. Two dedicated audience pages cover this in detail: /for/athletic-trainers and /for/strength-coaches.",
+        a: "Yes. NATA recognizes BFR within the AT scope of practice and the certification is BOC-approved (Provider AP# P10226) for Category A CEUs. The athletic-side chapters (in-season hypertrophy, ischemic preconditioning, return-to-sport bridging) are written by Dr. Licameli, a competitive natural bodybuilder and DPT. Two dedicated audience pages cover this in detail: /for/athletic-trainers and /for/strength-coaches.",
       },
     ],
   },
@@ -120,7 +120,7 @@ export const FAQ_PAGE: ReadonlyArray<FAQPageCategory> = [
     items: [
       {
         q: "What does The Complete BFR Certification cost?",
-        a: "$449 for the full bundle: 4 courses, 37 modules, 11.75 CEUs, 11 bonuses. Advertised value is $1,454, savings $1,005, plus up to $640 in cuff-discount savings called out separately. There is one offer — no tiers, no upsells.",
+        a: "$449 for the full bundle: 4 courses, 37 modules, 11.75 CEUs, 11 bonuses. Advertised value is $1,454, savings $1,005, plus up to $640 in cuff-discount savings called out separately. There is one offer: no tiers, no upsells.",
       },
       {
         q: "What's the refund policy?",
@@ -139,7 +139,7 @@ export const FAQ_PAGE: ReadonlyArray<FAQPageCategory> = [
     items: [
       {
         q: "Is BFR safe?",
-        a: "Yes, when applied by a screened practitioner with appropriate pressures. The largest published BFR safety survey across 12,642 sessions reported deep vein thrombosis at 0.06%, pulmonary embolism at 0.01%, and rhabdomyolysis at 0.01% — rates comparable to or lower than standard resistance training. Safety depends on screening, equipment quality, and pressure prescription, all of which the certification covers in detail.",
+        a: "Yes, when applied by a screened practitioner with appropriate pressures. The largest published BFR safety survey across 12,642 sessions reported deep vein thrombosis at 0.06%, pulmonary embolism at 0.01%, and rhabdomyolysis at 0.01%, rates comparable to or lower than standard resistance training. Safety depends on screening, equipment quality, and pressure prescription, all of which the certification covers in detail.",
       },
       {
         q: "What if a patient has an adverse event?",
