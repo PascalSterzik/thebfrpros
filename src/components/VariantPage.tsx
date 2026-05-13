@@ -1,4 +1,5 @@
 import Header from "@/components/shared/Header";
+import CertAnchorNav from "@/components/shared/CertAnchorNav";
 import Footer from "@/components/shared/Footer";
 import HeroBlock from "@/components/sections/HeroBlock";
 import CredibilityBar from "@/components/sections/CredibilityBar";
@@ -24,6 +25,7 @@ import PSBlock from "@/components/sections/PSBlock";
 import { FAQ } from "@/content/faq";
 import type { Variant } from "@/content/variants";
 import { buildSchemaGraph } from "@/lib/schema";
+import { SITE_MENU_LINKS } from "@/lib/menus";
 
 export default function VariantPage({ variant }: { variant: Variant }) {
   const schema = buildSchemaGraph({
@@ -35,8 +37,12 @@ export default function VariantPage({ variant }: { variant: Variant }) {
 
   return (
     <>
-      {/* 1. Sticky header with mobile hamburger (announcement bar killed per §J.5: hero carries the urgency) */}
-      <Header />
+      {/* 1. Sticky header (Phase 1d 2026-05-13: now uses the global SITE_MENU_LINKS
+          like every other page; the cert-specific anchor sub-nav renders below
+          as a secondary bar. Announcement bar killed per §J.5: hero carries
+          the urgency.) */}
+      <Header menuLinks={SITE_MENU_LINKS} />
+      <CertAnchorNav />
 
       <main id="main">
         {/* 3. Hero */}

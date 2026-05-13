@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ENROLL_URL, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 
 export type HeaderMenuLink = {
   href: string;
@@ -12,25 +12,16 @@ export type HeaderMenuLink = {
   comingSoon?: boolean;
 };
 
-// Default menu used on /get-certified variants. In-page anchors target sections
-// that exist there. Homepage and any future page passes its own menu via the
-// menuLinks prop.
-const DEFAULT_MENU_LINKS: HeaderMenuLink[] = [
-  { href: ENROLL_URL, label: "Get BFR Certified", external: true },
-  { href: "#curriculum", label: "The Curriculum" },
-  { href: "#instructor", label: "About Dr. Rolnick" },
-  { href: "#testimonials", label: "Reviews" },
-  { href: "#solution", label: "How We Compare" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#faq", label: "FAQ" },
-];
-
+// menuLinks is required. Every page passes SITE_MENU_LINKS from lib/menus.ts.
+// Phase 1d (2026-05-13): the old DEFAULT_MENU_LINKS anchor list is retired;
+// /get-certified renders a SECONDARY CertAnchorNav below the global header
+// for in-page navigation rather than competing with the primary menu.
 export default function Header({
   variantHome = "/",
-  menuLinks = DEFAULT_MENU_LINKS,
+  menuLinks,
 }: {
   variantHome?: string;
-  menuLinks?: HeaderMenuLink[];
+  menuLinks: HeaderMenuLink[];
 }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -169,14 +160,17 @@ export default function Header({
         aria-hidden={!open}
       >
         <div className="container-rail flex h-full flex-col bg-white py-10">
-          <ul className="flex flex-col">
+          {/* Phase 1d: constrain to max-w-2xl on desktop so labels + arrows pull
+              toward the center and don't sit at the rail edges. Mobile keeps
+              full width (the rail is already narrow on small screens). */}
+          <ul className="flex flex-col w-full max-w-2xl mx-auto">
             {menuLinks.map((l) => {
               if (l.comingSoon) {
                 return (
                   <li key={l.href} className="border-b border-line/60 last:border-b-0">
                     <span
                       aria-disabled="true"
-                      className="flex items-center justify-between gap-4 py-5 font-display text-2xl sm:text-3xl text-navy/40 cursor-not-allowed"
+                      className="flex items-center justify-between gap-4 py-5 font-display uppercase text-2xl sm:text-3xl text-navy/40 cursor-not-allowed"
                     >
                       <span className="flex items-baseline gap-3">
                         {l.label}
@@ -197,7 +191,7 @@ export default function Header({
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between gap-4 py-5 font-display text-2xl sm:text-3xl text-accent"
+                      className="flex items-center justify-between gap-4 py-5 font-display uppercase text-2xl sm:text-3xl text-accent"
                     >
                       {l.label}
                       <span aria-hidden className="text-base">→</span>
@@ -210,7 +204,7 @@ export default function Header({
                   <Link
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center justify-between gap-4 py-5 font-display text-2xl sm:text-3xl text-navy hover:text-accent transition"
+                    className="flex items-center justify-between gap-4 py-5 font-display uppercase text-2xl sm:text-3xl text-navy hover:text-accent transition"
                   >
                     {l.label}
                     <span aria-hidden className="text-base text-muted">→</span>
@@ -219,21 +213,6 @@ export default function Header({
               );
             })}
           </ul>
-
-          <div className="mt-auto pt-10 border-t border-line/60">
-            <p className="small-caps-line text-muted">Talk to us</p>
-            <a
-              href={`tel:${SITE.phone}`}
-              className="mt-2 inline-flex font-display text-2xl text-navy hover:text-accent transition"
-            >
-              {SITE.phoneDisplay}
-            </a>
-            <p className="mt-3 text-sm text-muted">
-              <a href={`mailto:${SITE.contactEmail}`} className="hover:text-navy underline-offset-4 hover:underline">
-                {SITE.contactEmail}
-              </a>
-            </p>
-          </div>
         </div>
       </div>
     </header>
