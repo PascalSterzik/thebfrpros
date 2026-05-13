@@ -178,7 +178,7 @@ export default function Header({
             {menuLinks.map((l) => {
               const active = isActive(pathname, l.href, l.external);
               const baseCls =
-                "block py-3 font-display uppercase text-center text-display-md sm:text-display-lg leading-none transition";
+                "block py-3 font-display uppercase text-center text-display-xl leading-none transition";
               if (l.comingSoon) {
                 return (
                   <li key={l.href}>
