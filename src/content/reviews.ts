@@ -43,29 +43,41 @@ export const REVIEWS_STUDENT_INTRO = {
 // strip below the headline. 8-15 word slivers from the top long-form
 // testimonials. Order: research-authority -> implementation -> instructor
 // quality, matching the cert's three highest-load messaging pillars.
+// Phase 4 (2026-05-13): photo field added — circular avatars render
+// above each fragment.
 export const REVIEWS_HERO_EXCERPTS = [
   {
     name: "Dr. Clinton H. Lee, PT, DPT, CSCS",
+    photo: "/images/reviewers/clinton-lee.webp",
     fragment:
       "Continually staying up-to-date with emerging BFR research and implementing it into the course content.",
   },
   {
     name: "Dr. Brian D. Whyte, DPT, CLT, CSCS",
+    photo: "/images/reviewers/brian-whyte.webp",
     fragment:
       "A sound knowledge base for implementing Blood Flow Restriction in the clinic.",
   },
   {
     name: "Benjamin Toderico, MS, CSCS",
+    photo: "/images/reviewers/benjamin-toderico.webp",
     fragment:
       "A passionate instructor who optimizes the blend of science and practice.",
   },
 ] as const;
 
+// Phase 4 (2026-05-13): eyebrow renamed from "Wall of love" (King-Kong
+// vocab, off-voice) to "Verbatim, from the survey" (on-voice clinical).
+// Intro rewritten to be honest about the 17-vs-767+ count delta: 767+
+// is the rating count, 17 is the count of verbatim WRITTEN feedback
+// on file (4 long-form clinic-owner reviews + 13 short-form course-
+// feedback quotes). The two are different things and the page now
+// names them separately.
 export const REVIEWS_WALL_INTRO = {
-  eyebrow: "Wall of love",
+  eyebrow: "Verbatim, from the survey",
   headline: "Every verbatim review, one place",
   intro:
-    "Four long-form reviews from clinic owners and consultants, and thirteen short-form course-feedback quotes pulled verbatim from the survey. Filter by source to drill in.",
+    "767+ student ratings across the course-feedback survey averaged 4.8 stars. The 17 quotes below are every verbatim written comment we have on file: 4 long-form reviews from clinic owners and consultants, and 13 short-form student notes pulled exactly as written. Filter by source to drill in.",
 } as const;
 
 // Phase 2c — single standalone pull-quote. THIS is where .editorial-quote

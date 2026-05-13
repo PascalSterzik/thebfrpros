@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import SectionLabel from "@/components/shared/SectionLabel";
-import Stars from "@/components/shared/Stars";
 import { TESTIMONIALS, STUDENT_TESTIMONIALS } from "@/lib/constants";
 import { REVIEWS_WALL_INTRO } from "@/content/reviews";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
@@ -122,13 +121,12 @@ export default function WallOfLove() {
               key={e.id}
               className="flex flex-col rounded-lg border border-line bg-white p-6 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
             >
-              <div className="flex items-center justify-between gap-3">
-                <Stars variant="light" size="sm" />
+              <div className="flex justify-end">
                 <span className="small-caps-line text-muted text-[0.65rem]">
                   {e.source === "expert" ? "Clinic owner" : "Course feedback"}
                 </span>
               </div>
-              <p className="mt-4 flex-1 text-base leading-relaxed text-ink/90">
+              <p className="mt-3 flex-1 text-base leading-relaxed text-ink/90">
                 &ldquo;{e.quote}&rdquo;
               </p>
               <div className="mt-5 border-t border-line pt-4">

@@ -66,10 +66,19 @@ export default function ReviewsHero() {
               key={ex.name}
               className={`rounded-lg border border-white/15 bg-white/5 p-5 text-left backdrop-blur-sm ${i > 0 ? "hidden sm:block" : ""}`}
             >
-              <p className="text-white/95 text-base leading-snug">
+              <div className="mb-4 flex justify-center">
+                <Image
+                  src={ex.photo}
+                  alt={ex.name}
+                  width={64}
+                  height={64}
+                  className="h-16 w-16 rounded-full object-cover ring-2 ring-white/30"
+                />
+              </div>
+              <p className="text-white/95 text-base leading-snug text-center">
                 &ldquo;{ex.fragment}&rdquo;
               </p>
-              <p className="mt-3 small-caps-line text-white/65">
+              <p className="mt-3 small-caps-line text-white/65 text-center">
                 {ex.name}
               </p>
             </li>
