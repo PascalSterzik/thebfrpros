@@ -2,21 +2,24 @@ import type { Metadata } from "next";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import ReviewsHero from "@/components/sections/reviews/ReviewsHero";
-import ReviewsStatStrip from "@/components/sections/reviews/ReviewsStatStrip";
-import LongFormReviews from "@/components/sections/reviews/LongFormReviews";
-import StudentReviewsGrid from "@/components/sections/reviews/StudentReviewsGrid";
+import WallOfLove from "@/components/sections/reviews/WallOfLove";
+import PullQuoteSection from "@/components/sections/reviews/PullQuoteSection";
+import VideoTestimonials from "@/components/sections/reviews/VideoTestimonials";
 import BioFinalCTA from "@/components/sections/about/BioFinalCTA";
 import { REVIEWS_META, REVIEWS_FINAL_CTA } from "@/content/reviews";
 import { STUDENT_TESTIMONIALS, TESTIMONIALS } from "@/lib/constants";
 import { SITE_MENU_LINKS } from "@/lib/menus";
 import { buildReviewsSchemaGraph } from "@/lib/schema";
 
-// /reviews. Stage-3/4 trust page. 5 sections: Hero -> Stat strip ->
-// Long-form expert reviews (4 clinic-owner / consultant quotes) ->
-// Student grid (13 short course-feedback quotes) -> Soft gateway.
-// CollectionPage schema carries the canonical AggregateRating linked to
-// the Course entity + every Review pulled from the same data the page
-// renders on screen.
+// /reviews. Stage-3/4 trust page. Phase 2c (2026-05-13) rebuild to the
+// King-Kong reviews pattern: Hero (locked + 3-excerpts row) -> Wall of
+// Love (filtered card grid of all 17 verbatim reviews) -> Standalone
+// pull-quote (Lee's competitor-comparison quote in editorial-quote
+// serif italic) -> Video testimonials (4 VEED embeds with poster-
+// thumbnail facade) -> Soft gateway. The prior ReviewsStatStrip +
+// LongFormReviews + StudentReviewsGrid surfaces collapse into the new
+// Wall of Love + PullQuoteSection. CollectionPage schema unchanged —
+// still carries the canonical AggregateRating + every Review.
 
 export const metadata: Metadata = {
   title: { absolute: REVIEWS_META.title },
@@ -62,9 +65,9 @@ export default function ReviewsPage() {
 
       <main id="main">
         <ReviewsHero />
-        <ReviewsStatStrip />
-        <LongFormReviews />
-        <StudentReviewsGrid />
+        <WallOfLove />
+        <PullQuoteSection />
+        <VideoTestimonials />
         <BioFinalCTA
           eyebrow={REVIEWS_FINAL_CTA.eyebrow}
           headline={REVIEWS_FINAL_CTA.headline}

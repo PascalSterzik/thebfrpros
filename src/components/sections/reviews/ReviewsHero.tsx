@@ -1,13 +1,16 @@
 import Image from "next/image";
 import Stars from "@/components/shared/Stars";
 import Highlighted from "@/components/shared/Highlighted";
-import { REVIEWS_HERO } from "@/content/reviews";
+import { REVIEWS_HERO, REVIEWS_HERO_EXCERPTS } from "@/content/reviews";
 
 // /reviews hero. Locked HomeHero pattern: full-bleed background + navy
-// gradient + centered text. Stars rendered under the headline for an
-// immediate signal of the rating.
+// gradient + centered text. Stars under the headline; subhead; then a
+// Phase 2c (2026-05-13) 3-excerpt row of punchy 8-15 word fragments from
+// the top long-form testimonials. Mobile shows the first excerpt only;
+// desktop spans 3 columns. King-Kong-style "what they said, before
+// they scroll" pattern.
 
-const STAGGER_DELAYS = ["0ms", "80ms", "160ms", "240ms"];
+const STAGGER_DELAYS = ["0ms", "80ms", "160ms", "240ms", "320ms"];
 const BACKDROP_SRC = "/images/hero/hero-banner.jpg";
 
 export default function ReviewsHero() {
@@ -54,6 +57,25 @@ export default function ReviewsHero() {
             {REVIEWS_HERO.subhead}
           </p>
         </div>
+
+        <ul
+          className="opacity-0 animate-fade-up mt-10 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-3 mx-auto max-w-5xl"
+          style={{ animationDelay: STAGGER_DELAYS[4] }}
+        >
+          {REVIEWS_HERO_EXCERPTS.map((ex, i) => (
+            <li
+              key={ex.name}
+              className={`rounded-lg border border-white/15 bg-white/5 p-5 text-left backdrop-blur-sm ${i > 0 ? "hidden sm:block" : ""}`}
+            >
+              <p className="text-white/95 text-base leading-snug">
+                &ldquo;{ex.fragment}&rdquo;
+              </p>
+              <p className="mt-3 small-caps-line text-white/65">
+                {ex.name}
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

@@ -775,6 +775,48 @@ export const STUDENT_TESTIMONIALS = [
   },
 ] as const;
 
+// Phase 2c (2026-05-13): /reviews video-testimonials section. Four VEED.io
+// embeds in 16:9 plus 2 UGC vertical-format clips parked for later (Pascal
+// hasn't supplied thumbnails for those yet). Thumbnail webps live under
+// public/images/testimonials/video/{name}.webp (converted from PNG via
+// Pillow; sources moved to _Trash after conversion).
+export const VIDEO_TESTIMONIALS = [
+  {
+    name: "Matthew D'Elia",
+    role: "Physical Therapist",
+    veedId: "6c84a8f4-2a11-4f7d-b5f7-78c84bb6c6b5",
+    poster: "/images/testimonials/video/matthew-delia.webp",
+    aspect: "16/9",
+  },
+  {
+    name: "Erica Marcano",
+    role: "Athletic Trainer, MS, ATC, CSCS",
+    veedId: "0a56db20-a55f-4fba-b990-fdbde79b2add",
+    poster: "/images/testimonials/video/erica-marcano.webp",
+    aspect: "16/9",
+  },
+  {
+    name: "Keith Steigbigel",
+    role: "PT, DPT, OCS, CSCS — Owner, Prolete PT",
+    veedId: "9d70c743-2afa-439b-bc5d-c76737fa34b3",
+    poster: "/images/testimonials/video/keith-steigbigel.webp",
+    aspect: "16/9",
+  },
+  {
+    name: "Dawn Thomas",
+    role: "Physical Therapist",
+    veedId: "fb515674-f11a-4f58-884f-9bddf9cc3eb4",
+    poster: "/images/testimonials/video/dawn-thomas.webp",
+    aspect: "16/9",
+  },
+] as const;
+
+// TODO: thumbnails pending from Pascal — parked here so they don't get lost.
+// When Pascal supplies posters, add them to VIDEO_TESTIMONIALS above with
+// aspect: "9/16" and the corresponding poster path.
+// - Arash from PreHab Guys: veedId "e732af41-7b20-4ba5-8750-22eb98853d6f"
+// - Brazilian Researcher:    veedId "163ca6a1-f6c2-45bc-acc3-4424f580ba80"
+
 // 4 courses, full module breakdown verbatim from the live bfrtraining.com course page
 // (§K.5 of the iteration plan). Module type 'video' / 'quiz' / 'pdf' / 'chart' is no
 // longer rendered as an icon; duration column signals video vs quiz. Descriptions are
