@@ -1,13 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { HOME_AUDIENCES } from "@/content/home";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Section 9 — Three profession cards (PT / AT / S&C). Self-identification
-// helper. Awareness 2-4. Cards link to Phase 2 /for/* pages, rendered as
-// "Coming soon" disabled state until those pages ship.
+// helper. Awareness 2-4. Phase 2h (2026-05-13): cards now link to the
+// live /for/* pages (PT, AT, S&C) that shipped in Phase 2. The prior
+// "Coming soon" placeholder is retired. The card data carries `href`
+// + `comingSoon` flags so individual audiences can flip back to the
+// disabled state without re-wiring the component.
 
 export default function WhoItsForCards() {
   return (
@@ -48,21 +52,36 @@ export default function WhoItsForCards() {
             <motion.li
               key={a.audience}
               variants={fadeUp}
-              className="rounded-lg border border-line bg-cream p-7 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.12)] flex flex-col"
+              className="flex"
             >
-              <p className="small-caps-line text-accent">{a.eyebrow}</p>
-              <h3 className="mt-3 font-display text-2xl text-navy text-balance">{a.audience}</h3>
-              <p className="mt-4 text-base leading-relaxed text-ink/80 flex-1">{a.body}</p>
-              <p className="mt-5 text-sm text-muted">{a.scopeLine}</p>
-              <span
-                aria-disabled="true"
-                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy/40 cursor-not-allowed"
-              >
-                Detailed page coming soon
-                <span className="rounded-full border border-line px-2 py-0.5 text-[0.65rem] uppercase tracking-[0.18em] text-muted/70 normal-case">
-                  Soon
-                </span>
-              </span>
+              {a.comingSoon ? (
+                <div className="flex flex-col rounded-lg border border-line bg-cream p-7 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.12)] w-full">
+                  <p className="small-caps-line text-accent">{a.eyebrow}</p>
+                  <h3 className="mt-3 font-display text-2xl text-navy text-balance">{a.audience}</h3>
+                  <p className="mt-4 text-base leading-relaxed text-ink/80 flex-1">{a.body}</p>
+                  <p className="mt-5 text-sm text-muted">{a.scopeLine}</p>
+                  <span
+                    aria-disabled="true"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy/40 cursor-not-allowed"
+                  >
+                    Detailed page coming soon
+                  </span>
+                </div>
+              ) : (
+                <Link
+                  href={a.href}
+                  className="group flex flex-col rounded-lg border border-line bg-cream p-7 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.12)] w-full transition hover:border-accent/40 hover:shadow-[0_18px_40px_-22px_rgba(25,55,99,0.32)]"
+                >
+                  <p className="small-caps-line text-accent">{a.eyebrow}</p>
+                  <h3 className="mt-3 font-display text-2xl text-navy text-balance">{a.audience}</h3>
+                  <p className="mt-4 text-base leading-relaxed text-ink/80 flex-1">{a.body}</p>
+                  <p className="mt-5 text-sm text-muted">{a.scopeLine}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent group-hover:text-accent-deeper transition">
+                    See the {a.eyebrow.replace(/^For /, "")} page
+                    <span aria-hidden>→</span>
+                  </span>
+                </Link>
+              )}
             </motion.li>
           ))}
         </motion.ol>
