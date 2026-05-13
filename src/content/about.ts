@@ -101,9 +101,9 @@ export const ABOUT_TEAM = {
     {
       name: "Dr. Nicholas Rolnick",
       role: "Founder-Owner",
-      credentials: "PT, MS, CSCS",
+      credentials: "PT, DPT, MS, CSCS",
       bio:
-        "Author of 72+ peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Faculty at Lehman College CUNY and Concordia University Chicago. Active clinical practice in Manhattan. Featured in CNN, the Wall Street Journal, Forbes, ESPN, and PubMed.",
+        "Author of 72+ peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Adjunct Assistant Professor of Physical Therapy at New York Medical College. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living. Active clinical practice in Manhattan. Founded The BFR Pros, LLC in June 2018.",
       photoSrc: "/images/team/nick-rolnick.webp",
       profileHref: "/about/nicholas-rolnick",
       profileLabel: "Read the full profile",
@@ -171,7 +171,7 @@ export const ABOUT_FINAL_CTA = {
 export const ROLNICK_META = {
   title: "Dr. Nicholas Rolnick | 72+ Peer-Reviewed BFR Publications",
   description:
-    "Doctor of Physical Therapy. Co-founder and lead instructor of The BFR Pros. 72+ peer-reviewed BFR publications. Faculty at Lehman College CUNY and Concordia University Chicago. Active clinical practice in Manhattan.",
+    "Doctor of Physical Therapy, NSCA CSCS. Co-founder and lead instructor of The BFR Pros. 72+ peer-reviewed BFR publications. Adjunct Assistant Professor of Physical Therapy at New York Medical College. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living. Active clinical practice in Manhattan.",
   canonicalPath: "/about/nicholas-rolnick",
   ogImagePath: "/og/home",
 } as const;
@@ -179,10 +179,10 @@ export const ROLNICK_META = {
 export const ROLNICK_HERO = {
   eyebrow: "Co-founder, lead instructor",
   headline: "Dr. Nicholas Rolnick",
-  credentialsLine: "PT, DPT, MS",
+  credentialsLine: "PT, DPT, MS, CSCS",
   tagline: "The Human Performance Mechanic",
   subhead:
-    "Author of 72+ peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Faculty at Lehman College CUNY and Concordia University Chicago. Active clinical practice in Manhattan.",
+    "Author of 72+ peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Adjunct Assistant Professor of Physical Therapy at New York Medical College. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living. Active clinical practice in Manhattan.",
   photoSrc: "/images/instructors/rolnick-large.jpg",
 } as const;
 
@@ -190,17 +190,18 @@ export const ROLNICK_BODY = {
   eyebrow: "The work",
   headline: "Researcher first, clinician every weekday morning",
   paragraphs: [
-    "Dr. Rolnick earned his Doctor of Physical Therapy at Columbia University with honors. He completed his Master of Science in Health Promotion Management at American University and authored Chapter 12 of the National Academy of Sports Medicine textbook on Warm-up, Recovery, and Injury Prevention. He sits as faculty in Exercise Science at Lehman College CUNY and at Concordia University Chicago's MS Exercise Science program.",
-    "His 72+ peer-reviewed BFR publications span Frontiers in Physiology, the British Journal of Sports Medicine, the Strength and Conditioning Journal, Medicine and Science in Sports and Exercise, ScienceDirect, and Sage Journals. The Pillars of BFR Training framework, the post-surgical screening algorithm, and the pressure-and-perception research that anchor The Complete BFR Certification all came out of that body of work.",
+    "Dr. Rolnick earned his Doctor of Physical Therapy at Columbia University with honors, after a Master of Science in Health Promotion Management at American University and a Bachelor of Arts in Biology at Franklin & Marshall College. He authored Chapter 12 of the National Academy of Sports Medicine textbook on Warm-up, Recovery, and Injury Prevention, and he co-authored the Smart Tools Level One BFR Course Manual in 2018, a foundational curriculum still in wide use today. He is a New York State licensed Physical Therapist (license #0416481, valid through 2029) and an NSCA Certified Strength and Conditioning Specialist (license #201175480, current through Dec 2026). He founded The BFR Pros, LLC in June 2018, and on September 4, 2020 launched the on-demand Introduction to BFR Training course that became the spine of the certification.",
+    "Today, Dr. Rolnick is Adjunct Assistant Professor of Physical Therapy at New York Medical College in Valhalla, advising student BFR research projects. He previously served as faculty at Lehman College CUNY (Kinesiology and Biomechanics, 2019 – 2025) and at Concordia University Chicago (Strength and Conditioning, Kinesiology, 2017 – 2021). He is also Topic Editor for Frontiers in Physiology and Frontiers in Sports and Active Living across Volumes I and II of the Impact of Blood Flow Restriction Device Features research collection (2024 – 2026), and a peer reviewer for more than 26 named journals.",
+    "His 72+ peer-reviewed BFR publications span Frontiers in Physiology, the British Journal of Sports Medicine, the Strength and Conditioning Journal, Medicine and Science in Sports and Exercise, the Scandinavian Journal of Medicine and Science in Sports, Sports Medicine Open, and many others. The Pillars of BFR Training framework, the post-surgical screening algorithm, and the pressure-and-perception research that anchor The Complete BFR Certification all came out of that body of work.",
     "He maintains an active outpatient physical therapy practice in Manhattan and sees patients every week. The post-op ACL at week six, the rotator cuff repair at month three, the geriatric patient whose joints cannot tolerate heavy loading. The cases that show up in the curriculum are the cases he treats on Monday morning. The certification is built on the chart from Friday.",
-    "Beyond research and clinical practice, Dr. Rolnick's work has been cited in CNN, the Wall Street Journal, Forbes, ESPN, Men's Health, GQ, the Military Times, the NSCA, and Eat This Not That. He hosts the BFR Better-For-Results Podcast and has appeared on more than 15 guest podcasts covering BFR, hypertrophy, rehab, and the integration of research into clinical practice.",
+    "Beyond research and clinical practice, Dr. Rolnick has been personally featured in the New York Post, CNN Life But Better, Men's Health, FOX 32 Chicago, CNET, BLOOM-WFLA-TV, Zenger News, the Scarsdale Inquirer, WESTFAIROnline, WELL+GOOD, AskMen, Eat This Not That, and Vitamin Shop's What's Good. He has been named to UPDOC Media's Top 40 Physical Therapy Influencers and Movement Guides' Top 5 Strength and Conditioning Coach Instagram Accounts, and to WebPT's 12 Physical Therapists to Watch. He hosts the BFR Better-For-Results Podcast and has appeared as a guest on more than 15 podcasts covering BFR, hypertrophy, rehab, and the integration of research into clinical practice.",
   ],
 } as const;
 
 export const ROLNICK_STATS = [
   { value: "72+", label: "peer-reviewed BFR publications" },
+  { value: "26+", label: "journals peer-reviewed" },
   { value: "10+", label: "years in active Manhattan practice" },
-  { value: "2", label: "university faculty appointments" },
   { value: "14+", label: "major media features" },
 ] as const;
 
@@ -209,28 +210,64 @@ export const ROLNICK_CREDENTIALS = {
   headline: "Where the credentials come from",
   items: [
     {
-      role: "Doctor of Physical Therapy (honors)",
+      role: "Doctor of Physical Therapy (honors, 2017)",
       org: "Columbia University",
     },
     {
-      role: "MS, Health Promotion Management",
+      role: "MS, Health Promotion Management (2014)",
       org: "American University",
     },
     {
-      role: "Faculty, Exercise Science",
-      org: "Lehman College CUNY",
+      role: "BA, Biology (2010)",
+      org: "Franklin & Marshall College",
     },
     {
-      role: "Faculty, MS Exercise Science",
-      org: "Concordia University Chicago",
+      role: "Adjunct Assistant Professor of Physical Therapy (since Jul 2021)",
+      org: "New York Medical College, Valhalla NY",
+    },
+    {
+      role: "Topic Editor, Volumes I + II (2024 – 2026)",
+      org: "Frontiers in Physiology and Frontiers in Sports and Active Living",
+    },
+    {
+      role: "Peer reviewer for 26+ named journals",
+      org: "Frontiers, Scandinavian Journal of Medicine and Science in Sports, Sports Medicine Open, BJSM, PM&R, and others",
+    },
+    {
+      role: "NSCA Certified Strength and Conditioning Specialist",
+      org: "License #201175480, current through Dec 2026",
+    },
+    {
+      role: "New York State Licensed Physical Therapist",
+      org: "License #0416481, valid through 2029",
+    },
+    {
+      role: "CPR/AED + Basic First Aid certified",
+      org: "American Academy of CPR & First Aid, through Aug 17 2026",
     },
     {
       role: "Chapter 12 author (Warm-up, Recovery, Injury Prevention)",
       org: "National Academy of Sports Medicine textbook",
     },
     {
-      role: "Co-founder and lead instructor",
-      org: "The BFR Pros",
+      role: "Co-author, Smart Tools Level One BFR Course Manual (2018)",
+      org: "Foundational curriculum still in wide use",
+    },
+    {
+      role: "Founder and lead instructor (since June 2018)",
+      org: "The BFR Pros, LLC",
+    },
+    {
+      role: "Author, Introduction to BFR Training (launched Sep 4, 2020)",
+      org: "On-demand course at bfrtraining.com (spine of The Complete BFR Certification)",
+    },
+    {
+      role: "Past faculty, Kinesiology and Biomechanics (Aug 2019 – Jul 2025)",
+      org: "Lehman College CUNY, Bronx NY",
+    },
+    {
+      role: "Past faculty, Strength and Conditioning + Kinesiology (Jan 2017 – Jul 2021)",
+      org: "Concordia University Chicago",
     },
   ],
 } as const;

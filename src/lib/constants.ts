@@ -79,21 +79,54 @@ export const PRICING = {
 export const ROLNICK = {
   fullName: "Dr. Nicholas Rolnick",
   shortName: "Dr. Rolnick",
-  credentials: "PT, DPT, MS",
+  credentials: "PT, DPT, MS, CSCS",
   tagline: "The Human Performance Mechanic",
   city: "Manhattan, New York",
   alumniOf: [
-    { name: "Columbia University", role: "Doctor of Physical Therapy (honors)" },
-    { name: "American University", role: "MS, Health Promotion Management" },
+    { name: "Columbia University", role: "Doctor of Physical Therapy (honors, 2017)" },
+    { name: "American University", role: "MS, Health Promotion Management (2014)" },
+    { name: "Franklin & Marshall College", role: "BA, Biology (2010)" },
   ],
+  // Active university appointment (Lehman 2019-2025 and Concordia 2017-2021 are now past;
+  // see brand-guide.md Source-of-Truth for Rolnick Claims and Research/rolnick-cv-facts.md).
   affiliations: [
-    "Lehman College CUNY (Exercise Science faculty)",
-    "Concordia University Chicago (MS Exercise Science faculty)",
+    "Adjunct Assistant Professor of Physical Therapy, New York Medical College (Valhalla, NY, since Jul 2021)",
+    "Topic Editor, Frontiers in Physiology and Frontiers in Sports and Active Living (Volumes I + II, 2024 – 2026)",
+    "Peer reviewer for 26+ journals",
     "NASM Chapter 12 author (Warm-up, Recovery, Injury Prevention)",
+    "Founder of The BFR Pros, LLC (since June 2018)",
   ],
   publicationsLine: `${STATS.publications} peer-reviewed BFR publications`,
+  // mediaList is the MODALITY-level set surfaced alongside FEATURED_IN logos. Nick-personal
+  // media features live in ROLNICK_PERSONAL_MEDIA below per brand-guide.md modality-vs-brand
+  // discipline (gotcha 71/72).
   mediaList: ["CNN", "Wall Street Journal", "Forbes", "ESPN", "Men's Health", "GQ", "PubMed", "NSCA"],
 } as const;
+
+// Nick-personal media features (BRAND-level claims; belong on /about/nicholas-rolnick,
+// NEVER on the homepage FEATURED_IN modality bar). Source-of-truth: Research/rolnick-cv-facts.md.
+// Phase 2f of the publish-ready iteration will render this as its own section on the bio
+// page; the const is the data plumbing.
+export const ROLNICK_PERSONAL_MEDIA = [
+  { outlet: "New York Post", headline: "Use the talk test to lower your risk of having a heart attack like Hulk Hogan", date: "Aug 9, 2025" },
+  { outlet: "CNN Life But Better", headline: "Increase your chances of living longer with 14 gym-free ways to sneak more movement in your day", date: "Jul 31, 2025" },
+  { outlet: "Men's Health", headline: "What Blood Flow Restriction Training Can Do for Your Workouts", date: "Apr 9, 2025" },
+  { outlet: "WELL + GOOD", headline: "3 Common Habits a Human Performance Mechanic Says Can Lead to Back Pain", date: "Jan 12, 2023" },
+  { outlet: "BLOOM-WFLA-TV", headline: "Blood Flow Restriction Training", date: "Aug 24, 2022" },
+  { outlet: "Zenger News", headline: '"The Human Performance Mechanic" Explains Why Exercise Is Sometimes The Best Medicine', date: "Aug 15, 2022" },
+  { outlet: "The Scarsdale Inquirer", headline: "Scarsdale Grad Rolnick Thrives As Physical Therapist", date: "Aug 12, 2022" },
+  { outlet: "WESTFAIROnline", headline: "A Physical Therapist's Antidote to Anxiety", date: "Aug 9, 2022" },
+  { outlet: "FOX 32 Chicago", headline: "Blood Flow Restriction Training Gaining Steam In Fitness Community", date: "Jul 29, 2022" },
+  { outlet: "CNET", headline: "Blood Flow Restriction Training Gets You Stronger Without the Heavy Weights", date: "Jun 8, 2022" },
+  { outlet: "Eat This, Not That!", headline: "10 Ways to Burn More Calories During Every Walk", date: "Nov 4, 2021" },
+  { outlet: "Vitamin Shop WHAT'S GOOD", headline: "6 Ways To Support And Strengthen Your Knees", date: "Oct 27, 2021" },
+  { outlet: "AskMen", headline: "Partial Reps May Be the Ultimate Key to Building the Muscle You Want", date: "Sep 21, 2021" },
+  { outlet: "CNN Health", headline: "Why kaatsu, a fitness trend spotted at the Games, isn't just for Olympians", date: "Jul 31, 2021" },
+  { outlet: "UPDOC Media", headline: "Top 40 Physical Therapy Influencers of 2020", date: "Jan 4, 2021" },
+  { outlet: "Movement Guides", headline: "The Top 5 Strength and Conditioning Coach Instagram Accounts to Follow", date: "Jan 1, 2021" },
+  { outlet: "WebPT", headline: "12 Physical Therapists to Watch in 2021", date: "Dec 31, 2020" },
+  { outlet: "WELL + GOOD", headline: "Thanks to Blood Flow Restriction Training, Injuries No Longer Have to Cramp Your Workout Progress", date: "Feb 27, 2020" },
+] as const;
 
 export const LICAMELI = {
   fullName: "Dr. Nicholas Licameli",
