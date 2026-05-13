@@ -4,6 +4,8 @@ import Footer from "@/components/shared/Footer";
 import ResearchHero from "@/components/sections/research/ResearchHero";
 import ResearchPhilosophy from "@/components/sections/research/ResearchPhilosophy";
 import ResearchJournals from "@/components/sections/research/ResearchJournals";
+import TopicEditorBlock from "@/components/sections/research/TopicEditorBlock";
+import PeerReviewerList from "@/components/sections/research/PeerReviewerList";
 import FeaturedPapers from "@/components/sections/research/FeaturedPapers";
 import BioFinalCTA from "@/components/sections/about/BioFinalCTA";
 import {
@@ -74,6 +76,8 @@ export default function ResearchPage() {
         />
         <ResearchPhilosophy />
         <ResearchJournals />
+        <TopicEditorBlock />
+        <PeerReviewerList />
         <FeaturedPapers
           mode="preview"
           eyebrow={RESEARCH_FEATURED_PREVIEW.eyebrow}

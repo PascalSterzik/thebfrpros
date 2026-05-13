@@ -263,7 +263,9 @@ export const PARTNERS = [
 // Assets/Social Proof/Published Research/. Rendered as a colored RTL marquee
 // (no grayscale, no hover) with each logo wrapped in an outbound link directly
 // to the Rolnick article in that journal (Pascal-supplied 2026-05-08, full list
-// at Research/dr-rolnick-publications-and-appearances.md).
+// at Research/dr-rolnick-publications-and-appearances.md). Still used on
+// /about/nicholas-rolnick (RolnickJournals marquee). On /research the marquee
+// has been replaced by ROLNICK_JOURNAL_CARDS below (Phase 2b 2026-05-13).
 export const ROLNICK_PUBLICATIONS = [
   { name: "Frontiers in Physiology, BFR exercise research", src: "/images/research/frontiers.jpg", w: 220, h: 80, href: "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.808622/full" },
   { name: "Medicine & Science in Sports & Exercise", src: "/images/research/medicine-science-sports.jpg", w: 240, h: 80, href: "https://journals.lww.com/acsm-msse/" },
@@ -271,6 +273,99 @@ export const ROLNICK_PUBLICATIONS = [
   { name: "ScienceDirect, BFR clinical applications", src: "/images/research/sciencedirect.jpg", w: 220, h: 80, href: "https://www.sciencedirect.com/science/article/abs/pii/S1466853X21000511" },
   { name: "Strength & Conditioning Journal, BFR during aerobic exercise", src: "/images/research/strength-conditioning-journal-1.jpg", w: 240, h: 80, href: "https://journals.lww.com/nsca-scj/Abstract/2020/10000/Can_Blood_Flow_Restriction_Used_During_Aerobic.5.aspx" },
   { name: "Strength & Conditioning Journal, BFR for the physique athlete", src: "/images/research/strength-conditioning-journal-2.jpg", w: 240, h: 80, href: "https://journals.lww.com/nsca-scj/Fulltext/2020/10000/Blood_Flow_Restriction_Training_and_the_Physique.4.aspx" },
+] as const;
+
+// Phase 2b (2026-05-13): journal cards for /research replacing the prior
+// RTL marquee. Each card: journal name + Rolnick publication-count badge +
+// short note + outbound link to a Rolnick article in that journal. Counts
+// are conservative anchors based on the CV (Research/rolnick-cv-facts.md)
+// — the full 72+ trail extends across many more journals; these six are
+// the heaviest-load anchors.
+export const ROLNICK_JOURNAL_CARDS = [
+  {
+    name: "Frontiers in Physiology",
+    count: "10+",
+    note: "BFR device features, risk stratification, autoregulation, multi-chambered bladder design",
+    href: "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.808622/full",
+  },
+  {
+    name: "Frontiers in Sports and Active Living",
+    count: "8+",
+    note: "Methodological considerations, device features, hemophilia + BFR, cuff design comparisons",
+    href: "https://www.frontiersin.org/journals/sports-and-active-living",
+  },
+  {
+    name: "Strength and Conditioning Journal (NSCA)",
+    count: "5+",
+    note: "Physique athlete protocols, aerobic BFR, bodybuilding hypertrophy, narrative reviews",
+    href: "https://journals.lww.com/nsca-scj/Fulltext/2020/10000/Blood_Flow_Restriction_Training_and_the_Physique.4.aspx",
+  },
+  {
+    name: "British Journal of Sports Medicine",
+    count: "2+",
+    note: "Co-first author on the BFR methods and apparatus position paper (2025)",
+    href: "https://bjsm.bmj.com/content/early/2025/02/07/bjsports-2024-109365",
+  },
+  {
+    name: "Scandinavian Journal of Medicine and Science in Sports",
+    count: "1+",
+    note: "Low-intensity resistance + BFR systematic review on arterial stiffness",
+    href: "https://onlinelibrary.wiley.com/doi/10.1111/sms.13902",
+  },
+  {
+    name: "Sports Medicine and Health Science",
+    count: "1+",
+    note: "BFR training in older adults: overview of systematic reviews",
+    href: "https://doi.org/10.1016/j.smhs.2025.10.002",
+  },
+] as const;
+
+// Phase 2b (2026-05-13): Dr. Rolnick's editorial roles at Frontiers,
+// surfaced as its own section on /research. Source: CV § EDITORIAL
+// CONTRIBUTIONS and Research/rolnick-cv-facts.md.
+export const ROLNICK_TOPIC_EDITOR = {
+  publisher: "Frontiers in Physiology and Frontiers in Sports and Active Living",
+  collection:
+    "Impact of Blood Flow Restriction Device Features and Methodological Considerations on Acute and Longitudinal Responses to Blood Flow Restricted Exercise",
+  volumes: [
+    { label: "Volume I", years: "2024 – 2025" },
+    { label: "Volume II", years: "2025 – 2026" },
+  ],
+  alsoCommunityReviewer:
+    "Community Reviewer (Editor), Rehabilitation for Musculoskeletal Conditions and Interventions for Rehabilitation, Frontiers in Sports and Active Living (2025)",
+} as const;
+
+// Phase 2b (2026-05-13): 26 named journals where Dr. Rolnick serves as peer
+// reviewer. Order roughly mirrors the CV § PEER REVIEWER block, newest tier
+// first. Verified against Research/rolnick-cv-facts.md.
+export const ROLNICK_PEER_REVIEWER_JOURNALS = [
+  "Frontiers in Sport and Active Living",
+  "Journal of Fitness, Wellness and Human Performance",
+  "Multiple Sclerosis and Related Disorders",
+  "International Journal of Strength & Conditioning",
+  "Annals of Medicine Elevate",
+  "Scandinavian Journal of Medicine & Science in Sports",
+  "PM&R: The Journal of Injury, Function and Rehabilitation",
+  "International Journal of Sports Physiology & Performance",
+  "German Journal of Exercise and Sport Research",
+  "Journal of Sports Science",
+  "Medicine and Science in Sport and Exercise",
+  "Journal of Medicine, Surgery, and Public Health",
+  "Physical Therapy in Sport",
+  "Frontiers in Physiology",
+  "Clinical Rehabilitation",
+  "Journal of Sport and Health Science",
+  "Biology of Sport",
+  "Journal of Science and Medicine in Sport",
+  "International Journal of Environmental and Public Health",
+  "Scientific Reports",
+  "European Journal of Sports Science",
+  "BMC Sports Science, Medicine and Rehabilitation",
+  "Sports Medicine — Open",
+  "PeerJ",
+  "Medical Hypotheses",
+  "Journal of Strength & Conditioning Research",
+  "Sports Health",
 ] as const;
 
 // Featured peer-reviewed publications co-authored by Dr. Rolnick. Pulled

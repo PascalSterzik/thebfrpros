@@ -3,7 +3,6 @@ import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import ResearchHero from "@/components/sections/research/ResearchHero";
 import FeaturedPapers from "@/components/sections/research/FeaturedPapers";
-import ResearchJournals from "@/components/sections/research/ResearchJournals";
 import PublicationsExternalLinks from "@/components/sections/research/PublicationsExternalLinks";
 import BioFinalCTA from "@/components/sections/about/BioFinalCTA";
 import {
@@ -77,7 +76,6 @@ export default function PublicationsPage() {
           headline={PUBLICATIONS_INTRO.headline}
           intro={PUBLICATIONS_INTRO.paragraphs.join(" ")}
         />
-        <ResearchJournals />
         <PublicationsExternalLinks />
         <BioFinalCTA
           eyebrow={PUBLICATIONS_FINAL_CTA.eyebrow}
