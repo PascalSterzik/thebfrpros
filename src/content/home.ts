@@ -151,6 +151,30 @@ export const HOME_INSTRUCTOR = {
   ctaComingSoon: false,
 } as const;
 
+// Phase 4 (2026-05-13): brand-hub content discovery strips. Show the
+// 3 most-recent podcast episodes and the 3 newest blog posts, each with
+// a "see all" CTA to the full page. Homepage stays Stage-2-friendly —
+// these are brand-richness signals, not cert sells. Per Principle 6,
+// these sections handle "Is this brand serious about teaching?" without
+// selling the cert.
+export const HOME_RECENT_EPISODES = {
+  eyebrow: "Latest from the podcast",
+  headline: "BFR Better-For-Results, every other week",
+  intro:
+    "Dr. Rolnick hosts long-form conversations with researchers, clinicians, and athletes pushing BFR forward. Three most recent episodes below.",
+  ctaLabel: "See all episodes",
+  ctaHref: "/podcast",
+} as const;
+
+export const HOME_RECENT_BLOG = {
+  eyebrow: "From the blog",
+  headline: "Clinical writing on BFR, by the team that teaches it",
+  intro:
+    "Research breakdowns, programming notes, and case-led commentary. Three newest posts below.",
+  ctaLabel: "See all posts",
+  ctaHref: "/blog",
+} as const;
+
 // Final CTA — the homepage's ONE soft gateway to /get-certified. Per
 // Principle 6 in brand-guide.md, the homepage does not sell the cert.
 // This block is the single exit point: it tells the convinced visitor
