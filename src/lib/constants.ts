@@ -1049,86 +1049,9 @@ export const TESTIMONIALS = [
   },
 ] as const;
 
-// Short student testimonials pulled verbatim from the bfrtraining.com course
-// page (Research/source-extracts-2026-05-07/course page.txt). These are the
-// "13 shorter testimonials" the brand-guide flags as held-in-reserve for a
-// dedicated reviews wall. Used on /reviews. No paraphrasing.
-//
-// Phase 4 (2026-05-13): every name was misattributed (shifted by one slot)
-// when this const was first authored — each name was paired with the NEXT
-// quote in source-document order, not its own swiper-slide-inner div.
-// Re-extracted from the source HTML by data-swiper-slide-index and rewritten
-// in source slide-index order (slide 1 = Brian Gargiul through slide 13 =
-// Earl Hayden), each name now paired with the quote from its own slide.
-// Brand-guide source-of-truth rule: testimonials are verbatim from the live
-// course page; misattributing a real practitioner's quote violates that.
-export const STUDENT_TESTIMONIALS = [
-  {
-    name: "Brian Gargiul",
-    quote:
-      "Easy to understand concepts thoroughly explained for those with little previous knowledge of BFR.",
-  },
-  {
-    name: "Giuseppe Sposito",
-    quote:
-      "The amount of information given. In addition, the quizzes were helpful as well once the sections became more in depth.",
-  },
-  {
-    name: "Conor McClure",
-    quote:
-      "I wish this [case study focus] was done more often. It helps take academia and theory and translate into practice. I think I took away a number of good strategies and ideas to use with patients, many of whom look very similar to the case study folks. The slides and materials look clean and nice. You guys are VERY good at speaking and presenting. Quality was top-notch there.",
-  },
-  {
-    name: "Michael Reeves",
-    quote:
-      "Very practical and thorough for an introductory-level course. Can't wait to see the advanced course.",
-  },
-  {
-    name: "Matthew D'Elia",
-    quote:
-      "The videos, infographics and dissemination of the research in each video. The videos were easy to follow.",
-  },
-  {
-    name: "Matt Girard",
-    quote:
-      "I liked the more in-depth information of the topics than just brushing over them, such as getting into hypertrophy of muscles and how it happens. Also, the amount of research provided and explained was great to further back what was being said.",
-  },
-  {
-    name: "Roberto Baumgartne",
-    quote:
-      "The content was very informative and well transmitted. Also the structure of the course is very clear and well interconnected. Moreover the questions afterwards are a good way to recap the content. All in all it was a good guided course and the level of the content was well prepared and selected for a beginners course.",
-  },
-  {
-    name: "Shaquan Garnette",
-    quote:
-      "The course managed to answer every question that I had, whenever I had a new one such as 'how does this compare to heavy non-BFR training?' it was answered in the following module or slide. I was highly impressed with the way Nicholas presented this course and the information presented.",
-  },
-  {
-    name: "Brenden Aylward",
-    quote:
-      "The depth of the content was fantastic. I will likely go through it again and take more notes now that I have a better understanding of how I will be applying BFR myself.",
-  },
-  {
-    name: "Peter Schley",
-    quote:
-      "Well organized, thorough, evidence based. Did a great job taking a topic that would seem to be only effective to teach in person and made me more confident to start practicing it.",
-  },
-  {
-    name: "Christina Bentrewicz",
-    quote:
-      "The different modules were good. Nice to break things up. The questions were helpful for some retention. Good overall format and flow of material.",
-  },
-  {
-    name: "Vincent Beatty",
-    quote:
-      "Did a great job utilizing current and up to date research in the various modules to give the best information available.",
-  },
-  {
-    name: "Earl Hayden",
-    quote:
-      "Truly helped me achieve a greater understanding of BFR and now I'm motivated to push harder to bring this modality to my clinic.",
-  },
-] as const;
+// STUDENT_TESTIMONIALS moved to src/content/student-reviews.ts (Phase 4,
+// 2026-05-13) so the 681-entry survey export does not bloat the shared
+// Next.js chunk that constants.ts feeds.
 
 // Phase 2c (2026-05-13): /reviews video-testimonials section. Four VEED.io
 // embeds in 16:9 plus 2 UGC vertical-format clips parked for later (Pascal

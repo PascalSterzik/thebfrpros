@@ -61,16 +61,17 @@ export const REVIEWS_HERO_EXCERPTS = [
 
 // Phase 4 (2026-05-13): eyebrow renamed from "Wall of love" (King-Kong
 // vocab, off-voice) to "Verbatim, from the survey" (on-voice clinical).
-// Intro rewritten to be honest about the 17-vs-767+ count delta: 767+
-// is the rating count, 17 is the count of verbatim WRITTEN feedback
-// on file (4 long-form clinic-owner reviews + 13 short-form course-
-// feedback quotes). The two are different things and the page now
-// names them separately.
+// Phase 4 expansion (2026-05-13): pulled the full survey export from
+// Assets/Social Proof/Testimonials/SURVEY _ Intro to BFR.xlsx — the
+// previous 13 hand-picked entries on the live course-page swiper have
+// been replaced with all 681 named verbatim "why-would-recommend"
+// responses, sorted by submission date descending. 685 total = 4
+// long-form clinic-owner reviews + 681 short-form student responses.
 export const REVIEWS_WALL_INTRO = {
   eyebrow: "Verbatim, from the survey",
   headline: "Every verbatim review, one place",
   intro:
-    "767+ student ratings across the course-feedback survey averaged 4.8 stars. The 17 quotes below are every verbatim written comment we have on file: 4 long-form reviews from clinic owners and consultants, and 13 short-form student notes pulled exactly as written. Filter by source to drill in.",
+    "767+ student ratings across the course-feedback survey averaged 4.8 stars. The 685 named quotes below are every verbatim written comment we have on file: 4 long-form reviews from clinic owners and consultants, and 681 short-form student responses pulled exactly as written. Newest first. Filter by source to drill in.",
 } as const;
 
 // Phase 2c — single standalone pull-quote. THIS is where .editorial-quote

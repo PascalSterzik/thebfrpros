@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import SectionLabel from "@/components/shared/SectionLabel";
-import { TESTIMONIALS, STUDENT_TESTIMONIALS } from "@/lib/constants";
+import { TESTIMONIALS } from "@/lib/constants";
+import { STUDENT_TESTIMONIALS } from "@/content/student-reviews";
 import { REVIEWS_WALL_INTRO } from "@/content/reviews";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -24,6 +25,7 @@ type WallEntry = {
   role?: string;
   quote: string;
   source: "expert" | "student";
+  date?: string;
 };
 
 const FILTERS = [
@@ -42,11 +44,12 @@ function buildEntries(): WallEntry[] {
     quote: t.quote,
     source: "expert" as const,
   }));
-  const student = STUDENT_TESTIMONIALS.map((t) => ({
-    id: `s-${t.name}`,
+  const student = STUDENT_TESTIMONIALS.map((t, i) => ({
+    id: `s-${i}-${t.name}`,
     name: t.name,
     quote: t.quote,
     source: "student" as const,
+    date: "date" in t ? (t as { date: string }).date : undefined,
   }));
   return [...expert, ...student];
 }
@@ -135,6 +138,11 @@ export default function WallOfLove() {
                 </p>
                 {e.role ? (
                   <p className="mt-1 text-sm text-muted">{e.role}</p>
+                ) : null}
+                {e.date ? (
+                  <p className="mt-1 small-caps-line text-muted text-[0.65rem]">
+                    {e.date}
+                  </p>
                 ) : null}
               </div>
             </li>

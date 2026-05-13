@@ -7,7 +7,8 @@ import PullQuoteSection from "@/components/sections/reviews/PullQuoteSection";
 import VideoTestimonials from "@/components/sections/reviews/VideoTestimonials";
 import BioFinalCTA from "@/components/sections/about/BioFinalCTA";
 import { REVIEWS_META, REVIEWS_FINAL_CTA } from "@/content/reviews";
-import { STUDENT_TESTIMONIALS, TESTIMONIALS } from "@/lib/constants";
+import { TESTIMONIALS } from "@/lib/constants";
+import { STUDENT_TESTIMONIALS } from "@/content/student-reviews";
 import { SITE_MENU_LINKS } from "@/lib/menus";
 import { buildReviewsSchemaGraph } from "@/lib/schema";
 
