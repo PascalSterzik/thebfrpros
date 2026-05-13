@@ -167,10 +167,11 @@ export default function WallOfLove() {
               }
               className="rounded-lg border border-line bg-white px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.14em] text-navy transition hover:border-accent hover:text-accent"
             >
-              Show {nextBatch} more reviews
+              Show more reviews
             </button>
             <p className="text-xs text-muted">
-              {shown.toLocaleString("en-US")} of {entries.length.toLocaleString("en-US")} shown
+              {shown.toLocaleString("en-US")} of{" "}
+              {entries.length.toLocaleString("en-US")} written reviews shown
             </p>
           </div>
         ) : null}
