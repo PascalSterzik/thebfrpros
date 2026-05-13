@@ -80,7 +80,7 @@ export const PUBLICATIONS_INTRO = {
   headline: "What's included and what isn't",
   paragraphs: [
     `This page surfaces a representative sample of Dr. Rolnick's peer-reviewed BFR publications. The full ${STATS.publications}+ publication count spans the journals listed in the marquee below; not every paper has been formatted for surface display on this page yet.`,
-    "For the complete, current publication list, see Dr. Rolnick's Google Scholar and ResearchGate profiles (links at the bottom of the page). Each article title here links directly to the journal record where the manuscript and abstract live.",
+    "For the complete, current publication list, see Dr. Rolnick's ResearchGate profile (link at the bottom of the page). Each article title here links directly to the journal record where the manuscript and abstract live.",
   ],
 } as const;
 
@@ -89,11 +89,7 @@ export const PUBLICATIONS_LINKS = {
   headline: "The full publication record",
   links: [
     {
-      label: "Google Scholar — Dr. Nicholas Rolnick",
-      href: "https://scholar.google.com/citations?user=GfVw8cIAAAAJ",
-    },
-    {
-      label: "ResearchGate — Dr. Nicholas Rolnick",
+      label: "ResearchGate, Dr. Nicholas Rolnick",
       href: "https://www.researchgate.net/profile/Nicholas-Rolnick",
     },
   ],

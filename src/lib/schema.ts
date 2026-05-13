@@ -78,7 +78,6 @@ export function buildHomeSchemaGraph({ pageTitle, pageDescription, faq }: HomeSc
         affiliation: ROLNICK.affiliations.map((name) => ({ "@type": "Organization", name })),
         worksFor: { "@id": orgId },
         sameAs: [
-          "https://scholar.google.com/citations?user=GfVw8cIAAAAJ",
           "https://www.researchgate.net/profile/Nicholas-Rolnick",
           SITE.social.instagram,
         ],
@@ -1215,7 +1214,6 @@ export function buildSchemaGraph({ variantPath, pageTitle, pageDescription, faq 
         affiliation: ROLNICK.affiliations.map((name) => ({ "@type": "Organization", name })),
         worksFor: { "@id": orgId },
         sameAs: [
-          "https://scholar.google.com/citations?user=GfVw8cIAAAAJ",
           "https://www.researchgate.net/profile/Nicholas-Rolnick",
           SITE.social.instagram,
         ],

@@ -17,8 +17,8 @@ import { buildPublicationsSchemaGraph } from "@/lib/schema";
 
 // /research/publications. Deep publication list with full abstracts and
 // outbound article links. CollectionPage schema with ScholarlyArticle
-// ItemList. External links to Google Scholar + ResearchGate cover the
-// remainder of the 72+ paper trail beyond the 6 featured here.
+// ItemList. External link to ResearchGate covers the remainder of the
+// 72+ paper trail beyond the 6 featured here.
 
 export const metadata: Metadata = {
   title: { absolute: PUBLICATIONS_META.title },

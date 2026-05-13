@@ -67,7 +67,6 @@ export default function RolnickPage() {
     alumniOf: ROLNICK.alumniOf,
     affiliation: ROLNICK.affiliations,
     sameAs: [
-      "https://scholar.google.com/citations?user=GfVw8cIAAAAJ",
       "https://www.researchgate.net/profile/Nicholas-Rolnick",
       "https://podcasts.apple.com/de/podcast/bfr-better-for-results-podcast/id1726669945",
       SITE.social.instagram,

@@ -22,9 +22,9 @@ import type { HeaderMenuLink } from "@/components/shared/Header";
 // red is reserved for the ACTIVE menu item (the page the visitor is
 // currently on) per Header.tsx.
 export const SITE_MENU_LINKS: HeaderMenuLink[] = [
-  { href: "/get-certified", label: "Certification" },
-  { href: "/about", label: "About" },
+  { href: "/get-certified", label: "Get BFR Certified" },
   { href: "/research", label: "Research" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "https://bfrproviders.com", label: "Find a Provider", external: true },
+  { href: "https://bfrproviders.com", label: "Find BFR Providers", external: true },
 ];
