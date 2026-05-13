@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
+import VideoPoster from "@/components/shared/VideoPoster";
 import { WHAT_BFR_DOES } from "@/content/home";
+import { VIDEOS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Section 4 — Modality explainer. Belief 1 deepening (mechanism + safety + breadth).
@@ -34,6 +36,26 @@ export default function WhatBFRDoes() {
           >
             {WHAT_BFR_DOES.intro}
           </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={inViewOnce}
+          variants={stagger}
+          className="mt-12 mx-auto w-full max-w-3xl"
+        >
+          <motion.div
+            variants={fadeUp}
+            className="relative w-full overflow-hidden rounded-lg bg-black/5 ring-1 ring-line shadow-[0_30px_80px_-40px_rgba(25,55,99,0.35)]"
+          >
+            <VideoPoster
+              posterSrc="/images/posters/what-is-bfr.webp"
+              videoSrc={VIDEOS.whatIsBFR}
+              title="What is Blood Flow Restriction training? Dr. Nicholas Rolnick explains the modality."
+              sizes="(max-width: 1024px) 100vw, 800px"
+            />
+          </motion.div>
         </motion.div>
 
         <motion.div
