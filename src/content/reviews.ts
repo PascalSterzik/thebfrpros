@@ -71,7 +71,7 @@ export const REVIEWS_WALL_INTRO = {
   eyebrow: "Verbatim, from the survey",
   headline: "Every verbatim review, one place",
   intro:
-    "767+ student ratings across the course-feedback survey averaged 4.8 stars. The 685 named quotes below are every verbatim written comment we have on file: 4 long-form reviews from clinic owners and consultants, and 681 short-form student responses pulled exactly as written. Newest first. Filter by source to drill in.",
+    "767+ student ratings across the course-feedback survey averaged 4.8 stars. The 685 named quotes below are every verbatim written comment we have on file, sorted newest first. Each card shows the practitioner's own rating, name, role where given, and the comment they wrote.",
 } as const;
 
 // Phase 2c — single standalone pull-quote. THIS is where .editorial-quote
