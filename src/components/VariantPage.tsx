@@ -1,5 +1,4 @@
 import Header from "@/components/shared/Header";
-import CertAnchorNav from "@/components/shared/CertAnchorNav";
 import Footer from "@/components/shared/Footer";
 import HeroBlock from "@/components/sections/HeroBlock";
 import CredibilityBar from "@/components/sections/CredibilityBar";
@@ -37,12 +36,10 @@ export default function VariantPage({ variant }: { variant: Variant }) {
 
   return (
     <>
-      {/* 1. Sticky header (Phase 1d 2026-05-13: now uses the global SITE_MENU_LINKS
-          like every other page; the cert-specific anchor sub-nav renders below
-          as a secondary bar. Announcement bar killed per §J.5: hero carries
-          the urgency.) */}
+      {/* 1. Sticky header (Pascal-2026-05-13 retrofit: only the global header
+          remains on the cert page. The earlier CertAnchorNav secondary bar
+          was removed at Pascal's direction — single menu sitewide.) */}
       <Header menuLinks={SITE_MENU_LINKS} />
-      <CertAnchorNav />
 
       <main id="main">
         {/* 3. Hero */}

@@ -14,15 +14,17 @@
 // six.
 
 import type { HeaderMenuLink } from "@/components/shared/Header";
-import { ENROLL_URL } from "@/lib/constants";
 
+// Pascal-2026-05-13: trimmed to 5 items. "Enroll Now" external link
+// removed from the header (the hard-conversion verb belongs on the
+// /get-certified cert page only). "Find a Provider" stays as an
+// external link but renders in the standard navy color, not red —
+// red is reserved for the ACTIVE menu item (the page the visitor is
+// currently on) per Header.tsx.
 export const SITE_MENU_LINKS: HeaderMenuLink[] = [
-  // "Certification" stays descriptive (not action-led) because non-cert pages
-  // serve Stage-2/3 traffic that should not be hit with an action verb.
   { href: "/get-certified", label: "Certification" },
   { href: "/about", label: "About" },
   { href: "/research", label: "Research" },
   { href: "/contact", label: "Contact" },
   { href: "https://bfrproviders.com", label: "Find a Provider", external: true },
-  { href: ENROLL_URL, label: "Enroll Now", external: true },
 ];

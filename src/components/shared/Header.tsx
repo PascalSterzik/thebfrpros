@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { SITE } from "@/lib/constants";
 
@@ -13,9 +14,20 @@ export type HeaderMenuLink = {
 };
 
 // menuLinks is required. Every page passes SITE_MENU_LINKS from lib/menus.ts.
-// Phase 1d (2026-05-13): the old DEFAULT_MENU_LINKS anchor list is retired;
-// /get-certified renders a SECONDARY CertAnchorNav below the global header
-// for in-page navigation rather than competing with the primary menu.
+// Phase 1d+Pascal-2026-05-13 retrofit:
+//   - The old DEFAULT_MENU_LINKS anchor list is retired.
+//   - Cert page anchor sub-nav also retired — only the global menu
+//     remains, sitewide.
+//   - Menu items render BIG and centered (King Kong pattern), no arrow,
+//     active page in red.
+//   - External links render in default navy color; the only red link is
+//     the currently-active route.
+function isActive(pathname: string | null, href: string, external?: boolean) {
+  if (external || !pathname) return false;
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(href + "/");
+}
+
 export default function Header({
   variantHome = "/",
   menuLinks,
@@ -23,6 +35,7 @@ export default function Header({
   variantHome?: string;
   menuLinks: HeaderMenuLink[];
 }) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   // §King-Kong-style sticky behavior: hide on scroll-down, show on scroll-up only
@@ -159,55 +172,56 @@ export default function Header({
         style={{ minHeight: "calc(100dvh - 60px)", height: "calc(100dvh - 60px)" }}
         aria-hidden={!open}
       >
-        <div className="container-rail flex h-full flex-col bg-white py-10">
-          {/* Phase 1d: constrain to max-w-2xl on desktop so labels + arrows pull
-              toward the center and don't sit at the rail edges. Mobile keeps
-              full width (the rail is already narrow on small screens). */}
-          <ul className="flex flex-col w-full max-w-2xl mx-auto">
+        {/* Pascal-2026-05-13 retrofit: King-Kong-style menu. Items huge,
+            centered, no arrow on the right, active item rendered in red. */}
+        <div className="container-rail flex h-full flex-col items-center justify-center bg-white py-10">
+          <ul className="flex flex-col items-center w-full gap-1 sm:gap-2">
             {menuLinks.map((l) => {
+              const active = isActive(pathname, l.href, l.external);
+              const baseCls =
+                "block py-3 font-display uppercase text-center text-display-md sm:text-display-lg leading-none transition";
               if (l.comingSoon) {
                 return (
-                  <li key={l.href} className="border-b border-line/60 last:border-b-0">
+                  <li key={l.href}>
                     <span
                       aria-disabled="true"
-                      className="flex items-center justify-between gap-4 py-5 font-display uppercase text-2xl sm:text-3xl text-navy/40 cursor-not-allowed"
+                      className={`${baseCls} text-navy/30 cursor-not-allowed`}
                     >
-                      <span className="flex items-baseline gap-3">
-                        {l.label}
-                        <span className="font-body text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted/70 normal-case rounded-full border border-line px-2 py-0.5">
-                          Coming soon
-                        </span>
+                      {l.label}
+                      <span className="ml-3 align-middle font-body text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted/70 rounded-full border border-line px-2 py-0.5">
+                        Coming soon
                       </span>
-                      <span aria-hidden className="text-base text-muted/40">→</span>
                     </span>
                   </li>
                 );
               }
+              const colorCls = active
+                ? "text-accent"
+                : "text-navy hover:text-accent";
               if (l.external) {
                 return (
-                  <li key={l.href} className="border-b border-line/60 last:border-b-0">
+                  <li key={l.href}>
                     <a
                       href={l.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between gap-4 py-5 font-display uppercase text-2xl sm:text-3xl text-accent"
+                      className={`${baseCls} ${colorCls}`}
                     >
                       {l.label}
-                      <span aria-hidden className="text-base">→</span>
                     </a>
                   </li>
                 );
               }
               return (
-                <li key={l.href} className="border-b border-line/60 last:border-b-0">
+                <li key={l.href}>
                   <Link
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center justify-between gap-4 py-5 font-display uppercase text-2xl sm:text-3xl text-navy hover:text-accent transition"
+                    aria-current={active ? "page" : undefined}
+                    className={`${baseCls} ${colorCls}`}
                   >
                     {l.label}
-                    <span aria-hidden className="text-base text-muted">→</span>
                   </Link>
                 </li>
               );
