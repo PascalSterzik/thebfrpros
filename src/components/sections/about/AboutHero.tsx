@@ -17,7 +17,6 @@ export default function AboutHero() {
         src={ABOUT_HERO.photoSrc}
         alt=""
         fill
-        priority
         sizes="100vw"
         className="absolute inset-0 -z-10 object-cover"
         aria-hidden

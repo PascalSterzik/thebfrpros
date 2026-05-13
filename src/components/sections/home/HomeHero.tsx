@@ -77,7 +77,7 @@ export default function HomeHero() {
           >
             <div className="relative w-full overflow-hidden rounded-lg bg-black/40 ring-1 ring-white/15 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.6)]">
               <VideoPoster
-                posterSrc="/images/posters/home-hero.png"
+                posterSrc="/images/posters/home-hero.webp"
                 videoSrc={VIDEOS.homepageHero}
                 title="Dr. Nicholas Rolnick covers common questions about blood flow restriction training"
                 priority

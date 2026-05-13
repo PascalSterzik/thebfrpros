@@ -5,7 +5,7 @@ import { BLOG_HERO } from "@/content/blog";
 // /blog hero. Locked HomeHero pattern.
 
 const STAGGER_DELAYS = ["0ms", "80ms", "160ms"];
-const BACKDROP_SRC = "/images/hero/hero-banner.jpg";
+const BACKDROP_SRC = "/images/hero/hero-banner.webp";
 
 export default function BlogHero() {
   return (
@@ -14,7 +14,6 @@ export default function BlogHero() {
         src={BACKDROP_SRC}
         alt=""
         fill
-        priority
         sizes="100vw"
         className="absolute inset-0 -z-10 object-cover"
         aria-hidden

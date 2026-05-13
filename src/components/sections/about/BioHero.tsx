@@ -10,7 +10,7 @@ import Link from "next/link";
 
 const STAGGER_DELAYS = ["0ms", "80ms", "160ms", "240ms", "320ms"];
 
-const BACKDROP_SRC = "/images/hero/hero-banner.jpg";
+const BACKDROP_SRC = "/images/hero/hero-banner.webp";
 
 export default function BioHero({
   eyebrow,
@@ -33,7 +33,6 @@ export default function BioHero({
         src={BACKDROP_SRC}
         alt=""
         fill
-        priority
         sizes="100vw"
         className="absolute inset-0 -z-10 object-cover"
         aria-hidden

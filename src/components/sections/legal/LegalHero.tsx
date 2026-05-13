@@ -6,7 +6,7 @@ import Image from "next/image";
 // "last updated" line replaces the subhead.
 
 const STAGGER_DELAYS = ["0ms", "80ms", "160ms"];
-const BACKDROP_SRC = "/images/hero/hero-banner.jpg";
+const BACKDROP_SRC = "/images/hero/hero-banner.webp";
 
 export default function LegalHero({
   eyebrow,
@@ -23,7 +23,6 @@ export default function LegalHero({
         src={BACKDROP_SRC}
         alt=""
         fill
-        priority
         sizes="100vw"
         className="absolute inset-0 -z-10 object-cover"
         aria-hidden

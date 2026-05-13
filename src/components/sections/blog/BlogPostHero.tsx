@@ -6,7 +6,7 @@ import Link from "next/link";
 // metadata below the headline.
 
 const STAGGER_DELAYS = ["0ms", "80ms", "160ms", "240ms"];
-const BACKDROP_SRC = "/images/hero/hero-banner.jpg";
+const BACKDROP_SRC = "/images/hero/hero-banner.webp";
 
 export default function BlogPostHero({
   title,
@@ -25,7 +25,6 @@ export default function BlogPostHero({
         src={BACKDROP_SRC}
         alt=""
         fill
-        priority
         sizes="100vw"
         className="absolute inset-0 -z-10 object-cover"
         aria-hidden

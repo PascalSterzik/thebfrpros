@@ -35,7 +35,7 @@ export const HOME_HERO = {
   highlightPhrase: "plateau",
   subhead:
     "Blood flow restriction (BFR) accelerates strength gains for post-op, in-season, and geriatric patients. Mayo Clinic, Cleveland Clinic, and US Special Operations Command all use it.",
-  photoSrc: "/images/hero/hero-banner.jpg",
+  photoSrc: "/images/hero/hero-banner.webp",
   photoAlt: "Dr. Nicholas Rolnick applying a blood flow restriction cuff to a patient's leg",
 } as const;
 

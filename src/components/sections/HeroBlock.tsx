@@ -33,7 +33,7 @@ export default function HeroBlock({ variant }: { variant: Variant }) {
     <section className="relative overflow-hidden">
       {/* Background photo + brand-tinted overlay so headlines stay legible */}
       <Image
-        src="/images/hero/hero-banner.jpg"
+        src="/images/hero/hero-banner.webp"
         alt=""
         fill
         priority
@@ -75,7 +75,7 @@ export default function HeroBlock({ variant }: { variant: Variant }) {
           >
             <div className="relative w-full overflow-hidden rounded-lg bg-black/40 ring-1 ring-white/15 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.6)]">
               <VideoPoster
-                posterSrc="/images/posters/hero.jpg"
+                posterSrc="/images/posters/hero.webp"
                 videoSrc={VIDEOS.coursePackagePromo}
                 title="The Complete BFR Certification course package promo"
                 priority

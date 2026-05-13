@@ -7,7 +7,7 @@ import Highlighted from "@/components/shared/Highlighted";
 // final-CTA section hands off to /get-certified.
 
 const STAGGER_DELAYS = ["0ms", "80ms", "160ms"];
-const BACKDROP_SRC = "/images/hero/hero-banner.jpg";
+const BACKDROP_SRC = "/images/hero/hero-banner.webp";
 
 export default function AudienceHero({
   eyebrow,
@@ -26,7 +26,6 @@ export default function AudienceHero({
         src={BACKDROP_SRC}
         alt=""
         fill
-        priority
         sizes="100vw"
         className="absolute inset-0 -z-10 object-cover"
         aria-hidden

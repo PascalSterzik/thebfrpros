@@ -130,7 +130,6 @@ export default function Header({
               src="/images/logos/bfr-pros-secondary.png"
               alt={`${SITE.brandName} logo`}
               fill
-              priority
               sizes="(max-width: 640px) 82px, 90px"
               className="object-contain"
             />
