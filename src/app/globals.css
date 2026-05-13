@@ -337,13 +337,19 @@ body.menu-open {
    §N.3: animation is forced on with !important so it survives the universal
    prefers-reduced-motion override in @layer base. Marquee scroll is a
    continuous low-amplitude horizontal motion (no flash, no parallax, no zoom),
-   below the vestibular trigger threshold, and is core to the brand rhythm. */
+   below the vestibular trigger threshold, and is core to the brand rhythm.
+   §Pascal-2026-05-13 Phase 1c: animation-duration is now driven by the
+   --marquee-duration CSS variable (default 50s) so each Marquee instance can
+   normalize per-logo travel time via inline style. Split from the shorthand
+   so var() resolves through !important. */
 @keyframes marquee-rtl {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 .marquee-track {
-  animation: marquee-rtl 50s linear infinite !important;
+  animation-name: marquee-rtl !important;
+  animation-duration: var(--marquee-duration, 50s) !important;
+  animation-timing-function: linear !important;
   animation-iteration-count: infinite !important;
   will-change: transform;
 }
