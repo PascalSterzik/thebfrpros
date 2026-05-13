@@ -159,9 +159,9 @@ export const HOME_INSTRUCTOR = {
 // selling the cert.
 export const HOME_RECENT_EPISODES = {
   eyebrow: "Latest from the podcast",
-  headline: "BFR Better-For-Results, every other week",
+  headline: "BFR Better-For-Results, hosted by Dr. Rolnick",
   intro:
-    "Dr. Rolnick hosts long-form conversations with researchers, clinicians, and athletes pushing BFR forward. Three most recent episodes below.",
+    "Long-form conversations with researchers, clinicians, and athletes pushing BFR forward. Three most recent episodes below.",
   ctaLabel: "See all episodes",
   ctaHref: "/podcast",
 } as const;

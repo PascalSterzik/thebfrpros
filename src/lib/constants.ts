@@ -979,22 +979,26 @@ export const ROLNICK_INTERVIEWS = [
   },
 ] as const;
 
+// Phase 4 (2026-05-13): per-episode href added on each entry. URLs verified
+// against Research/dr-rolnick-publications-and-appearances.md (Pascal-
+// curated catalog of every Rolnick outbound link). External, open in a new
+// tab from card grids on /press, /podcast, /about/nicholas-rolnick.
 export const ROLNICK_PODCASTS = [
-  { name: "(P)REHAB Podcast", src: "/images/podcasts/prehab.jpg", w: 140, h: 56 },
-  { name: "Physiotutors Podcast", src: "/images/podcasts/physiotutors.jpg", w: 140, h: 56 },
-  { name: "Iron Culture", src: "/images/podcasts/iron-culture.jpg", w: 140, h: 56 },
-  { name: "Iron Health", src: "/images/podcasts/iron-health.jpg", w: 140, h: 56 },
-  { name: "The Mind Muscle Project", src: "/images/podcasts/mind-muscle-project.jpg", w: 140, h: 56 },
-  { name: "Modern Pain Podcast", src: "/images/podcasts/modern-pain.jpg", w: 140, h: 56 },
-  { name: "Nova Talks", src: "/images/podcasts/nova-talks.jpg", w: 140, h: 56 },
-  { name: "HET Healthcare Education Transformation", src: "/images/podcasts/het-healthcare.jpg", w: 140, h: 56 },
-  { name: "PTCoffeeCast", src: "/images/podcasts/ptcoffeecast.jpg", w: 140, h: 56 },
-  { name: "Physio Podcast", src: "/images/podcasts/physio-podcast.jpg", w: 140, h: 56 },
-  { name: "QualityLife Fitness", src: "/images/podcasts/qualitylife-fitness.jpg", w: 140, h: 56 },
-  { name: "Healthy Podcast", src: "/images/podcasts/healthy.jpg", w: 140, h: 56 },
-  { name: "BFR Episode 008", src: "/images/podcasts/bfr-ep-008.jpg", w: 140, h: 56 },
-  { name: "The E3 R3HAB Podcast", src: "/images/podcasts/e3-r3hab.jpg", w: 140, h: 56 },
-  { name: "The ASHPT Lunch Hour", src: "/images/podcasts/ashpt-lunch-hour.jpg", w: 140, h: 56 },
+  { name: "(P)REHAB Podcast", src: "/images/podcasts/prehab.jpg", w: 140, h: 56, href: "https://lnns.co/bQuxSigkqmY" },
+  { name: "Physiotutors Podcast", src: "/images/podcasts/physiotutors.jpg", w: 140, h: 56, href: "https://www.youtube.com/watch?v=U15Q9QK-8BM" },
+  { name: "Iron Culture", src: "/images/podcasts/iron-culture.jpg", w: 140, h: 56, href: "https://open.spotify.com/episode/4EpDf2RUHv4TbdYCOdXIFK" },
+  { name: "Iron Health", src: "/images/podcasts/iron-health.jpg", w: 140, h: 56, href: "https://www.youtube.com/watch?v=tabVQaLimxM" },
+  { name: "The Mind Muscle Project", src: "/images/podcasts/mind-muscle-project.jpg", w: 140, h: 56, href: "https://www.listennotes.com/podcasts/mind-muscle-project/573-tbt-nick-rolnick-hacking-nqO-ilW7xtQ/" },
+  { name: "Modern Pain Podcast", src: "/images/podcasts/modern-pain.jpg", w: 140, h: 56, href: "https://lnns.co/GzPxF-wUk9Y" },
+  { name: "Nova Talks", src: "/images/podcasts/nova-talks.jpg", w: 140, h: 56, href: "https://www.youtube.com/watch?v=5-cOh5m4BvA" },
+  { name: "HET Healthcare Education Transformation", src: "/images/podcasts/het-healthcare.jpg", w: 140, h: 56, href: "https://lnns.co/4LMkHQvF0sf" },
+  { name: "PTCoffeeCast", src: "/images/podcasts/ptcoffeecast.jpg", w: 140, h: 56, href: "https://podcasts.apple.com/ca/podcast/ptcoffeecast/id1336306312?i=1000475589226" },
+  { name: "Physio Podcast", src: "/images/podcasts/physio-podcast.jpg", w: 140, h: 56, href: "https://lnns.co/SnHIWysgEow" },
+  { name: "QualityLife Fitness", src: "/images/podcasts/qualitylife-fitness.jpg", w: 140, h: 56, href: "https://open.spotify.com/episode/2eIM4e5kNkP4zstO0mY8Lx" },
+  { name: "Healthy Podcast", src: "/images/podcasts/healthy.jpg", w: 140, h: 56, href: "https://lnns.co/-nFzUpgIvis" },
+  { name: "BFR Episode 008", src: "/images/podcasts/bfr-ep-008.jpg", w: 140, h: 56, href: "https://lnns.co/tPo0YV462_p" },
+  { name: "The E3 R3HAB Podcast", src: "/images/podcasts/e3-r3hab.jpg", w: 140, h: 56, href: "https://lnns.co/_fugeWTopcQ" },
+  { name: "The ASHPT Lunch Hour", src: "/images/podcasts/ashpt-lunch-hour.jpg", w: 140, h: 56, href: "https://www.listennotes.com/podcasts/the-cashpt-lunch/ep-136-blood-flow-KdaAIh90Tik/" },
 ] as const;
 
 // §N.13 Strategy A + Pascal-2026-05-08 v6: 11 bonuses (the CEU credit
