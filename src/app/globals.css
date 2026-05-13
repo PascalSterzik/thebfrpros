@@ -35,15 +35,26 @@
     color: var(--color-ink);
     background-color: var(--color-white);
     font-family: var(--font-body), system-ui, -apple-system, sans-serif;
-    /* §Pascal-2026-05-08 v6: 18px is the locked body size. Subhead spans
-       (.subhead class) override to 20px. */
-    font-size: 18px;
-    line-height: 1.65;
+    /* §Pascal-2026-05-13 (Phase 1a): body up from 18px to 20px mobile / 24px
+       desktop (Pascal-locked). Line-height tightened from 1.65 to 1.5 so the
+       larger size doesn't drift. Subhead bumped proportionally below. */
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  @media (min-width: 1024px) {
+    body {
+      font-size: 24px;
+    }
   }
 
   .subhead {
-    font-size: 20px;
-    line-height: 1.55;
+    font-size: 22px;
+    line-height: 1.4;
+  }
+  @media (min-width: 1024px) {
+    .subhead {
+      font-size: 28px;
+    }
   }
 
   ::selection {
@@ -103,6 +114,7 @@
     @apply font-body uppercase font-semibold;
     letter-spacing: 0.18em;
     font-size: 1rem;
+    line-height: 1.2;
     color: var(--color-accent);
   }
 
@@ -356,6 +368,7 @@ body.menu-open {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 1rem;
+  line-height: 1.2;
 }
 .eyebrow-pill-on-navy {
   background: rgba(255, 255, 255, 0.10);

@@ -27,15 +27,15 @@ const config: Config = {
         body: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        // §Pascal-2026-05-08 v9: single line-height ramp shared by H1 and H2
-        // tier headlines. Bigger sizes stay slightly tighter, smaller sizes
-        // breathe more — typographic norm. Hero (display-2xl/3xl) now reads
-        // with the same proportional rhythm as the H2s.
-        "display-3xl": ["clamp(3.5rem, 7.4vw, 6rem)", { lineHeight: "0.92", letterSpacing: "-0.02em" }],
-        "display-2xl": ["clamp(3.4rem, 7vw, 5.75rem)", { lineHeight: "0.94", letterSpacing: "-0.02em" }],
-        "display-xl": ["clamp(2.75rem, 5.6vw, 4.4rem)", { lineHeight: "0.96", letterSpacing: "-0.018em" }],
-        "display-lg": ["clamp(2.25rem, 4vw, 3.4rem)", { lineHeight: "0.98", letterSpacing: "-0.015em" }],
-        "display-md": ["clamp(1.85rem, 3.1vw, 2.55rem)", { lineHeight: "1.02", letterSpacing: "-0.012em" }],
+        // §Pascal-2026-05-13 (Phase 1a): heading tier sizes bumped ~13% across
+        // both breakpoints. Body type stepped up to 20px/24px so the headline
+        // hierarchy also needs to scale up to maintain the gap to body.
+        // Line-heights unchanged; only the size clamps bumped.
+        "display-3xl": ["clamp(4rem, 8.4vw, 6.75rem)", { lineHeight: "0.92", letterSpacing: "-0.02em" }],
+        "display-2xl": ["clamp(3.85rem, 7.85vw, 6.5rem)", { lineHeight: "0.94", letterSpacing: "-0.02em" }],
+        "display-xl": ["clamp(3.1rem, 6.3vw, 5rem)", { lineHeight: "0.96", letterSpacing: "-0.018em" }],
+        "display-lg": ["clamp(2.55rem, 4.5vw, 3.85rem)", { lineHeight: "0.98", letterSpacing: "-0.015em" }],
+        "display-md": ["clamp(2.1rem, 3.5vw, 2.9rem)", { lineHeight: "1.02", letterSpacing: "-0.012em" }],
         eyebrow: ["1rem", { lineHeight: "1.2", letterSpacing: "0.18em" }],
       },
       maxWidth: {
