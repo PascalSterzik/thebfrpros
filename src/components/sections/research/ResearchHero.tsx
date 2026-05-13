@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Highlighted from "@/components/shared/Highlighted";
 
 // Generic research-page hero, reused by /research and /research/publications.
 // Locked HomeHero pattern: full-bleed background + navy gradient + centered text.
@@ -9,10 +10,12 @@ const BACKDROP_SRC = "/images/hero/hero-banner.jpg";
 export default function ResearchHero({
   eyebrow,
   headline,
+  highlight,
   subhead,
 }: {
   eyebrow: string;
   headline: string;
+  highlight?: string;
   subhead: string;
 }) {
   return (
@@ -42,7 +45,7 @@ export default function ResearchHero({
             className="opacity-0 animate-fade-up mt-6 font-display text-display-2xl lg:text-display-3xl text-white text-balance"
             style={{ animationDelay: STAGGER_DELAYS[1] }}
           >
-            {headline}
+            <Highlighted text={headline} phrase={highlight} />
           </h1>
           <p
             className="opacity-0 animate-fade-up mt-6 mx-auto max-w-3xl subhead text-white/90"

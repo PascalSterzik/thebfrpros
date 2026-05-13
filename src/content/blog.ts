@@ -13,6 +13,7 @@ export const BLOG_META = {
 export const BLOG_HERO = {
   eyebrow: "Blog",
   headline: "Field-notes from the BFR practice",
+  highlight: "Field-notes",
   subhead: `Clinical commentary, programming questions, methodological deep-dives, and patient success stories from Dr. Rolnick and the team. ${BLOG_POSTS.length} published posts.`,
 } as const;
 

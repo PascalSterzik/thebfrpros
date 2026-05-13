@@ -26,6 +26,7 @@ export const ABOUT_META = {
 export const ABOUT_HERO = {
   eyebrow: "About The BFR Pros",
   headline: "We teach the technique, not the cuff",
+  highlight: "the technique",
   subhead:
     "The Complete BFR Certification is built on 72+ peer-reviewed publications by Dr. Nicholas Rolnick. He treats post-op patients in Manhattan every week. Dr. Nicholas Licameli bridges rehab-side programming and athletic performance. Together they built the certification we couldn't find when we went looking for it.",
   photoSrc: "/images/hero/hero-banner.jpg",

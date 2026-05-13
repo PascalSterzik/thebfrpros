@@ -59,6 +59,7 @@ export default function AthleticTrainersPage() {
         <AudienceHero
           eyebrow={AT.hero.eyebrow}
           headline={AT.hero.headline}
+          highlight={AT.hero.highlight}
           subhead={AT.hero.subhead}
         />
         <AudienceProblem

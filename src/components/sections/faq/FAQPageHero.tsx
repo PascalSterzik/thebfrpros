@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Highlighted from "@/components/shared/Highlighted";
 import { FAQ_PAGE_HERO } from "@/content/faq-page";
 
 // /faq hero. Locked HomeHero pattern: full-bleed background photo + navy
@@ -36,7 +37,7 @@ export default function FAQPageHero() {
             className="opacity-0 animate-fade-up mt-6 font-display text-display-2xl lg:text-display-3xl text-white text-balance"
             style={{ animationDelay: STAGGER_DELAYS[1] }}
           >
-            {FAQ_PAGE_HERO.headline}
+            <Highlighted text={FAQ_PAGE_HERO.headline} phrase={FAQ_PAGE_HERO.highlight} />
           </h1>
           <p
             className="opacity-0 animate-fade-up mt-6 mx-auto max-w-3xl subhead text-white/90"

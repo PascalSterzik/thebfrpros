@@ -68,6 +68,7 @@ export default function PublicationsPage() {
         <ResearchHero
           eyebrow={PUBLICATIONS_HERO.eyebrow}
           headline={PUBLICATIONS_HERO.headline}
+          highlight={PUBLICATIONS_HERO.highlight}
           subhead={PUBLICATIONS_HERO.subhead}
         />
         <FeaturedPapers

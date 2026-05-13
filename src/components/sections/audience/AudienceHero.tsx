@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Highlighted from "@/components/shared/Highlighted";
 
 // Audience-page hero. Locked HomeHero pattern: full-bleed background photo
 // + navy gradient overlay + centered text. No portrait, no CTA — these
@@ -11,10 +12,12 @@ const BACKDROP_SRC = "/images/hero/hero-banner.jpg";
 export default function AudienceHero({
   eyebrow,
   headline,
+  highlight,
   subhead,
 }: {
   eyebrow: string;
   headline: string;
+  highlight?: string;
   subhead: string;
 }) {
   return (
@@ -46,7 +49,7 @@ export default function AudienceHero({
             className="opacity-0 animate-fade-up mt-6 font-display text-display-2xl lg:text-display-3xl text-white text-balance"
             style={{ animationDelay: STAGGER_DELAYS[1] }}
           >
-            {headline}
+            <Highlighted text={headline} phrase={highlight} />
           </h1>
 
           <p

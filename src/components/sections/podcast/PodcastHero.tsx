@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Highlighted from "@/components/shared/Highlighted";
 import { PODCAST_HERO } from "@/content/podcast";
 
 // /podcast hero. Locked HomeHero pattern.
@@ -34,7 +35,7 @@ export default function PodcastHero() {
             className="opacity-0 animate-fade-up mt-6 font-display text-display-2xl lg:text-display-3xl text-white text-balance"
             style={{ animationDelay: STAGGER_DELAYS[1] }}
           >
-            {PODCAST_HERO.headline}
+            <Highlighted text={PODCAST_HERO.headline} phrase={PODCAST_HERO.highlight} />
           </h1>
           <p
             className="opacity-0 animate-fade-up mt-6 mx-auto max-w-3xl subhead text-white/90"

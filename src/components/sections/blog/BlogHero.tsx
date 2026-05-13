@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Highlighted from "@/components/shared/Highlighted";
 import { BLOG_HERO } from "@/content/blog";
 
 // /blog hero. Locked HomeHero pattern.
@@ -34,7 +35,7 @@ export default function BlogHero() {
             className="opacity-0 animate-fade-up mt-6 font-display text-display-2xl lg:text-display-3xl text-white text-balance"
             style={{ animationDelay: STAGGER_DELAYS[1] }}
           >
-            {BLOG_HERO.headline}
+            <Highlighted text={BLOG_HERO.headline} phrase={BLOG_HERO.highlight} />
           </h1>
           <p
             className="opacity-0 animate-fade-up mt-6 mx-auto max-w-3xl subhead text-white/90"

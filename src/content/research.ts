@@ -21,6 +21,7 @@ export const RESEARCH_META = {
 export const RESEARCH_HERO = {
   eyebrow: "Research",
   headline: "Built on the literature, traceable to the paper",
+  highlight: "traceable to the paper",
   subhead: `${STATS.publications} peer-reviewed BFR publications by Dr. Nicholas Rolnick across Frontiers in Physiology, the British Journal of Sports Medicine, the Strength and Conditioning Journal, ScienceDirect, and Sage. Every protocol in The Complete BFR Certification cites the published research it came from.`,
 } as const;
 
@@ -70,6 +71,7 @@ export const PUBLICATIONS_META = {
 export const PUBLICATIONS_HERO = {
   eyebrow: "Publications",
   headline: "Featured peer-reviewed BFR research",
+  highlight: "peer-reviewed",
   subhead: `A curated set of peer-reviewed publications by Dr. Nicholas Rolnick across the ${STATS.publications} total. Abstracts pulled verbatim from the journal-of-record listings. Each title links to the published article.`,
 } as const;
 

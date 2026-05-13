@@ -14,6 +14,7 @@ export const REVIEWS_META = {
 export const REVIEWS_HERO = {
   eyebrow: "Reviews",
   headline: "What clinicians who finished the course actually say",
+  highlight: "actually say",
   subhead: `${STATS.ratingValue} stars from ${STATS.reviewCount}+ verified student reviews. ${STATS.certifiedPractitioners} licensed practitioners certified. One of ${STATS.practitionersExact.toLocaleString()} has used the 30-day refund.`,
 } as const;
 

@@ -47,6 +47,7 @@ export type Audience = {
   hero: {
     eyebrow: string;
     headline: string;
+    highlight?: string;
     subhead: string;
   };
   problem: {
@@ -104,6 +105,7 @@ export const PT: Audience = {
   hero: {
     eyebrow: "For physical therapists",
     headline: "BFR for the post-op cases heavy load won't reach",
+    highlight: "heavy load won't reach",
     subhead:
       "Built for outpatient ortho PTs treating post-op ACL at week six, rotator cuff repair at month three, total knee at month four, and the geriatric population whose joints can't tolerate heavy resistance. Apply the protocols with your first patient by week two.",
   },
@@ -224,6 +226,7 @@ export const AT: Audience = {
   hero: {
     eyebrow: "For athletic trainers",
     headline: "BFR for in-season strength when heavy loading is off the table",
+    highlight: "heavy loading is off the table",
     subhead:
       "Built for sideline, high school, college, and pro ATs. Apply BFR to in-season hypertrophy maintenance, sideline-friendly recovery, post-injury return-to-sport, and the athlete who can't load heavy in-season but still needs to maintain strength.",
   },
@@ -339,6 +342,7 @@ export const SC: Audience = {
   hero: {
     eyebrow: "For strength and conditioning coaches",
     headline: "BFR for in-season hypertrophy and ischemic preconditioning",
+    highlight: "ischemic preconditioning",
     subhead:
       "Built for S&C coaches working with private, college, and pro athletes who can't add heavy training volume in-season but still need to maintain strength. Apply BFR for hypertrophy at light loads and ischemic preconditioning that lifts performance markers.",
   },

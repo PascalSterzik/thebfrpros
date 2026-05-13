@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Stars from "@/components/shared/Stars";
+import Highlighted from "@/components/shared/Highlighted";
 import { REVIEWS_HERO } from "@/content/reviews";
 
 // /reviews hero. Locked HomeHero pattern: full-bleed background + navy
@@ -38,7 +39,7 @@ export default function ReviewsHero() {
             className="opacity-0 animate-fade-up mt-6 font-display text-display-2xl lg:text-display-3xl text-white text-balance"
             style={{ animationDelay: STAGGER_DELAYS[1] }}
           >
-            {REVIEWS_HERO.headline}
+            <Highlighted text={REVIEWS_HERO.headline} phrase={REVIEWS_HERO.highlight} />
           </h1>
           <div
             className="opacity-0 animate-fade-up mt-7 flex justify-center"

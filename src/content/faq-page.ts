@@ -27,6 +27,7 @@ export const FAQ_PAGE_META = {
 export const FAQ_PAGE_HERO = {
   eyebrow: "Common questions",
   headline: "Direct answers to what clinicians actually ask",
+  highlight: "actually ask",
   subhead:
     "Pulled from the actual support inbox and from objection patterns the avatar dossier surfaced. Grouped by topic so you can scan to the question that matters for your enrollment decision.",
 } as const;

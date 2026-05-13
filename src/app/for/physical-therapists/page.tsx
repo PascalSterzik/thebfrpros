@@ -61,6 +61,7 @@ export default function PhysicalTherapistsPage() {
         <AudienceHero
           eyebrow={PT.hero.eyebrow}
           headline={PT.hero.headline}
+          highlight={PT.hero.highlight}
           subhead={PT.hero.subhead}
         />
         <AudienceProblem

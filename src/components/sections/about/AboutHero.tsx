@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Highlighted from "@/components/shared/Highlighted";
 import { ABOUT_HERO } from "@/content/about";
 
 // /about hero. Mirrors the locked HomeHero pattern (full-bleed background
@@ -39,7 +40,7 @@ export default function AboutHero() {
             className="opacity-0 animate-fade-up mt-6 font-display text-display-2xl lg:text-display-3xl text-white text-balance"
             style={{ animationDelay: STAGGER_DELAYS[1] }}
           >
-            {ABOUT_HERO.headline}
+            <Highlighted text={ABOUT_HERO.headline} phrase={ABOUT_HERO.highlight} />
           </h1>
 
           <p

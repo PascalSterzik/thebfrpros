@@ -58,6 +58,7 @@ export default function StrengthCoachesPage() {
         <AudienceHero
           eyebrow={SC.hero.eyebrow}
           headline={SC.hero.headline}
+          highlight={SC.hero.highlight}
           subhead={SC.hero.subhead}
         />
         <AudienceProblem

@@ -14,6 +14,7 @@ export const PODCAST_META = {
 export const PODCAST_HERO = {
   eyebrow: "BFR Better-For-Results Podcast",
   headline: "Conversations across BFR, hypertrophy, and rehab",
+  highlight: "BFR, hypertrophy, and rehab",
   subhead:
     "Hosted by Dr. Nicholas Rolnick. Guests include Jeremy Loenneke, Paul Carter, Kyle Ruth, Tim Werner, and others working at the front edge of strength science, BFR research, and clinical practice. 18 published episodes.",
 } as const;

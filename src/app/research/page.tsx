@@ -69,6 +69,7 @@ export default function ResearchPage() {
         <ResearchHero
           eyebrow={RESEARCH_HERO.eyebrow}
           headline={RESEARCH_HERO.headline}
+          highlight={RESEARCH_HERO.highlight}
           subhead={RESEARCH_HERO.subhead}
         />
         <ResearchPhilosophy />
