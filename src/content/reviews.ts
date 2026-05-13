@@ -25,19 +25,12 @@ export const REVIEWS_STATS = [
   { value: `${STATS.refundsToDate} of ${STATS.practitionersExact.toLocaleString()}`, label: "Graduates who used the 30-day refund" },
 ] as const;
 
-export const REVIEWS_EXPERT_INTRO = {
-  eyebrow: "From practitioners with their own clinics",
-  headline: "Long-form reviews from clinic owners and consultants",
-  intro:
-    "Verbatim feedback from PTs, S&C coaches, and clinic groups who took The Complete BFR Certification. Pulled exactly as written on the course-feedback survey.",
-} as const;
-
-export const REVIEWS_STUDENT_INTRO = {
-  eyebrow: "From practitioners in the field",
-  headline: "Course-feedback survey, verbatim",
-  intro:
-    "Short feedback from students across multiple cohorts. The course-content survey averages 4.8 stars across 767+ responses.",
-} as const;
+// Phase 4 (2026-05-13): REVIEWS_EXPERT_INTRO and REVIEWS_STUDENT_INTRO
+// removed. Both were leftovers from the pre-Phase-2c split (LongFormReviews
+// + StudentReviewsGrid as separate surfaces) and have had no consumer
+// since WallOfLove unified them in Phase 2c. The REVIEWS_STUDENT_INTRO
+// copy also tripped the false-scarcity grep with "across multiple cohorts"
+// — defensible as research vocab but caught the gate.
 
 // Phase 2c (2026-05-13): three punchy fragments rendered in the hero
 // strip below the headline. 8-15 word slivers from the top long-form
