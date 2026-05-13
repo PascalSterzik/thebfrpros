@@ -9,11 +9,15 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Phase 4 (2026-05-13): /press page section #2. Renders the 18-entry
 // ROLNICK_PERSONAL_MEDIA list as a card grid.
-// Phase 4 (Pascal feedback): cards now show the outlet LOGO above the
-// headline and wrap in <a target="_blank"> when a URL is on file. Entries
-// without a logo file fall back to outlet name in Compacta Bold; entries
-// without a URL render as static cards (no Read-article CTA, no link
-// behaviour). 13 of 18 entries have logos; 14 of 18 entries have URLs.
+// Phase 4 (Pascal feedback rounds 1 + 2):
+//   - Cards show the outlet LOGO above the headline when available.
+//   - Outlet name renders as a TEXT LABEL on every card (SEO + a11y +
+//     readability when a logo file isn't on disk). When the logo is
+//     present, the outlet name is a small-caps caption beneath it;
+//     when the logo is absent, the outlet name takes the logo's slot
+//     in display caps.
+//   - Cards wrap in <a target="_blank"> when a URL is on file;
+//     otherwise render as static <div> with no Read-article CTA.
 
 export default function PressFeatures() {
   return (
@@ -53,7 +57,7 @@ export default function PressFeatures() {
           {ROLNICK_PERSONAL_MEDIA.map((m) => {
             const cardInner = (
               <>
-                <div className="flex items-center justify-between gap-3 min-h-[44px]">
+                <div className="flex items-start justify-between gap-3 min-h-[44px]">
                   {m.logoSrc ? (
                     <span className="relative block h-10 w-28 flex-shrink-0">
                       <Image
@@ -73,6 +77,11 @@ export default function PressFeatures() {
                     {m.date}
                   </span>
                 </div>
+                {m.logoSrc ? (
+                  <p className="mt-2 small-caps-line text-muted text-[0.65rem]">
+                    {m.outlet}
+                  </p>
+                ) : null}
                 <p className="mt-4 flex-1 text-sm leading-snug text-ink/85">
                   &ldquo;{m.headline}&rdquo;
                 </p>
