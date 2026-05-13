@@ -124,9 +124,23 @@ export const HOME_AUDIENCES = [
   },
 ] as const;
 
+// Phase 4 (2026-05-13): brand-hub team strip replacing the old
+// HomeInstructor section. Pulls all 5 humans + mascot from ABOUT_TEAM
+// (single source of truth). Card density is tighter than /about's
+// AboutTeam — no bio paragraph, just photo + role + name + credentials +
+// link. Mascot card links to /about (full team page lives there).
+export const HOME_TEAM = {
+  eyebrow: "The team",
+  headline: "Built by clinicians who teach what they practice",
+  intro:
+    "Five practitioners and educators behind The BFR Pros. Active clinical practice, hands-on workshops, peer-reviewed research.",
+} as const;
+
 // Instructor — brief Belief 5 (research source) installation. Names
 // Dr. Rolnick by the specific publication count, never a superlative
 // (Forbidden Claims in brand-guide.md).
+// (Retired 2026-05-13 — see HOME_TEAM above. Const retained for now in
+// case a future cert-page strip wants the same headline rhythm.)
 export const HOME_INSTRUCTOR = {
   eyebrow: "Your instructors",
   headline: "Learn from the source",

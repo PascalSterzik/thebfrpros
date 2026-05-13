@@ -6,7 +6,7 @@ import CredibilityBar from "@/components/sections/CredibilityBar";
 import WhatBFRDoes from "@/components/sections/home/WhatBFRDoes";
 import WhyBFRMattersNow from "@/components/sections/home/WhyBFRMattersNow";
 import WhoItsForCards from "@/components/sections/home/WhoItsForCards";
-import HomeInstructor from "@/components/sections/home/HomeInstructor";
+import HomeTeam from "@/components/sections/home/HomeTeam";
 import HomeProofRow from "@/components/sections/home/HomeProofRow";
 import HomeFinalCTA from "@/components/sections/home/HomeFinalCTA";
 import { HOME_META } from "@/content/home";
@@ -81,8 +81,8 @@ export default function HomePage() {
         {/* Who It's For — audience identification (PT / AT / S&C) */}
         <WhoItsForCards />
 
-        {/* Instructor Authority — brief Rolnick + Licameli intro */}
-        <HomeInstructor />
+        {/* Team — brand-hub 5-human + mascot grid, tighter density vs /about's AboutTeam */}
+        <HomeTeam />
 
         {/* Proof — BFR-modality scope (APTA + NATA) + clinic network adoption.
             TestimonialsSection lives at /get-certified only: it's cert
