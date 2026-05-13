@@ -103,29 +103,47 @@ export const ROLNICK = {
   mediaList: ["CNN", "Wall Street Journal", "Forbes", "ESPN", "Men's Health", "GQ", "PubMed", "NSCA"],
 } as const;
 
-// Nick-personal media features (BRAND-level claims; belong on /about/nicholas-rolnick,
-// NEVER on the homepage FEATURED_IN modality bar). Source-of-truth: Research/rolnick-cv-facts.md.
-// Phase 2f of the publish-ready iteration will render this as its own section on the bio
-// page; the const is the data plumbing.
-export const ROLNICK_PERSONAL_MEDIA = [
-  { outlet: "New York Post", headline: "Use the talk test to lower your risk of having a heart attack like Hulk Hogan", date: "Aug 9, 2025" },
-  { outlet: "CNN Life But Better", headline: "Increase your chances of living longer with 14 gym-free ways to sneak more movement in your day", date: "Jul 31, 2025" },
-  { outlet: "Men's Health", headline: "What Blood Flow Restriction Training Can Do for Your Workouts", date: "Apr 9, 2025" },
-  { outlet: "WELL + GOOD", headline: "3 Common Habits a Human Performance Mechanic Says Can Lead to Back Pain", date: "Jan 12, 2023" },
-  { outlet: "BLOOM-WFLA-TV", headline: "Blood Flow Restriction Training", date: "Aug 24, 2022" },
-  { outlet: "Zenger News", headline: '"The Human Performance Mechanic" Explains Why Exercise Is Sometimes The Best Medicine', date: "Aug 15, 2022" },
-  { outlet: "The Scarsdale Inquirer", headline: "Scarsdale Grad Rolnick Thrives As Physical Therapist", date: "Aug 12, 2022" },
-  { outlet: "WESTFAIROnline", headline: "A Physical Therapist's Antidote to Anxiety", date: "Aug 9, 2022" },
-  { outlet: "FOX 32 Chicago", headline: "Blood Flow Restriction Training Gaining Steam In Fitness Community", date: "Jul 29, 2022" },
-  { outlet: "CNET", headline: "Blood Flow Restriction Training Gets You Stronger Without the Heavy Weights", date: "Jun 8, 2022" },
-  { outlet: "Eat This, Not That!", headline: "10 Ways to Burn More Calories During Every Walk", date: "Nov 4, 2021" },
-  { outlet: "Vitamin Shop WHAT'S GOOD", headline: "6 Ways To Support And Strengthen Your Knees", date: "Oct 27, 2021" },
-  { outlet: "AskMen", headline: "Partial Reps May Be the Ultimate Key to Building the Muscle You Want", date: "Sep 21, 2021" },
-  { outlet: "CNN Health", headline: "Why kaatsu, a fitness trend spotted at the Games, isn't just for Olympians", date: "Jul 31, 2021" },
-  { outlet: "UPDOC Media", headline: "Top 40 Physical Therapy Influencers of 2020", date: "Jan 4, 2021" },
-  { outlet: "Movement Guides", headline: "The Top 5 Strength and Conditioning Coach Instagram Accounts to Follow", date: "Jan 1, 2021" },
-  { outlet: "WebPT", headline: "12 Physical Therapists to Watch in 2021", date: "Dec 31, 2020" },
-  { outlet: "WELL + GOOD", headline: "Thanks to Blood Flow Restriction Training, Injuries No Longer Have to Cramp Your Workout Progress", date: "Feb 27, 2020" },
+// Nick-personal media features (BRAND-level claims; belong on /about/nicholas-rolnick
+// and /press, NEVER on the homepage FEATURED_IN modality bar). Source-of-truth:
+// Research/rolnick-cv-facts.md.
+//
+// Phase 4 (2026-05-13): logoSrc + url fields added per entry. Logos live in
+// /public/images/featured/ alongside the modality FEATURED_IN logos (same files
+// are reused where the outlet appears on both bars). Article URLs verified via
+// targeted web search; 4 of 18 articles didn't surface a direct URL (NY Post
+// Hulk Hogan feature, CNET BFR feature, Eat This Not That walking calories,
+// AskMen partial reps) — those entries carry `url: null` and the PressFeatures
+// card renders without a "Read article" CTA. 6 outlets don't have a logo file
+// on disk yet (NY Post, BLOOM-WFLA-TV, Zenger News, The Scarsdale Inquirer,
+// WESTFAIROnline, FOX 32 Chicago) — those entries carry `logoSrc: null` and
+// the card falls back to outlet name in display-cap brand font.
+export type RolnickMediaEntry = {
+  outlet: string;
+  headline: string;
+  date: string;
+  logoSrc: string | null;
+  url: string | null;
+};
+
+export const ROLNICK_PERSONAL_MEDIA: ReadonlyArray<RolnickMediaEntry> = [
+  { outlet: "New York Post", headline: "Use the talk test to lower your risk of having a heart attack like Hulk Hogan", date: "Aug 9, 2025", logoSrc: null, url: null },
+  { outlet: "CNN Life But Better", headline: "Increase your chances of living longer with 14 gym-free ways to sneak more movement in your day", date: "Jul 31, 2025", logoSrc: "/images/featured/cnn.png", url: "https://edition.cnn.com/2025/07/31/health/ways-to-move-more-exercise-wellness" },
+  { outlet: "Men's Health", headline: "What Blood Flow Restriction Training Can Do for Your Workouts", date: "Apr 9, 2025", logoSrc: "/images/featured/mens-health.jpg", url: "https://www.menshealth.com/fitness/a27285291/blood-flow-restriction-training/" },
+  { outlet: "WELL + GOOD", headline: "3 Common Habits a Human Performance Mechanic Says Can Lead to Back Pain", date: "Jan 12, 2023", logoSrc: "/images/featured/well-good.jpg", url: "https://www.wellandgood.com/what-causes-back-pain/" },
+  { outlet: "BLOOM-WFLA-TV", headline: "Blood Flow Restriction Training", date: "Aug 24, 2022", logoSrc: null, url: "https://www.wfla.com/bloom/blood-flow-restriction-training/" },
+  { outlet: "Zenger News", headline: '"The Human Performance Mechanic" Explains Why Exercise Is Sometimes The Best Medicine', date: "Aug 15, 2022", logoSrc: null, url: "https://www.zenger.news/2022/08/15/the-human-performance-mechanic-explains-why-exercise-is-sometimes-the-best-medicine/" },
+  { outlet: "The Scarsdale Inquirer", headline: "Scarsdale Grad Rolnick Thrives As Physical Therapist", date: "Aug 12, 2022", logoSrc: null, url: "https://www.scarsdalenews.com/top_stories/scarsdale-grad-rolnick-thrives-as-physical-therapist/article_0c95dac8-1bd8-11ed-b3c7-6fec7decbc74.html" },
+  { outlet: "WESTFAIROnline", headline: "A Physical Therapist's Antidote to Anxiety", date: "Aug 9, 2022", logoSrc: null, url: "https://westfaironline.com/health-care/a-physical-therapists-antidote-to-anxiety/" },
+  { outlet: "FOX 32 Chicago", headline: "Blood Flow Restriction Training Gaining Steam In Fitness Community", date: "Jul 29, 2022", logoSrc: null, url: "https://www.fox32chicago.com/video/1098800" },
+  { outlet: "CNET", headline: "Blood Flow Restriction Training Gets You Stronger Without the Heavy Weights", date: "Jun 8, 2022", logoSrc: "/images/featured/cnet.jpg", url: null },
+  { outlet: "Eat This, Not That!", headline: "10 Ways to Burn More Calories During Every Walk", date: "Nov 4, 2021", logoSrc: "/images/featured/eat-this-not-that.jpg", url: null },
+  { outlet: "Vitamin Shop WHAT'S GOOD", headline: "6 Ways To Support And Strengthen Your Knees", date: "Oct 27, 2021", logoSrc: "/images/featured/whats-good.webp", url: "https://whatsgood.vitaminshoppe.com/ways-to-strengthen-your-knees/" },
+  { outlet: "AskMen", headline: "Partial Reps May Be the Ultimate Key to Building the Muscle You Want", date: "Sep 21, 2021", logoSrc: "/images/featured/askmen.jpg", url: null },
+  { outlet: "CNN Health", headline: "Why kaatsu, a fitness trend spotted at the Games, isn't just for Olympians", date: "Jul 31, 2021", logoSrc: "/images/featured/cnn-health.jpg", url: "https://www.cnn.com/2021/07/31/health/blood-flow-restriction-training-kaatsu-olympics-wellness" },
+  { outlet: "UPDOC Media", headline: "Top 40 Physical Therapy Influencers of 2020", date: "Jan 4, 2021", logoSrc: "/images/featured/updoc-media.webp", url: "https://www.updocmedia.com/top40-influencers-2020/" },
+  { outlet: "Movement Guides", headline: "The Top 5 Strength and Conditioning Coach Instagram Accounts to Follow", date: "Jan 1, 2021", logoSrc: "/images/featured/movement-guides.webp", url: "https://movementguides.com/top-5-strength-coach-instagram-accounts-to-follow-2021/" },
+  { outlet: "WebPT", headline: "12 Physical Therapists to Watch in 2021", date: "Dec 31, 2020", logoSrc: "/images/featured/webpt.jpg", url: "https://www.webpt.com/blog/12-physical-therapists-to-watch-in-2021" },
+  { outlet: "WELL + GOOD", headline: "Thanks to Blood Flow Restriction Training, Injuries No Longer Have to Cramp Your Workout Progress", date: "Feb 27, 2020", logoSrc: "/images/featured/well-good.jpg", url: "https://www.wellandgood.com/fitness/blood-flow-restriction-training" },
 ] as const;
 
 export const LICAMELI = {
