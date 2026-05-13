@@ -2,11 +2,19 @@
 // BFR_PODCAST_EPISODES, and ROLNICK_PODCASTS in lib/constants.ts. The
 // page-job is: visitor sees the show exists, picks a platform, picks
 // an episode.
+//
+// Phase 2a (2026-05-13): episode count is driven from
+// BFR_PODCAST_EPISODES.length (currently 20) — single source of truth.
+// Pulled from the canonical YouTube playlist; the prior "gaps at 11 +
+// 17" comment was stale.
+
+import { BFR_PODCAST_EPISODES } from "@/lib/constants";
+
+const EPISODE_COUNT = BFR_PODCAST_EPISODES.length;
 
 export const PODCAST_META = {
   title: "BFR Better-For-Results Podcast | The BFR Pros",
-  description:
-    "Hosted by Dr. Nicholas Rolnick. Conversations with researchers, clinicians, and coaches across blood flow restriction training, hypertrophy science, rehab programming, and performance. 18 published episodes.",
+  description: `Hosted by Dr. Nicholas Rolnick. Conversations with researchers, clinicians, and coaches across blood flow restriction training, hypertrophy science, rehab programming, and performance. ${EPISODE_COUNT} published episodes.`,
   canonicalPath: "/podcast",
   ogImagePath: "/og/home",
 } as const;
@@ -15,8 +23,7 @@ export const PODCAST_HERO = {
   eyebrow: "BFR Better-For-Results Podcast",
   headline: "Conversations across BFR, hypertrophy, and rehab",
   highlight: "BFR, hypertrophy, and rehab",
-  subhead:
-    "Hosted by Dr. Nicholas Rolnick. Guests include Jeremy Loenneke, Paul Carter, Kyle Ruth, Tim Werner, and others working at the front edge of strength science, BFR research, and clinical practice. 18 published episodes.",
+  subhead: `Hosted by Dr. Nicholas Rolnick. Guests include Jeremy Loenneke, Paul Carter, Kyle Ruth, Tim Werner, and others working at the front edge of strength science, BFR research, and clinical practice. ${EPISODE_COUNT} published episodes.`,
 } as const;
 
 export const PODCAST_PLATFORMS_INTRO = {
@@ -28,9 +35,9 @@ export const PODCAST_PLATFORMS_INTRO = {
 
 export const PODCAST_EPISODES_INTRO = {
   eyebrow: "Episodes",
-  headline: "All 18 published episodes",
+  headline: `All ${EPISODE_COUNT} published episodes`,
   intro:
-    "Each card is one episode. Use the platform links above to play any of them, or jump to the YouTube playlist where every episode is individually browsable.",
+    "Each card is one episode. Tap the thumbnail to play inline, or use the platform links above to subscribe.",
 } as const;
 
 export const PODCAST_GUEST_INTRO = {

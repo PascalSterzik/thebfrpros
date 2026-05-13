@@ -343,13 +343,16 @@ export const ROLNICK_FEATURED_PAPERS = [
 ] as const;
 
 // The BFR Pros host their own podcast: "BFR Better-For-Results Podcast".
-// Source: Research/dr-rolnick-publications-and-appearances.md + the
-// /Podcasts/ folder structure under Agency/Clients/The BFR Pros/Podcasts.
-// 18 published episodes (gaps at 11 and 17 are intentional — episodes
-// with those numbers were not published). Titles formatted from the
-// folder slugs. The per-episode deep-links are not in our source data;
-// the page links the platform feeds (which cover every episode) plus
-// the YouTube playlist where every episode is individually browsable.
+// Source: YouTube playlist of record
+// https://www.youtube.com/playlist?list=PLXUxkOcM1cbuNd7KbJrPnYfsmUdD_ZEUi
+// enumerated 2026-05-13. **20 published episodes** (the prior "gap at 11
+// and 17" comment was wrong — both are published in the playlist:
+//   Ep 11 = "Taking Breathwork Seriously with Inspiratory Muscle Training"
+//   Ep 17 = "Challenges and Triumphs with Smart Tools Founder"
+// Each entry now carries the YouTube videoId, taken from the playlist in
+// playlist order. Titles stay in the brand-curated tight form; the more
+// verbose YouTube titles live on YouTube. The page links the platform
+// feeds plus inline-embeds each video by ID in EpisodeGrid.tsx.
 export const BFR_PODCAST_PLATFORMS = [
   {
     name: "Apple Podcasts",
@@ -369,27 +372,30 @@ export type BFRPodcastEpisode = {
   number: number;
   title: string;
   topic: string;
+  youtubeId: string;
 };
 
 export const BFR_PODCAST_EPISODES: ReadonlyArray<BFRPodcastEpisode> = [
-  { number: 1, title: "Who Is The Human Performance Mechanic?", topic: "Introduction" },
-  { number: 2, title: "Kyle Ruth: CrossFit Performance", topic: "Performance" },
-  { number: 3, title: "Jeremy Loenneke: Muscle Size & Strength", topic: "Hypertrophy science" },
-  { number: 4, title: "Tim Werner: Arterial Stiffness", topic: "Safety research" },
-  { number: 5, title: "Paul Carter: The Volume Debate", topic: "Training volume" },
-  { number: 6, title: "BFR Education & Device Selection", topic: "Practitioner education" },
-  { number: 7, title: "Nitric Oxide & NNOXX", topic: "Physiology" },
-  { number: 8, title: "The Lengthened-Partial Debate", topic: "Programming" },
-  { number: 9, title: "Lengthened Partials: Science & Social Media", topic: "Evidence translation" },
-  { number: 10, title: "Bringing BFR To India", topic: "Global adoption" },
-  { number: 12, title: "Communicating Fitness, Art, & Social Media", topic: "Communication" },
-  { number: 13, title: "Optimizing Performance Monitoring", topic: "Performance" },
-  { number: 14, title: "Principles Over Protocols", topic: "Coaching philosophy" },
-  { number: 15, title: "Repetition Schemes & Muscle Growth", topic: "Hypertrophy programming" },
-  { number: 16, title: "The Pressure-Load Continuum", topic: "BFR programming" },
-  { number: 18, title: "Auto-Regulation & BFR", topic: "Auto-regulation" },
-  { number: 19, title: "Exploring Blood Flow Restriction", topic: "BFR fundamentals" },
-  { number: 20, title: "PT Pet Peeves, Rehab BFR, & Social Media", topic: "Clinical practice" },
+  { number: 1, title: "Who Is The Human Performance Mechanic?", topic: "Introduction", youtubeId: "cRvD7qKUFnQ" },
+  { number: 2, title: "Kyle Ruth: CrossFit Performance", topic: "Performance", youtubeId: "YpdJz4W3csg" },
+  { number: 3, title: "Jeremy Loenneke: Muscle Size & Strength", topic: "Hypertrophy science", youtubeId: "WdkaNFYDVc0" },
+  { number: 4, title: "Tim Werner: Arterial Stiffness", topic: "Safety research", youtubeId: "0tJBL9FMhQU" },
+  { number: 5, title: "Paul Carter: The Volume Debate", topic: "Training volume", youtubeId: "JNth7TPorSs" },
+  { number: 6, title: "BFR Education & Device Selection", topic: "Practitioner education", youtubeId: "_6JvNlXZfxM" },
+  { number: 7, title: "Nitric Oxide & NNOXX", topic: "Physiology", youtubeId: "1pztk3CwZ0g" },
+  { number: 8, title: "The Lengthened-Partial Debate", topic: "Programming", youtubeId: "726gFJBKZ00" },
+  { number: 9, title: "Lengthened Partials: Science & Social Media", topic: "Evidence translation", youtubeId: "2ziC_S31YJs" },
+  { number: 10, title: "Bringing BFR To India", topic: "Global adoption", youtubeId: "2DwgcBoGuCg" },
+  { number: 11, title: "Breathwork & Inspiratory Muscle Training", topic: "Breathwork", youtubeId: "1ouxgMYfiyE" },
+  { number: 12, title: "Communicating Fitness, Art, & Social Media", topic: "Communication", youtubeId: "UdXL4JwaVIw" },
+  { number: 13, title: "Optimizing Performance Monitoring", topic: "Performance", youtubeId: "wJzOpKuumR0" },
+  { number: 14, title: "Principles Over Protocols", topic: "Coaching philosophy", youtubeId: "VAEkvcpqv4M" },
+  { number: 15, title: "Repetition Schemes & Muscle Growth", topic: "Hypertrophy programming", youtubeId: "VBR3NCXMI7I" },
+  { number: 16, title: "The Pressure-Load Continuum", topic: "BFR programming", youtubeId: "2Ksed6851Ds" },
+  { number: 17, title: "Smart Tools Founder: Challenges and Triumphs", topic: "Industry conversation", youtubeId: "iByGg7jnn50" },
+  { number: 18, title: "Auto-Regulation & BFR", topic: "Auto-regulation", youtubeId: "Ly_VnzhG_o0" },
+  { number: 19, title: "Exploring Blood Flow Restriction", topic: "BFR fundamentals", youtubeId: "45Oq6sOchlo" },
+  { number: 20, title: "PT Pet Peeves, Rehab BFR, & Social Media", topic: "Clinical practice", youtubeId: "t5GszFvFjVY" },
 ];
 
 // Blog posts published on the live site at thebfrpros.com/bfr-blog/[slug].
