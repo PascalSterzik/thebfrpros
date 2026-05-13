@@ -946,6 +946,39 @@ export const BLOG_POSTS: ReadonlyArray<BlogPost> = [
 ];
 
 // 15 podcast appearances. Renders as a marquee under the Rolnick card per §N.21.
+// Phase 4 (2026-05-13): 4 long-form Rolnick interviews published as
+// standalone YouTube videos on the named outlet's channel. Distinct
+// from ROLNICK_PODCASTS (podcasts that hosted Nick as a guest, logo
+// only) and BFR_PODCAST_EPISODES (Nick's own show). Used on /press.
+// Hosts verified against Research/rolnick-cv-facts.md Media Features
+// where the CV records it: FOX 32 Chicago (Jul 29, 2022) and
+// BLOOM-WFLA-TV (Aug 24, 2022 per CV; the specific interview is
+// dated Aug 22, 2022). Ryan Paton and Boundless Body Radio are
+// Pascal-supplied for this chip and don't appear in the CV media list.
+export const ROLNICK_INTERVIEWS = [
+  {
+    title: "In Conversation with Ryan Paton: Blood Flow Restriction Training",
+    host: "Ryan Paton",
+    youtubeId: "TQjZATVHM9w",
+  },
+  {
+    title: "Blood Flow Restriction BFR Training with Dr Nick Rolnick",
+    host: "Boundless Body Radio",
+    youtubeId: "LiDOW0QEYf0",
+  },
+  {
+    title: "Blood Flow Restriction Training Gaining Steam in Fitness Community",
+    host: "FOX 32 Chicago",
+    youtubeId: "1aTorqQxm_w",
+  },
+  {
+    title: "Blood Flow Restriction Training WFLA Interview",
+    host: "BLOOM-WFLA-TV",
+    hostDate: "Aug 22, 2022",
+    youtubeId: "0OAzw1sAR6Q",
+  },
+] as const;
+
 export const ROLNICK_PODCASTS = [
   { name: "(P)REHAB Podcast", src: "/images/podcasts/prehab.jpg", w: 140, h: 56 },
   { name: "Physiotutors Podcast", src: "/images/podcasts/physiotutors.jpg", w: 140, h: 56 },

@@ -175,6 +175,19 @@ export const HOME_RECENT_BLOG = {
   ctaHref: "/blog",
 } as const;
 
+// Phase 4 (2026-05-13): homepage media-cluster preview. One card from
+// each of the three /press buckets — most-recent personal media feature,
+// the marquee long-form interview, and the marquee podcast guest spot.
+// Single soft link to /press for the full inventory.
+export const HOME_RECENT_MEDIA = {
+  eyebrow: "Where Nick has shown up",
+  headline: "Press features, interviews, and podcasts",
+  intro:
+    "A sample from the personal-press catalog. The full inventory of mainstream features, on-camera interviews, and podcast appearances lives on the press page.",
+  ctaLabel: "See where Nick has shown up",
+  ctaHref: "/press",
+} as const;
+
 // Final CTA — the homepage's ONE soft gateway to /get-certified. Per
 // Principle 6 in brand-guide.md, the homepage does not sell the cert.
 // This block is the single exit point: it tells the convinced visitor

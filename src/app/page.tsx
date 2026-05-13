@@ -10,6 +10,7 @@ import HomeTeam from "@/components/sections/home/HomeTeam";
 import HomeProofRow from "@/components/sections/home/HomeProofRow";
 import HomeRecentEpisodes from "@/components/sections/home/HomeRecentEpisodes";
 import HomeRecentBlog from "@/components/sections/home/HomeRecentBlog";
+import HomeRecentMedia from "@/components/sections/home/HomeRecentMedia";
 import HomeFinalCTA from "@/components/sections/home/HomeFinalCTA";
 import { HOME_META } from "@/content/home";
 import { SITE_MENU_LINKS } from "@/lib/menus";
@@ -98,6 +99,9 @@ export default function HomePage() {
 
         {/* Recent blog — brand-richness, 3 newest, links to /blog/[slug] */}
         <HomeRecentBlog />
+
+        {/* Recent media — 1 card per /press bucket (feature + interview + podcast) */}
+        <HomeRecentMedia />
 
         {/* Final CTA — single soft gateway → /get-certified */}
         <HomeFinalCTA />
