@@ -160,10 +160,10 @@ export const ABOUT_TEAM = {
 
 export const ABOUT_FINAL_CTA = {
   eyebrow: "The next step",
-  headline: "See what's inside the certification",
+  headline: "Ready to apply BFR yourself?",
   body:
     "The Complete BFR Certification teaches the protocols, screening, and pressure science behind everything written above. Built on Dr. Rolnick's 72+ publications, equipment-agnostic, online and self-paced.",
-  primaryCta: "See the certification",
+  primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;
 
@@ -306,10 +306,10 @@ export const ROLNICK_HOSTED = {
 
 export const ROLNICK_FINAL_CTA = {
   eyebrow: "Inside the certification",
-  headline: "Learn BFR from the source",
+  headline: "Ready to learn BFR from the source?",
   body:
     "The Complete BFR Certification is built on Dr. Rolnick's 72+ peer-reviewed publications and the cases he treats every week. 37 modules, 11.75 CEUs, equipment-agnostic.",
-  primaryCta: "See the certification",
+  primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;
 
@@ -387,10 +387,10 @@ export const LICAMELI_ROLES = {
 
 export const LICAMELI_FINAL_CTA = {
   eyebrow: "Inside the certification",
-  headline: "Where Dr. Licameli's material fits in your practice",
+  headline: "Ready to apply BFR across rehab and performance?",
   body:
     "The Complete BFR Certification teaches both rehab-side protocols and athletic applications. Dr. Licameli's chapters cover everything from in-season maintenance to ischemic preconditioning to the bodybuilding-adjacent applications most rehab courses skip.",
-  primaryCta: "See the certification",
+  primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;
 
@@ -450,10 +450,10 @@ export const THOELEN_ROLES = {
 
 export const THOELEN_FINAL_CTA = {
   eyebrow: "Inside the certification",
-  headline: "Apply BFR with confidence, from clinic floor to field",
+  headline: "Ready to apply BFR with confidence?",
   body:
     "The Complete BFR Certification covers the same screening, programming, and protocol decisions Mathias walks practitioners through in his European workshops. 37 modules, 11.75 CEUs, on-demand and self-paced.",
-  primaryCta: "See the certification",
+  primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;
 
@@ -500,10 +500,10 @@ export const MARTY_ROLES = {
 
 export const MARTY_FINAL_CTA = {
   eyebrow: "Inside the certification",
-  headline: "The work the message points at",
+  headline: "Ready to apply BFR yourself?",
   body:
     "The voice you hear across The BFR Pros points at one thing: practitioners who can apply BFR with their first patient. The Complete BFR Certification is the work the message points at.",
-  primaryCta: "See the certification",
+  primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;
 
@@ -573,9 +573,9 @@ export const MARCANO_ROLES = {
 
 export const MARCANO_FINAL_CTA = {
   eyebrow: "Inside the certification",
-  headline: "Add BFR to the athletic trainer's toolkit",
+  headline: "Ready to add BFR to the AT toolkit?",
   body:
     "The Complete BFR Certification covers the screening, pressure science, and programming that an Athletic Trainer applies on the sideline and in the rehab room. 37 modules, 11.75 CEUs, BOC-approved.",
-  primaryCta: "See the certification",
+  primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;

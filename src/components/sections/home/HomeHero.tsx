@@ -91,7 +91,7 @@ export default function HomeHero() {
             style={{ animationDelay: STAGGER_DELAYS[4] }}
           >
             <PrimaryCTA
-              label="See the certification"
+              label="Explore the certification"
               secondary=""
               href="/get-certified"
               starsVariant="dark"

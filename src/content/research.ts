@@ -53,9 +53,9 @@ export const RESEARCH_FEATURED_PREVIEW = {
 
 export const RESEARCH_FINAL_CTA = {
   eyebrow: "Apply the research",
-  headline: "See the certification",
+  headline: "Ready to apply the research?",
   body: `Built on the ${STATS.publications} peer-reviewed publications above. 37 modules, 11.75 CEUs, equipment-agnostic, with a module-by-module bibliography included.`,
-  primaryCta: "See the certification",
+  primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;
 
@@ -101,8 +101,8 @@ export const PUBLICATIONS_LINKS = {
 
 export const PUBLICATIONS_FINAL_CTA = {
   eyebrow: "Apply the research",
-  headline: "See the certification",
+  headline: "Ready to put the research to work?",
   body: "Every protocol in The Complete BFR Certification cites the literature it came from. The module-by-module bibliography (Bonus 5) covers every paper.",
-  primaryCta: "See the certification",
+  primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;

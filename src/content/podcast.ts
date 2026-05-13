@@ -42,9 +42,9 @@ export const PODCAST_GUEST_INTRO = {
 
 export const PODCAST_FINAL_CTA = {
   eyebrow: "After the episodes",
-  headline: "See the certification",
+  headline: "Ready to apply BFR yourself?",
   body:
     "Every conversation on the show points at one thing: practitioners who can apply BFR safely and well. The Complete BFR Certification is where that work is taught.",
-  primaryCta: "See the certification",
+  primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;

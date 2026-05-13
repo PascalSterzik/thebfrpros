@@ -25,9 +25,9 @@ export const BLOG_INDEX_INTRO = {
 
 export const BLOG_FINAL_CTA = {
   eyebrow: "From the page to the practice",
-  headline: "See the certification",
+  headline: "Ready to apply BFR yourself?",
   body:
     "Every post on the blog points at one thing: applying BFR with the patient in front of you. The Complete BFR Certification is where the protocols, screening, and pressure science are taught.",
-  primaryCta: "See the certification",
+  primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;

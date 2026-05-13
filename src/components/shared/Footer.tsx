@@ -78,7 +78,7 @@ export default function Footer() {
               <p>{SITE.city}, {SITE.region}</p>
             </div>
             <div className="mt-6">
-              <Stars variant="dark" size="sm" />
+              <Stars variant="dark" size="sm" linkTo="/reviews" />
             </div>
           </div>
 

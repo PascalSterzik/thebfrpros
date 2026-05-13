@@ -78,7 +78,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
       // Claims grep gate in brand-guide.md blocks "cohort" sitewide.
       eyebrow: "Built on 72+ peer-reviewed publications",
       line: "Learn BFR from the source of 72+ peer-reviewed publications.",
-      cta: "See the certification",
+      cta: "Explore the certification",
     },
     hero: {
       eyebrow: "The Complete BFR Certification",

@@ -203,9 +203,9 @@ export const PT: Audience = {
   testimonialFallbackNames: ["Dr. Clinton H. Lee, PT, DPT, CSCS", "Dr. Brian D. Whyte, DPT, CLT, CSCS"],
   finalCta: {
     eyebrow: "Bring BFR to your post-op caseload",
-    headline: "See the certification",
+    headline: "Ready to apply BFR with your post-op caseload?",
     body: "37 modules, 11.75 CEUs, equipment-agnostic, built on Dr. Rolnick's 72+ peer-reviewed publications. Apply BFR with your first patient by week two.",
-    primaryCta: "See the certification",
+    primaryCta: "Explore the certification",
     primaryCtaHref: "/get-certified",
   },
 };
@@ -319,9 +319,9 @@ export const AT: Audience = {
   testimonialFallbackNames: ["Benjamin Toderico, MS, CSCS"],
   finalCta: {
     eyebrow: "Add BFR to the AT toolkit",
-    headline: "See the certification",
+    headline: "Ready to apply BFR in the training room?",
     body: "11.75 BOC Category A CEUs across 37 modules. Built for the in-season athlete, the return-to-sport window, and the cuff that fits the setting.",
-    primaryCta: "See the certification",
+    primaryCta: "Explore the certification",
     primaryCtaHref: "/get-certified",
   },
 };
@@ -433,9 +433,9 @@ export const SC: Audience = {
   testimonialFallbackNames: ["Benjamin Toderico, MS, CSCS"],
   finalCta: {
     eyebrow: "Bring BFR to your programming",
-    headline: "See the certification",
+    headline: "Ready to apply BFR with your athletes?",
     body: "37 modules, 11.75 hours of contact education, equipment-agnostic. Performance applications written by a competitive natural bodybuilder and Doctor of Physical Therapy.",
-    primaryCta: "See the certification",
+    primaryCta: "Explore the certification",
     primaryCtaHref: "/get-certified",
   },
 };

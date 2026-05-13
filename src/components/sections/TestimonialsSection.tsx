@@ -38,7 +38,7 @@ export default function TestimonialsSection() {
             {STATS.ratingValue} stars from {STATS.reviewCount}+ reviews, {STATS.certifiedPractitioners} certified practitioners
           </motion.h2>
           <motion.div variants={fadeUp} className="mt-6 flex justify-center">
-            <Stars variant="dark" size="md" />
+            <Stars variant="dark" size="md" linkTo="/reviews" />
           </motion.div>
           <motion.p
             variants={fadeUp}

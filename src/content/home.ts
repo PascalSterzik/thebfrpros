@@ -144,9 +144,9 @@ export const HOME_INSTRUCTOR = {
 // bonuses, and module breakdown all live at /get-certified.
 export const HOME_FINAL_CTA = {
   eyebrow: "The next step",
-  headline: "Apply BFR in your practice",
+  headline: "Ready to apply BFR yourself?",
   body:
     "The Complete BFR Certification teaches the protocols, screening, and pressure science. Taught by Dr. Nicholas Rolnick, equipment-agnostic, online and self-paced.",
-  primaryCta: "See the certification",
+  primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;

@@ -58,7 +58,7 @@ export default function PrimaryCTA({
         <span>{label}</span>
         {secondary && <span className="btn-sub">{secondary}</span>}
       </a>
-      {showStars && <Stars variant={starsVariant} size="md" />}
+      {showStars && <Stars variant={starsVariant} size="md" linkTo="/reviews" />}
       {hint && (
         <p
           className={`text-xs ${

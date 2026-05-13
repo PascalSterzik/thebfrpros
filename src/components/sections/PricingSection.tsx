@@ -64,7 +64,7 @@ export default function PricingSection() {
             {PRICING.contentHours} hours of video content. {PRICING.completionPace}, your pace. Lifetime access. {PRICING.guaranteeDays}-day money-back guarantee. Only 1 of {STATS.certifiedPractitioners} graduates has ever taken it.
           </motion.p>
           <motion.div variants={fadeUp} className="mt-6 flex justify-center">
-            <Stars variant="light" size="md" />
+            <Stars variant="light" size="md" linkTo="/reviews" />
           </motion.div>
         </motion.div>
 
