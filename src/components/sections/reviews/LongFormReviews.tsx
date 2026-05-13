@@ -10,8 +10,10 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 // Long-form expert reviews. Pulls from the canonical TESTIMONIALS array
 // in lib/constants.ts so any future addition to that array (verified
 // course-grad clinic owner / consultant quotes) automatically surfaces
-// here. Cards are EB-Garamond editorial-quote serif italic for the
-// pull-quote feel; the rest of the card stays in DM Sans.
+// here. Phase 1i (2026-05-13): cards now render in DM Sans body type,
+// not the editorial-quote serif italic. .editorial-quote stays reserved
+// for ONE standalone pull-quote on /reviews (Phase 2 reviews rebuild) and
+// for the cert-page BridgeBlock. Quote font is for STANDALONE quotes only.
 
 export default function LongFormReviews() {
   return (
@@ -55,7 +57,7 @@ export default function LongFormReviews() {
               className="flex flex-col rounded-lg border border-line bg-white p-7 lg:p-8 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
             >
               <Stars variant="light" size="sm" />
-              <p className="mt-5 editorial-quote text-navy-deeper">
+              <p className="mt-5 text-base leading-relaxed text-ink/90">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <div className="mt-auto pt-6 border-t border-line">

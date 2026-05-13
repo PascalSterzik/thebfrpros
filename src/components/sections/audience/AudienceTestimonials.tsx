@@ -58,7 +58,7 @@ export default function AudienceTestimonials({
               className="flex flex-col rounded-lg border border-line bg-white p-7 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
             >
               <Stars variant="light" size="sm" />
-              <p className="mt-5 editorial-quote text-navy-deeper">
+              <p className="mt-5 text-base leading-relaxed text-ink/90">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <div className="mt-6 border-t border-line pt-5">

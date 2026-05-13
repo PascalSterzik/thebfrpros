@@ -1,42 +1,42 @@
 import Image from "next/image";
 import Link from "next/link";
 import Stars from "@/components/shared/Stars";
-import { ENROLL_URL, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
+
+// Phase 1h (2026-05-13): footer reorganized to 4 columns — Brand + 3 nav
+// columns (For Practitioners, Resources, Company). Audience pages, Blog,
+// Podcast, Reviews, FAQ moved off the trimmed primary header (Phase 1d)
+// into here. Legal links collapsed into Company. Social icons moved up
+// into the Brand column; the bottom row keeps only copyright. Logo swapped
+// to the primary-with-tagline transparent mark (Phase 1g).
 
 const COLS = [
   {
-    heading: "Program",
+    heading: "For Practitioners",
     links: [
-      { label: "Get Certified", href: ENROLL_URL, external: true },
-      { label: "Curriculum", href: "#curriculum" },
-      { label: "CEU Credits", href: "#ceus" },
-      { label: "Pricing", href: "#pricing" },
+      { label: "For Physical Therapists", href: "/for/physical-therapists" },
+      { label: "For Athletic Trainers", href: "/for/athletic-trainers" },
+      { label: "For Strength Coaches", href: "/for/strength-coaches" },
+    ],
+  },
+  {
+    heading: "Resources",
+    links: [
+      { label: "Blog", href: "/blog" },
+      { label: "Podcast", href: "/podcast" },
+      { label: "Reviews", href: "/reviews" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Research", href: "/research" },
     ],
   },
   {
     heading: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Dr. Rolnick", href: "/about/nicholas-rolnick" },
-      { label: "Dr. Licameli", href: "/about/nicholas-licameli" },
       { label: "Contact", href: "/contact" },
-    ],
-  },
-  {
-    heading: "Resources",
-    links: [
-      { label: "Reviews", href: "/reviews" },
-      { label: "Research", href: "/research" },
-      { label: "Podcast", href: "/podcast" },
-      { label: "FAQ", href: "/faq" },
-      { label: "Blog", href: "/blog" },
-    ],
-  },
-  {
-    heading: "Legal",
-    links: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
+      { label: "Find a Provider", href: "https://bfrproviders.com", external: true as const },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
       { label: "Disclaimer", href: "/disclaimer" },
       { label: "Refund Policy", href: "/refund-policy" },
     ],
@@ -58,11 +58,11 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <Image
-              src="/images/logos/bfr-pros-secondary.png"
+              src="/images/logos/the-bfr-pros-logo-primary-transparent-background.png"
               alt={`${SITE.brandName} logo`}
-              width={200}
-              height={56}
-              className="h-14 w-auto"
+              width={220}
+              height={88}
+              className="h-20 w-auto"
             />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/75">
               Equipment-agnostic BFR certification built on 72+ peer-reviewed publications by the lead instructor,{" "}
@@ -80,9 +80,23 @@ export default function Footer() {
             <div className="mt-6">
               <Stars variant="dark" size="sm" linkTo="/reviews" />
             </div>
+            <div className="mt-7 flex items-center gap-3">
+              {SOCIAL.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/80 transition hover:border-white/50 hover:text-white"
+                >
+                  <SocialIcon icon={s.icon} />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <nav className="md:col-span-8 grid grid-cols-2 gap-8 sm:grid-cols-4" aria-label="Footer">
+          <nav className="md:col-span-8 grid grid-cols-1 gap-8 sm:grid-cols-3" aria-label="Footer">
             {COLS.map((col) => (
               <div key={col.heading}>
                 <h3 className="small-caps-line text-white/55">{col.heading}</h3>
@@ -113,24 +127,10 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-14 flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 border-t border-white/10 pt-8">
           <p className="text-xs text-white/55">
             &copy; {new Date().getFullYear()} {SITE.legalName}. All rights reserved.
           </p>
-          <div className="flex items-center gap-3">
-            {SOCIAL.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/80 transition hover:border-white/50 hover:text-white"
-              >
-                <SocialIcon icon={s.icon} />
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>
