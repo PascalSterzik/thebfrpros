@@ -35,7 +35,7 @@ const COLS = [
     links: [
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
-      { label: "Find a Provider", href: "https://bfrproviders.com", external: true as const },
+      { label: "Find BFR Providers", href: "https://bfrproviders.com", external: true as const },
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
       { label: "Disclaimer", href: "/disclaimer" },

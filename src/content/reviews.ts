@@ -85,7 +85,7 @@ export const REVIEWS_PULL_QUOTE = {
     "I chose to take The BFR Pros' blood flow restriction course over other companies such as Owens Recovery Science & Smart Tools because of how the former is continually staying up-to-date with emerging BFR research and implementing it into the course content.",
   attribution: {
     name: "Dr. Clinton H. Lee",
-    role: "PT, DPT, CSCS — Owner, PhysioStrength",
+    role: "PT, DPT, CSCS, Owner of PhysioStrength",
   },
 } as const;
 
