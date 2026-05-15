@@ -65,7 +65,7 @@ export default function HomeTeam() {
                     alt={`${m.name}, ${m.role}`}
                     fill
                     sizes="(min-width: 640px) 22rem, 90vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    className="object-cover"
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center bg-navy text-white">
