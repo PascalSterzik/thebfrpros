@@ -9,12 +9,13 @@ import { ABOUT_TEAM } from "@/content/about";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Section 7 (Phase 4) — Brand-hub team strip. Photo-forward team
-// showcase: a 2x2 grid (3 humans + Buff) of large portrait cards, the
-// image is the dominant element (aspect-[4/5], fills the card width),
-// name + role + link below. Reads as "here is the team," not a
-// testimonial box. No bio paragraph (that lives on /about's AboutTeam
-// and the deep bios). 2026-05-15: rebuilt from the old tiny-avatar
-// info-card after Pascal flagged it looked like testimonials.
+// showcase: a single 4-up row on desktop (1-col mobile, 2x2 tablet)
+// of 3 humans + Buff. The image is the dominant element (aspect-[4/5],
+// fills the card width), name + role + link below. Reads as "here is
+// the team," not a testimonial box. No bio paragraph (that lives on
+// /about's AboutTeam and the deep bios). 2026-05-15: rebuilt from the
+// old tiny-avatar info-card (looked like testimonials); then widened
+// to one desktop row since the cards are narrow enough to fit.
 
 export default function HomeTeam() {
   return (
@@ -49,7 +50,7 @@ export default function HomeTeam() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-12 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto"
+          className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
           {ABOUT_TEAM.members.map((m) => (
             <motion.article

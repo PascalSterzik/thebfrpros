@@ -107,7 +107,7 @@ export const ABOUT_TEAM = {
       credentials: "PT, DPT, MS, CSCS",
       bio:
         "Author of 72+ peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Adjunct Assistant Professor of Physical Therapy at New York Medical College. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living. Active clinical practice in Manhattan. Founded The BFR Pros, LLC in June 2018.",
-      photoSrc: "/images/team/nick-rolnick.webp",
+      photoSrc: "/images/instructors/rolnick-large.jpg",
       profileHref: "/about/nicholas-rolnick",
       profileLabel: "Read the full profile",
     },
