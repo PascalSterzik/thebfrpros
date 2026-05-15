@@ -77,7 +77,7 @@ export default function Stars({
       <Link
         href={linkTo}
         className="inline-flex items-center transition-opacity hover:opacity-80 underline-offset-4 hover:underline decoration-line decoration-1"
-        aria-label={`${rating} stars from ${count.toLocaleString("en-US")}+ reviews — read all reviews`}
+        aria-label={`${rating} stars from ${count.toLocaleString("en-US")}+ reviews. Read all reviews.`}
       >
         {inner}
       </Link>

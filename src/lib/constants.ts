@@ -387,7 +387,7 @@ export const ROLNICK_PEER_REVIEWER_JOURNALS = [
   "Scientific Reports",
   "European Journal of Sports Science",
   "BMC Sports Science, Medicine and Rehabilitation",
-  "Sports Medicine — Open",
+  "Sports Medicine - Open",
   "PeerJ",
   "Medical Hypotheses",
   "Journal of Strength & Conditioning Research",
@@ -1105,7 +1105,7 @@ export const VIDEO_TESTIMONIALS = [
   },
   {
     name: "Keith Steigbigel",
-    role: "PT, DPT, OCS, CSCS — Owner, Prolete PT",
+    role: "PT, DPT, OCS, CSCS, Owner, Prolete PT",
     veedId: "9d70c743-2afa-439b-bc5d-c76737fa34b3",
     poster: "/images/testimonials/video/keith-steigbigel.webp",
     aspect: "16/9",
@@ -1197,7 +1197,7 @@ export const CURRICULUM = [
   },
   {
     slug: "course-3",
-    title: "BFR Masters Webinar — What's New in BFR 2021",
+    title: "BFR Masters Webinar “What’s New In BFR 2021?”",
     ceus: "2",
     totalDuration: "1h 35m",
     moduleCount: 6,
