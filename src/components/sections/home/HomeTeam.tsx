@@ -8,14 +8,13 @@ import { HOME_TEAM } from "@/content/home";
 import { ABOUT_TEAM } from "@/content/about";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// Section 7 (Phase 4) — Brand-hub team strip. Replaces HomeInstructor
-// (Rolnick + Licameli 2-card with full bio paragraphs) with the full
-// 5-human + mascot grid from /about's AboutTeam, at homepage density:
-// no bio paragraph, smaller photo (80px instead of 96-128px), tighter
-// padding. Each card links to the deep bio sub-page; the mascot links
-// to /about. The same brand-richness pattern King Kong + Precision
-// Nutrition use on their homepages — show the people, hand off to the
-// page that tells the full story.
+// Section 7 (Phase 4) — Brand-hub team strip. Photo-forward team
+// showcase: a 2x2 grid (3 humans + Buff) of large portrait cards, the
+// image is the dominant element (aspect-[4/5], fills the card width),
+// name + role + link below. Reads as "here is the team," not a
+// testimonial box. No bio paragraph (that lives on /about's AboutTeam
+// and the deep bios). 2026-05-15: rebuilt from the old tiny-avatar
+// info-card after Pascal flagged it looked like testimonials.
 
 export default function HomeTeam() {
   return (
@@ -50,85 +49,81 @@ export default function HomeTeam() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-12 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto"
         >
           {ABOUT_TEAM.members.map((m) => (
             <motion.article
               key={m.name}
               variants={fadeUp}
-              className="flex flex-col rounded-lg border border-line bg-white p-5 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
+              className="group flex flex-col overflow-hidden rounded-lg border border-line bg-white shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
             >
-              <div className="flex items-center gap-4">
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-cream">
                 {m.photoSrc ? (
-                  <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full ring-2 ring-cream">
-                    <Image
-                      src={m.photoSrc}
-                      alt={`${m.name}, ${m.role}`}
-                      fill
-                      sizes="80px"
-                      className="object-cover"
-                    />
-                  </div>
+                  <Image
+                    src={m.photoSrc}
+                    alt={`${m.name}, ${m.role}`}
+                    fill
+                    sizes="(min-width: 640px) 22rem, 90vw"
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                  />
                 ) : (
-                  <div className="relative flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy text-white ring-2 ring-cream">
-                    <span className="font-display text-xl tracking-wide">{m.initials ?? ""}</span>
+                  <div className="flex h-full w-full items-center justify-center bg-navy text-white">
+                    <span className="font-display text-6xl tracking-wide">{m.initials ?? ""}</span>
                   </div>
                 )}
-                <div className="min-w-0 flex-1">
-                  <p className="small-caps-line text-accent text-[0.7rem]">{m.role}</p>
-                  <h3 className="mt-1.5 font-display text-xl text-navy leading-tight">
-                    {m.name}
-                  </h3>
-                  {m.credentials ? (
-                    <p className="mt-0.5 text-xs text-muted">{m.credentials}</p>
-                  ) : null}
-                </div>
               </div>
-              {m.profileHref ? (
-                <Link
-                  href={m.profileHref}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-deeper transition"
-                >
-                  Read the profile
-                  <span aria-hidden>→</span>
-                </Link>
-              ) : null}
+              <div className="flex flex-1 flex-col p-6">
+                <p className="small-caps-line text-accent text-xs">{m.role}</p>
+                <h3 className="mt-2 font-display text-2xl text-navy leading-tight">
+                  {m.name}
+                </h3>
+                {m.credentials ? (
+                  <p className="mt-1 text-sm text-muted">{m.credentials}</p>
+                ) : null}
+                {m.profileHref ? (
+                  <Link
+                    href={m.profileHref}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-deeper transition"
+                  >
+                    Read the profile
+                    <span aria-hidden>→</span>
+                  </Link>
+                ) : null}
+              </div>
             </motion.article>
           ))}
 
           <motion.article
             variants={fadeUp}
-            className="flex flex-col rounded-lg border border-dashed border-accent/40 bg-white p-5 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
+            className="flex flex-col overflow-hidden rounded-lg border border-dashed border-accent/40 bg-cream shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
           >
-            <div className="flex items-center gap-4">
-              <div className="relative h-20 w-20 shrink-0">
-                <Image
-                  src={ABOUT_TEAM.mascot.photoSrc}
-                  alt={`${ABOUT_TEAM.mascot.name}, ${ABOUT_TEAM.mascot.role}`}
-                  fill
-                  sizes="80px"
-                  className="object-contain"
-                />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="small-caps-line text-accent text-[0.7rem]">
-                  {ABOUT_TEAM.mascot.role}
-                </p>
-                <h3 className="mt-1.5 font-display text-xl text-navy leading-tight">
-                  {ABOUT_TEAM.mascot.name}
-                </h3>
-                <p className="mt-0.5 text-xs font-semibold text-accent tracking-wide">
-                  {ABOUT_TEAM.mascot.tagline}
-                </p>
-              </div>
+            <div className="relative aspect-[4/5] w-full">
+              <Image
+                src={ABOUT_TEAM.mascot.photoSrc}
+                alt={`${ABOUT_TEAM.mascot.name}, ${ABOUT_TEAM.mascot.role}`}
+                fill
+                sizes="(min-width: 640px) 22rem, 90vw"
+                className="object-contain p-10"
+              />
             </div>
-            <Link
-              href="/about"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-deeper transition"
-            >
-              Meet the full team
-              <span aria-hidden>→</span>
-            </Link>
+            <div className="flex flex-1 flex-col p-6">
+              <p className="small-caps-line text-accent text-xs">
+                {ABOUT_TEAM.mascot.role}
+              </p>
+              <h3 className="mt-2 font-display text-2xl text-navy leading-tight">
+                {ABOUT_TEAM.mascot.name}
+              </h3>
+              <p className="mt-1 text-sm font-semibold text-accent tracking-wide">
+                {ABOUT_TEAM.mascot.tagline}
+              </p>
+              <Link
+                href="/about"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-deeper transition"
+              >
+                Meet the full team
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
           </motion.article>
         </motion.div>
       </div>

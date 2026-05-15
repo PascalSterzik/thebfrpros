@@ -14,14 +14,6 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 // (InstructorsSection), not on the team grid. InitialsCircle is the
 // no-photo fallback (currently unused: all 3 members carry a photo).
 
-function InitialsCircle({ initials }: { initials: string }) {
-  return (
-    <div className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy text-white ring-2 ring-cream">
-      <span className="font-display text-2xl tracking-wide">{initials}</span>
-    </div>
-  );
-}
-
 export default function AboutTeam() {
   return (
     <section className="section-wrap bg-white">
@@ -55,69 +47,73 @@ export default function AboutTeam() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-2 lg:max-w-4xl lg:mx-auto"
+          className="mt-14 grid gap-6 sm:grid-cols-2 max-w-4xl mx-auto"
         >
           {ABOUT_TEAM.members.map((m) => (
             <motion.article
               key={m.name}
               variants={fadeUp}
-              className="flex flex-col rounded-lg border border-line bg-white p-7 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
+              className="group flex flex-col overflow-hidden rounded-lg border border-line bg-white shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
             >
-              <div className="flex items-start gap-5">
+              <div className="relative aspect-[4/5] w-full overflow-hidden bg-cream">
                 {m.photoSrc ? (
-                  <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full ring-2 ring-cream">
-                    <Image
-                      src={m.photoSrc}
-                      alt={`${m.name}, ${m.role}`}
-                      fill
-                      sizes="96px"
-                      className="object-cover"
-                    />
-                  </div>
+                  <Image
+                    src={m.photoSrc}
+                    alt={`${m.name}, ${m.role}`}
+                    fill
+                    sizes="(min-width: 640px) 26rem, 90vw"
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                  />
                 ) : (
-                  <InitialsCircle initials={m.initials ?? ""} />
+                  <div className="flex h-full w-full items-center justify-center bg-navy">
+                    <span className="font-display text-6xl tracking-wide text-white">
+                      {m.initials ?? ""}
+                    </span>
+                  </div>
                 )}
-                <div className="min-w-0">
-                  <p className="small-caps-line text-accent">{m.role}</p>
-                  <h3 className="mt-2 font-display text-2xl text-navy">{m.name}</h3>
-                  {m.credentials ? (
-                    <p className="mt-1 text-sm text-muted">{m.credentials}</p>
-                  ) : null}
-                </div>
               </div>
-              <p className="mt-6 flex-1 text-base leading-relaxed text-ink/85">{m.bio}</p>
-              {m.profileHref ? (
-                <div className="mt-6 border-t border-line pt-5">
-                  <Link
-                    href={m.profileHref}
-                    className="inline-flex items-center gap-2 font-semibold text-accent hover:text-accent-deeper transition"
-                  >
-                    {m.profileLabel ?? "Read the full profile"}
-                    <span aria-hidden>→</span>
-                  </Link>
-                </div>
-              ) : null}
+              <div className="flex flex-1 flex-col p-7">
+                <p className="small-caps-line text-accent">{m.role}</p>
+                <h3 className="mt-2 font-display text-2xl text-navy">{m.name}</h3>
+                {m.credentials ? (
+                  <p className="mt-1 text-sm text-muted">{m.credentials}</p>
+                ) : null}
+                <p className="mt-5 flex-1 text-base leading-relaxed text-ink/85">{m.bio}</p>
+                {m.profileHref ? (
+                  <div className="mt-6 border-t border-line pt-5">
+                    <Link
+                      href={m.profileHref}
+                      className="inline-flex items-center gap-2 font-semibold text-accent hover:text-accent-deeper transition"
+                    >
+                      {m.profileLabel ?? "Read the full profile"}
+                      <span aria-hidden>→</span>
+                    </Link>
+                  </div>
+                ) : null}
+              </div>
             </motion.article>
           ))}
 
           <motion.article
             variants={fadeUp}
-            className="flex flex-col items-center text-center rounded-lg border border-dashed border-accent/40 bg-cream p-7 shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
+            className="flex flex-col overflow-hidden rounded-lg border border-dashed border-accent/40 bg-cream shadow-[0_4px_14px_-8px_rgba(25,55,99,0.18)]"
           >
-            <div className="relative h-32 w-32 shrink-0">
+            <div className="relative aspect-[4/5] w-full">
               <Image
                 src={ABOUT_TEAM.mascot.photoSrc}
                 alt={`${ABOUT_TEAM.mascot.name}, ${ABOUT_TEAM.mascot.role}`}
                 fill
-                sizes="128px"
-                className="object-contain"
+                sizes="(min-width: 640px) 26rem, 90vw"
+                className="object-contain p-12"
               />
             </div>
-            <p className="mt-5 small-caps-line text-accent">{ABOUT_TEAM.mascot.role}</p>
-            <h3 className="mt-2 font-display text-2xl text-navy">{ABOUT_TEAM.mascot.name}</h3>
-            <p className="mt-3 text-sm font-semibold text-accent tracking-wide">
-              {ABOUT_TEAM.mascot.tagline}
-            </p>
+            <div className="flex flex-1 flex-col p-7">
+              <p className="small-caps-line text-accent">{ABOUT_TEAM.mascot.role}</p>
+              <h3 className="mt-2 font-display text-2xl text-navy">{ABOUT_TEAM.mascot.name}</h3>
+              <p className="mt-3 text-sm font-semibold text-accent tracking-wide">
+                {ABOUT_TEAM.mascot.tagline}
+              </p>
+            </div>
           </motion.article>
         </motion.div>
       </div>
