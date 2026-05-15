@@ -119,8 +119,10 @@ export const ROLNICK = {
 //   - Added BLOOM-WFLA-TV, Zenger News, WESTFAIROnline logos (new WebP
 //     files from Pascal's _Inbox/2).
 //
-// Current logo coverage: 15 of 18 entries (missing logos: NY Post,
-// The Scarsdale Inquirer, FOX 32 Chicago).
+// 2026-05-15 update (Pascal): NY Post, The Scarsdale Inquirer, and
+// FOX 32 Chicago logos supplied and wired (ny-post.png /
+// scarsdale-inquirer.png / fox-32-chicago.png in /public/images/featured/).
+// Current logo coverage: 18 of 18 entries.
 // Current URL coverage: 14 of 18 entries (still missing: NY Post, both
 // WELL+GOOD entries, Scarsdale Inquirer).
 export type RolnickMediaEntry = {
@@ -132,15 +134,15 @@ export type RolnickMediaEntry = {
 };
 
 export const ROLNICK_PERSONAL_MEDIA: ReadonlyArray<RolnickMediaEntry> = [
-  { outlet: "New York Post", headline: "Use the talk test to lower your risk of having a heart attack like Hulk Hogan", date: "Aug 9, 2025", logoSrc: null, url: null },
+  { outlet: "New York Post", headline: "Use the talk test to lower your risk of having a heart attack like Hulk Hogan", date: "Aug 9, 2025", logoSrc: "/images/featured/ny-post.png", url: null },
   { outlet: "CNN Life But Better", headline: "Increase your chances of living longer with 14 gym-free ways to sneak more movement in your day", date: "Jul 31, 2025", logoSrc: "/images/featured/cnn.png", url: "https://edition.cnn.com/2025/07/31/health/ways-to-move-more-exercise-wellness" },
   { outlet: "Men's Health", headline: "What Blood Flow Restriction Training Can Do for Your Workouts", date: "Apr 9, 2025", logoSrc: "/images/featured/mens-health.jpg", url: "https://www.menshealth.com/fitness/a27285291/blood-flow-restriction-training/" },
   { outlet: "WELL + GOOD", headline: "3 Common Habits a Human Performance Mechanic Says Can Lead to Back Pain", date: "Jan 12, 2023", logoSrc: "/images/featured/well-good.jpg", url: null },
   { outlet: "BLOOM-WFLA-TV", headline: "Blood Flow Restriction Training", date: "Aug 24, 2022", logoSrc: "/images/featured/bloom-wfla.webp", url: "https://www.wfla.com/bloom/blood-flow-restriction-training/" },
   { outlet: "Zenger News", headline: '"The Human Performance Mechanic" Explains Why Exercise Is Sometimes The Best Medicine', date: "Aug 15, 2022", logoSrc: "/images/featured/zenger.webp", url: "https://www.zenger.news/2022/08/15/the-human-performance-mechanic-explains-why-exercise-is-sometimes-the-best-medicine/" },
-  { outlet: "The Scarsdale Inquirer", headline: "Scarsdale Grad Rolnick Thrives As Physical Therapist", date: "Aug 12, 2022", logoSrc: null, url: null },
+  { outlet: "The Scarsdale Inquirer", headline: "Scarsdale Grad Rolnick Thrives As Physical Therapist", date: "Aug 12, 2022", logoSrc: "/images/featured/scarsdale-inquirer.png", url: null },
   { outlet: "WESTFAIROnline", headline: "A Physical Therapist's Antidote to Anxiety", date: "Aug 9, 2022", logoSrc: "/images/featured/westfair.webp", url: "https://westfaironline.com/health-care/a-physical-therapists-antidote-to-anxiety/" },
-  { outlet: "FOX 32 Chicago", headline: "Blood Flow Restriction Training Gaining Steam In Fitness Community", date: "Jul 29, 2022", logoSrc: null, url: "https://www.fox32chicago.com/video/1098800" },
+  { outlet: "FOX 32 Chicago", headline: "Blood Flow Restriction Training Gaining Steam In Fitness Community", date: "Jul 29, 2022", logoSrc: "/images/featured/fox-32-chicago.png", url: "https://www.fox32chicago.com/video/1098800" },
   { outlet: "CNET", headline: "Blood Flow Restriction Training Gets You Stronger Without the Heavy Weights", date: "Jun 8, 2022", logoSrc: "/images/featured/cnet.jpg", url: "https://www.cnet.com/health/fitness/get-stronger-with-blood-flow-restriction-training/" },
   { outlet: "Eat This, Not That!", headline: "10 Ways to Burn More Calories During Every Walk", date: "Nov 4, 2021", logoSrc: "/images/featured/eat-this-not-that.jpg", url: "https://www.eatthis.com/news-burn-more-calories-walking/" },
   { outlet: "Vitamin Shop WHAT'S GOOD", headline: "6 Ways To Support And Strengthen Your Knees", date: "Oct 27, 2021", logoSrc: "/images/featured/whats-good.webp", url: "https://whatsgood.vitaminshoppe.com/ways-to-strengthen-your-knees/" },
