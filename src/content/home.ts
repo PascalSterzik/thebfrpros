@@ -125,15 +125,17 @@ export const HOME_AUDIENCES = [
 ] as const;
 
 // Phase 4 (2026-05-13): brand-hub team strip replacing the old
-// HomeInstructor section. Pulls all 5 humans + mascot from ABOUT_TEAM
-// (single source of truth). Card density is tighter than /about's
-// AboutTeam — no bio paragraph, just photo + role + name + credentials +
-// link. Mascot card links to /about (full team page lives there).
+// HomeInstructor section. Renders ABOUT_TEAM.members + mascot (single
+// source of truth). Card density is tighter than /about's AboutTeam:
+// no bio paragraph, just photo + role + name + credentials + link.
+// Mascot card links to /about. 2026-05-15: roster trimmed to 3 humans
+// + mascot after Nick removed Licameli + Thoelen; intro + grid updated
+// to match the new count (4 cards render lg:grid-cols-4, one clean row).
 export const HOME_TEAM = {
   eyebrow: "The team",
   headline: "Built by clinicians who teach what they practice",
   intro:
-    "Five practitioners and educators behind The BFR Pros. Active clinical practice, hands-on workshops, peer-reviewed research.",
+    "A small team of clinicians, educators, and operators behind The BFR Pros. The teaching is Dr. Rolnick's work; everyone here makes it ship.",
 } as const;
 
 // Instructor — brief Belief 5 (research source) installation. Names

@@ -55,7 +55,7 @@ export default function AboutTeam() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-2 lg:max-w-4xl lg:mx-auto"
         >
           {ABOUT_TEAM.members.map((m) => (
             <motion.article

@@ -50,7 +50,7 @@ export default function HomeTeam() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
         >
           {ABOUT_TEAM.members.map((m) => (
             <motion.article
