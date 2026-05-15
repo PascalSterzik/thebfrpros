@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: DISCLAIMER.meta.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "Disclaimer — The BFR Pros",
+        alt: "Disclaimer, The BFR Pros",
       },
     ],
   },

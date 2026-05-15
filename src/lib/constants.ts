@@ -1209,16 +1209,17 @@ export const CURRICULUM = [
       "Five 2021 papers walked through with the lead author's commentary on what each finding means for the clinic floor.",
     modules: [
       { n: 1, title: "Introduction to The BFR Pros", duration: "12:06", type: "video", description: "Short background of The BFR Pros and the five 2021 papers that frame the rest of the course." },
-      { n: 2, title: "Perceived Barriers to BFR — Rolnick (2021)", duration: "18:01", type: "video", description: "Reviews and discusses the medical-screening funnel algorithm that reduces risk when applying BFR to patients who shouldn't receive it." },
-      { n: 3, title: "Repetition Failure & Applied Pressure — Carqueira (2021)", duration: "12:02", type: "video", description: "Reviews and discusses the minimum pressure shown to meaningfully accelerate fatigue, and speculates on its clinical implications." },
-      { n: 4, title: "BFR Improves Strength in Chronic Atrophic Post-Surgical Patients — Noyes (2021)", duration: "14:46", type: "video", description: "Reviews and discusses the successful application of BFR in chronic atrophic post-surgical knee patients." },
-      { n: 5, title: "Muscle Activation & Applied BFR Pressure — De Queiros (2021)", duration: "17:22", type: "video", description: "Reviews and discusses muscle activation and applied pressure, and its potential role in BFR exercise." },
-      { n: 6, title: "BFR Induces Comparable Patellar Tendon Changes as Heavy Load — Centner (2021)", duration: "20:27", type: "video", description: "Reviews and discusses how BFR can improve tendon properties in a similar manner as heavy-load strength training." },
+      { n: 2, title: "Perceived Barriers to BFR Training (Rolnick 2021)", duration: "18:01", type: "video", description: "Reviews and discusses the medical-screening funnel algorithm that reduces risk when applying BFR to patients who shouldn't receive it." },
+      { n: 3, title: "Repetition Failure & Applied Pressure (Carqueira 2021)", duration: "12:02", type: "video", description: "Reviews and discusses the minimum pressure shown to meaningfully accelerate fatigue, and speculates on its clinical implications." },
+      { n: 4, title: "BFR Improves Strength in Chronic Atrophic Post-Surgical Patients (Noyes 2021)", duration: "14:46", type: "video", description: "Reviews and discusses the successful application of BFR in chronic atrophic post-surgical knee patients." },
+      { n: 5, title: "Muscle Activation & Applied BFR Pressure (De Queiros 2021)", duration: "17:22", type: "video", description: "Reviews and discusses muscle activation and applied pressure, and its potential role in BFR exercise." },
+      { n: 6, title: "BFR Induces Comparable Patellar Tendon Changes as Heavy Load Strength Training (Centner 2021)", duration: "20:27", type: "video", description: "Reviews and discusses how BFR can improve tendon properties in a similar manner as heavy-load strength training." },
     ] as CourseModule[],
   },
   {
     slug: "course-4",
-    title: "BFR Masters Webinar — Device Features 2024",
+    // real-name: title verbatim from bfrtraining.com/course-package (curly quotes U+201C/U+201D + en-dash U+2013 per content-fidelity)
+    title: "BFR Masters Webinar “Device Features – Selection Of Blood Flow Restriction And Their Potential Impact on Practice”",
     ceus: "2",
     totalDuration: "1h 38m",
     moduleCount: 2,
@@ -1229,8 +1230,8 @@ export const CURRICULUM = [
     summary:
       "Comparative review of 2024 cuff design data plus a practical knowledge assessment on wrapping straps versus elastic bands.",
     modules: [
-      { n: 1, title: "BFR Masters Webinar 2024 — Devices, Autoregulation, Bladder Design, Cuff Width", duration: "97:48", type: "video", description: "Device features that are relevant to the physiology, perception, and safety of BFR exercise: autoregulation, bladder design (single- vs multi-chambered), set/interface pressure." },
-      { n: 2, title: "Knowledge Assessment — Practical BFR with Wrapping Straps vs Elastic Bands", duration: "Quiz", type: "quiz", description: "When is it appropriate to perform practical BFR with wrapping straps versus elastic bands?" },
+      { n: 1, title: "BFR Masters Webinar 2024: Devices, Autoregulation, Bladder Design, Cuff Width", duration: "97:48", type: "video", description: "Device features that are relevant to the physiology, perception, and safety of BFR exercise: autoregulation, bladder design (single- vs multi-chambered), set/interface pressure." },
+      { n: 2, title: "Knowledge Assessment: Practical BFR with Wrapping Straps vs Elastic Bands", duration: "Quiz", type: "quiz", description: "When is it appropriate to perform practical BFR with wrapping straps versus elastic bands?" },
     ] as CourseModule[],
   },
 ] as const;

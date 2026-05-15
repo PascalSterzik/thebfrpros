@@ -37,7 +37,7 @@ export default function ContactForm() {
     }
     setStatus("submitting");
 
-    const subject = `${topic} — ${name || "Website inquiry"}`;
+    const subject = `${topic}: ${name || "Website inquiry"}`;
     const body = `Name: ${name}\nEmail: ${email}\nTopic: ${topic}\n\n${message}`;
 
     try {

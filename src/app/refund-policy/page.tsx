@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: REFUND.meta.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "Refund Policy — The BFR Pros",
+        alt: "Refund Policy, The BFR Pros",
       },
     ],
   },

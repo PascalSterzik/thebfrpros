@@ -44,7 +44,7 @@ export default function RolnickMedia() {
             variants={fadeUp}
             className="mt-6 mx-auto max-w-2xl text-base leading-relaxed text-ink/80"
           >
-            Each line is a specific article — title, outlet, date. Distinct from the homepage Featured-In bar, which is a modality-level claim about where BFR-the-modality has been covered.
+            Each line is a specific article: title, outlet, date. Distinct from the homepage Featured-In bar, which is a modality-level claim about where BFR-the-modality has been covered.
           </motion.p>
         </motion.div>
 

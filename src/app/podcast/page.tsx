@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         url: PODCAST_META.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "BFR Better-For-Results Podcast — The BFR Pros",
+        alt: "BFR Better-For-Results Podcast, The BFR Pros",
       },
     ],
   },

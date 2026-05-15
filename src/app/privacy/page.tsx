@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: PRIVACY.meta.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "Privacy Policy — The BFR Pros",
+        alt: "Privacy Policy, The BFR Pros",
       },
     ],
   },

@@ -30,7 +30,7 @@ function VideoCard({ v }: { v: VideoT }) {
         {active ? (
           <iframe
             src={embedSrc}
-            title={`Video testimonial — ${v.name}`}
+            title={`Video testimonial from ${v.name}`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="absolute inset-0 h-full w-full"

@@ -36,7 +36,7 @@ export function generateMetadata({
   const { body, indexEntry } = data;
   const description =
     body.paragraphs.find((p) => p.tag === "p" && p.text.length > 80)?.text?.slice(0, 200) ??
-    `${body.title} — a BFR Pros blog post by ${body.author}.`;
+    `${body.title}, a BFR Pros blog post by ${body.author}.`;
 
   return {
     title: { absolute: `${body.title} | The BFR Pros` },
@@ -53,7 +53,7 @@ export function generateMetadata({
           url: "/og/home",
           width: 1200,
           height: 630,
-          alt: `${body.title} — The BFR Pros blog`,
+          alt: `${body.title}, The BFR Pros blog`,
         },
       ],
     },
@@ -83,7 +83,7 @@ export default function BlogPostPage({
     .join("\n\n");
   const description =
     body.paragraphs.find((p) => p.tag === "p" && p.text.length > 80)?.text?.slice(0, 200) ??
-    `${body.title} — a BFR Pros blog post by ${body.author}.`;
+    `${body.title}, a BFR Pros blog post by ${body.author}.`;
 
   const schema = buildBlogPostSchemaGraph({
     slug: body.slug,

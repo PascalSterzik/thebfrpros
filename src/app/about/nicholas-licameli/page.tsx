@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         url: LICAMELI_META.ogImagePath,
         width: 1200,
         height: 630,
-        alt: `${LICAMELI.fullName} — co-founder, The BFR Pros`,
+        alt: `${LICAMELI.fullName}, co-founder, The BFR Pros`,
       },
     ],
   },

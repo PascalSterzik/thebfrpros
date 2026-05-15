@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         url: ROLNICK_META.ogImagePath,
         width: 1200,
         height: 630,
-        alt: `${ROLNICK.fullName} — co-founder, The BFR Pros`,
+        alt: `${ROLNICK.fullName}, co-founder, The BFR Pros`,
       },
     ],
   },

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: PUBLICATIONS_META.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "Publications — Dr. Nicholas Rolnick BFR Research",
+        alt: "Publications, Dr. Nicholas Rolnick BFR Research",
       },
     ],
   },

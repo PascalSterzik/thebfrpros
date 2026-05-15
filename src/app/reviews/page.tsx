@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         url: REVIEWS_META.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "Reviews — The BFR Pros",
+        alt: "Reviews, The BFR Pros",
       },
     ],
   },

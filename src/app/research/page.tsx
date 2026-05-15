@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         url: RESEARCH_META.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "Research — The BFR Pros",
+        alt: "Research, The BFR Pros",
       },
     ],
   },

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         url: AT.meta.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "BFR for Athletic Trainers — The BFR Pros",
+        alt: "BFR for Athletic Trainers, The BFR Pros",
       },
     ],
   },

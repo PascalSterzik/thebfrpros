@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: ABOUT_META.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "About The BFR Pros — equipment-agnostic BFR certification",
+        alt: "About The BFR Pros: equipment-agnostic BFR certification",
       },
     ],
   },

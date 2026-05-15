@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: FAQ_PAGE_META.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "FAQ — The BFR Pros",
+        alt: "FAQ, The BFR Pros",
       },
     ],
   },

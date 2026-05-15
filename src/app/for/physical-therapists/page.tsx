@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         url: PT.meta.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "BFR for Physical Therapists — The BFR Pros",
+        alt: "BFR for Physical Therapists, The BFR Pros",
       },
     ],
   },

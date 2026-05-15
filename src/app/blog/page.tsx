@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: BLOG_META.ogImagePath,
         width: 1200,
         height: 630,
-        alt: "Blog — The BFR Pros",
+        alt: "Blog, The BFR Pros",
       },
     ],
   },
