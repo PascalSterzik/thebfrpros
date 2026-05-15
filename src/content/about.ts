@@ -79,9 +79,11 @@ export const ABOUT_PRINCIPLES = {
 // and Licameli link to deep bio sub-pages; the other three carry their bio
 // paragraph inline on the card until their deep bios ship.
 //
-// Source: https://www.thebfrpros.com/our-team plus individual bio pages
-// (/nick-rolnick, /nick-licameli, /mathias-thoelen, /marty-rolnick, /erica-marcano).
-// Pulled verbatim 2026-05-12. Role labels are the live-site SMALL-CAPS labels.
+// Source: https://www.thebfrpros.com/our-team plus individual bio pages, pulled
+// verbatim 2026-05-12. Role labels are the live-site SMALL-CAPS labels.
+// 2026-05-15: Nick Licameli + Mathias Thoelen removed from the team roster per
+// Nick. Licameli stays as co-instructor on /get-certified (InstructorsSection);
+// the /about/mathias-thoelen route was deleted and its THOELEN_* exports removed.
 export type TeamMember = {
   name: string;
   role: string;
@@ -97,7 +99,7 @@ export const ABOUT_TEAM = {
   eyebrow: "Our team",
   headline: "Built by passionate clinicians",
   intro:
-    "The BFR Pros are proud to have a team of passionate clinicians working to ensure that both our colleagues and the populations they serve have the best possible experience with Blood Flow Restriction Training. Together, we're doing our part to make the world a happier place.",
+    "A small team of clinicians, educators, and operators behind The BFR Pros. The teaching is Dr. Rolnick's work; everyone here makes it ship.",
   members: [
     {
       name: "Dr. Nicholas Rolnick",
@@ -107,26 +109,6 @@ export const ABOUT_TEAM = {
         "Author of 72+ peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Adjunct Assistant Professor of Physical Therapy at New York Medical College. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living. Active clinical practice in Manhattan. Founded The BFR Pros, LLC in June 2018.",
       photoSrc: "/images/team/nick-rolnick.webp",
       profileHref: "/about/nicholas-rolnick",
-      profileLabel: "Read the full profile",
-    },
-    {
-      name: "Nick Licameli",
-      role: "Clinical Instructor / Blog Author",
-      credentials: "PT, DPT",
-      bio:
-        "Director of an outpatient therapy clinic and Injury Reduction Specialist for 3D Muscle Journey. Active natural bodybuilder competitor. Bridges rehab-side BFR programming and athletic performance applications across the curriculum.",
-      photoSrc: "/images/team/nick-licameli.webp",
-      profileHref: "/about/nicholas-licameli",
-      profileLabel: "Read the full profile",
-    },
-    {
-      name: "Mathias Thoelen",
-      role: "Clinical Instructor",
-      credentials: "Sports Physical Therapist",
-      bio:
-        "Belgian Sports Physical Therapist at Anna TopSupport Eindhoven in The Netherlands. Works with Sports Doctors and Orthopedic Surgeons on conservative and post-operative rehabilitation of athletes from recreational to elite. Teaches BFR Workshops in Belgium and The Netherlands for The BFR Pros.",
-      photoSrc: "/images/team/mathias-thoelen.webp",
-      profileHref: "/about/mathias-thoelen",
       profileLabel: "Read the full profile",
     },
     {
@@ -390,69 +372,6 @@ export const LICAMELI_FINAL_CTA = {
   headline: "Ready to apply BFR across rehab and performance?",
   body:
     "The Complete BFR Certification teaches both rehab-side protocols and athletic applications. Dr. Licameli's chapters cover everything from in-season maintenance to ischemic preconditioning to the bodybuilding-adjacent applications most rehab courses skip.",
-  primaryCta: "Explore the certification",
-  primaryCtaHref: "/get-certified",
-} as const;
-
-// ----- /about/mathias-thoelen --------------------------------------------------
-// Source: live thebfrpros.com/mathias-thoelen page, pulled 2026-05-12.
-
-export const THOELEN_META = {
-  title: "Mathias Thoelen | Clinical Instructor, The BFR Pros",
-  description:
-    "Sports Physical Therapist at Anna TopSupport Eindhoven (The Netherlands). Clinical Instructor for The BFR Pros, teaching BFR workshops in Belgium and The Netherlands. Cum laude MSc in Rehabilitation Sciences and Sports Physical Therapy, Hasselt University.",
-  canonicalPath: "/about/mathias-thoelen",
-  ogImagePath: "/og/home",
-} as const;
-
-export const THOELEN_HERO = {
-  eyebrow: "Clinical Instructor",
-  headline: "Mathias Thoelen",
-  credentialsLine: "Sports Physical Therapist",
-  tagline: "Anna TopSupport Eindhoven",
-  subhead:
-    "Belgian Sports Physical Therapist working in The Netherlands. Clinical Instructor for The BFR Pros across Belgium and The Netherlands. Engaged in research on BFR training in post-operative patients.",
-  photoSrc: "/images/team/mathias-thoelen.webp",
-} as const;
-
-export const THOELEN_BODY = {
-  eyebrow: "The work",
-  headline: "Sports rehab from acute trauma to elite return-to-sport",
-  paragraphs: [
-    "Mathias Thoelen works at Anna TopSupport Eindhoven in The Netherlands, a sports-medicine center where Sports Physical Therapists collaborate daily with Sports Doctors and Orthopedic Surgeons on the conservative and post-operative rehabilitation of athletes at every level, from recreational to elite. He is responsible for on-field rehabilitation and for screening athletes with acute traumas.",
-    "He graduated cum laude from Hasselt University in 2020 with a Bachelor's and Master's of Science in Rehabilitation Sciences and Sports Physical Therapy. He attends new courses regularly to keep his practice grounded in the most current, evidence-based care. He has always sought to surround himself with people who are better at their craft, treating each interaction as a way to push himself further.",
-    "Within The BFR Pros, Mathias teaches BFR Workshops across Belgium and The Netherlands. His ambition is to make BFR Training great in Europe by providing evidence-based workshops on the safe and objective application of BFR in different populations. He is also engaged in research on the use of BFR training in post-operative patients.",
-  ],
-} as const;
-
-export const THOELEN_AREAS = {
-  eyebrow: "What he covers in the workshops",
-  headline: "Where Mathias's chapters fit",
-  items: [
-    "On-field rehabilitation and acute-trauma screening for athletes",
-    "Conservative and post-operative rehabilitation across recreational and elite athletes",
-    "Safe and objective BFR application across different patient and athlete populations",
-    "BFR Workshops for clinicians and S&C professionals in Belgium and The Netherlands",
-    "Active research on BFR training in post-operative patients",
-  ],
-} as const;
-
-export const THOELEN_ROLES = {
-  eyebrow: "Practice and affiliations",
-  headline: "Where the work happens",
-  items: [
-    { role: "Sports Physical Therapist", org: "Anna TopSupport Eindhoven (The Netherlands)" },
-    { role: "Clinical Instructor (Europe)", org: "The BFR Pros" },
-    { role: "MSc, Rehabilitation Sciences and Sports Physical Therapy (cum laude, 2020)", org: "Hasselt University" },
-    { role: "BSc, Rehabilitation Sciences and Sports Physical Therapy", org: "Hasselt University" },
-  ],
-} as const;
-
-export const THOELEN_FINAL_CTA = {
-  eyebrow: "Inside the certification",
-  headline: "Ready to apply BFR with confidence?",
-  body:
-    "The Complete BFR Certification covers the same screening, programming, and protocol decisions Mathias walks practitioners through in his European workshops. 37 modules, 11.75 CEUs, on-demand and self-paced.",
   primaryCta: "Explore the certification",
   primaryCtaHref: "/get-certified",
 } as const;

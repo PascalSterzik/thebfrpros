@@ -7,11 +7,12 @@ import SectionLabel from "@/components/shared/SectionLabel";
 import { ABOUT_TEAM } from "@/content/about";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// The Our-Team section. Mirrors thebfrpros.com/our-team verbatim: 5 humans
-// plus Buff the mascot, same role labels, same bio framing. Cards mix
-// photo-and-link (Rolnick, Licameli) with photo-or-initials-only and
-// inline bio (Thoelen, Marty, Erica) until their deep bios ship. Buff
-// sits in his own playful card at the bottom of the grid.
+// The Our-Team section. Renders ABOUT_TEAM.members + Buff the mascot from
+// src/content/about.ts. 2026-05-15: roster trimmed to 3 humans (Rolnick,
+// Marty Rolnick, Erica Marcano) + Buff after Nick removed Licameli + Thoelen
+// from the team. Licameli stays as co-instructor on /get-certified
+// (InstructorsSection), not on the team grid. InitialsCircle is the
+// no-photo fallback (currently unused: all 3 members carry a photo).
 
 function InitialsCircle({ initials }: { initials: string }) {
   return (

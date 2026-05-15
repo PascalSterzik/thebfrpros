@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import Marquee from "@/components/shared/Marquee";
@@ -12,11 +13,16 @@ import {
 } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
+// 2026-05-15: "2 university faculty appointments" + "8+ major media features"
+// were stale here even after the Phase 0 CV audit (that pass fixed about.ts /
+// constants.ts but missed this component's own hardcoded copy). Lehman ended
+// Jul 2025, Concordia ended Jul 2021 — the live faculty appointment is NY
+// Medical College. Numbers realigned to the CV-verified ROLNICK_STATS set.
 const ROLNICK_FACTS = [
   { value: STATS.publications, label: "peer-reviewed BFR publications" },
   { value: STATS.yearsInClinic, label: "years in active Manhattan practice" },
-  { value: "2", label: "university faculty appointments" },
-  { value: "8+", label: "major media features" },
+  { value: "26+", label: "journals peer-reviewed" },
+  { value: "14+", label: "major media features" },
 ];
 
 export default function InstructorsSection() {
@@ -76,7 +82,7 @@ export default function InstructorsSection() {
               {ROLNICK.fullName} has authored {STATS.publications} peer-reviewed BFR publications. The Complete BFR Certification is built on that body of work. He earned his Doctor of Physical Therapy at Columbia University with honors and his Master of Science in Health Promotion Management at American University.
             </p>
             <p className="mt-4 text-base leading-relaxed text-ink/85">
-              He maintains an active clinical practice in {ROLNICK.city}, sees patients weekly, and teaches Exercise Science as faculty at Lehman College CUNY and Concordia University Chicago. He authored Chapter 12 (Warm-up, Recovery, Injury Prevention) of the National Academy of Sports Medicine textbook.
+              He maintains an active clinical practice in {ROLNICK.city}, sees patients weekly, and is Adjunct Assistant Professor of Physical Therapy at New York Medical College. He authored Chapter 12 (Warm-up, Recovery, Injury Prevention) of the National Academy of Sports Medicine textbook.
             </p>
             <dl className="mt-7 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-4 border-t border-line pt-6">
               {ROLNICK_FACTS.map((f) => (
@@ -88,6 +94,13 @@ export default function InstructorsSection() {
                 </div>
               ))}
             </dl>
+            <Link
+              href="/about/nicholas-rolnick"
+              className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-deeper transition"
+            >
+              Read the full profile
+              <span aria-hidden>→</span>
+            </Link>
           </motion.article>
 
           {/* Licameli, secondary — same card pattern. */}
@@ -138,6 +151,13 @@ export default function InstructorsSection() {
                 <span className="text-ink/85">Active natural bodybuilder competitor</span>
               </li>
             </ul>
+            <Link
+              href="/about/nicholas-licameli"
+              className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-deeper transition"
+            >
+              Read the full profile
+              <span aria-hidden>→</span>
+            </Link>
           </motion.article>
         </div>
 

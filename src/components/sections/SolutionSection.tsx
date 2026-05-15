@@ -9,7 +9,7 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 const STRANGER_QUESTIONS = [
   {
     q: "Who is teaching this?",
-    a: "Dr. Nicholas Rolnick. Active practicing PT in Manhattan. 72+ peer-reviewed BFR publications. Lehman College CUNY and Concordia University Chicago faculty. NASM Chapter 12 author. Featured in CNN, the Wall Street Journal, Forbes, ESPN, Men's Health, GQ, PubMed, and NSCA.",
+    a: "Dr. Nicholas Rolnick. Active practicing PT in Manhattan. 72+ peer-reviewed BFR publications. Adjunct Assistant Professor of Physical Therapy at New York Medical College. NASM Chapter 12 author. Featured in CNN, the Wall Street Journal, Forbes, ESPN, Men's Health, GQ, PubMed, and NSCA.",
   },
   {
     q: "What is being offered?",
