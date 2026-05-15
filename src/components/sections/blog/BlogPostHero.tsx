@@ -13,11 +13,13 @@ export default function BlogPostHero({
   category,
   author,
   date,
+  heroImage,
 }: {
   title: string;
   category: string;
   author: string;
   date: string;
+  heroImage?: { src: string; alt: string };
 }) {
   return (
     <section className="relative overflow-hidden">
@@ -74,6 +76,23 @@ export default function BlogPostHero({
           >
             By {author} · {date}
           </p>
+
+          {heroImage ? (
+            <div
+              className="opacity-0 animate-fade-up mt-10 mx-auto w-full max-w-3xl overflow-hidden rounded-lg ring-1 ring-white/15 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)]"
+              style={{ animationDelay: STAGGER_DELAYS[3] }}
+            >
+              <Image
+                src={heroImage.src}
+                alt={heroImage.alt}
+                width={1600}
+                height={900}
+                sizes="(min-width: 1024px) 768px, 100vw"
+                className="h-auto w-full"
+                priority
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </section>

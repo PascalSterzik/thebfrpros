@@ -259,6 +259,7 @@ type BlogPostSchemaInput = {
   date: string;
   category: string;
   articleBody: string;
+  heroImageSrc?: string;
 };
 
 export function buildBlogPostSchemaGraph({
@@ -269,6 +270,7 @@ export function buildBlogPostSchemaGraph({
   date,
   category,
   articleBody,
+  heroImageSrc,
 }: BlogPostSchemaInput) {
   const pageUrl = `${SITE.origin}/blog/${slug}`;
   const orgId = `${SITE.origin}#organization`;
@@ -320,6 +322,7 @@ export function buildBlogPostSchemaGraph({
         datePublished: date,
         articleSection: category,
         mainEntityOfPage: pageUrl,
+        ...(heroImageSrc ? { image: `${SITE.origin}${heroImageSrc}` } : {}),
         articleBody,
       },
       {

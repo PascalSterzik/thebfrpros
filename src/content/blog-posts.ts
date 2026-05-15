@@ -15,6 +15,8 @@ export type BlogPostBody = {
   author: string;
   date: string;
   legacyUrl: string;
+  heroImage?: { src: string; alt: string };
+  inlineImages?: ReadonlyArray<{ src: string; alt: string; afterParagraphIndex: number }>;
   paragraphs: ReadonlyArray<{ tag: BlogParagraphTag; text: string }>;
 };
 
@@ -25,6 +27,11 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Rolnick, DPT",
     date: "Oct 18",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/methodological-concerns-future-bfr-research",
+    heroImage: { src: "/images/blog/methodological-concerns-future-bfr-research-1.webp", alt: "Header image for 'Important Methodological Concerns for the Future of BFR Research'" },
+    inlineImages: [
+      { src: "/images/blog/methodological-concerns-future-bfr-research-2.webp", alt: "Figure from 'Important Methodological Concerns for the Future of BFR Research'", afterParagraphIndex: 1 },
+      { src: "/images/blog/methodological-concerns-future-bfr-research-3.webp", alt: "Figure from 'Important Methodological Concerns for the Future of BFR Research'", afterParagraphIndex: 5 },
+    ],
     paragraphs: [
       { tag: "p", text: `We at the BFR PROS recommend blood flow restriction (BFR) be used with low-intensity exercise (either aerobic or resistance training), as prior research (Laurentino, 2008) has indicated no additional benefit of BFR to heavy loads, likely due to the already heightened muscle activation and slow movement speeds inherent to lifting > 70% 1-rep max. However, a peculiar new just published study by Wang et al. (2022) challenges our commonly held beliefs on the topic. Let’s look at what they did and speculate on potential explanations for their findings.` },
       { tag: "p", text: `Wang et al. (2022) enrolled 18 well-trained volleyball players (~20 years old) with resistance training experience and randomized them into one of three groups for the 8-week duration of the experiment: low-load BFR performed with 30% 1-rep max (n = 6), heavy load strength training with 70% 1-rep max (n = 6), and heavy load strength training with BFR using 70% 1-rep max (n = 6) performing backsquats 3x/week. BFR was applied at an estimated 50% arterial occlusion pressure (AOP) using an algorithm based on thigh circumference previously proposed by Loenneke’s group (Loenneke, 2012) and 4 sets of exercise were performed in the commonly recommended BFR fixed repetition scheme of 30-15-15-15 with 60 seconds of interset rest. BFR was applied to the bilateral thighs using B-STRONG™ cuffs and was applied continuously (was inflated before the exercise and released after the exercise only). Heavy load strength training with and without BFR was done for 4 sets of 8 repetitions with 60 seconds of interset rest. The major outcomes of the investigation were knee flexion/extension muscle strength (assessed with a backsquat 1-rep max and isokinetically at 60 degrees/second) and vertical jumping ability (assessed with a squat jump without arm countermovement and a three- footed takeoff jump – where the athletes took three steps, utilized a countermovement and then jumped).` },
@@ -61,6 +68,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jul 29",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/who-better-than-us",
+    heroImage: { src: "/images/blog/who-better-than-us-1.webp", alt: "Header image for 'Who Better Than Us?'" },
+    inlineImages: [
+      { src: "/images/blog/who-better-than-us-2.webp", alt: "Figure from 'Who Better Than Us?'", afterParagraphIndex: 2 },
+    ],
     paragraphs: [
       { tag: "p", text: `Adapted from: https://www.instagram.com/p/CfjdE-NOh2J/` },
       { tag: "p", text: `The research on blood flow restriction is continuing to accelerate at a rapid, near exponential rate because it is effective at not only increasing muscle mass/strength with light loads in less time, but it is also extremely effective at improving cardiovascular endurance at very low intensities (Park, 2010), producing significant post-exercise hypoalgesia (pain relief) (Hughes, 2020,2021), producing similar morphological tendon changes as heavy load strength training (Centner, 2019, 2021), and even preserving post-surgical bone mass following ACL reconstruction where traditional approaches have failed to do so (Jack, III, 2022).` },
@@ -89,6 +100,13 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jul 22",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/low-load-dynamic-vs-estim",
+    heroImage: { src: "/images/blog/low-load-dynamic-vs-estim-1.webp", alt: "Header image for 'Low Load BFR Dynamic Exercise Superior to Electrical Stimulation with BFR'" },
+    inlineImages: [
+      { src: "/images/blog/low-load-dynamic-vs-estim-2.webp", alt: "Figure from 'Low Load BFR Dynamic Exercise Superior to Electrical Stimulation with BFR'", afterParagraphIndex: 1 },
+      { src: "/images/blog/low-load-dynamic-vs-estim-3.webp", alt: "Figure from 'Low Load BFR Dynamic Exercise Superior to Electrical Stimulation with BFR'", afterParagraphIndex: 2 },
+      { src: "/images/blog/low-load-dynamic-vs-estim-4.webp", alt: "Figure from 'Low Load BFR Dynamic Exercise Superior to Electrical Stimulation with BFR'", afterParagraphIndex: 3 },
+      { src: "/images/blog/low-load-dynamic-vs-estim-5.webp", alt: "Figure from 'Low Load BFR Dynamic Exercise Superior to Electrical Stimulation with BFR'", afterParagraphIndex: 3 },
+    ],
     paragraphs: [
       { tag: "p", text: `If you’ve followed the BFR Pros for any amount of time, you are likely familiar with the Pillars of blood flow restriction training. If not, here’s a quick recap:` },
       { tag: "p", text: `We must first understand that Pillar one is fleeting. We want to spend as little time in Pillar 1 as possible, then get the heck out of there. There are two main goals of Pillar 1: muscle preservation and acclimation to BFR to prepare for Pillars 2-4. Pillar 1 works through cell swelling, which is the process by which muscle cells experience a rapid influx of fluid due to the build up of metabolites associated with BFR training.` },
@@ -135,6 +153,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jul 8",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/smart-tools-compare",
+    heroImage: { src: "/images/blog/smart-tools-compare.webp", alt: "Header image for 'Smart Cuffs Pro Generation 3 Validated Compared To Doppler Ultrasound'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Adapted from: https://www.instagram.com/p/CeG31mXu9Zb/` },
       { tag: "p", text: `We at the BFR Pros are “cuff brand agnostic,” which means we do not sell or have monetary agreements with any brands of BFR cuffs. That being said, through years of acquiring BFR provider feedback and anecdotes from the field regarding effectiveness, ease of use, reliability, price, and much more, we definitely tend to see some brands that just keep coming to top of mind. Smart Cuffs is definitely one of those brands and today we are going to talk about a very recent study validating the Smart Cuff Pro Generation 3 to Doppler ultrasound!` },
@@ -156,6 +176,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Mathias Thoelen",
     date: "Jul 1",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/meniscal-repair-acl-akrx7",
+    heroImage: { src: "/images/blog/meniscal-repair-acl-akrx7-1.webp", alt: "Header image for 'Another BFR Success Story: The Crucial Role of BFR after a Second Meniscal Repair within ACL Rehab (Part 2)'" },
+    inlineImages: [
+      { src: "/images/blog/meniscal-repair-acl-akrx7-2.webp", alt: "Figure from 'Another BFR Success Story: The Crucial Role of BFR after a Second Meniscal Repair within ACL Rehab (Part 2)'", afterParagraphIndex: 0 },
+    ],
     paragraphs: [
       { tag: "p", text: `Aaaaaaand we’re back, ladies and gentlemen! Welcome to Part 2 of this incredible recovery story of our friend, Mike. Just to recap from Part 1, Mike is a 25-year-old male who suffered an ACL and meniscus tear in a soccer game. Mike initially tried to treat his knee conservatively with physical therapy, however ended up undergoing surgery. After months of rehabilitation post-operatively, Mike ended up undergoing yet another meniscus repair surgery to address some persistent pain. BFR was implemented at this time to preserve muscle mass and strength while Mike was unable to tolerate heavy loads.` },
       { tag: "p", text: `After five months of grueling rehab, Mike made a misstep in a pond and although he did not cause structural damage, he did develop significant pain on the lateral side of his knee. Mike received a series of corticosteroid injections and was restricted from performing high load strength training for six weeks.` },
@@ -177,6 +201,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Mathias Thoelen",
     date: "Jun 24",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/meniscal-repair-acl-2",
+    heroImage: { src: "/images/blog/meniscal-repair-acl-2-1.webp", alt: "Header image for 'Another BFR Success Story: The Crucial Role of BFR after a Second Meniscal Repair within ACL Rehab (Part 1)'" },
+    inlineImages: [
+      { src: "/images/blog/meniscal-repair-acl-2-2.webp", alt: "Figure from 'Another BFR Success Story: The Crucial Role of BFR after a Second Meniscal Repair within ACL Rehab (Part 1)'", afterParagraphIndex: 0 },
+    ],
     paragraphs: [
       { tag: "p", text: `There are some things that we can all agree on, regardless of our cultures or nationalities…higher taxes are a bad thing, more muscle and less fat is a good thing, and Cristiano Ronaldo’s hair is made of some alien substance that remains perfectly styled even after playing an entire game with multiple headers. Today, we are talking about an ACL rupture and no matter if you call it soccer, football, or something completely different, we can all agree that a torn ACL is a bad thing.` },
       { tag: "p", text: `Today, we are diving into the case of a 25-year-old Dutch recreational soccer player who suffered an ACL rupture in June 2019. Let’s call him Mike. After conservative rehab, Mike ended up undergoing a meniscal repair with ACL reconstruction through bone-patellar tendon-bone (BPTB) graft in August 2020.` },
@@ -198,6 +226,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jun 10",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/adjust-cuff-pressure-2",
+    heroImage: { src: "/images/blog/adjust-cuff-pressure-2-1.webp", alt: "Header image for 'Should We Adjust Cuff Pressure Over the Course of an Intervention? Part 2'" },
+    inlineImages: [
+      { src: "/images/blog/adjust-cuff-pressure-2-2.webp", alt: "Figure from 'Should We Adjust Cuff Pressure Over the Course of an Intervention? Part 2'", afterParagraphIndex: 17 },
+    ],
     paragraphs: [
       { tag: "p", text: `Welcome back ladies and gentlemen! I know…the wait was almost unbearable! Reading Part 1 of this two-part blog was just like how they tease the next Marvel movie at the end of the one you just watched. Well I have good news for you! The wait is over! We may not have a thunder god or a smooth talking Robert Downey Jr. (yet), but we do have a bunch of knowledge bombs coming your way!` },
       { tag: "p", text: `Just a quick review of Part 1, in their 2021 paper titled, “Blood Flow Restriction Training: To Adjust or Not Adjust the Cuff Pressure Over an Intervention Period?,” Cerqueira and colleagues set out to answer an important question about cuff pressure during blood flow restriction training. It is known that BFR pressure (BFRP) needs to be individualized and adequate to partially limit arterial blood (Patterson et al., 2019), however there are no clear recommendations for BFRP prescription (Clarkson et al., 2020) and no specific recommendation of whether BFRP should be adjusted. Part 2 is all about results, conclusions, takeaways, and practical applications.` },
@@ -224,6 +256,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jun 3",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/adjust-cuff-pressure",
+    heroImage: { src: "/images/blog/adjust-cuff-pressure.webp", alt: "Header image for 'Should We Adjust Cuff Pressure Over the Course of an Intervention? Part 1'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `There are some things that are well-established in the scientific literature, like how smoking is bad for you, exercising is good for you, and N’SYNC is better than Backstreet Boys in every possible way. Still, other things are not so well-established in the scientific literature, like the nuances of pain, how to prevent injury, and why my father chooses to drive to a gas station that is 20 minutes out of the way to save 9 cents per gallon. When there are questions, there are researchers we want answers.` },
       { tag: "p", text: `In their 2021 paper titled, “Blood Flow Restriction Training: To Adjust or Not Adjust the Cuff Pressure Over an Intervention Period?,” Cerqueira and colleagues set out to answer an important question about cuff pressure during blood flow restriction training. It is known that BFR pressure (BFRP) needs to be individualized and adequate to partially limit arterial blood (Patterson et al., 2019), however there are no clear recommendations for BFRP prescription (Clarkson et al., 2020) and no specific recommendation of whether BFRP should be adjusted.` },
@@ -267,6 +301,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "May 23",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/exercise-pressor-reflex-1-cb6t9",
+    heroImage: { src: "/images/blog/exercise-pressor-reflex-1-cb6t9.webp", alt: "Header image for 'The Exercise Pressor Reflex: Should We Be Concerned? Part 2'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Welcome back! As promised, here is part two of our dive into the exercise pressor reflex (EPR). I know! So exciting! Let’s go!` },
       { tag: "p", text: `BE SURE TO CHECK OUT PART 1 BEFORE PROCEEDING, but just to quickly review, the EPR is the exaggerated cardiovascular response to exercise proportional to the level of intensity of that exercise. This can be a barrier to the widespread usage of BFR, especially for patients and athletes with comorbidities. There are, however, ways to mitigate the EPR and in Part 1, I introduce four ways to do just that. They are (1) avoiding exercises that require a strong valsalva maneuver, (2) selecting cuff pressures that are on the low end of the range of effectiveness and using intermittent BFR, (3) choosing dynamic over static exercises while avoiding failure, (4) and performing exercises that use small muscle groups rather than large muscle groups. Now it’s time to dive deep!` },
@@ -304,6 +340,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "May 16",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/exercise-pressor-reflex-1",
+    heroImage: { src: "/images/blog/exercise-pressor-reflex-1.webp", alt: "Header image for 'The Exercise Pressor Reflex: Should We Be Concerned? Part 1'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `A barrier to the widespread implementation of BFR exercise, especially in the elderly and those with obesity (Dipla, 2012), diabetes (Grotle, 2019) as well as cardiovascular conditions such as hypertension (HTN) (Greaney, 2013), heart failure (HF) (Spranger, 2015), and peripheral artery disease (PAD) (Spranger, 2015), is the exaggerated cardiovascular response to exercise, specifically the exercise pressor reflex (EPR). The EPR has two functional components: the muscle metaboreflex (reduction oxygen/blood flow to muscle tissue and the accumulation of metabolites) and the muscle mechanoreflex (mechanical distortion of group III afferents due to tissue compression during skeletal muscle contraction (Kaufman, 1984) in direct proportion to the intensity of the exercise (Adreani, 1997, Kaufman, 1983, (Boushe, 2010, McCloskey, 1972, Mitchell, 1983). Both components act to increase sympathetic nerve activation (SNA) during exercise.` },
       { tag: "p", text: `Along with central command and the arterial baroreflex, the EPR causes the autonomic cardiovascular response to exercise and subsequent increases in heart rate (HR), cardiac output (CO), cardiac contractility, and blood pressure in direct proportion to the intensity of the intensity of the exercise (Spranger, 2015). In other words, the harder the exercise, the greater the response. In a study of submaximal cycling, Osaki, et al showed increases in MAP, SBP, DBP, rate-pressure product, and total systemic peripheral resistance with higher exercise intensities (% VO2 max).` },
@@ -335,6 +373,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "May 9",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/protect-and-serve",
+    heroImage: { src: "/images/blog/protect-and-serve.webp", alt: "Header image for 'Another BFR Success Story: Protect and Serve'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Respect. R-E-S-P-E-C-T. Find out what it means to me. It’s a good thing to consider. There are many reasons why someone would respect or disrespect someone.` },
       { tag: "p", text: `On June 11, 1997, the Chicago Bulls played the Utah Jazz in Game 5 of the 1997 Finals. Michael Jordan played 44 minutes, scored 38 points, had 7 rebounds, dished out 5 assists, and hit the game-winning 3-pointer. Oh…and he did all of that with a fever and after a night of vomiting from food poisoning … #Respect .` },
@@ -361,6 +401,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Apr 22",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bfr-and-the-elderly",
+    heroImage: { src: "/images/blog/bfr-and-the-elderly.webp", alt: "Header image for 'Blood Flow Restriction and the Elderly?'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `I know what you’re thinking…Nick Licameli and the BFR Pros have sold out to click bait titles. There’s no way we can slap some cuffs on grandma and expect things to go well. Well…as Lumiere says to Cogsworth in Beauty and the Beast , “A broken clock is right two times a day, mon ami, but this is not one of those times.”` },
       { tag: "p", text: `Whether we like it or not, or until Elon Musk comes up with an alternative, we will all go through the aging process. Aging is typically associated with a gradual decline in physical performance and overall functional ability1. A critical aspect of this gradual decline is the decrement in muscle quantity and quality, which is characterized by a decrease in the cross sectional area of muscle fibers2 and an increase in non-contractile components intertwined with muscle tissue - for example, adipose and connective tissue3.` },
@@ -396,6 +438,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Apr 15",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-chris-hemsworth-revisited",
+    heroImage: { src: "/images/blog/success-story-chris-hemsworth-revisited.webp", alt: "Header image for 'Another BFR Success Story: Chris Hemsworth Revisited'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Some time ago, we featured the thunder god himself, Chris Hemsworth. I want to start by saying that I have a lot of respect for any actor that puts in the work to build a physique to match the role. With the help of CGI and skillful editing, many actors and actresses are able to play larger than life characters with less than larger than life physiques of their own. There are, however, some who have embraced the Iron Game and take pride in bringing the best physique possible to the big screen. Over the course of his career, it is hard to argue the fact that Chris Hemsworth has built an awe-inspiring physique worthy of portraying one of the most iconic superheroes of all time. Much like Hugh Jackman and Dwayne Johnson, Chris Hemsworth has become known for his impressive physical presence in all of his roles.` },
       { tag: "p", text: `On September 2nd, 2021, Hemsworth made an IG post that showed him using BFR during an arm training session. In the video, Hemsworth’s trainer explains that BFR training, “targets fast twitch muscle fibers and trains the body’s ability to tolerate the build up of lactic acid.” Hemsworth explains that his history of tennis elbow limits his ability to lift heavy loads. To that, his trainer explains that with BFR, “you don’t even have to go heavy.” In the video, Hemsworth struggles and fights through four grueling sets of a dumbbell hammer curl (4x10) and isometric rope hang (5 seconds each side) superset.` },
@@ -426,6 +470,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Apr 8",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bfr-and-tendinopathy-part-2",
+    heroImage: { src: "/images/blog/bfr-and-tendinopathy-part-2.webp", alt: "Header image for 'A One-Two Punch for BFR and Tendinopathy: Part 2'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Today we start our story two years down the road from Part 1. We got your taste buds singing in Part 1 and now you’re hungry for more. Well you’re in luck my evidence-based epistemological friend! Here’s Part 2! Eat up!` },
       { tag: "p", text: `In 2021, the Avengers reassembled and Centner and colleagues performed a study that examined the effects of 14 weeks of LL-BFR and HL training on patellar tendon adaptations in healthy male adults. Subjects performed bilateral leg press, knee extensions, and standing and sitting calf-raises using either HL or LL-BFR. The HL group trained at 70-85% 1RM with a 3x 6-12 set/rep scheme. The LL-BFR group applies 50% LOP and used 20-35% 1RM in a 30, 15, 15, 15 set/rep scheme. The load was progressed every 4 weeks for both groups after 1RM testing. The HL group started with 70% 1RM and ended the study with 85% 1RM and the LL-BFR group started the study with 20% 1RM and ended the study with 35% 1RM.` },
@@ -452,6 +498,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Apr 1",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bfr-and-tendinopathy-part-1",
+    heroImage: { src: "/images/blog/bfr-and-tendinopathy-part-1.webp", alt: "Header image for 'A One-Two Punch for BFR and Tendinopathy: Part 1'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `I know, I know…tendons respond to heavy load training (HL), so low load BFR (LL-BFR) training wouldn’t be effective in the treatment of tendinopathies. While seems reasonable to suggest, we have two studies from Centner and colleagues from 2019 and 2021 that say different! Do these studies prove that low load BFR training is a cure for tendinopathies? No. Do they allow us to think more deeply about our thinking around tendinopathies? You bet.` },
       { tag: "p", text: `In 2019, Centner and colleagues performed a study that examined the effects of 14 weeks of LL-BFR and HL training on Achilles tendon adaptations in healthy male adults. Subjects performed sitting and standing calf raises using either HL or LL-BFR. The HL group trained at 70-85% 1RM with a 3x 6-12 set/rep scheme. The LL-BFR group applies 50% LOP and used 20-35% 1RM in a 30, 15, 15, 15 set/rep scheme. The load was progressed every 4 weeks for both groups after 1RM testing. The HL group started with 70% 1RM and ended the study with 85% 1RM and the LL-BFR group started the study with 20% 1RM and ended the study with 35% 1RM.` },
@@ -477,6 +525,11 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Mar 22",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/think-passive-bfr-is-boring-think-again-part-2",
+    heroImage: { src: "/images/blog/think-passive-bfr-is-boring-think-again-part-2-1.webp", alt: "Header image for 'Think Passive BFR Is Boring? Think Again! (part 2)'" },
+    inlineImages: [
+      { src: "/images/blog/think-passive-bfr-is-boring-think-again-part-2-2.webp", alt: "Figure from 'Think Passive BFR Is Boring? Think Again! (part 2)'", afterParagraphIndex: 1 },
+      { src: "/images/blog/think-passive-bfr-is-boring-think-again-part-2-3.webp", alt: "Figure from 'Think Passive BFR Is Boring? Think Again! (part 2)'", afterParagraphIndex: 2 },
+    ],
     paragraphs: [
       { tag: "p", text: `If you haven’t checked out Part 1 yet, go ahead and check it out! Welcome to Part 2. Before we dive in, let’s quickly take a look at the Pillars of blood flow restriction training. In Part 1, we spoke about how isometrics can be a great way to progress passive BFR. Today we’re talking about how neuromuscular electrical stimulation (NMES) can be used to enhance the effect of Pillar 1.` },
       { tag: "p", text: `As mentioned in Part 1, Pillar 1 is fleeting. We want to spend as little time in Pillar 1 as possible, then get the heck out of there. There are two main goals of Pillar 1: muscle preservation and acclimation to BFR to prepare for Pillars 2-4. Pillar 1 works through cell swelling, which is the process by which muscle cells experience a rapid influx of fluid due to the build up of metabolites associated with BFR training. A typical cell swelling protocol is as follows:` },
@@ -509,6 +562,11 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Mar 15",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/think-passive-bfr-is-boring-think-again-part-1",
+    heroImage: { src: "/images/blog/think-passive-bfr-is-boring-think-again-part-1-1.jpg", alt: "Header image for 'Think Passive BFR Is Boring? Think Again! (part 1)'" },
+    inlineImages: [
+      { src: "/images/blog/think-passive-bfr-is-boring-think-again-part-1-2.webp", alt: "Figure from 'Think Passive BFR Is Boring? Think Again! (part 1)'", afterParagraphIndex: 1 },
+      { src: "/images/blog/think-passive-bfr-is-boring-think-again-part-1-3.webp", alt: "Figure from 'Think Passive BFR Is Boring? Think Again! (part 1)'", afterParagraphIndex: 3 },
+    ],
     paragraphs: [
       { tag: "p", text: `If you’ve followed the BFR Pros for any amount of time, you are likely familiar with the Pillars of blood flow restriction training. If not, here’s a quick recap:` },
       { tag: "p", text: `Pillar 1 (passive blood flow restriction training) may seem dull compared to its active counterparts, but if you look a bit closer, it is anything but! A great way to progress passive BFR is to add in isometrics. Let’s take a look at the often-misunderstood Pillar…good ol’ Pillar 1.` },
@@ -530,6 +588,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Mar 8",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/return-to-running",
+    heroImage: { src: "/images/blog/return-to-running.webp", alt: "Header image for 'Another BFR Success Story: A Return to Running'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `People go through phases. Some phases are good and some phases are bad. In our success story today, we meet a 60-year-old grandmother of three (all under 3 years old!) who insidiously went from being a marathon runner to an overweight sedentary version of herself. Then…a yearly physical and some blood work led to a drastic change of perspective and lit the flames of change!` },
       { tag: "p", text: `Let’s call our lovely patient, Jennifer. Jennifer was never a runner until five years ago. At the time, she adopted an older dog that needed A LOT of exercise. She began walking with the dog once per day, then twice per day… then the walk turned into a a walk/jog combo, then a full jog…you see where this is going, right? As the months passed, Jennifer lost over 30 pounds and ran multiple 5Ks, 10Ks, half marathons, and finally a marathon! Sadly, yet quite metaphorically, the dog who ran by her side through it all peacefully passed away in Jennifer’s arms the night after the marathon, almost to say… “My work here is done. Now go enjoy a long and healthy life!”` },
@@ -551,6 +611,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Mar 1",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/post-surgical",
+    heroImage: { src: "/images/blog/post-surgical.webp", alt: "Header image for 'When Should We Start Blood Flow Restriction Training Post Operatively?'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `That’s right, ladies and gentlemen! Today we’re answering the age-old question…when should we start BFR training following surgery? After adequate screening for DVT risk, when should we slap on some cuffs? Let’s dive in!` },
       { tag: "p", text: `BFR training can be performed as early as you receive physician clearance. This is especially important given the lack of literature regarding post-surgery BFR application in almost all populations. ACL reconstruction happens to be one of the most researched post-surgical orthopedic populations, so we have a bit more guidance with this population. Studies in this population have begun BFR training as early as day 2 (Iverson et al, 2016) or day 3 (Takarada, 2000), with some waiting 2-3 weeks to begin (Ohta, 2003; Hughes, 2019). It is important to note that these initial clinical studies have rigorous inclusion and exclusion criteria, which further increases the safety of BFR application.` },
@@ -580,6 +642,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Feb 15",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/osteochondral-fracture",
+    heroImage: { src: "/images/blog/osteochondral-fracture-1.webp", alt: "Header image for 'Another BFR Success Story: 22-Year-Old Bodybuilder with an Osteochondral Fracture'" },
+    inlineImages: [
+      { src: "/images/blog/osteochondral-fracture-2.webp", alt: "Figure from 'Another BFR Success Story: 22-Year-Old Bodybuilder with an Osteochondral Fracture'", afterParagraphIndex: 4 },
+    ],
     paragraphs: [
       { tag: "p", text: `A successful bodybuilding competition prep is one of the most physically and mentally demanding feats in all of sports. Some sports have grueling training while others have severe weight loss protocols, but bodybuilding has both. A competition prep usually entails up to 6 months of controlled starvation in conjunction with cardio and resistance training with maximal body fat loss and muscle retention. Can you imagine going through the whole process, only to suffer an injury just TWO short weeks away of the competition???? Enter today’s BFR anecdote!` },
       { tag: "p", text: `This case study involves a 22-year-old male bodybuilder (let’s call him Sam) who, you guessed it, suffered an injury just two weeks prior to his competition. Sam felt a sharp pain in his knee while performing barbell back squats, which was so severe that he was unable to continue his workout with his usual loads. He was somewhat aware of BFR, so he wrapped his thighs with knee wraps and was able to complete the workout with lighter loads.` },
@@ -604,6 +670,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Feb 11",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bonedensity-bfr",
+    heroImage: { src: "/images/blog/bonedensity-bfr-1.webp", alt: "Header image for 'Progressive Overload in Blood Flow Restriction Training'" },
+    inlineImages: [
+      { src: "/images/blog/bonedensity-bfr-2.webp", alt: "Figure from 'Progressive Overload in Blood Flow Restriction Training'", afterParagraphIndex: 4 },
+    ],
     paragraphs: [
       { tag: "p", text: `What is progressive overload in BFR? Here’s a protocol that our very own Dr. Nick Rolnick designed that will be implemented in a future case study on an individual with cerebral palsy.` },
       { tag: "p", text: `Here is the protocol:` },
@@ -625,6 +695,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Feb 8",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/progressive-overload-bfr-wzpm8",
+    heroImage: { src: "/images/blog/progressive-overload-bfr-wzpm8-1.webp", alt: "Header image for 'BFR and Bone Health: Muscle and Bone Interconnectivity'" },
+    inlineImages: [
+      { src: "/images/blog/progressive-overload-bfr-wzpm8-2.webp", alt: "Figure from 'BFR and Bone Health: Muscle and Bone Interconnectivity'", afterParagraphIndex: 4 },
+    ],
     paragraphs: [
       { tag: "p", text: `Bone, like muscle tissue, is subject to disuse atrophy and loss of structural integrity. Following fractures – particularly in regions that have poor vascular supply – impaired ability for the bone to form a soft/hard callus can lead to a troublesome recovery. Interesting enough, while low-loads haven’t been shown to induce preferential changes in bone tissue (either acutely or chronically to my knowledge), low-intensity BFR resistance exercise has been shown to upregulate markers associated with bone tissue formation and even in longitudinal studies preserving bone following ACL reconstruction (Lambert, 2019) along with mitigating muscle atrophy following surgery. Two for one special – BFR can increase muscle mass AND bone density, but how if it’s such low loads?` },
       { tag: "p", text: `Like muscle, bone also has a relationship to myostatin (Elkaswary, 2011) such that myostatin is expressed locally in injured muscle and bone tissue and negatively impacts their healing rates (likely in an effort to temporarily reduce the local tissue capacity). Strategies to inhibit myostatin through low-load BFR training can therefore provide some rationale as to some of the potential mechanisms underlying these observed changes. This is particularly true in situations where there is widespread muscle and bone injury, leading to an overexpression of myostatin that inhibits the muscle/bone growth stimulus too much and ends up causing more long-term damage than good.` },
@@ -646,6 +720,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Feb 1",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/two-year-old",
+    heroImage: { src: "/images/blog/two-year-old.webp", alt: "Header image for 'Another BFR Success Story: A 2 Year Old with Spinal Instability'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `It’s comfortable to be inside the box. It’s warm, it smells like vanilla and lavender, and there’s a big fluffy couch with a cozy heated blanket and a fire crackling under a mahogany mantle. Mounted just above the mantle is a 60-inch flat screen TV with a Harry Potter marathon going strong…` },
       { tag: "p", text: `Just as you wonder why Dumbledore didn’t simply use a Time Turner to go back in time and stop Voldemort from becoming, well, Voldemort, you remember that the comfort zone is a dangerous place. Innovation happens outside the box!` },
@@ -669,6 +745,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jan 25",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/osteoarthritis",
+    heroImage: { src: "/images/blog/osteoarthritis.webp", alt: "Header image for 'Another BFR Success Story: Osteoarthritis'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `One of the themes here at The BFR Pros is that we never look at a patient and think, “How can I use BFR with this person?” Rather, we think, “Can BFR be a tool that can help this person get back to his/her specific goals?” This paradigm was foundational to the treatment of the gentleman featured in this BFR success story.` },
       { tag: "p", text: `Today we have a 61-year-old male with left knee and left hip pain. Past medical history included testicular cancer in 2007 (treated successfully with surgery), non-Hodgkin’s lymphoma 2019 (treated successfully with immunotherapy), and a meniscectomy L knee in 2005. Recent X-rays of the left knee and hip were positive for osteoarthritis. He did not participate in any type of formal exercise, but was very active as a carpenter and loved doing yard work like cutting grass and chopping firewood. He also was extremely passionate about his role as a playful and actively involved grandfather to three grandchildren under the age of 3.` },
@@ -690,6 +768,11 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jan 10",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bfr-screening-tool",
+    heroImage: { src: "/images/blog/bfr-screening-tool-1.webp", alt: "Header image for 'The Blood Flow Restriction Screening Process'" },
+    inlineImages: [
+      { src: "/images/blog/bfr-screening-tool-2.webp", alt: "Figure from 'The Blood Flow Restriction Screening Process'", afterParagraphIndex: 2 },
+      { src: "/images/blog/bfr-screening-tool-3.webp", alt: "Figure from 'The Blood Flow Restriction Screening Process'", afterParagraphIndex: 4 },
+    ],
     paragraphs: [
       { tag: "p", text: `There have been many attempts to provide adequate pre-BFR training screening to rule out potentially inappropriate candidates for this modality. A recent paper by The BFR Pros’ very own Nick Rolnick proposed a funnel-based thought process algorithm that gives BFR trained providers some guidelines and encourages relevant thought processes when making the decision to include BFR into the plan of care.` },
       { tag: "p", text: `The funnel can be seen in Figure 1.` },
@@ -715,6 +798,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jan 3",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/football-acl-tear",
+    heroImage: { src: "/images/blog/football-acl-tear.webp", alt: "Header image for 'Another BFR Success Story: ACL Tear in a High School Football Athlete'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `For a high school football captain with a bright future ahead of him, senior year can be extremely critical. Maintenance of physical and mental health becomes absolutely crucial, along with a high degree of discipline to avoid other “extracurriculars” that typical teenagers engage in. What happens when the captain of the team, who checks all of the previously mentioned boxes, goes down in the second game of the season on a punt return with a torn ACL?` },
       { tag: "p", text: `This case study involves a 17-year-old high school football player who underwent an ACL reconstruction with patellar graft and medial meniscus repair after suffering a non-contact ACL rupture in week two of his senior year. His intentions were to have the season of his life to finish out high school and then play football in college. He came to me 1 week post op with a brace locked in extension with specific orders from the surgeon to remain non-weight bearing. I reached out to the surgeon and asked if he would be on board with blood flow restriction (BFR) training. He agreed, and off we went!` },
@@ -739,6 +824,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Dec 27",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bfr-elevator-pitch",
+    heroImage: { src: "/images/blog/bfr-elevator-pitch.webp", alt: "Header image for 'Need a BFR Elevator Pitch? We Have You Covered!'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `If you’re like me and are passionate about the ability of blood flow restriction training to impact people’s lives and help them achieve their goals, you may find yourself in one of the following situations.` },
       { tag: "p", text: `Scene 1: It’s Christmas Eve and you’re at your great Aunt Betty’s annual Christmas Eve party, when all of a sudden your Uncle Frank approaches. After 20 minutes of him talking about his endeavors in crypto currency, he asks about a certain exercise technique that he saw in the most recent edition of Men’s Health. He asks, “Have you ever heard of BFR?”` },
@@ -767,6 +854,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Dec 20",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-grandfather",
+    heroImage: { src: "/images/blog/success-story-grandfather.webp", alt: "Header image for 'Another BFR Success Story: Being a Grandfather!'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `What happens when life throws you curve balls? You sit back and crush it out of the park! Today, we are highlighting how BFR training played an integral role in getting a hardworking grandfather of three back to his most important role…being a grandfather!` },
       { tag: "p", text: `The patient was a 61 year old male with left hip and knee pain. X-rays were positive for osteoarthritis in both areas, but otherwise unremarkable. He was a cancer survivor, a hard working carpenter, and a loving grandfather. He enjoyed doing yard work and playing with his grandchildren. Even though he was extremely physically active (carpenter, chopping firewood, playing with grandchildren, etc.) he did not perform any formal structured exercise. He presented with weakness, stiffness, pain with sitting and standing, and decreased walking/standing tolerance. His symptoms got to the point where they were limiting his ability to perform work duties and care for his grandchildren.` },
@@ -785,6 +874,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Dec 13",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/reasons-to-use-bfr",
+    heroImage: { src: "/images/blog/reasons-to-use-bfr.webp", alt: "Header image for 'Four Evidence-Based Reasons To Include BFR Training In Your Program'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `We at the BFR Pros get asked all the time, “What are reasons to integrate BFR into a program?” You’ve got questions, we’ve got answers! Here are our top four evidence- based reasons (and the articles cited!) to include BFR training into your training regimen.` },
       { tag: "p", text: `1. Increasing Muscle Hypertrophy and Strength Using Lighter Loads than TraditionalTraining 1, 2 .` },
@@ -816,6 +907,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Dec 6",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/three-bfr-hurdles",
+    heroImage: { src: "/images/blog/three-bfr-hurdles.webp", alt: "Header image for 'Three Hurdles to Blood Flow Restriction Success'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `In order to have a successful BFR training experience, there are 3 common hurdles that every BFR practitioner must be overcome. Without overcoming these hurdles, the confidence in appropriately integrating this tool into your practice becomes less and less, reducing the chance of long-term success both in terms of client/patient outcomes but also business revenue!` },
       { tag: "p", text: `Hurdle 1 – The Science of Hypertrophy – Without understanding how muscle is built and the ingredients necessary to do so, how can one possibly articulate the benefits of BFR training and where it fits in relative to normal training?` },
@@ -837,6 +930,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Rolnick, DPT",
     date: "Nov 29",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/top-ten-benefits",
+    heroImage: { src: "/images/blog/top-ten-benefits.webp", alt: "Header image for 'Top 10 Benefits of Blood Flow Restriction Training'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `A Guest Post by Kristian Brun` },
       { tag: "p", text: `Learn the little known yet amazing benefits you’ll get by practicing blood flow restriction training.` },
@@ -870,6 +965,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Nov 22",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-meniscus-repair",
+    heroImage: { src: "/images/blog/success-story-meniscus-repair.webp", alt: "Header image for 'Another BFR Success Story: Meniscus Repair'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `A torn meniscus…it’s like the “I got a bulging disc” or “I got a torn rotary cup” of the knee. When a patient or athlete comes to me with fears, imaging, or a Dr. Google diagnosis indicative of a torn meniscus, 99% of the time I explain that it is quite normal and usually is not something serious. There is, however, the rare occasion when this is not the case…` },
       { tag: "p", text: `This case study involves a 31-year-old active male who felt a sharp pain in his knee while kneeling down to host a meditation session. He noticed difficulty weight bearing and an inability to fully straighten his knee. His symptoms worsened over the next few days, which led him to seek an orthopedic consult. MRI’s were (+) for a bucket handle tear of the medial meniscus. The patient received two opinions from different doctors and both agreed that surgery was inevitable.` },
@@ -894,6 +991,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Nov 15",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/pulse-oximeter",
+    heroImage: { src: "/images/blog/pulse-oximeter.webp", alt: "Header image for 'Limb Occlusion Pressure Assessment Using A Pulse Oximeter?'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Look at you! You’ve just completed the online, on-demand BFR Pros course and are a newly qualified blood flow restriction (BFR) provider. Congratulations and welcome to the club! You are ready to save the world, one occluded limb at a time! Then it happens…` },
       { tag: "p", text: `The BFR unit that your clinic director assured you she had is actually a manual cuff system! No! How are you supposed to properly measure limb occlusion pressure? Wait! There’s a pulse oximeter collecting dust on a shelf in the break room! Can a pulse ox be used to safely and effectively measure LOP?` },
@@ -920,6 +1019,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Nov 8",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-dan-marino",
+    heroImage: { src: "/images/blog/success-story-dan-marino.webp", alt: "Header image for 'Another BFR Success Story: Dan Marino'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Ladies and gentlemen…we’ve featured professional athletes in powerlifting, bodybuilding, football, basketball, and motocross. We’ve also had postpartum women, Hollywood A-listers, and even a thunder god on the blog! Today we have a very special treat. Today we are showcasing the one, the only, Dan Marino!` },
       { tag: "p", text: `For those of you who are not familiar with Dan Marino, he is most well known for his Oscar-nominated performance in the cinematic masterpiece, Ace Venture: Pet Detective (1994). Unfortunately, Forrest Gump also came out that year, so Dan and the film were snubbed of the top spot.` },
@@ -945,6 +1046,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Nov 3",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/central-hemodynamics",
+    heroImage: { src: "/images/blog/central-hemodynamics.webp", alt: "Header image for 'Blood Flow Restriction Training and Central Hemodynamics'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `During any type of exercise, there is a change in peripheral blood pressure to match the demands of the task. However, not many people consider that there is also a change in central hemodynamics – namely the pressure that the aorta experiences with every pump of the heart. This is known as central blood pressure.` },
       { tag: "p", text: `Central blood pressure elevations can be potentially detrimental to an individual because it makes the heart work harder to get the blood through to the exercising muscles and the rest of the body. Over time, increases in central blood pressure can create changes in the ability of the artery to vasodilate – known as arterial stiffness. Chronically, higher values of arterial stiffness has been thought to contribute to adverse events in the cardiovascular system.` },
@@ -968,6 +1071,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Oct 25",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/post-partum-pelvic-floor",
+    heroImage: { src: "/images/blog/post-partum-pelvic-floor.webp", alt: "Header image for 'Another BFR Success Story: Blood Flow Restriction And Its Potential Use In Women With Pelvic Organ Prolapse And Stress Incontinence'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Sometimes in life, you have to take a look deep inside and step outside the box. In this case study, that’s just what the researchers did. They stepped outside of the box and right into the pelvic floor!` },
       { tag: "p", text: `Pelvic organ prolapse (POP) is a dysfunction that occurs when the muscles and ligaments that support the visceral structures have become compromised. The muscles of the pelvic floor play a pivotal role in reducing POP. Approximately half of all women who have given birth experience POP, with 3% to 21% having symptoms of vaginal protrusion, pelvic heaviness, musculoskeletal issues, sexual dysfunction, or bladder/bowel problems. Clearly, POP is a condition that impacts a large portion of the population.` },
@@ -995,6 +1100,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Oct 20",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/limb-occlusion-pressure",
+    heroImage: { src: "/images/blog/limb-occlusion-pressure.webp", alt: "Header image for 'Limb Occlusion Pressure For Blood Flow Restricted Exercise: Variability And Relations With Participant Characteristics'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Limb occlusion pressure (LOP) has been recommended as a standard approach to administering BFR training in clinical populations. However, despite prior research showing LOP does not change much over the course of 4-8 weeks in healthy participants, other studies show LOP can change based on the time of day, position, cuff width, and even cuff bladder positioning on the limb.` },
       { tag: "p", text: `In clinical practice, patients may present to the clinic at different times of day and require BFR on more than one limb, which may influence LOP assessment. This study investigated whether assessment of LOP was reliable between different times of day and between limbs using the Delfi personalized tourniquet device (cuff width, 12 cm). Forty-two males and females participated in this study. Each reported twice to the lab separated by 3-10 days and at different times of the day to get their LOP, BP values, and thigh circumferences assessed.` },
@@ -1015,6 +1122,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Oct 7",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/effort-is-crucial",
+    heroImage: { src: "/images/blog/effort-is-crucial.webp", alt: "Header image for 'Effort Is Crucial To Building Muscle With Or Without Blood Flow Restriction'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Sometimes the truth hurts. In the case of blood flow restriction training, the truth needs to hurt. That’s right! Today we’re talking about why pain and discomfort, or simply put, effort, are so important for muscle growth.` },
       { tag: "p", text: `As we know, BFR training involves use of a cuff to restrict blood flow to the exercising muscle and is commonly performed with very low loads (20-50% 1RM). Due to the trapping of venous outflow from the exercising muscle and the restriction of blood flow, oxygen tension lowers, challenging local oxygen metabolism (ie Krebs Cycle) to produce ATP for energy.` },
@@ -1036,6 +1145,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Oct 4",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-chris-hemsworth",
+    heroImage: { src: "/images/blog/success-story-chris-hemsworth.webp", alt: "Header image for 'Another BFR Success Story: Chris Hemsworth'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Week after week, I aim to showcase individuals who have used blood flow restriction training as part of their training and rehabilitation programs. We’ve featured professional athletes, including pro bodybuilders, powerlifters, football players, basketball players, and motocross athletes. We’ve also had postpartum women and even Hollywood A-listers on the blog! But ladies and gentlemen, today we have a very special treat. Today we are showcasing an actual thunder god! That’s right! Today we are talking about none other than Thor himself!` },
       { tag: "p", text: `With the help of CGI and skillful editing, many actors and actresses are able to play larger than life characters with less than larger than life physiques of their own. There are, however, some who have embraced the Iron Game and take pride in bringing the best physique possible to the big screen. Over the course of his career, it is hard to argue the fact that Chris Hemsworth has built an awe-inspiring physique worthy of portraying one of the most iconic superheroes of all time. Much like Hugh Jackman and Dwayne Johnson, Chris Hemsworth has become known for his impressive physical presence in all of his roles.` },
@@ -1059,6 +1170,11 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Sep 24",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/cuff-position",
+    heroImage: { src: "/images/blog/cuff-position-1.webp", alt: "Header image for 'Cuff Bladder Position Impacts Occlusion Pressure'" },
+    inlineImages: [
+      { src: "/images/blog/cuff-position-2.webp", alt: "Figure from 'Cuff Bladder Position Impacts Occlusion Pressure'", afterParagraphIndex: 2 },
+      { src: "/images/blog/cuff-position-3.webp", alt: "Figure from 'Cuff Bladder Position Impacts Occlusion Pressure'", afterParagraphIndex: 3 },
+    ],
     paragraphs: [
       { tag: "p", text: `Numerous factors can influence the assessment of limb occlusion pressure (LOP), an important variable in prescription of blood flow restriction training. This study sought to determine if the bladder position (either inside- medially or outside- laterally) of the cuff had an influence on LOP and to determine if there did exist a difference, if it was clinically meaningful.` },
       { tag: "p", text: `Thirty-two individuals (13 F, 19 M; ~22 y.o) were positioned in supine and had a 12-cm wide Hokanson cuff applied to the legs in a randomized fashion with the bladder applied either inside or outside. Doppler assessment to determine LOP was done on the posterior tibial artery until no audible signals were detectable.` },
@@ -1079,6 +1195,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Sep 17",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-powerlifter-in-pain",
+    heroImage: { src: "/images/blog/success-story-powerlifter-in-pain.webp", alt: "Header image for 'Another BFR Success Story: A Power Lifter In Pain'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `It was just like any other training day for this 39-year-old professional natural bodybuilder, Olympic weight lifter, strongman, highland games competitor, and powerlifter. It was three weeks out from his much anticipated powerlifting meet, when he felt it…a pop and pull in his hamstring/adductor during a deadlift. While he was for sure discouraged, this veteran of the iron didn’t pack it up and go home, but rather moved onto the bench press. While bench-pressing, to his unpleasant surprise, he felt a pop in is pec. This was it…Not only did this steal the meet out of his hands, he thought, it also made his future demise in the iron game inevitable and long-term career impossible.` },
       { tag: "p", text: `He was three weeks out from a powerlifting meet, unable to squat, bench, or deadlift due to pain and fear of further joint and soft tissue damage. Our athlete did what any responsible athlete would do and sought out a qualified healthcare provider. Imaging was negative for red flags and he was cleared to resume exercise as tolerated. Now what? How could he possibly maintain the size and strength that he worked so hard to achieve without lifting heavy weights?` },
@@ -1102,6 +1220,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Sep 10",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/safety-first",
+    heroImage: { src: "/images/blog/safety-first-1.webp", alt: "Header image for 'Safety First!'" },
+    inlineImages: [
+      { src: "/images/blog/safety-first-2.webp", alt: "Figure from 'Safety First!'", afterParagraphIndex: 9 },
+    ],
     paragraphs: [
       { tag: "p", text: `Safety with BFR training is a top priority for researchers and clinicians alike. I mean, at the end of the day, we are wrapping a cuff around our limb to alter the flow of blood to our tissues…all while training at high-perceived efforts and with a significant amount of pain. Sounds like a normal Sunday, right?` },
       { tag: "p", text: `Want to skip the plot and get right to the ending? Ok. Spoiler alert…if a patient is cleared for heavy strength training, they are most likely cleared for BFR training. Due to the novelty of the approach and the way in which training is performed through restriction of arterial flow, there are three common concerns when training with BFR:` },
@@ -1130,6 +1252,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Sep 3",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-powerlifter-knee-pain",
+    heroImage: { src: "/images/blog/success-story-powerlifter-knee-pain.webp", alt: "Header image for 'Another BFR Success Story: Elite Powerlifter Plagued By Knee Pain'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `“My knees only hurt when I squat over 500lbs.” That was what my 29-year-old elite powerlifter told me on our initial evaluation. It was then that I realized this was not going to be just an ordinary case. This particular athlete’s best lifts were a 675-pound squat, 730-pound deadlift, and 410-pound bench press at a bodyweight of 220lbs. As you can see, this is not your everyday weight lifter.` },
       { tag: "p", text: `This individual reported onset of bilateral knee pain after finishing up his 2019 competitive season. He was able to bench press and deadlift without limitation, but heavy squatting over 500lbs would consistently flare up his symptoms. He took 2020 off from competition, partially because of his knees and partially because of the COVID-19 lockdown. He sought me out in the summer of 2021 as he was preparing for his 2021 competition season starting in October. His goal was to break the state squat record, which was well within reach. His knees would be the one and only reason why he didn’t get the record, so he decided to seek out treatment and guidance.` },
@@ -1150,6 +1274,11 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Aug 28",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/proximal-hypertension",
+    heroImage: { src: "/images/blog/proximal-hypertension-1.webp", alt: "Header image for 'Blood Flow Restriction Training And A Mechanistic Approach To Explaining Hypertension'" },
+    inlineImages: [
+      { src: "/images/blog/proximal-hypertension-2.webp", alt: "Figure from 'Blood Flow Restriction Training And A Mechanistic Approach To Explaining Hypertension'", afterParagraphIndex: 1 },
+      { src: "/images/blog/proximal-hypertension-3.webp", alt: "Figure from 'Blood Flow Restriction Training And A Mechanistic Approach To Explaining Hypertension'", afterParagraphIndex: 5 },
+    ],
     paragraphs: [
       { tag: "p", text: `Get your textbooks and notebooks out because today we’re going in on the physiology of blood pressure. For you millennials out there, back when I was in school, a “textbook” was a large paper book with pages of words and “taking notes” meant opening a “notebook” made of “paper” and using a “pen” to “write” on said pages of paper. Sometimes we would even use a “highlighter” to help emphasize certain words or phrases. I also, in order to talk to my first girlfriend, I had to look up her home phone number in the school phone directory. I called, her father answered the phone, and I said, “I’m sorry, I have the wrong number.” Then I crawled into the fetal position and went to bed…` },
       { tag: "p", text: `Ok. Here, we, go!` },
@@ -1174,6 +1303,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Aug 20",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-sarcopenia",
+    heroImage: { src: "/images/blog/success-story-sarcopenia.webp", alt: "Header image for 'Another BFR Success Story: Sarcopenia'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `This case study included a 91 year-old frail inactive male diagnosed with sarcopenia in 2014 with complaints of excessive exhaustion, decreased lean mass, weakness, HTN, and a history of falls. Sarcopenia is a decline in skeletal muscle mass and muscle strength, related to aging and is highly predictive of adverse events, such as falls, hospitalization, morbidity, and mortality. Strength training is one way to mitigate the effects of sarcopenia, but heavy loading in clinical settings is not always feasible, particularly in the case of frail older patients.` },
       { tag: "p", text: `Blood flow restriction training was implemented throughout the treatment plan. In the first 3 months, low intensity training was performed using 30% of 1 repetition maximum, followed by 1 month of inactivity, and another 3 months of low load BFR training using 50% limb occlusion pressure (LOP).` },
@@ -1196,6 +1327,11 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Aug 11",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/exercise-is-medicine",
+    heroImage: { src: "/images/blog/exercise-is-medicine-1.webp", alt: "Header image for 'Exercise Is Medicine'" },
+    inlineImages: [
+      { src: "/images/blog/exercise-is-medicine-2.webp", alt: "Figure from 'Exercise Is Medicine'", afterParagraphIndex: 6 },
+      { src: "/images/blog/exercise-is-medicine-3.webp", alt: "Figure from 'Exercise Is Medicine'", afterParagraphIndex: 7 },
+    ],
     paragraphs: [
       { tag: "p", text: `There are some cliché sayings out there…some hold truth, while others are just plain verbal diarrhea.` },
       { tag: "p", text: `“I love you more than life itself.”` },
@@ -1223,6 +1359,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Aug 4",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-aclr-rehab",
+    heroImage: { src: "/images/blog/success-story-aclr-rehab-1.webp", alt: "Header image for 'Another BFR Success Story: ACL-R Rehab'" },
+    inlineImages: [
+      { src: "/images/blog/success-story-aclr-rehab-2.webp", alt: "Figure from 'Another BFR Success Story: ACL-R Rehab'", afterParagraphIndex: 1 },
+    ],
     paragraphs: [
       { tag: "p", text: `This case study included a 19 year-old female soccer player who presented three days following a hamstring tendon autograft ACL arthroscopic reconstructive surgery. Twenty-three weeks prior to surgery, the athlete sustained an on-field injury, which resulted in a right ACL rupture, a grade 3 MCL sprain, and a large bucket-handle tear of the medial meniscus. The post-operative protocol included joint and soft tissue mobilization, electrotherapies, electrical muscle stimulation, proprioceptive exercises, stretching, and AROM exercises. Blood flow restriction training was implemented throughout the treatment plan, as outlined below. The protocol started with passive BFR and progressed week by week. A constant pressure of 100mmHg was used throughout.` },
       { tag: "p", text: `The results showed maintenance of Lower Extremity Functional Scale (LEFS) and Knee Injury and Osteoarthritis Outcome Score (KOOS) scores, as well as no loss of thigh or leg girth measurements from pre-op to 12 weeks post-op. The authors concluded that, “Low intensity exercise supplemented with vascular restriction may prove to be an efficient and effective means of maintaining post-surgical muscle size and subjective knee function.”` },
@@ -1243,6 +1383,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jul 29",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/proximal-hypertrophy",
+    heroImage: { src: "/images/blog/proximal-hypertrophy.webp", alt: "Header image for 'What’s The Deal With Proximal Hypertrophy?'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Before we go any further, let’s quickly define two terms:` },
       { tag: "p", text: `Proximal: near the trunk of the body` },
@@ -1269,6 +1411,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jul 17",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bfr-for-pain-modulation",
+    heroImage: { src: "/images/blog/bfr-for-pain-modulation.webp", alt: "Header image for 'Pain Modulation In Strength And Physique Sport Athletes'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `What do bodybuilders, powerlifters, Olympic weight lifters, strongmen/strongwomen, and crossfitters all have in common other than a love for the Iron Game? They will all likely feel pain at some point. In fact, it is hard to imagine an athlete going through a career and never experiencing some sort of pain. After all, pain is a normal human sensation just like hunger or thirst. One of BFR’s greatest areas of impact is the management of pain and injury.` },
       { tag: "p", text: `First, let’s briefly talk about pain and injury. This is an excerpt from a previous article of mine titled, A Guide to Injury Reduction and Management, which can be accessed right here.` },
@@ -1292,6 +1436,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jul 16",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-dista-biceps",
+    heroImage: { src: "/images/blog/success-story-dista-biceps.webp", alt: "Header image for 'Another BFR Success Story: Recovery From Distal Biceps Repair in a 35 Year-Old Weightlifter'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `This case study involves a 35-year-old male weightlifter and strength and conditioning (S&C) coach who underwent left distal biceps repair surgery following a traumatic full biceps tendon rupture. The injury happened while spotting a client who was performing a push press exercise and the patient underwent surgery four days later. A short course of Tylenol was prescribed for the first three days post-op, the arm was immobilized in a soft cast, and the patient was advised to use a sling while at work. The surgeon recommended a lifting restriction of one pound on the left arm for three months.` },
       { tag: "p", text: `The patient presented to physical therapy five days post-op and was treated 2x/week for 15 weeks. Treatment included taping, laser, manual soft tissue mobilization, and blood flow restriction training. BFR was started 3 weeks post-op using a 30, 15, 15, 15 protocol (one set of 30 reps, followed by three sets of 15 reps with a 30 sec rest period between all sets). A blood pressure cuff inflated to 80 mmHg with the arm at rest was used throughout the treatment. The exercises started with no additional external load with the forearm in neutral and were progressed to 4lbs of external load with the forearm in a supinated position.` },
@@ -1316,6 +1462,11 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jul 9",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-patellar-tendinopathy",
+    heroImage: { src: "/images/blog/success-story-patellar-tendinopathy-1.webp", alt: "Header image for 'Another BFR Success Story: Patellar Tendinopathy'" },
+    inlineImages: [
+      { src: "/images/blog/success-story-patellar-tendinopathy-2.webp", alt: "Figure from 'Another BFR Success Story: Patellar Tendinopathy'", afterParagraphIndex: 3 },
+      { src: "/images/blog/success-story-patellar-tendinopathy-3.webp", alt: "Figure from 'Another BFR Success Story: Patellar Tendinopathy'", afterParagraphIndex: 4 },
+    ],
     paragraphs: [
       { tag: "p", text: `Patellar tendinopathy is a common condition experienced by young athletes who participate in sports that involve jumping and running.Oftentimes, these patients are not able to tolerate the loading necessary to treat this condition due to pain, so BFR may be a tool to achieve similar physiological effects as heavy load training while using lighter loads.` },
       { tag: "p", text: `In this case study, we are introduced to two NCAA Division III freshmen collegiate decathletes with a history of left knee pain prior to college and who had been complaining of increasing pain during the initial month of track practices. Findings from their initial musculoskeletal examinations included left sided lower extremity weakness, pain during functional testing, pain when palpating the left patellar tendon, VISA-P scores less than 80, and thickened tendons on the left identified using ultrasound imaging at baseline.` },
@@ -1343,6 +1494,12 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jul 2",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bfr-for-aerobic-athletes",
+    heroImage: { src: "/images/blog/bfr-for-aerobic-athletes-1.webp", alt: "Header image for 'BFR & The Aerobic Athlete'" },
+    inlineImages: [
+      { src: "/images/blog/bfr-for-aerobic-athletes-2.webp", alt: "Figure from 'BFR & The Aerobic Athlete'", afterParagraphIndex: 5 },
+      { src: "/images/blog/bfr-for-aerobic-athletes-3.webp", alt: "Figure from 'BFR & The Aerobic Athlete'", afterParagraphIndex: 5 },
+      { src: "/images/blog/bfr-for-aerobic-athletes-4.webp", alt: "Figure from 'BFR & The Aerobic Athlete'", afterParagraphIndex: 5 },
+    ],
     paragraphs: [
       { tag: "p", text: `I know what you’re thinking… “But wait, not everyone wants to get jacked and strong. Some of us have other goals, like distance running, rowing, and cycling!” Point well-taken…` },
       { tag: "p", text: `Along with its potential benefits for resistance training, BFR has shown some promising results for aerobic training, as well. Most commonly studied are walking and cycling, however there is research to support its use with jogging, sprinting, and even rowing with collegiate and professional athletes with high levels of VO2max (> 60 ml/kg/min). Gaining and maintaining muscle mass during training can be extremely beneficial for an aerobic athlete. While the improvements in muscle hypertrophy and strength tend to be small and occur in deconditioned and untrained individuals, there may be some potential for well-trained individuals to improve hypertrophy with higher intensities and higher frequencies of BFR endurance training. We also see increases in aerobic capacity (VO2max) and even anaerobic power in both untrained and well-trained individuals when BFR is used with aerobic training. Finally, there is evidence to support improvements in functional clinical outcomes in the elderly, which are predictors of fall risk, functional mobility, and overall quality of life.` },
@@ -1365,6 +1522,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jun 17",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bfr-for-powerlifters",
+    heroImage: { src: "/images/blog/bfr-for-powerlifters-1.webp", alt: "Header image for 'Does Blood Flow Restriction Training Have A Place In Powerlifting Training?'" },
+    inlineImages: [
+      { src: "/images/blog/bfr-for-powerlifters-2.webp", alt: "Figure from 'Does Blood Flow Restriction Training Have A Place In Powerlifting Training?'", afterParagraphIndex: 2 },
+    ],
     paragraphs: [
       { tag: "p", text: `We must remember these three principles of muscular adaptation: variability (stress must be alternated to achieve adaptation), progressive overload (stimulus must progress as adaptation occurs), and specificity (adaptations are specific to the training stimulus). Specificity tends to be key for powerlifters, which means if the goal is to improve the 1-rep max of a competition squat, it is important that heavy competition squatting is included in training. How then could something like light load BFR ever have a place in a powerlifter’s repertoire? Well, specificity is not quite that restrictive and, as previously mentioned, there must be variability and progressive overload built into a training program along with specificity.` },
       { tag: "p", text: `Specificity can be broken down into specificity of movement and specificity of load/rep range. Let’s use our 1-rep max competition squat as an example in Table 1. As you can see, there are viable options to achieve adaptation other than strictly performing heavy squats. This is important because it is not optimal for a powerlifter to only train the same movements with the same reps at the same load. It is typically recommended that powerlifters periodize their training into phases, such as a hypertrophy phase, a strength phase, and a skill/technique phase.` },
@@ -1386,6 +1547,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jun 7",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-post-partum-recovery",
+    heroImage: { src: "/images/blog/success-story-post-partum-recovery.webp", alt: "Header image for 'Another BFR Success Story: A New Mom’s Recovery'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Imagine this for a science fiction thriller…` },
       { tag: "p", text: `A microscopic parasite is injected inside of a young woman and, over the course of 40 weeks, presses up against and kicks her main internal organs and grows to a whopping 8 pounds…all while feeding off of her body. Then, unannounced and throughout a painstakingly 24 to 48 hour process, it slowly rips and tears itself out of the host’s genitalia, requiring emergency medical care to ensure the host’s survival and overall well-being.` },
@@ -1417,6 +1580,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Jun 3",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bfr-for-bodybuilders",
+    heroImage: { src: "/images/blog/bfr-for-bodybuilders.webp", alt: "Header image for 'Blood Flow Restriction Training For Bodybuilders'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `“With respect to the physique athlete, there are numerous avenues for future research that could help elucidate the effectiveness of BFR within this population. There are currently no studies comparing heavy-load resistance training to heavy-load resistance training plus low-load BFR training in highly trained physique athletes nor are there any studies showing the effectiveness of low-load BFR training in maintaining lean body mass during contest preparation.” (Rolnick, 2020)` },
       { tag: "p", text: `While the scientific evidence may be lacking, we can still use recent strength training literature to draw conclusions and, through evidence-based decision-making, effectively implement BFR into bodybuilding training. For bodybuilders, the ultimate goals are to build/maintain muscle mass and ensure recovery while slowly and methodically dropping body fat through a combination of diet and cardio. Diet is perhaps the most important factor in maintaining a caloric deficit and eliciting changes in body composition, but optimizing hypertrophy training is absolutely critical as well. With that in mind, BFR may be a useful training method to supplement traditional resistance training and maximize the hypertrophic stimulus.` },
@@ -1444,6 +1609,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "May 23",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-new-father",
+    heroImage: { src: "/images/blog/success-story-new-father.webp", alt: "Header image for 'Another BFR Success Story: A New Father And Professional Natural Bodybuilder Shares His BFR Story'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Life has its ups, downs, and turn arounds…none of which quite compare to having a baby! In this anecdote, we will discuss how blood flow restriction training was used to allow a new father and professional natural bodybuilder to keep training despite developing significant elbow pain due to prolonged periods of lifting and carrying his newborn baby. Shhh, don’t let any moms out there here that a man is complaining about elbow pain postpartum when she pushed a bowling ball out of her…well you know…` },
       { tag: "p", text: `This athlete was a 30 y/o male professional natural bodybuilder with 10+ years of training experience. His last competitive season was 2018 and he was in the midst of his offseason. After recovering both mentally and physically from contest prep, he had been making steady improvements in strength and hypertrophy while sticking to a strategic caloric surplus and intelligent training program.` },
@@ -1468,6 +1635,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "May 23",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/metabolic-stress",
+    heroImage: { src: "/images/blog/metabolic-stress.webp", alt: "Header image for 'Metabolic Stress: It Burns So Good!'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Metabolic stress appears to be a key driver for many of the potential benefits of BFR training. Metabolic stress refers to the build-up of by-products of muscle contraction and is responsible for the burn and hypoxic environment that we all know and love. “Metabolite accumulation and the hypoxic environment causes greater muscle activation, fatigue, and anabolic signaling when compared to the same intensity of exercise done without BFR.” (Lorenz et al., 2021)` },
       { tag: "p", text: `Metabolic stress has been shown to:` },
@@ -1496,6 +1665,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "May 11",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/the-pump",
+    heroImage: { src: "/images/blog/the-pump.webp", alt: "Header image for 'The Pump! The Potential Of Cell Swelling To Enhance Muscle Growth'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `The hypertrophy trifecta of mechanical tension (heavy loading), muscle damage (breaking down muscle tissue), and metabolic stress (cell swelling – the pump) has been hypothesized to positively contribute to maximal increases in muscle growth. Mechanical tension achieved with heavy load maximizes muscle activation, ensures overload, and is the primary impetus for the hypertrophic response. Therefore, it is often recommended that increasing strength on heavy multi-joint movements should be foundational to a muscle-building program.` },
       { tag: "p", text: `While mechanical tension is important, exercise-induced metabolic stress can also be quite impactful in stimulating hypertrophy, and cell swelling is a main component of this process. Cell swelling, aka “the pump,” refers to an increase in intracellular hydration and muscle fiber swelling, which may increase protein synthesis and decrease protein breakdown. The degree at which this swelling phenomenon occurs is highly dependent on the type and intensity of training that is performed (as well as hydration, sodium intake, etc., but that is beyond the scope of this article).` },
@@ -1518,6 +1689,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Apr 21",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-mark-wahlburg-pl2ln",
+    heroImage: { src: "/images/blog/success-story-mark-wahlburg-pl2ln.webp", alt: "Header image for 'Another BFR Success Story: Dwight Howard'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `It’s hard to imagine an athlete with a more impressive physical presence than Dwight Howard. Fans watch in awe as his lean 6’10” 265 pound massive physique gracefully prances around the hardwood and dominates the court. However, as is the case with all veteran professional athletes striving for a successful career, longevity is key. Considering Howard has been playing in NBA since 2004 (first round draft pick!), it comes as no surprise that the optimization of health and recovery are of utmost importance.` },
       { tag: "p", text: `While strength and hypertrophy training are crucial for improving performance and overall resiliency, heavy lifting could theoretically push the limits of recovery capacity when added to the constant explosive and high impact movements that basketball requires. If only there existed a way for an athlete to lift lighter loads while still achieving gains in strength and hypertrophy…` },
@@ -1542,6 +1715,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Apr 17",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/low-load-failure",
+    heroImage: { src: "/images/blog/low-load-failure.webp", alt: "Header image for 'Perceptual And Arterial Occlusion Responses To Very Low Load Blood Flow Restricted Exercise Performed To Volitional Failure'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `We typically see that higher loads and magnitude of restriction pressure result in greater ratings of perceived exertion (RPE) and discomfort, as well as higher blood pressure responses. These factors are important because (1) the high levels of discomfort associated with high RPE may lead to poor adherence and (2)the increased arterial pressure may be of concern especially for those with high or uncontrolled blood pressure.` },
       { tag: "p", text: `While BFR training has been recommended for loads between 20-50% 1RM, not much is known about perceptual exertion, blood pressure response post-BFR, and volume workload responses to lighter loads (< 20% 1 RM). This study examined perceived effort and blood pressure responses in different load and occlusion pressure protocols.` },
@@ -1564,6 +1739,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Apr 11",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-mark-wahlburg",
+    heroImage: { src: "/images/blog/success-story-mark-wahlburg.webp", alt: "Header image for 'Another BFR Success Story: Mark Wahlberg'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Among the many roles that Mark Wahlberg has played throughout his career, fitness icon is definitely one of them. While he may not have the fitness clout of Dwayne Johnson, Arnold Schwarzenegger, or Sylvester Stallone, Mark Wahlberg has definitely embodied the fitness lifestyle and has built a quality physique even as he closes in on his 5th decade. Inspired by a recent Instagram post from the man himself (currently with 1.1 million views), InsideHook.com featured an article on Mark Wahlberg’s use of blood flow restriction training!` },
       { tag: "p", text: `The article explains that Mark Wahlberg has had several “wacky intricacies” in his training regimen over the years, including 2:30am wake ups, 90-minute showers, and cryotherapy chamber treatments to name but a few. So is BFR the real deal or is it simply another one of Wahlberg’s fitness “hacks?”` },
@@ -1591,6 +1768,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Apr 2",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/anterior-knee-pain",
+    heroImage: { src: "/images/blog/anterior-knee-pain.webp", alt: "Header image for 'Blood Flow Restriction Training Reduces Anterior Knee Pain To Allow For Therapeutic Loading'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `This 2018 study looked at 30 individuals with anterior knee pain and sought to determine if blood flow restriction training could induce hypoalgesia (pain relief). Participants in this study performed a shallow single leg squat, a deep single leg squat, and a 20cm step-down, all of which are common functional assessments in musculoskeletal rehabilitation as well as common treatment options to build resiliency and strength in patients with anterior knee pain. Participants were then asked to rate their pain (0-10).` },
       { tag: "p", text: `Participants then performed 4 sets of knee extensions with BFR at 80% arterial occlusion. The knee extensions were performed from 0-90 degrees of knee flexion and at a tempo of 2 seconds for the concentric and 2 seconds for the eccentric, monitored by a metronome. The set/rep scheme was failure, 15, 15, 15 with 30 seconds rest in between. After the BFR protocol, participants repeated the above-mentioned functional tests and results showed a clinically significant median 60% reduction in reported pain. This decrease in pain was found to last 45 min after the intervention.` },
@@ -1611,6 +1790,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Mar 26",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-natural-bodybuilder",
+    heroImage: { src: "/images/blog/success-story-natural-bodybuilder.webp", alt: "Header image for 'Another BFR Success Story: BFR In Natural BodyBuilding'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Here is how BFR training was used in a professional natural bodybuilder’s training routine to maintain a training effect throughout the COVID-19 gym closures in conjunction with a well-thought out training program. With proper workload management, progressive overload, and recovery, BFR once again proved that it can help improve quality of life and allow patients to accelerate their performance & recovery back to the activities they love!` },
       { tag: "p", text: `This athlete was a 39 y/o male professional natural bodybuilder with 15+ years of training experience. His last competitive season was 2016 and he was in the midst of his offseason. After recovering both mentally and physically from contest prep, he had been making steady improvements in strength and hypertrophy while sticking to a strategic caloric surplus and intelligent training program.` },
@@ -1630,6 +1811,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Mar 22",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/single-multi-joint-exercise",
+    heroImage: { src: "/images/blog/single-multi-joint-exercise.webp", alt: "Header image for 'Blood Flow Restriction Training In Practice: Isolation Vs. Multi-Joint Exercises'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Like normal exercise, blood flow restriction training can be performed in a variety of ways – either isolated (i.e. bicep curls) or multi-joint (i.e. rows). However, unique to BFR training is the differences in fatigue that can influence performance of the exercise or even long-term hypertrophic outcomes.` },
       { tag: "p", text: `Isolation exercises are great to use as an intro to BFR training and as bodybuilding specific exercises because there aren’t a lot of ways to cheat the movement and compensate with other muscles. This makes it a great choice to drive high levels of fatigue to the targeted muscle. Isolation exercises constrain degrees of freedom, limiting rep-to-rep variation.` },
@@ -1646,6 +1829,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Licameli, DPT",
     date: "Mar 15",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/success-story-female-physique",
+    heroImage: { src: "/images/blog/success-story-female-physique.webp", alt: "Header image for 'Another BFR Success Story: Female Physique Competitor'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Here is a firsthand example of how BFR training can be used in conjunction with a proper recovery program to help improve quality of life and allow patients to accelerate their performance & recovery back to the activities they love.` },
       { tag: "p", text: `This patient was a 44 y/o female physique competitor with 8 years of training experience. She had a history of chronic over training: 6x/week, beyond failure on each exercise, chasing soreness as a sign of progress, no deloads, etc. Naturally, she developed pretty debilitating shoulder and lateral elbow pain. By the time she reached out to me this was her level of function:-Light banded rows-Unable to perform any curl or press down variation-Unable to perform a table push up-Unable to perform OHP of any kind-Pain with daily activities such as pouring coffee and opening doors.` },
@@ -1664,6 +1849,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Connor Fay, DPT",
     date: "Feb 19",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bfr-acl-rehab",
+    heroImage: { src: "/images/blog/bfr-acl-rehab.webp", alt: "Header image for 'BFR & ACL Rehab'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `The anterior cruciate ligament (ACL) is one of the key ligaments within the knee joint. It connects the femur (thigh bone) to the tibia (shin bone), and it is responsible for maintaining stability in the knee with lateral movements and/or sudden changes in direction. ACL tears are often regarded as one of the more severe types of knee injuries due to their lengthy recovery time.` },
       { tag: "p", text: `An ACL reconstruction (ACL-R) surgery typically takes 6 to 9 months of recovery, but symptoms can still linger upwards of 12 months. Following ACLR surgery, patients experience significant loss of lower limb strength due to muscle atrophy. Knee extensor and knee flexor muscle weakness is substantial during the first 12 weeks following surgery, impairing lower limb function and quality of life. Muscle weakness can persist for years after ACLR surgery, and is associated with chronic reductions in function, a high re-injury risk, and joint degeneration. Therefore, targeting muscle weakness early in the rehabilitation process is imperative.` },
@@ -1686,6 +1873,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Rolnick, DPT",
     date: "Feb 12",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/often-cited-mechanisms",
+    heroImage: { src: "/images/blog/often-cited-mechanisms.webp", alt: "Header image for 'A Brief Overview Of 3 Often Cited Mechanisms (And Why They Likely Are Not Unique To BFR Training)'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `In The BFR Pros workshop, we discuss how metabolite-induced fatigue and cellular swelling are most likely the primary mechanisms associated with why we see hypertrophy in low-load BFR exercise. However, there are other proposed mechanisms that have been mentioned in the literature that researchers have ascribed to BFR training itself. These other proposed mechanisms – increased hormone release (growth hormone, GH; Insulin-like growth factor-1, IGF-1), systemic/cross-transfer effects and satellite cell proliferation- can largely be explained by methodological limitations of the studies. Namely, these mechanisms can be explained if accounting for proximity to failure, the influence of ischemia during muscle contractions and/or the exercise type (aerobic vs. resistance training). The purpose of this short paper is to highlight these three proposed mechanisms and provide evidence-based rationales as to why the benefits observed with BFR are not likely directly related to these factors.` },
       { tag: "p", text: `Most BFR studies are performed work matched, such that the BFR group performs an equal amount of work as the free-flow condition (ie 30-15-15-15 or BFR exercises to failure, free-flow matches repetitions). However, in those studies where BFR and the free-flow condition are performed to volitional failure, similar levels of hormone release (GH and IGF-1) were observed between conditions (1-2). In one study that showed higher levels of acute GH release in BFR compared to free-flow condition, there was no relationship observed with metabolic accumulation (lactate), suggesting that local factors (ie stimulation of III-IV afferents due to the restriction) may have increased GH expression as a response to stress (3). Pierce and colleagues’ (2006) (4) study supports this assertion as GH was not increased in a passive swelling protocol but was significantly elevated when combined with exercise and those that experienced the greatest fatigue (drop in maximum voluntary contraction, MVC) also had the highest levels of GH release. While more research is needed to elucidate the relationship between hormonal responses, BFR training and hypertrophy, other studies in free- flow resistance training have failed to link acute- or chronic levels of GH release to hypertrophy (Morton, 2018; Fink, 2018).` },
@@ -1719,6 +1908,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Rolnick, DPT",
     date: "Feb 5",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/low-load-tendon",
+    heroImage: { src: "/images/blog/low-load-tendon.webp", alt: "Header image for 'Improving Tendon Properties With Low-Load Blood Flow Restriction Training'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Centner et al. (2019) published what could be considered a landmark study that calls into question our current understanding of how tendons adapt to stress. This study supports the idea that blood flow restriction at low-load protocols could be used to increase the physical properties of the Achilles tendon similar to traditional high-load protocols.` },
       { tag: "p", text: `Let’s look at what this study entailed..` },
@@ -1743,6 +1934,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Rolnick, DPT",
     date: "Jan 24",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/bfs-knee-osteoarthritis",
+    heroImage: { src: "/images/blog/bfs-knee-osteoarthritis.webp", alt: "Header image for 'Knee Osteoarthritis & BFR'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Symptomatic knee osteoarthritis is a condition that nearly everyone reading this article can relate to - either on a personal or professional level. Functionally, knee osteoarthritis is characterized by a loss of knee range of motion, pain during exercise and decreased ability to perform activities of daily living such as walking, climbing up/down stairs and getting up out of a chair.` },
       { tag: "p", text: `A lack of quadriceps strength has been linked to not only a risk factor for symptomatic disease status, but poor functional capacity to perform ADLs. Improving quadriceps strength can help those individuals with symptomatic osteoarthritis reclaim their life and get back to doing the activities they love to do!` },
@@ -1766,6 +1959,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Rolnick, DPT",
     date: "Jan 17",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/science-behind-bfr-1",
+    heroImage: { src: "/images/blog/science-behind-bfr-1-1.webp", alt: "Header image for 'The Science Behind Blood Flow Restriction, Part 1'" },
+    inlineImages: [
+      { src: "/images/blog/science-behind-bfr-1-2.webp", alt: "Figure from 'The Science Behind Blood Flow Restriction, Part 1'", afterParagraphIndex: 0 },
+    ],
     paragraphs: [
       { tag: "p", text: `Many people wonder how blood flow restriction can be so effective at loads as light as 20-40% 1 RM in producing similar gains in muscle mass and (to a lesser extent) strength as heavier load (60-70+% 1RM) protocols.` },
       { tag: "p", text: `It all comes down to understanding three main concepts: the force-velocity (FV) curve, fatigue and the effect of fatigue on muscle activation patterns.` },
@@ -1783,6 +1980,10 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Rolnick, DPT",
     date: "Jan 17",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/muscle-activation-patterns",
+    heroImage: { src: "/images/blog/muscle-activation-patterns-1.webp", alt: "Header image for 'The Science Behind Blood Flow Restriction, Part 3'" },
+    inlineImages: [
+      { src: "/images/blog/muscle-activation-patterns-2.webp", alt: "Figure from 'The Science Behind Blood Flow Restriction, Part 3'", afterParagraphIndex: 5 },
+    ],
     paragraphs: [
       { tag: "p", text: `Many people wonder how blood flow restriction can be so effective at loads as light as 20-40% 1 RM in producing similar gains in muscle mass and (to a lesser extent) strength as heavier load (60-70+% 1RM) protocols.` },
       { tag: "p", text: `It all comes down to understanding three main concepts: the force-velocity (FV) curve, fatigue and the effect of fatigue on muscle activation patterns.` },
@@ -1801,6 +2002,8 @@ export const BLOG_POST_BODIES: Record<string, BlogPostBody> = {
     author: "Nick Rolnick, DPT",
     date: "Jan 17",
     legacyUrl: "https://www.thebfrpros.com/bfr-blog/brr-fatigue",
+    heroImage: { src: "/images/blog/brr-fatigue.webp", alt: "Header image for 'The Science Behind Blood Flow Restriction, Part 2'" },
+    inlineImages: [],
     paragraphs: [
       { tag: "p", text: `Many people wonder how blood flow restriction can be so effective at loads as light as 20-40% 1 RM in producing similar gains in muscle mass and (to a lesser extent) strength as heavier load (60-70+% 1RM) protocols.` },
       { tag: "p", text: `It all comes down to understanding three main concepts: the force-velocity (FV) curve, fatigue and the effect of fatigue on muscle activation patterns.` },

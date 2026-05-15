@@ -6,6 +6,7 @@ import BlogPostsList from "@/components/sections/blog/BlogPostsList";
 import BioFinalCTA from "@/components/sections/about/BioFinalCTA";
 import { BLOG_META, BLOG_FINAL_CTA } from "@/content/blog";
 import { BLOG_POSTS } from "@/lib/constants";
+import { BLOG_POST_BODIES } from "@/content/blog-posts";
 import { SITE_MENU_LINKS } from "@/lib/menus";
 import { buildBlogSchemaGraph } from "@/lib/schema";
 
@@ -51,13 +52,19 @@ export default function BlogPage() {
     })),
   });
 
+  // Resolved server-side so the heavy BLOG_POST_BODIES module stays out
+  // of the /blog client bundle (BlogPostsList only needs the heroImage).
+  const heroBySlug = Object.fromEntries(
+    BLOG_POSTS.map((p) => [p.slug, BLOG_POST_BODIES[p.slug]?.heroImage]),
+  );
+
   return (
     <>
       <Header menuLinks={SITE_MENU_LINKS} />
 
       <main id="main">
         <BlogHero />
-        <BlogPostsList />
+        <BlogPostsList heroBySlug={heroBySlug} />
         <BioFinalCTA
           eyebrow={BLOG_FINAL_CTA.eyebrow}
           headline={BLOG_FINAL_CTA.headline}

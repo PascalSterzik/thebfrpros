@@ -93,6 +93,7 @@ export default function BlogPostPage({
     date: body.date,
     category: indexEntry.category,
     articleBody,
+    heroImageSrc: body.heroImage?.src,
   });
 
   return (
@@ -105,6 +106,7 @@ export default function BlogPostPage({
           category={indexEntry.category}
           author={body.author}
           date={body.date}
+          heroImage={body.heroImage}
         />
         <BlogPostBody post={body} />
         <BioFinalCTA
