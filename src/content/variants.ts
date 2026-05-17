@@ -1,10 +1,17 @@
-// Variant-specific copy and metadata. Sections that change between v1, v2, and v3:
-// announcement bar, hero, problem, dream vision, dream deep dive, solution bridge,
-// final CTA frame, and P.S. Everything else (curriculum, instructors, bonuses,
-// CEUs, visual proof, testimonials, partners, pricing, guarantee, FAQ) is shared.
+// Canonical /get-certified copy and metadata.
+//
+// History: Phase 1A built three concept variants (v1 research-authority,
+// v2 equipment-agnostic, v3 patient-demand) for Pascal + Nick to review at
+// /preview. v3 was picked as the canonical /get-certified. Retired
+// 2026-05-17 (duplicate-content SEO problem): the v1/v2 routes 301 to
+// /get-certified via src/middleware.ts, the noindex /preview index was
+// deleted and now 404s. Only the canonical v3 content survives. The
+// `Variant` type is unchanged so the data-driven section components
+// (HeroBlock, ProblemBlock, DreamVisionBlock, DreamDeepBlock, BridgeBlock,
+// FinalCTABlock, PSBlock) keep consuming it.
 
 export type Variant = {
-  slug: "v1" | "v2" | "v3";
+  slug: "v3";
   routePath: string;
   belief: string;
   beliefNumber: number;
@@ -61,167 +68,7 @@ export type Variant = {
   ps: string[];
 };
 
-const photoCommon = "Dr. Nicholas Rolnick applying a blood flow restriction cuff to a patient's biceps";
-
-export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
-  v1: {
-    slug: "v1",
-    routePath: "/get-certified-v1",
-    belief: "Belief 5: research-source authority",
-    beliefNumber: 5,
-    metaTitle: "BFR Certification Built on 72+ Peer-Reviewed Publications",
-    metaDescription:
-      "Earn 11.75 CEUs in 37 modules taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. Equipment-agnostic, evidence-based, 30-day money-back guarantee.",
-    ogImage: "/og/v1",
-    announcement: {
-      // No "cohort" framing — the cert is on-demand self-paced. Forbidden
-      // Claims grep gate in brand-guide.md blocks "cohort" sitewide.
-      eyebrow: "Built on 72+ peer-reviewed publications",
-      line: "Learn BFR from the source of 72+ peer-reviewed publications.",
-      cta: "Explore the certification",
-    },
-    hero: {
-      eyebrow: "The Complete BFR Certification",
-      headline: "Learn BFR from the source of 72+ peer-reviewed publications",
-      subhead:
-        "Dr. Nicholas Rolnick has authored 72+ peer-reviewed BFR publications, and The Complete BFR Certification is built on that body of work. 37 modules. 11.75 CEUs. Zero cuff sales pitches.",
-      primaryCta: "Enroll Now for $449",
-      secondaryCta: "See what's inside",
-      supportingStat: [
-        { value: "72+", label: "peer-reviewed BFR publications" },
-        { value: "11.75", label: "CEUs (BOC + state PT boards)" },
-        { value: "37", label: "modules across 4 courses" },
-        { value: "4.7", label: "stars from 712 reviews" },
-      ],
-      photoSrc: "/images/instructors/rolnick-portrait.jpg",
-      photoAlt: "Dr. Nicholas Rolnick, founder of The BFR Pros, in a Manhattan clinical practice setting",
-    },
-    problem: {
-      label: "The problem",
-      headline: "Keep reading abstracts on your lunch break, or learn from the source",
-      intro:
-        "You know what BFR is. You've watched the YouTube videos. You've read the Frontiers paper twice. You're not in the dark, you're in the wrong room.",
-      surface:
-        "You're saving PubMed tabs, comparing cuff specs at midnight, and Googling \"best BFR certification\" with five tabs open. Every search returns the same six options and the same six sales pages.",
-      emotional:
-        "Half of being a clinician is being marketed to by people who used to be clinicians. Each course feels like a pitch dressed as education. You're tired of being sold to and you don't know who is teaching from the science and who is teaching from the catalog.",
-      future:
-        "Twelve months go by. Your post-op ACL outcomes plateau in late-stage rehab. The patient who asked you about cuffs last week is now training with a clinic that did the certification you didn't.",
-      visceral:
-        "The problem isn't that you don't have time. It's that you don't have a single trustworthy source to learn from. So the tabs stay open and another quarter passes.",
-    },
-    dreamVision: {
-      label: "The destination",
-      headline: "Six months from now, your post-op ACL patients hit late-stage strength benchmarks on schedule",
-      paragraphs: [
-        "It's a clinic afternoon. The patient on your table is week 18 post-op and the LSI is 86%. Last visit you applied the cuff yourself, set the pressure to 70% of limb occlusion, and walked them through the same low-load protocol you've used with the last seven post-op knees. They didn't ask if it would work. They trusted you, the way patients trust clinicians who know their tools.",
-        "On the computer beside you is the screening form from Bonus #2, filled out for tomorrow's first BFR consult. The surgeon down the hall has started CC'ing you on post-op orders. The peer at the clinic across the street stopped by last week to ask which cuff you went with and why. You answered in two sentences.",
-        "Tonight you are not on PubMed. You are reading a chapter for fun, because you no longer need PubMed to know what works.",
-      ],
-    },
-    dreamDeep: {
-      label: "Who you become",
-      headline: "You are already the clinician who reads the research, you become the one who teaches it",
-      paragraphs: [
-        "You're not chasing a fad and you never were. The science was always going to win and you bet on the side with the publication trail. That's who you've been since DPT school.",
-        "Six months from now, the local APTA chapter asks you to present on BFR for post-op return-to-sport. You don't say yes because you need the credential. You say yes because you have the cases, the protocols, and the receipts. You stand at the front of the room and say specific things from memory.",
-        "Twelve months from now, the new graduates at your clinic ask you which BFR course they should take. You tell them. You don't sell them. You tell them.",
-      ],
-    },
-    bridge: {
-      line: "You don't need a different cuff. You need the curriculum the cuff manufacturers don't want you to see. The Complete BFR Certification is built on 72+ peer-reviewed publications by the practitioner teaching it, and it doesn't ship with a single product to upsell.",
-    },
-    finalCta: {
-      headline: "Learn BFR from the source of 72+ peer-reviewed publications, or read another abstract",
-      subhead:
-        "11.75 hours of video content. 11.75 CEUs. 37 modules. $449. 30-day money-back guarantee. Do it in a weekend or take 4 weeks. Lifetime access either way.",
-      warning:
-        "Every quarter you don't decide is a quarter your outcomes stay where they are and the patient on next week's schedule asks the question you don't yet have the answer to. The research isn't moving slower. You are.",
-      primary: "Enroll for $449",
-    },
-    ps: [
-      "P.S. The certification is the technique, not the cuff. If a year from now you switch from Delfi to SmartCuffs to LiveBand, you don't pay for re-education. The curriculum doesn't depend on what's in your closet. The 30-day money-back guarantee is the rest of the trade.",
-      "P.P.S. You've been telling yourself you'll get to it for years. The tab is open. The certification is the same price tonight as it is next quarter, and you are 11.75 hours away from being able to apply it on Monday.",
-    ],
-  },
-  v2: {
-    slug: "v2",
-    routePath: "/get-certified-v2",
-    belief: "Belief 3: equipment-agnostic differentiator",
-    beliefNumber: 3,
-    metaTitle: "The Only BFR Certification That Doesn't Sell You a Cuff",
-    metaDescription:
-      "Equipment-agnostic BFR certification. Works with Delfi, SmartCuffs, B Strong, LiveBand. 37 modules, 11.75 CEUs, 72+ peer-reviewed publications. 30-day money-back.",
-    ogImage: "/og/v2",
-    announcement: {
-      eyebrow: "Equipment-agnostic by design",
-      line: "The only BFR certification that doesn't sell you a cuff.",
-      cta: "See why it matters",
-    },
-    hero: {
-      eyebrow: "The Complete BFR Certification",
-      headline: "The only BFR certification that doesn't sell you a cuff",
-      subhead:
-        "Owens sells you Delfi. NE Seminars bundles you a cuff. Smart Tools sells you SmartCuffs. We don't sell anything you wear. We teach the technique, not the equipment, so the certification still works when the cuff in your closet doesn't.",
-      primaryCta: "Enroll Now for $449",
-      secondaryCta: "Compare the alternatives",
-      supportingStat: [
-        { value: "0", label: "cuffs in the bundle" },
-        { value: "11.75", label: "CEUs" },
-        { value: "37", label: "modules across 4 courses" },
-        { value: "$449", label: "single bundle, no upsells" },
-      ],
-      photoSrc: "/images/action/rolnick-applying-cuff.jpg",
-      photoAlt: photoCommon,
-    },
-    problem: {
-      label: "The problem",
-      headline: "Half of being a clinician is being marketed to by people who used to be clinicians",
-      intro:
-        "Every BFR course you've shopped came with a product attached. The curriculum is shaped by what the manufacturer wants you to buy. You can't tell where the education ends and the catalog begins.",
-      surface:
-        "Owens is excellent education. The Delfi PTS it requires is $5,000 your clinic owner won't approve. NE Seminars bundles cuffs at $649, but the cuffs are one specific brand. Smart Tools sells SmartCuffs and trains you on SmartCuffs. KAATSU sells KAATSU.",
-      emotional:
-        "You did not go through three years of DPT school to become someone else's distribution channel. You wanted to specialize. You didn't want to inherit a vendor relationship as part of the deal.",
-      future:
-        "If you pick the cheapest cuff today and the research moves to a different design in 18 months, you didn't buy a certification. You bought a stuck position. You'll have to relearn it on someone else's product, and you'll have to explain to your clinic owner why.",
-      visceral:
-        "You can feel the sales funnel from the second the page loads. So your finger hovers over buy and then you close the tab.",
-    },
-    dreamVision: {
-      label: "The destination",
-      headline: "Three years from now, you've been through three different cuff systems and the certification still works",
-      paragraphs: [
-        "Year one you used the Delfi the surgeon's office had on loan. Year two your clinic bought SmartCuffs because the price-to-feature ratio made sense for your patient mix. This year you're testing a LiveBand setup because the research data on cuff width is interesting and you want to see it on your own floor.",
-        "None of those switches required a new course. The screening form from Bonus #2 didn't change. The pressure prescription framework didn't change. The patient outcomes didn't change.",
-        "When the next-generation BFR cuff arrives in three years and the manufacturer hasn't built a curriculum yet, you're not waiting for one. You already know how to evaluate it.",
-      ],
-    },
-    dreamDeep: {
-      label: "Who you become",
-      headline: "You are the clinician who picks the equipment, not the clinician the equipment picks",
-      paragraphs: [
-        "Patients ask you which cuff is best. You don't recite a brand. You ask three questions about their goals, their schedule, and what their insurance will cover, and you make a recommendation that fits them.",
-        "When a sales rep walks into your clinic with a new BFR product, you don't get pitched. You ask them about pressure-cycling protocols and arterial Doppler accuracy and watch them flip through their slide deck looking for the answer. You leave the meeting with information. They leave it with respect.",
-        "Six months from now, a peer at the next clinic over asks if she should switch from Delfi to SmartCuffs. You don't tell her yes or no. You tell her what to weigh and you watch her decide. That is what a specialist sounds like.",
-      ],
-    },
-    bridge: {
-      line: "The certification is the technique, not the cuff. The only way that's true is if the certification was designed without one. The Complete BFR Certification is the only program that was.",
-    },
-    finalCta: {
-      headline: "Buy the certification, not the inventory",
-      subhead:
-        "$449 for the full 37-module bundle, 11.75 CEUs, 11 implementation bonuses, and 30 days to ask for your money back. No cuff in the cart. No SKU at checkout. Just the curriculum.",
-      warning:
-        "Every cuff you buy under the wrong assumption is a sunk cost. Every course tied to that cuff doubles the sunk cost. The cheapest version of this lesson is the one where you learn the technique first and the equipment second.",
-      primary: "Enroll for $449",
-    },
-    ps: [
-      "P.S. Bonus #4 is a list of negotiated discount codes across Delfi, SmartCuffs, B Strong, and LiveBand. We negotiated those because we don't sell any of them. The codes get cheaper when the seller doesn't have a margin to protect.",
-      "P.P.S. The fastest way to find out if a BFR course is selling you a cuff is to read the order page. Read ours. Then read theirs.",
-    ],
-  },
+export const VARIANTS: Record<"v3", Variant> = {
   v3: {
     slug: "v3",
     routePath: "/get-certified",
@@ -230,7 +77,7 @@ export const VARIANTS: Record<"v1" | "v2" | "v3", Variant> = {
     metaTitle: "Your Patients Are Already Asking for BFR. Be the Clinic That Delivers.",
     metaDescription:
       "Patients are searching for BFR providers in your zip code. Get certified in 37 modules and 11.75 CEUs before the clinic across the street does. 30-day money-back guarantee.",
-    ogImage: "/og/v3",
+    ogImage: "/og/get-certified",
     announcement: {
       eyebrow: "Patient demand is rising",
       line: "Your competitors are getting certified. Be the BFR clinic patients in your zip code find first.",

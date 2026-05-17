@@ -31,14 +31,13 @@ export const SITE = {
     twitter: "https://x.com/thebfrpros",
   },
   // The same Cloudflare-fronted Vercel project serves the homepage at / and the
-  // /get-certified variants at /get-certified (default v3) plus -v1 / -v2.
-  // The internal variant-review index has moved to /preview.
+  // canonical /get-certified certification page. The Phase 1A v1/v2 concept
+  // variants were retired 2026-05-17 and 301 to /get-certified
+  // (src/middleware.ts); the internal /preview review index was deleted and
+  // now 404s (no SEO value, was noindex).
   routes: {
     home: "/",
-    preview: "/preview",
-    v1: "/get-certified-v1",
-    v2: "/get-certified-v2",
-    v3: "/get-certified",
+    getCertified: "/get-certified",
   },
 } as const;
 

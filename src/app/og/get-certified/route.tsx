@@ -3,17 +3,15 @@ import { VARIANTS } from "@/content/variants";
 
 export const runtime = "edge";
 
-// §Pascal-2026-05-08 v12: dynamic OG card per variant. Compacta Bold heading
-// + brand navy gradient + accent line. Cached at the edge by Vercel.
+// Static OG card for the canonical /get-certified certification page.
+// Replaced the dynamic /og/[variant] route 2026-05-17 when the v1/v2 concept
+// variants were retired — there is one cert page now, so one cert OG card.
+// Compacta Bold heading + brand navy gradient + accent rule. Cached at the
+// edge by Vercel.
+const v = VARIANTS.v3;
 const SIZE = { width: 1200, height: 630 };
-export async function GET(
-  _req: Request,
-  { params }: { params: { variant: string } },
-) {
-  const key = params.variant as keyof typeof VARIANTS;
-  const v = VARIANTS[key];
-  if (!v) return new Response("Variant not found", { status: 404 });
 
+export async function GET() {
   const fontData = await fetch(
     new URL("../../fonts/CompactaBold.otf", import.meta.url),
   ).then((r) => r.arrayBuffer());
