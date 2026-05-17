@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { DM_Sans, EB_Garamond } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { GA_MEASUREMENT_ID } from "@/lib/constants";
 import "./globals.css";
 
 // Compacta Bold is The BFR Pros' brand display font (self-hosted from Assets/Fonts).
@@ -88,7 +90,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable} ${fontQuote.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+      </body>
     </html>
   );
 }

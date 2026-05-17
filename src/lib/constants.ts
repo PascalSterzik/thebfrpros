@@ -12,6 +12,11 @@ export const ENROLL_URL =
 // transports. One-line swap, no other code changes needed.
 export const CONTACT_FORM_ENDPOINT = "mailto:nick@thebfrpros.com";
 
+// GA4 Measurement ID. Wired into the app via @next/third-parties/google in
+// src/app/layout.tsx. Kept here (not an env var) so the live tag is committed,
+// discoverable, and a one-line swap if the property ever changes.
+export const GA_MEASUREMENT_ID = "G-XJX750B0KW";
+
 export const SITE = {
   domain: "thebfrpros.com",
   origin: "https://thebfrpros.com",
