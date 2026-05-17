@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { BLOG_POSTS, SITE } from "@/lib/constants";
+import { BLOG_POSTS } from "@/lib/constants";
 
 // Dynamic sitemap served at /sitemap.xml (App Router convention). Replaced the
 // hand-maintained public/sitemap.xml on 2026-05-17, which had drifted to 4 URLs
@@ -8,10 +8,16 @@ import { BLOG_POSTS, SITE } from "@/lib/constants";
 // BLOG_POSTS so the sitemap can never fall behind the blog again. Excluded by
 // design: the retired concept-variant routes (/get-certified-v1,
 // /get-certified-v2 — they 301), the deleted /preview index, and every /og/*
-// image route. SITE.origin is the canonical non-www host; next.config has
-// trailingSlash:false, so only "/" carries a trailing slash.
-
-const ORIGIN = SITE.origin;
+// image route. next.config has trailingSlash:false, so only "/" carries a
+// trailing slash.
+//
+// Canonical host is the WWW form. The apex https://thebfrpros.com 308-redirects
+// to https://www.thebfrpros.com, so emitting the apex form here would force
+// Google through an extra hop on every crawled URL. We deliberately do NOT use
+// SITE.origin from lib/constants (that is the apex form, consumed with apex
+// semantics by lib/schema.ts ~40x + robots.txt — flipping it is a separate
+// sitewide decision). Local override to the canonical www host instead.
+const ORIGIN = "https://www.thebfrpros.com";
 
 type ChangeFrequency = NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
 
