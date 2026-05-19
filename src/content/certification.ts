@@ -199,26 +199,35 @@ export type CertificationContent = {
     reuseConstant: "CEU_COURSE_APPROVALS | CEU_PROFESSION_SCOPE";
   };
 
-  // Section 12: Bonuses + value stack. 11 bonuses, value framing.
-  bonuses: {
-    label: string;
-    headline: string;
-    intro: string;
-    valueLine: string;
-    reuseConstant: "BONUSES | PRICING";
-  };
-
-  // Section 13: Pricing + guarantee. Single price, no fake tiers.
+  // Section 12: Pricing. The price for the CORE certification ONLY. No
+  // bonuses named here. Bonuses are revealed AFTER the price (Section 13) so
+  // they land as a free surprise on top, never as value folded into the
+  // anchor. Hard rule, do not re-invert: copywriting-principles.md Bonus
+  // Sequencing (Pascal masterclass, 2026-05-19).
   pricing: {
     label: string;
     headline: string;
     priceFrame: string;
-    whatYouGet: string[];
-    guaranteeHeadline: string;
-    guaranteeBody: string;
-    refundTermsAboveCta: string; // proximate refund disclosure
+    whatYouGet: string[]; // core certification deliverables ONLY, no bonuses
+    refundTermsAboveCta: string; // proximate refund disclosure (compliance)
     primaryCta: string;
     reuseConstant: "PRICING | STATS | ENROLL_URL";
+  };
+
+  // Section 13: Bonuses, revealed AFTER the price as an unexpected free
+  // stack. The $449 was for the certification; every item here is included
+  // at no extra cost on top of it. The guarantee lands after the full stack.
+  bonuses: {
+    label: string;
+    headline: string;
+    preface: string; // the surprise: none of this adds a dollar to the price
+    intro: string;
+    valueLine: string;
+    stackRecap: string; // $449 for the cert, all of this free on top
+    guaranteeHeadline: string;
+    guaranteeBody: string;
+    primaryCta: string;
+    reuseConstant: "BONUSES | PRICING";
   };
 
   // Section 14: Objection FAQ. The avatar's real objections.
@@ -486,35 +495,39 @@ export const CERTIFICATION: CertificationContent = {
     reuseConstant: "CEU_COURSE_APPROVALS | CEU_PROFESSION_SCOPE",
   },
 
-  bonuses: {
-    label: "WHAT COMES WITH IT",
-    headline: "ELEVEN IMPLEMENTATION TOOLS BUILT FOR THE CLINIC FLOOR",
-    intro:
-      "These are not filler. They are the difference between knowing BFR and running it on Monday: the liability waiver clinics use to adopt it into consent, the screening form you risk-stratify against before the first cuff goes on, the module-by-module bibliography you bring to the surgeon conversation, the 481-page searchable workbook for the floor, and the private group where Dr. Rolnick answers implementation questions in real time.",
-    valueLine:
-      "Session C: render the BONUSES constant with its per-item values and the PRICING value framing (advertised value $1,454, single price $449, plus up to $640 in negotiated cuff discounts called out separately, not folded into the value math).",
-    reuseConstant: "BONUSES | PRICING",
-  },
-
   pricing: {
-    label: "WHAT IT COSTS",
-    headline: "ONE PRICE, ONE GUARANTEE, NO FAKE TIERS",
+    label: "WHAT THE CERTIFICATION COSTS",
+    headline: "ONE PRICE FOR THE CERTIFICATION, NO FAKE TIERS",
     priceFrame:
-      "$449. One price for the full certification. No upsell ladder, no priced-up version dangled next to a stripped-down one. At 11.75 CEUs that is roughly $38 a CEU, against a single-day device-bundled course that needs a cuff you may never afford and a generic CEU module that was never built to translate. Two patients you keep instead of lose covers it.",
+      "$449 for the full certification. Not a stripped-down tier with the real version dangled above it. Not an upsell ladder. One price for all 37 modules, 11.75 hours of video, and 11.75 CEUs, taught by the author of 72+ peer-reviewed BFR publications who still treats patients weekly. At 11.75 CEUs that is roughly $38 a CEU, for a credential a single-day device-bundled course cannot match without a cuff you may never afford. Two post-op patients you keep instead of lose covers it. The certification is worth the $449 on its own, before anything else is added to it.",
     whatYouGet: [
       "37 modules across 4 courses, 11.75 hours of video, 11.75 CEUs",
       "Self-paced and on-demand. Do it in a weekend or take 4 weeks",
       "Equipment-agnostic: runs on the cuffs your clinic already owns",
-      "11 implementation bonuses including the bibliography, screening forms, and the private practitioner group",
-      "30-day money-back guarantee",
+      "Approved for CEUs with concrete boards and dates, within APTA scope and NATA-approved",
     ],
-    guaranteeHeadline: "THE 30-DAY TURN-IT-ON-OR-TURN-IT-BACK GUARANTEE",
-    guaranteeBody:
-      "Take the curriculum, run BFR with a real patient, and if it does not earn a place in your practice inside 30 days, email us and we refund every dollar. No exit survey, no retention call, no hoops. The guarantee asks you to try it, not to commit forever. We can offer it plainly because of the number above: 1 of 1,467 graduates has ever used it.",
     refundTermsAboveCta:
       "30-day money-back guarantee. Email to request, refund processed, no questions. Guarantor: The BFR Pros, LLC.",
     primaryCta: "Get BFR Certified",
     reuseConstant: "PRICING | STATS | ENROLL_URL",
+  },
+
+  bonuses: {
+    label: "NOW THE PART NOBODY WARNED YOU ABOUT",
+    headline: "EVERYTHING BELOW IS FREE, ON TOP OF THE $449 YOU JUST SAW",
+    preface:
+      "The price you just read is for the certification itself: the modules, the CEUs, the instruction. It is worth that on its own. Here is what nobody told you on the way in. Every one of the eleven tools below comes with it, and not a single one of them adds a dollar to the price. You are not paying $449 for the certification and the bonuses. You are paying $449 for the certification. The bonuses come with it, free.",
+    intro:
+      "These are not filler and they are not theory. They are the difference between knowing BFR and running it on Monday: the liability waiver clinics use to adopt it into consent, the screening form you risk-stratify against before the first cuff goes on, the module-by-module bibliography you bring to the surgeon conversation, the 481-page searchable workbook for the floor, and the private group where Dr. Rolnick answers implementation questions in real time.",
+    valueLine:
+      "Session C: render the BONUSES constant with its per-item values, every item explicitly marked as included at no additional cost ON TOP OF the $449 already shown above. Value math from the PRICING constant, framed as: the certification is $449, the eleven tools stack on top for free, total advertised value $1,454, paid for the certification alone. The up-to-$640 in negotiated cuff discounts is called out separately and is NOT folded into the value math.",
+    stackRecap:
+      "$449 for the certification. Eleven implementation tools stacked on top of it. None of them moved the price by a dollar. You pay for the certification, you walk out with all of it.",
+    guaranteeHeadline: "THE 30-DAY TURN-IT-ON-OR-TURN-IT-BACK GUARANTEE",
+    guaranteeBody:
+      "Take the curriculum and every tool that came with it, run BFR with a real patient, and if it does not earn a place in your practice inside 30 days, email us and we refund every dollar. No exit survey, no retention call, no hoops. The guarantee asks you to try it, not to commit forever. We can offer it plainly because of one number: 1 of 1,467 graduates has ever used it.",
+    primaryCta: "Get BFR Certified",
+    reuseConstant: "BONUSES | PRICING",
   },
 
   faq: {
@@ -615,6 +628,7 @@ export const CERTIFICATION: CertificationContent = {
   },
 
   complianceNotes: [
+    "STRUCTURAL, do not re-invert: the price (Section 12) is revealed BEFORE the bonuses (Section 13). The $449 anchors to the core certification alone; the eleven bonuses are then stacked on top as a free surprise that adds zero to the price. Session C must render pricing before bonuses and must not list any bonus inside pricing.whatYouGet. Reversing this folds the bonus value into the price anchor and collapses the perceived-value multiplier. Hard rule: copywriting-principles.md Bonus Sequencing (Pascal masterclass, 2026-05-19). Note: the existing /get-certified page has the same inversion; Pascal is fixing that separately, do not propagate it here.",
     "Net Impression on every clinical claim: BFR is presented as an evidence-backed modality (72+ peer-reviewed publications, settled mechanism), not as a guaranteed patient outcome. Safety incidence figures are attributed to the 13,000-person BFR safety survey, stated as survey-reported rates.",
     "No earnings or income claim is made. 'Become the local specialist', 'cash-pay', and 'surgeons send their tough cases to you' are framed as positioning and as the avatar's own stated aspiration, not as a promised financial result. No dollar figure or multiplier is presented as an outcome the buyer will achieve.",
     "Testimonials (Lee, Whyte, Toderico, Nightingale) are verbatim from the live bfrtraining.com course page via the TESTIMONIALS constant. Four Pillars: real and named (consent via published-on-own-site source), substantiated (real graduates), typicality stated proximate via proof.typicalityNote and footer.testimonialDisclaimer, proximate disclosure rendered next to the wall by Session C.",
