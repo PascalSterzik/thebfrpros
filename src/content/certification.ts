@@ -4,6 +4,16 @@
 // for the standalone cold-paid campaign page at /certification. Session C
 // builds the UI from this object and does NOT rewrite the words.
 //
+// REVISION-01 (Pascal, 2026-05-20): hero subhead trimmed to the One-Liner only
+// (feature-stack trailing clause removed); every primary CTA label unified to
+// "Get BFR Certified From Home"; per-section highlight phrases added for the
+// brand Highlighted underline-accent treatment; new Section 13b Value Stack
+// block added (recap, not a price anchor, gotcha #97 still holds); the
+// lead-magnet block stays in the content object but is TEMPORARILY UNUSED on
+// the page until the nurture pipeline is wired (see REVISION-01.md §8 and
+// PLAN.md §6 deferral note). The full change spec is
+// Agency/Clients/The BFR Pros/Deliverables/Certification-Landing-Page/REVISION-01.md.
+//
 // Scope guardrails (PLAN.md §1, §8, §11):
 //  - Additive. Does NOT touch src/content/variants.ts (the A/B-locked v3
 //    contract for /get-certified). Different concept (vendor-neutral identity)
@@ -20,18 +30,18 @@
 //
 // Reuse contract for Session C: wire the existing brand-locked constants from
 // src/lib/constants.ts wherever a `reuseConstant` note appears, do NOT
-// re-key their values here. Constants referenced: ENROLL_URL, STATS, PRICING,
-// ROLNICK, LICAMELI, FEATURED_IN, CEU_COURSE_APPROVALS, CEU_PROFESSION_SCOPE,
+// re-key their values here. Constants referenced: CERTIFICATION_ENROLL_URL
+// (campaign-scoped, NOT the global ENROLL_URL), STATS, PRICING, ROLNICK,
+// LICAMELI, FEATURED_IN, CEU_COURSE_APPROVALS, CEU_PROFESSION_SCOPE,
 // TESTIMONIALS, CURRICULUM, BONUSES, COMPETITOR_TABLE. The copy strings here
 // (headlines, intros, framing) are what this file owns; the structured data
 // (module lists, exact stat values, testimonial text) stays in constants.
 //
 // The hero shape, problem 4-layer shape, finalCta shape, and ps[] mirror the
-// `Variant` type so Session C can reuse HeroBlock / ProblemBlock /
-// FinalCTABlock / PSBlock unchanged. The campaign-only sections define what
-// the 19-section architecture needs.
+// `Variant` type so Session C can reuse the matching block patterns. The
+// campaign-only sections define what the 19-section architecture needs.
 //
-// Editorial gates already run on this copy (Session B):
+// Editorial gates already run on this copy (Session B + Rev 1):
 //  - brand-guide Forbidden Claims grep: clean (no "leading", "gold standard",
 //    "most-published", "world-class", "best-in-class", "cutting-edge",
 //    "act now", "spots filling", "limited time", "new cohort").
@@ -71,8 +81,9 @@ export type CertificationContent = {
     visualCredibilityMatch: string;
   };
 
-  // Section 0: stripped campaign header (logo + single text CTA, no site nav)
-  // + slim sticky CTA bar that appears on scroll.
+  // Section 0: stripped campaign header (logo + single text CTA, no site nav).
+  // The bottom StickyCTABar was retired in Rev 1 (REVISION-01.md §2); the top
+  // sticky header is the single persistent CTA on the page.
   header: {
     logoAlt: string;
     navCta: string;
@@ -84,6 +95,7 @@ export type CertificationContent = {
   hero: {
     eyebrow: string;
     headline: string;
+    highlight: string;
     subhead: string;
     primaryCta: string;
     secondaryCta: string;
@@ -103,10 +115,13 @@ export type CertificationContent = {
   };
 
   // Section 3: The Loading Wall (Problem). Mirrors Variant.problem 4-layer
-  // shape for ProblemBlock reuse. Verbatim avatar quotes preserved as-is.
+  // shape. Verbatim avatar quotes preserved as-is. Rendered by the
+  // campaign-only CertProblemBlock (Rev 1) so the highlight phrase here
+  // applies without touching the shared ProblemBlock.
   problem: {
     label: string;
     headline: string;
+    highlight: string;
     intro: string;
     surface: string;
     emotional: string;
@@ -119,6 +134,7 @@ export type CertificationContent = {
   ump: {
     label: string;
     headline: string;
+    highlight: string;
     body: string[];
     pullStat: { value: string; label: string };
   };
@@ -127,6 +143,7 @@ export type CertificationContent = {
   shift: {
     label: string;
     headline: string;
+    highlight: string;
     discovery: string[];
     evidenceLine: string;
     reuseConstant: "STATS";
@@ -137,6 +154,7 @@ export type CertificationContent = {
   enemy: {
     label: string;
     headline: string;
+    highlight: string;
     body: string[];
     namedReveal: string;
     drawerLine: string;
@@ -148,6 +166,7 @@ export type CertificationContent = {
   difference: {
     label: string;
     headline: string;
+    highlight: string;
     pillars: { title: string; body: string }[];
     tableIntro: string;
     tableNote: string;
@@ -158,6 +177,7 @@ export type CertificationContent = {
   curriculum: {
     label: string;
     headline: string;
+    highlight: string;
     intro: string;
     // One capability framing per course. Module data (titles, durations)
     // comes from the CURRICULUM constant; this is the "so what" copy that
@@ -170,15 +190,20 @@ export type CertificationContent = {
   instructor: {
     label: string;
     headline: string;
+    highlight: string;
     rolnick: string[];
     licameli: string;
     reuseConstant: "ROLNICK | LICAMELI";
   };
 
   // Section 10: Proof. Verbatim testimonials + stats strip + 1-of-1,467.
+  // Rev 1 added a video-testimonials block above the text wall via the new
+  // CertVideoTestimonials component (5 muted-loop slots; placeholders until
+  // assets are supplied).
   proof: {
     label: string;
     headline: string;
+    highlight: string;
     statsIntro: string;
     refundProofLine: string;
     testimonialsNote: string;
@@ -187,6 +212,25 @@ export type CertificationContent = {
     // wall (FTC Four Pillars). Session C renders this next to the quotes, not
     // in the footer.
     typicalityNote: string;
+    videoTestimonials: {
+      label: string;
+      headline: string;
+      highlight: string;
+      intro: string;
+      slots: {
+        id: string;
+        name: string;
+        role: string;
+        // Optional: short muted-loop preview clip (mp4/webm). When omitted,
+        // the card renders a static poster + play icon only.
+        loopSrc?: string;
+        // Optional: full audio testimonial swapped in on click. When omitted,
+        // the card stays at the poster state (asset still pending).
+        videoSrc?: string;
+        poster: string;
+        posterAlt: string;
+      }[];
+    };
   };
 
   // Section 11: Approvals / CEUs. Concrete dates.
@@ -207,11 +251,12 @@ export type CertificationContent = {
   pricing: {
     label: string;
     headline: string;
+    highlight: string;
     priceFrame: string;
     whatYouGet: string[]; // core certification deliverables ONLY, no bonuses
     refundTermsAboveCta: string; // proximate refund disclosure (compliance)
     primaryCta: string;
-    reuseConstant: "PRICING | STATS | ENROLL_URL";
+    reuseConstant: "PRICING | STATS | CERTIFICATION_ENROLL_URL";
   };
 
   // Section 13: Bonuses, revealed AFTER the price as an unexpected free
@@ -220,6 +265,7 @@ export type CertificationContent = {
   bonuses: {
     label: string;
     headline: string;
+    highlight: string;
     preface: string; // the surprise: none of this adds a dollar to the price
     intro: string;
     valueLine: string;
@@ -228,6 +274,29 @@ export type CertificationContent = {
     guaranteeBody: string;
     primaryCta: string;
     reuseConstant: "BONUSES | PRICING";
+  };
+
+  // Section 13b: Value Stack (Rev 1, REVISION-01.md §7). The classic Hormozi
+  // recap. Lives AFTER both pricing (12) and bonuses (13). Gotcha #97 still
+  // holds: this is a recap, not a new price anchor; the $449 has already been
+  // shown standalone and the bonuses have already been revealed as $0 added.
+  // Totals are computed at render time from the PRICING / CURRICULUM /
+  // BONUSES constants, not duplicated as string values here.
+  valueStack: {
+    label: string;
+    headline: string;
+    highlight: string;
+    intro: string;
+    coreLabel: string; // "The Complete BFR Certification (core)" line item
+    coreNote: string; // one-line description of the core deliverable
+    bonusesNote: string; // intro line above the bonus rows
+    cuffDiscountLabel: string; // "Cuff-discount savings" line item
+    cuffDiscountNote: string; // why it's called out separately
+    totalLabel: string;
+    priceLabel: string;
+    savingsLabel: string;
+    primaryCta: string;
+    reuseConstant: "PRICING | CURRICULUM | BONUSES | CERTIFICATION_ENROLL_URL";
   };
 
   // Section 14: Objection FAQ. The avatar's real objections.
@@ -241,15 +310,20 @@ export type CertificationContent = {
   costOfWaiting: {
     label: string;
     headline: string;
+    highlight: string;
     body: string[];
     demandStat: string; // factual, Pascal-validated search-volume data
     firefighterQuote: string; // verbatim patient-demand-pressure quote
     firefighterFrame: string;
   };
 
-  // Section 16: Final CTA. Mirrors Variant.finalCta shape + ps[].
+  // Section 16: Final CTA. Mirrors Variant.finalCta shape + ps[]. Rendered
+  // by the campaign-only CertFinalCTABlock (Rev 1) so the CTA can route to
+  // CERTIFICATION_ENROLL_URL and the highlight phrase here applies without
+  // touching the shared FinalCTABlock.
   finalCta: {
     headline: string;
+    highlight: string;
     subhead: string;
     warning: string;
     primary: string;
@@ -257,6 +331,10 @@ export type CertificationContent = {
   ps: string[];
 
   // Section 17: non-buyer capture (secondary conversion). Lead magnet.
+  // TEMPORARILY UNUSED, see REVISION-01.md §8. The page no longer renders
+  // this block; the LeadMagnetCapture.tsx component file stays in place for
+  // re-enablement when the nurture pipeline is wired. PLAN.md §6 documents
+  // the dual-conversion deferral.
   leadMagnet: {
     label: string;
     headline: string;
@@ -309,17 +387,18 @@ export const CERTIFICATION: CertificationContent = {
 
   header: {
     logoAlt: "The BFR Pros",
-    navCta: "Get certified",
+    navCta: "Get BFR Certified From Home",
     stickyLabel: "The Complete BFR Certification",
-    stickyCta: "Get certified",
+    stickyCta: "Get BFR Certified From Home",
   },
 
   hero: {
     eyebrow: "FOR THE PT WHOSE BFR CUFFS HAVE BEEN IN A DRAWER FOR TWO YEARS",
     headline: "THE BFR CERTIFICATION THAT ISN'T A CUFF COMPANY'S DISTRIBUTION CHANNEL",
+    highlight: "CUFF COMPANY'S DISTRIBUTION CHANNEL",
     subhead:
-      "A lot of physical therapists watch their post-op patients lose strength because they can't load them heavy yet. The BFR Pros teach those PTs to use blood flow restriction with any cuff they already own. Patients keep getting stronger. The PT becomes the one surgeons send their tough cases to. 37 modules, 11.75 CEUs, taught by the author of 72+ peer-reviewed BFR publications, equipment-agnostic, 30-day money-back guarantee.",
-    primaryCta: "Get BFR Certified",
+      "A lot of physical therapists watch their post-op patients lose strength because they can't load them heavy yet. The BFR Pros teach those PTs to use blood flow restriction with any cuff they already own. Patients keep getting stronger. The PT becomes the one surgeons send their tough cases to.",
+    primaryCta: "Get BFR Certified From Home",
     secondaryCta: "See why it's different",
     supportingStat: [
       { value: "72+", label: "peer-reviewed BFR publications by the instructor" },
@@ -347,6 +426,7 @@ export const CERTIFICATION: CertificationContent = {
   problem: {
     label: "THE LOADING WALL",
     headline: "YOU CAN'T LOAD THEM, AND YOU'RE WATCHING THE QUAD GO",
+    highlight: "WATCHING THE QUAD GO",
     intro:
       "The patient you cannot move forward is the one who is restricted from heavy load. The ACL kid eight weeks out. The total knee at six. The rotator cuff repair non-weight-bearing with six visits left on the auth. The Medicare knee that cannot tolerate twenty minutes of weight-bearing. You know the protocol the corporate template prints. You also know it is not going to be enough.",
     surface:
@@ -364,6 +444,7 @@ export const CERTIFICATION: CertificationContent = {
   ump: {
     label: "WHY IT KEEPS HAPPENING",
     headline: "THE STANDARD TOOLKIT CANNOT PRODUCE THE STIMULUS, SO THE WINDOW CLOSES",
+    highlight: "WINDOW CLOSES",
     body: [
       "This is not a discipline problem and it is not a you problem. E-stim, isometrics, and sub-30% loading cannot generate the metabolic and mechanical stimulus required to drive Type II fiber recruitment and hypertrophy. When the surgeon's protocol restricts heavy loading for eight to twelve weeks, the standard toolkit has nothing that closes the gap.",
       "The result is a six to twelve week atrophy window the patient never fully recovers from. In ACL and total joint, the strength they lose in that window becomes the single best predictor of the outcome you are trying to prevent. The window is the mechanism. Everything downstream of it, the plateau, the re-injury risk, the patient who leaves, traces back to the same unaddressed cause.",
@@ -379,6 +460,7 @@ export const CERTIFICATION: CertificationContent = {
   shift: {
     label: "THE MODALITY IS NOT NEW",
     headline: "BURIED FOR 60 YEARS, USED BY THE MILITARY, READY FOR YOUR CLINIC",
+    highlight: "READY FOR YOUR CLINIC",
     discovery: [
       "Dr. Yoshiaki Sato observed the effect in Japan in 1966, kneeling at a Buddhist ceremony, when he noticed his calves were pumped despite no exercise. He spent roughly thirty years developing Kaatsu before the work crossed into Western sports medicine. This is not a 2020 trend. It is a six-decade body of physiology that arrived in your profession after most of the people who could have taught it well had already been hired by someone who sells cuffs.",
       "What changed recently is not the science. It is the visibility. The modality is in APTA scope of practice for PTs and approved by the BOC for athletic trainers. It is in active use across the US military, Mayo Clinic, and the Ivy Rehab Network. The mechanism is settled. The adoption curve is not.",
@@ -391,6 +473,7 @@ export const CERTIFICATION: CertificationContent = {
   enemy: {
     label: "THE PART NOBODY SAYS OUT LOUD",
     headline: "EVERY OTHER BFR COURSE IS A WAY TO SELL YOU A CUFF",
+    highlight: "SELL YOU A CUFF",
     body: [
       "Owens teaches around the Delfi system. Smart Tools teaches around SmartCuffs. NE Seminars bundles a university cuff into the credential. The independent option is one clinician's experience plus an affiliated cuff recommendation. PESI is neutral the way a vending machine is neutral, by not bothering to pick a side, which is not the same as being independent by principle.",
       "None of this means those educators are dishonest. It means the curriculum's economics are downstream of a device sale, not downstream of whether you actually deploy on a patient. An educator paid by the cuff maker has no reason to teach you to run BFR on the cuff you already own, because doing that defunds the course. So the course teaches the device. You finish it, you cannot deploy without the device, the device is five thousand dollars or sitting at one of the three clinics you float between, and the cuff goes in the drawer.",
@@ -406,6 +489,7 @@ export const CERTIFICATION: CertificationContent = {
   difference: {
     label: "WHAT ACTUALLY MAKES IT DIFFERENT",
     headline: "VENDOR-NEUTRAL, BUILT FOR IMPLEMENTATION, TAUGHT BY SOMEONE STILL IN CLINIC",
+    highlight: "STILL IN CLINIC",
     pillars: [
       {
         title: "Vendor-neutral by structure, not by slogan",
@@ -430,6 +514,7 @@ export const CERTIFICATION: CertificationContent = {
   curriculum: {
     label: "WHAT YOU CAN ACTUALLY DO AFTER",
     headline: "37 MODULES, FOUR COURSES, ORGANIZED AROUND WHAT YOU CAN DO ON MONDAY",
+    highlight: "WHAT YOU CAN DO ON MONDAY",
     intro:
       "Not a module list. A capability list. By the end you can screen a patient for BFR in ninety seconds, set pressure correctly on whatever cuff is in your supply closet, and run a BFR-modified protocol on a post-op, geriatric, or return-to-sport case while the surgeon's protocol still restricts heavy load.",
     capabilities: [
@@ -460,6 +545,7 @@ export const CERTIFICATION: CertificationContent = {
   instructor: {
     label: "WHO IS TEACHING YOU",
     headline: "AN AUTHOR OF THE LITERATURE WHO STILL TREATS PATIENTS WEEKLY",
+    highlight: "STILL TREATS PATIENTS WEEKLY",
     rolnick: [
       "Dr. Nicholas Rolnick, PT, DPT, MS, CSCS. Author of 72+ peer-reviewed BFR publications. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living for the blood flow restriction special issue. Peer reviewer for 26+ journals. Adjunct Assistant Professor of Physical Therapy at New York Medical College.",
       "He treats patients in Manhattan every week. The reason that matters to you specifically: the certification you take is written by someone whose Tuesday looks like yours, not by an academic who left the clinic a decade ago and not by a personality with a thin published footprint. When a surgeon asks what the research says, you can point to the specific paper, because the person who taught you wrote a number of them.",
@@ -472,6 +558,7 @@ export const CERTIFICATION: CertificationContent = {
   proof: {
     label: "DOES THIS ACTUALLY TRANSLATE",
     headline: "1,467+ PRACTITIONERS CERTIFIED, 1 HAS EVER TAKEN THE REFUND",
+    highlight: "1 HAS EVER TAKEN THE REFUND",
     statsIntro:
       "Every BFR provider publishes how many practitioners they certified. None of them publish how many actually use BFR with patients afterward. The closest honest proxy in this category is the refund rate when the guarantee is real and the curriculum was built to be deployed.",
     refundProofLine:
@@ -481,6 +568,54 @@ export const CERTIFICATION: CertificationContent = {
     reuseConstant: "TESTIMONIALS | STATS",
     typicalityNote:
       "Compliance (FTC Four Pillars, render proximate to the testimonial wall in the same type size): Individual results vary. These are the experiences of the named practitioners and are not a guarantee that any specific clinical or practice outcome is typical. The 1-of-1,467 figure is the graduate refund rate, an implementation proxy, not a performance promise.",
+    videoTestimonials: {
+      label: "FROM THE GRADUATES",
+      headline: "FIVE PRACTITIONERS, IN THEIR OWN WORDS",
+      highlight: "IN THEIR OWN WORDS",
+      intro:
+        "Short clips from graduates who deployed BFR with their own patients after the certification. Tap a card to play the full audio. Names and credentials match the verbatim testimonials below.",
+      // Rev 1: ship the section with placeholder posters where assets are not
+      // supplied. The component renders a static poster + play icon when
+      // loopSrc / videoSrc are omitted, so the page never ships an empty
+      // player. Pascal supplies the five video files + posters in a follow-up.
+      slots: [
+        {
+          id: "lee",
+          name: "Dr. Clinton H. Lee",
+          role: "PT, DPT, CSCS · Owner, PhysioStrength",
+          poster: "/images/students/clinton-lee.jpeg",
+          posterAlt: "Dr. Clinton H. Lee, BFR Pros graduate",
+        },
+        {
+          id: "whyte",
+          name: "Dr. Brian D. Whyte",
+          role: "DPT, CLT, CSCS · Owner, Perfusion Point Therapy",
+          poster: "/images/students/brian-whyte.jpeg",
+          posterAlt: "Dr. Brian D. Whyte, BFR Pros graduate",
+        },
+        {
+          id: "toderico",
+          name: "Benjamin Toderico",
+          role: "MS, CSCS · Owner, BT Fitness",
+          poster: "/images/students/benjamin-toderico.jpeg",
+          posterAlt: "Benjamin Toderico, BFR Pros graduate",
+        },
+        {
+          id: "marcano",
+          name: "Erica Marcano",
+          role: "MS, ATC, CSCS · Athletic Trainer",
+          poster: "/images/testimonials/video/erica-marcano.webp",
+          posterAlt: "Erica Marcano, BFR Pros graduate",
+        },
+        {
+          id: "steigbigel",
+          name: "Dr. Keith Steigbigel",
+          role: "PT, DPT, OCS, CSCS · Owner, Prolete PT",
+          poster: "/images/testimonials/video/keith-steigbigel.webp",
+          posterAlt: "Dr. Keith Steigbigel, BFR Pros graduate",
+        },
+      ],
+    },
   },
 
   approvals: {
@@ -498,6 +633,7 @@ export const CERTIFICATION: CertificationContent = {
   pricing: {
     label: "WHAT THE CERTIFICATION COSTS",
     headline: "ONE PRICE FOR THE CERTIFICATION, NO FAKE TIERS",
+    highlight: "NO FAKE TIERS",
     priceFrame:
       "$449 for the full certification. Not a stripped-down tier with the real version dangled above it. Not an upsell ladder. One price for all 37 modules, 11.75 hours of video, and 11.75 CEUs, taught by the author of 72+ peer-reviewed BFR publications who still treats patients weekly. At 11.75 CEUs that is roughly $38 a CEU, for a credential a single-day device-bundled course cannot match without a cuff you may never afford. Two post-op patients you keep instead of lose covers it. The certification is worth the $449 on its own, before anything else is added to it.",
     whatYouGet: [
@@ -508,13 +644,14 @@ export const CERTIFICATION: CertificationContent = {
     ],
     refundTermsAboveCta:
       "30-day money-back guarantee. Email to request, refund processed, no questions. Guarantor: The BFR Pros, LLC.",
-    primaryCta: "Get BFR Certified",
-    reuseConstant: "PRICING | STATS | ENROLL_URL",
+    primaryCta: "Get BFR Certified From Home",
+    reuseConstant: "PRICING | STATS | CERTIFICATION_ENROLL_URL",
   },
 
   bonuses: {
     label: "NOW THE PART NOBODY WARNED YOU ABOUT",
     headline: "EVERYTHING BELOW IS FREE, ON TOP OF THE $449 YOU JUST SAW",
+    highlight: "FREE, ON TOP OF THE $449",
     preface:
       "The price you just read is for the certification itself: the modules, the CEUs, the instruction. It is worth that on its own. Here is what nobody told you on the way in. Every one of the eleven tools below comes with it, and not a single one of them adds a dollar to the price. You are not paying $449 for the certification and the bonuses. You are paying $449 for the certification. The bonuses come with it, free.",
     intro:
@@ -526,8 +663,29 @@ export const CERTIFICATION: CertificationContent = {
     guaranteeHeadline: "THE 30-DAY TURN-IT-ON-OR-TURN-IT-BACK GUARANTEE",
     guaranteeBody:
       "Take the curriculum and every tool that came with it, run BFR with a real patient, and if it does not earn a place in your practice inside 30 days, email us and we refund every dollar. No exit survey, no retention call, no hoops. The guarantee asks you to try it, not to commit forever. We can offer it plainly because of one number: 1 of 1,467 graduates has ever used it.",
-    primaryCta: "Get BFR Certified",
+    primaryCta: "Get BFR Certified From Home",
     reuseConstant: "BONUSES | PRICING",
+  },
+
+  valueStack: {
+    label: "EVERYTHING YOU WALK OUT WITH",
+    headline: "FOR ONE PRICE, THE WHOLE STACK ON THE TABLE",
+    highlight: "THE WHOLE STACK ON THE TABLE",
+    intro:
+      "The certification you saw above was $449. The eleven tools you saw after were free on top of it. Here is the full picture in one place, with the dollar value beside each piece, so the math is on the page.",
+    coreLabel: "The Complete BFR Certification",
+    coreNote:
+      "37 modules across 4 courses, 11.75 hours of video, 11.75 CEUs, taught by the author of 72+ peer-reviewed BFR publications. The certification is worth this on its own, before anything else is added to it.",
+    bonusesNote:
+      "Eleven implementation tools, every one of them included on top of the certification at no additional cost.",
+    cuffDiscountLabel: "Cuff-discount savings",
+    cuffDiscountNote:
+      "Up to $640 in negotiated discounts across Delfi, SmartCuffs, B Strong, and others. Called out separately, not folded into the total advertised value above (this is what you can save on a cuff if you decide you want one, not a number added to the stack).",
+    totalLabel: "Total advertised value",
+    priceLabel: "Your price today",
+    savingsLabel: "You save",
+    primaryCta: "Get BFR Certified From Home",
+    reuseConstant: "PRICING | CURRICULUM | BONUSES | CERTIFICATION_ENROLL_URL",
   },
 
   faq: {
@@ -580,6 +738,7 @@ export const CERTIFICATION: CertificationContent = {
   costOfWaiting: {
     label: "WHY NOW AND NOT NEXT YEAR",
     headline: "YOUR ZIP CODE DOES NOT HAVE A BFR SPECIALIST YET",
+    highlight: "DOES NOT HAVE A BFR SPECIALIST YET",
     body: [
       "This is not a countdown timer and there are no disappearing seats. The certification is on-demand and self-paced; manufactured urgency would insult a clinical doctorate and we are not going to do it. The urgency here is real and external, and it is moving whether or not you act on it.",
       "Patients are arriving already knowing the word. The modality has been covered in mainstream press, surgeons are starting to specify it in post-op orders, and the clinical networks are integrating it. The first practitioner in a metro to credibly own BFR becomes the local specialist. The ones who wait become the commodity the specialist's patients used to see.",
@@ -594,11 +753,12 @@ export const CERTIFICATION: CertificationContent = {
 
   finalCta: {
     headline: "THE PATIENT IS ON TUESDAY'S SCHEDULE EITHER WAY",
+    highlight: "TUESDAY'S SCHEDULE EITHER WAY",
     subhead:
       "$449. 37 modules. 11.75 hours of video. 11.75 CEUs. 30-day money-back guarantee. Do it in a weekend or take 4 weeks. The certification that sells no cuffs, takes no manufacturer money, and is built so the cuff leaves the drawer by week two. The window to be the first BFR-certified specialist in your zip code is open. It does not stay open.",
     warning:
       "Here is what happens if you bookmark this and close the tab. Tuesday comes. The quad is smaller than last week. The mother asks what you are doing and you say you are building a foundation. The runner who asked if you do BFR drives the extra eight miles to the clinic that said yes. Six months from now the same four certification tabs are open on a Sunday night and nothing has moved. The cost of doing nothing stopped being zero a while ago.",
-    primary: "Get BFR Certified",
+    primary: "Get BFR Certified From Home",
   },
 
   ps: [
@@ -606,6 +766,10 @@ export const CERTIFICATION: CertificationContent = {
     "P.P.S. The 30-day refund means you can finish the curriculum, run BFR with your first patient, and walk away at zero cost if it is not for your practice. The guarantee asks you to try, not to commit forever. 1 of 1,467 graduates has ever taken it.",
   ],
 
+  // TEMPORARILY UNUSED, see REVISION-01.md §8. The page no longer renders this
+  // block in Rev 1 (dual-conversion deferral while the nurture pipeline is
+  // wired). Strings are retained verbatim so re-enabling the section is a
+  // one-line page.tsx restore.
   leadMagnet: {
     label: "NOT READY TO ENROLL",
     headline: "TAKE THE BFR SAFETY SCREENING CHECKLIST INSTEAD",
@@ -628,7 +792,7 @@ export const CERTIFICATION: CertificationContent = {
   },
 
   complianceNotes: [
-    "STRUCTURAL, do not re-invert: the price (Section 12) is revealed BEFORE the bonuses (Section 13). The $449 anchors to the core certification alone; the eleven bonuses are then stacked on top as a free surprise that adds zero to the price. Session C must render pricing before bonuses and must not list any bonus inside pricing.whatYouGet. Reversing this folds the bonus value into the price anchor and collapses the perceived-value multiplier. Hard rule: copywriting-principles.md Bonus Sequencing (Pascal masterclass, 2026-05-19). Note: the existing /get-certified page has the same inversion; Pascal is fixing that separately, do not propagate it here.",
+    "STRUCTURAL, do not re-invert: the price (Section 12) is revealed BEFORE the bonuses (Section 13). The $449 anchors to the core certification alone; the eleven bonuses are then stacked on top as a free surprise that adds zero to the price. Section 13b Value Stack lives AFTER bonuses and is a recap, not a new anchor; do not move it before pricing. Session C must render pricing before bonuses before value stack, and must not list any bonus inside pricing.whatYouGet. Reversing this folds the bonus value into the price anchor and collapses the perceived-value multiplier. Hard rule: copywriting-principles.md Bonus Sequencing (Pascal masterclass, 2026-05-19). Note: the existing /get-certified page has the same inversion; Pascal is fixing that separately, do not propagate it here.",
     "Net Impression on every clinical claim: BFR is presented as an evidence-backed modality (72+ peer-reviewed publications, settled mechanism), not as a guaranteed patient outcome. Safety incidence figures are attributed to the 13,000-person BFR safety survey, stated as survey-reported rates.",
     "No earnings or income claim is made. 'Become the local specialist', 'cash-pay', and 'surgeons send their tough cases to you' are framed as positioning and as the avatar's own stated aspiration, not as a promised financial result. No dollar figure or multiplier is presented as an outcome the buyer will achieve.",
     "Testimonials (Lee, Whyte, Toderico, Nightingale) are verbatim from the live bfrtraining.com course page via the TESTIMONIALS constant. Four Pillars: real and named (consent via published-on-own-site source), substantiated (real graduates), typicality stated proximate via proof.typicalityNote and footer.testimonialDisclaimer, proximate disclosure rendered next to the wall by Session C.",
@@ -636,6 +800,7 @@ export const CERTIFICATION: CertificationContent = {
     "Refund terms stated proximate to price (pricing.refundTermsAboveCta) and restated in P.P.S. Guarantor entity named. Signature triad present in footer (name, title, entity).",
     "Forbidden Claims grep clean: no 'leading', 'gold standard', 'most-published', 'world-class', 'best-in-class', 'cutting-edge', 'act now', 'spots filling', 'limited time', 'new cohort'. Specific counts used throughout (72+, 1,467+, 1, 11.75, 37, 0.06%).",
     "Modality-vs-brand discipline: featuredIn is framed strictly as a modality-level claim with an explicit note to Session C not to repackage it as personal media features.",
-    "Session D owns the full compliance-copywriting.md Part 3 14-point gate, website-qa 9-phase, and the live-render checks. This file passed the Session B claim-level pass only.",
+    "Rev 1 (2026-05-20): every primary CTA on /certification reads 'Get BFR Certified From Home' and routes to CERTIFICATION_ENROLL_URL (campaign-scoped Teachable checkout, additive to ENROLL_URL which stays bound to /get-certified). The lead-magnet section is temporarily removed pending nurture-pipeline setup; PLAN.md §6 dual-conversion is suspended for this revision (see REVISION-01.md §8).",
+    "Session D owns the full compliance-copywriting.md Part 3 14-point gate, website-qa 9-phase, and the live-render checks. This file passed the Session B claim-level pass + the Rev 1 surface edits only.",
   ],
 };

@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ENROLL_URL } from "@/lib/constants";
+import { CERTIFICATION_ENROLL_URL } from "@/lib/constants";
 
 // Slim sticky CTA bar that appears once the visitor scrolls past the hero.
-// Campaign-LP convention (PLAN.md §5 row 0): the page has ONE exit, this bar
-// keeps it visible as the visitor reads. Bottom-anchored on mobile, top-anchored
-// just under the StrippedHeader on desktop so it never covers the active CTA
-// inside a section. CSS handles prefers-reduced-motion at the OS level via
-// globals.css; the slide-in here uses a short translateY that respects it.
+// Campaign-LP convention (PLAN.md §5 row 0): the page has ONE exit.
+//
+// Rev 1 (2026-05-20, REVISION-01.md §2): this bar is NO LONGER mounted on the
+// page (page.tsx dropped the render). Pascal's call was that the top sticky
+// header + the in-section CTAs already keep the enroll button visible, and
+// the bottom bar was the second persistent CTA that made it feel like two
+// floating CTAs at once. File is kept in place so the bar can be re-enabled
+// with a one-line page.tsx restore if A/B testing later shows otherwise.
 export default function StickyCTABar({
   label,
   cta,
@@ -48,7 +51,7 @@ export default function StickyCTABar({
           {label}
         </p>
         <a
-          href={ENROLL_URL}
+          href={CERTIFICATION_ENROLL_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2 sm:px-5 sm:py-2.5 font-body text-sm sm:text-base font-semibold text-white transition hover:bg-accent-deeper"

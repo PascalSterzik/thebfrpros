@@ -5,6 +5,14 @@
 export const ENROLL_URL =
   "https://bfr-pros.teachable.com/bundles/the-complete-bfr-certification?affcode=626725_rzfv6exi";
 
+// Scoped checkout URL for the /certification campaign LP only (Pascal-locked
+// 2026-05-20, REVISION-01.md §3 + §11). The campaign page repoints every CTA
+// here; /get-certified and the rest of the site continue to use ENROLL_URL.
+// Pascal will swap the global ENROLL_URL later in a separate pass; this is the
+// additive constant for the campaign in the meantime.
+export const CERTIFICATION_ENROLL_URL =
+  "https://checkout.teachable.com/secure/626725/checkout/order_mk2b9f5s?affcode=626725_rzfv6exi";
+
 // Where the /contact form posts. Default is a `mailto:` so the static site
 // works immediately without an external service. When MailerLite / GoHighLevel
 // is wired (per BUILD-BRIEF email-tool decision), swap this to the real POST

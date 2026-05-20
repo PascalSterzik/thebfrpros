@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
 import { STATS, TESTIMONIALS } from "@/lib/constants";
@@ -42,7 +43,7 @@ export default function CertProofSection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-white text-balance"
           >
-            {proof.headline}
+            <Highlighted text={proof.headline} phrase={proof.highlight} />
           </motion.h2>
           <motion.p
             variants={fadeUp}

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ENROLL_URL, SITE } from "@/lib/constants";
+import { CERTIFICATION_ENROLL_URL, SITE } from "@/lib/constants";
 
 // Campaign-only header for /certification. Logo + single text CTA. NO
 // SITE_MENU_LINKS nav (exit-reduction discipline for cold paid traffic).
@@ -31,7 +31,7 @@ export default function StrippedHeader({
         </Link>
 
         <a
-          href={ENROLL_URL}
+          href={CERTIFICATION_ENROLL_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 sm:px-5 sm:py-2.5 font-body text-sm sm:text-base font-semibold text-white transition hover:bg-accent-deeper"

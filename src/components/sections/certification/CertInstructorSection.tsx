@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
 import { LICAMELI, ROLNICK } from "@/lib/constants";
@@ -29,7 +30,7 @@ export default function CertInstructorSection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            {instructor.headline}
+            <Highlighted text={instructor.headline} phrase={instructor.highlight} />
           </motion.h2>
         </motion.div>
 

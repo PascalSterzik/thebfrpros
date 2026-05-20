@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
+import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
 import { STATS } from "@/lib/constants";
@@ -29,9 +31,30 @@ export default function CertShiftSection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            {shift.headline}
+            <Highlighted text={shift.headline} phrase={shift.highlight} />
           </motion.h2>
         </motion.div>
+
+        {/* Rev 1 §9: clinician-in-clinic still that anchors the
+            "ready for your clinic" payoff. Sourced from /images/action/
+            (brand-policy compliant: real BFR imagery, no stock, no AI). */}
+        <motion.figure
+          initial="hidden"
+          whileInView="visible"
+          viewport={inViewOnce}
+          variants={fadeUp}
+          className="mt-12 mx-auto max-w-3xl"
+        >
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg ring-1 ring-line shadow-[0_30px_60px_-30px_rgba(25,55,99,0.22)]">
+            <Image
+              src="/images/action/rolnick-applying-cuff.jpg"
+              alt="Dr. Nicholas Rolnick applying a BFR cuff in clinic"
+              fill
+              sizes="(max-width: 1024px) 100vw, 720px"
+              className="object-cover"
+            />
+          </div>
+        </motion.figure>
 
         <motion.div
           initial="hidden"

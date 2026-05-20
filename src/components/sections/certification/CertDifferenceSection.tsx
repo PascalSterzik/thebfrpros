@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
 import { COMPETITOR_TABLE } from "@/lib/constants";
@@ -30,7 +31,7 @@ export default function CertDifferenceSection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            {difference.headline}
+            <Highlighted text={difference.headline} phrase={difference.highlight} />
           </motion.h2>
         </motion.div>
 

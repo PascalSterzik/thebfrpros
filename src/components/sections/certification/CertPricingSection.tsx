@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
-import { ENROLL_URL, PRICING } from "@/lib/constants";
+import { CERTIFICATION_ENROLL_URL, PRICING } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // HARD RULE, do NOT re-invert (copywriting-principles.md §18 / gotcha #97 /
@@ -33,7 +34,7 @@ export default function CertPricingSection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            {pricing.headline}
+            <Highlighted text={pricing.headline} phrase={pricing.highlight} />
           </motion.h2>
           <motion.p
             variants={fadeUp}
@@ -92,10 +93,10 @@ export default function CertPricingSection() {
             </p>
 
             <a
-              href={ENROLL_URL}
+              href={CERTIFICATION_ENROLL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-accent px-6 py-4 font-display text-2xl sm:text-3xl uppercase tracking-tight text-white transition hover:bg-accent-deeper"
+              className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-accent px-6 py-4 font-display text-xl sm:text-2xl md:text-3xl uppercase tracking-tight text-white transition hover:bg-accent-deeper text-balance"
               style={{ letterSpacing: "-0.015em" }}
             >
               {pricing.primaryCta}

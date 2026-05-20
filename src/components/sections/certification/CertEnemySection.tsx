@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
@@ -27,7 +28,7 @@ export default function CertEnemySection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-2xl text-white text-balance"
           >
-            {enemy.headline}
+            <Highlighted text={enemy.headline} phrase={enemy.highlight} />
           </motion.h2>
         </motion.div>
 

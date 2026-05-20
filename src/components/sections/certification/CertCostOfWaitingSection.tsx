@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
@@ -28,7 +29,7 @@ export default function CertCostOfWaitingSection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            {costOfWaiting.headline}
+            <Highlighted text={costOfWaiting.headline} phrase={costOfWaiting.highlight} />
           </motion.h2>
         </motion.div>
 
