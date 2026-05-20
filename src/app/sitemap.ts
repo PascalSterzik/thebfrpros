@@ -7,9 +7,11 @@ import { BLOG_POSTS } from "@/lib/constants";
 // actually ships 22 static routes + 73 blog posts. Blog slugs derive from
 // BLOG_POSTS so the sitemap can never fall behind the blog again. Excluded by
 // design: the retired concept-variant routes (/get-certified-v1,
-// /get-certified-v2 — they 301), the deleted /preview index, and every /og/*
-// image route. next.config has trailingSlash:false, so only "/" carries a
-// trailing slash.
+// /get-certified-v2 — they 301), the deleted /preview index, every /og/*
+// image route, AND the standalone /certification campaign LP (paid traffic
+// only, ships noindex+canonical to /get-certified per PLAN.md §8 + §11; the
+// duplicate-content guardrail learned from the v1/v2 retirement). next.config
+// has trailingSlash:false, so only "/" carries a trailing slash.
 //
 // Canonical host is the WWW form. The apex https://thebfrpros.com 308-redirects
 // to https://www.thebfrpros.com, so emitting the apex form here would force
