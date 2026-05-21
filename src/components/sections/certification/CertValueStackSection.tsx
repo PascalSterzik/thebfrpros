@@ -175,7 +175,14 @@ export default function CertValueStackSection() {
             </p>
           </div>
 
-          <div className="mt-8 flex justify-center">
+          {/* compliance-copywriting.md Part 3 Checkpoint 11 (Session D):
+              refund proximate to every primary CTA. Matches the trust-strip
+              line under the hero CTA and the final CTA. */}
+          <p className="mt-6 text-center text-sm text-ink/75">
+            {valueStack.guaranteeNote}
+          </p>
+
+          <div className="mt-4 flex justify-center">
             <a
               href={CERTIFICATION_ENROLL_URL}
               target="_blank"

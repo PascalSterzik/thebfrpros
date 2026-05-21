@@ -288,6 +288,11 @@ export type CertificationContent = {
     bonusesNote: string; // intro line above the bonus rows
     cuffDiscountLabel: string; // "Cuff-discount savings" line item
     cuffDiscountNote: string; // why it's called out separately
+    // Compliance-copywriting.md Part 3 Checkpoint 11: refund summarized
+    // above every primary CTA. Session D added this line for the
+    // value-stack CTA so the recap section carries the same refund
+    // proximate disclosure as the hero, pricing, bonuses, and final CTAs.
+    guaranteeNote: string;
     primaryCta: string;
     reuseConstant: "PRICING | CURRICULUM | BONUSES | CERTIFICATION_ENROLL_URL";
   };
@@ -559,8 +564,13 @@ export const CERTIFICATION: CertificationContent = {
     testimonialsNote:
       "Session C: render the TESTIMONIALS constant verbatim (Lee, Whyte, Toderico, Nightingale). These are real, named, credentialed practitioners quoted exactly as written on the live course page. Never paraphrase a testimonial.",
     reuseConstant: "TESTIMONIALS | STATS",
+    // Compliance disclosure rendered proximate to the testimonial wall at the
+    // same type size (FTC Four Pillars). The leading "Compliance (FTC Four
+    // Pillars, render proximate to the testimonial wall in the same type
+    // size):" prefix was a build-time meta-instruction; Session D strips it
+    // so consumers see the disclosure, not the instruction.
     typicalityNote:
-      "Compliance (FTC Four Pillars, render proximate to the testimonial wall in the same type size): Individual results vary. These are the experiences of the named practitioners and are not a guarantee that any specific clinical or practice outcome is typical. The 1-of-1,467 figure is the graduate refund rate, an implementation proxy, not a performance promise.",
+      "Individual results vary. These are the experiences of the named practitioners and are not a guarantee that any specific clinical or practice outcome is typical. The 1-of-1,467 figure is the graduate refund rate, an implementation proxy, not a performance promise.",
     videoTestimonials: {
       label: "FROM THE GRADUATES",
       headline: "FIVE PRACTITIONERS, IN THEIR OWN WORDS",
@@ -640,6 +650,8 @@ export const CERTIFICATION: CertificationContent = {
     cuffDiscountLabel: "Cuff-discount savings",
     cuffDiscountNote:
       "Up to $640 in negotiated discounts across Delfi, SmartCuffs, B Strong, and others. Called out separately, not folded into the total advertised value above (this is what you can save on a cuff if you decide you want one, not a number added to the stack).",
+    guaranteeNote:
+      "30-day money-back guarantee · 1 of 1,467+ graduates has ever taken it.",
     primaryCta: "Get BFR Certified From Home",
     reuseConstant: "PRICING | CURRICULUM | BONUSES | CERTIFICATION_ENROLL_URL",
   },
