@@ -109,22 +109,25 @@ export default function CertCurriculumSection() {
                   {courseLabel}
                 </span>
 
-                {/* Rev 1 §5a: CEU banner top-right, slightly off the card so
-                    the badge overlaps the corner with a 3D peek. Sized down
-                    on mobile (90px) and up on desktop (150px) so it never
-                    collides with the centered Course label pill on small
-                    viewports. */}
+                {/* Rev 1 §5a + Rev 2 (2026-05-21, REVISION-02.md §2): CEU
+                    banner top-right, slightly off the card so the badge
+                    overlaps the corner with a 3D peek. Rev 2 halved the
+                    sizes (Rev 1 banner was reading as too dominant on the
+                    card and covering headline edges); offsets reduced
+                    proportionally so the smaller badge still peeks without
+                    collapsing into the corner. The "$349 value" caption is
+                    part of the banner PNG itself, no code change for it. */}
                 {ceuBanner && (
                   <span
                     aria-hidden
-                    className="pointer-events-none absolute -top-5 -right-2 sm:-top-7 sm:-right-4 block"
+                    className="pointer-events-none absolute -top-3 -right-1 sm:-top-4 sm:-right-2 block"
                   >
                     <Image
                       src={ceuBanner}
                       alt=""
                       width={160}
                       height={88}
-                      className="h-auto w-[90px] sm:w-[130px] lg:w-[150px] drop-shadow-[0_18px_28px_rgba(25,55,99,0.22)]"
+                      className="h-auto w-[55px] sm:w-[70px] lg:w-[80px] drop-shadow-[0_12px_22px_rgba(25,55,99,0.2)]"
                     />
                   </span>
                 )}

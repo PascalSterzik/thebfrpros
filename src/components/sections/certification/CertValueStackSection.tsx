@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
@@ -36,7 +37,6 @@ const REGULAR_BONUSES = BONUSES.filter((b) => !("valueSuffix" in b));
 const CUFF_DISCOUNT_BONUS = BONUSES.find((b) => "valueSuffix" in b);
 const BONUS_VALUE_SUBTOTAL = REGULAR_BONUSES.reduce((sum, b) => sum + b.value, 0);
 const TOTAL_ADVERTISED_VALUE = COURSE_VALUE_SUBTOTAL + BONUS_VALUE_SUBTOTAL;
-const SAVINGS = TOTAL_ADVERTISED_VALUE - PRICING.bundlePrice;
 
 function fmt(n: number) {
   return `${PRICING.currencySymbol}${n.toLocaleString("en-US")}`;
@@ -82,14 +82,24 @@ export default function CertValueStackSection() {
           <p className="small-caps-line text-accent">{valueStack.coreLabel}</p>
           <p className="mt-2 text-sm leading-relaxed text-ink/85">{valueStack.coreNote}</p>
 
+          {/* Rev 2 (2026-05-21, REVISION-02.md §4a): per-row image on the
+              left in place of the numbered index. Course rows render the
+              coat-of-arms; bonus rows render the bonus image. Same
+              ~48px-square cell on both lists for visual consistency. */}
           <ul className="mt-5 divide-y divide-line/60 border-y border-line/60">
-            {CURRICULUM.map((c, i) => (
+            {CURRICULUM.map((c) => (
               <li
                 key={c.slug}
-                className="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-4 py-3"
+                className="grid grid-cols-[48px_1fr_auto] items-center gap-x-4 py-3"
               >
-                <span className="font-display text-base text-muted tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
+                <span className="relative block h-12 w-12">
+                  <Image
+                    src={c.coatOfArmsSrc}
+                    alt=""
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 object-contain"
+                  />
                 </span>
                 <p className="text-sm sm:text-base text-navy">
                   <span className="font-semibold">{c.title}</span>{" "}
@@ -112,10 +122,16 @@ export default function CertValueStackSection() {
             {REGULAR_BONUSES.map((b) => (
               <li
                 key={b.n}
-                className="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-4 py-3"
+                className="grid grid-cols-[48px_1fr_auto] items-center gap-x-4 py-3"
               >
-                <span className="font-display text-base text-muted tabular-nums">
-                  {String(b.n).padStart(2, "0")}
+                <span className="relative block h-12 w-12">
+                  <Image
+                    src={b.img}
+                    alt=""
+                    width={48}
+                    height={48}
+                    className="h-12 w-12 object-contain"
+                  />
                 </span>
                 <p className="text-sm sm:text-base text-navy">
                   <span className="font-semibold">{b.title}</span>{" "}
@@ -145,26 +161,18 @@ export default function CertValueStackSection() {
             </div>
           )}
 
-          {/* Totals row: total advertised value → your price → you save. */}
-          <div className="mt-8 space-y-3 border-t border-line pt-6 text-right">
-            <div className="grid grid-cols-[1fr_auto] items-baseline gap-x-4">
-              <p className="font-semibold text-navy">{valueStack.totalLabel}</p>
-              <span className="font-display text-2xl sm:text-3xl text-navy tabular-nums">
-                {fmt(TOTAL_ADVERTISED_VALUE)}
-              </span>
-            </div>
-            <div className="grid grid-cols-[1fr_auto] items-baseline gap-x-4">
-              <p className="font-semibold text-navy">{valueStack.priceLabel}</p>
-              <span className="font-display text-3xl sm:text-4xl text-accent tabular-nums">
-                {fmt(PRICING.bundlePrice)}
-              </span>
-            </div>
-            <div className="grid grid-cols-[1fr_auto] items-baseline gap-x-4">
-              <p className="text-sm text-muted">{valueStack.savingsLabel}</p>
-              <span className="font-display text-lg text-accent tabular-nums">
-                {fmt(SAVINGS)}
-              </span>
-            </div>
+          {/* Rev 2 (2026-05-21, REVISION-02.md §4b): simplified totals block.
+              Crossed-out advertised value + the $449 in accent, no labels,
+              no "You save" line. The strikethrough next to the unstruck
+              price IS the visual savings communication. Pascal explicitly
+              rejected the explicit "you save" label as marketing fluff. */}
+          <div className="mt-8 space-y-2 border-t border-line pt-6 text-right">
+            <p className="font-display text-2xl sm:text-3xl text-muted tabular-nums line-through">
+              {fmt(TOTAL_ADVERTISED_VALUE)}
+            </p>
+            <p className="font-display text-4xl sm:text-5xl text-accent tabular-nums">
+              {fmt(PRICING.bundlePrice)}
+            </p>
           </div>
 
           <div className="mt-8 flex justify-center">

@@ -212,24 +212,15 @@ export type CertificationContent = {
     // wall (FTC Four Pillars). Session C renders this next to the quotes, not
     // in the footer.
     typicalityNote: string;
+    // Rev 2 (2026-05-21, REVISION-02.md §3): slots dropped. The component
+    // now reads VIDEO_TESTIMONIALS + VIDEOS directly from @/lib/constants
+    // (the canonical source-of-truth) and composes the 5-card list inline.
+    // Keep label/headline/highlight/intro only.
     videoTestimonials: {
       label: string;
       headline: string;
       highlight: string;
       intro: string;
-      slots: {
-        id: string;
-        name: string;
-        role: string;
-        // Optional: short muted-loop preview clip (mp4/webm). When omitted,
-        // the card renders a static poster + play icon only.
-        loopSrc?: string;
-        // Optional: full audio testimonial swapped in on click. When omitted,
-        // the card stays at the poster state (asset still pending).
-        videoSrc?: string;
-        poster: string;
-        posterAlt: string;
-      }[];
     };
   };
 
@@ -282,6 +273,11 @@ export type CertificationContent = {
   // shown standalone and the bonuses have already been revealed as $0 added.
   // Totals are computed at render time from the PRICING / CURRICULUM /
   // BONUSES constants, not duplicated as string values here.
+  // Rev 2 (2026-05-21, REVISION-02.md §4c): totalLabel/priceLabel/savingsLabel
+  // dropped. The totals block is now a tighter two-line treatment (crossed-out
+  // advertised value + the $449 in accent), no labels, no "you save" line.
+  // The crossed-out total beside the unstruck price IS the visual savings
+  // communication.
   valueStack: {
     label: string;
     headline: string;
@@ -292,9 +288,6 @@ export type CertificationContent = {
     bonusesNote: string; // intro line above the bonus rows
     cuffDiscountLabel: string; // "Cuff-discount savings" line item
     cuffDiscountNote: string; // why it's called out separately
-    totalLabel: string;
-    priceLabel: string;
-    savingsLabel: string;
     primaryCta: string;
     reuseConstant: "PRICING | CURRICULUM | BONUSES | CERTIFICATION_ENROLL_URL";
   };
@@ -387,7 +380,7 @@ export const CERTIFICATION: CertificationContent = {
 
   header: {
     logoAlt: "The BFR Pros",
-    navCta: "Get BFR Certified From Home",
+    navCta: "Get BFR Certified",
     stickyLabel: "The Complete BFR Certification",
     stickyCta: "Get BFR Certified From Home",
   },
@@ -574,47 +567,13 @@ export const CERTIFICATION: CertificationContent = {
       highlight: "IN THEIR OWN WORDS",
       intro:
         "Short clips from graduates who deployed BFR with their own patients after the certification. Tap a card to play the full audio. Names and credentials match the verbatim testimonials below.",
-      // Rev 1: ship the section with placeholder posters where assets are not
-      // supplied. The component renders a static poster + play icon when
-      // loopSrc / videoSrc are omitted, so the page never ships an empty
-      // player. Pascal supplies the five video files + posters in a follow-up.
-      slots: [
-        {
-          id: "lee",
-          name: "Dr. Clinton H. Lee",
-          role: "PT, DPT, CSCS · Owner, PhysioStrength",
-          poster: "/images/students/clinton-lee.jpeg",
-          posterAlt: "Dr. Clinton H. Lee, BFR Pros graduate",
-        },
-        {
-          id: "whyte",
-          name: "Dr. Brian D. Whyte",
-          role: "DPT, CLT, CSCS · Owner, Perfusion Point Therapy",
-          poster: "/images/students/brian-whyte.jpeg",
-          posterAlt: "Dr. Brian D. Whyte, BFR Pros graduate",
-        },
-        {
-          id: "toderico",
-          name: "Benjamin Toderico",
-          role: "MS, CSCS · Owner, BT Fitness",
-          poster: "/images/students/benjamin-toderico.jpeg",
-          posterAlt: "Benjamin Toderico, BFR Pros graduate",
-        },
-        {
-          id: "marcano",
-          name: "Erica Marcano",
-          role: "MS, ATC, CSCS · Athletic Trainer",
-          poster: "/images/testimonials/video/erica-marcano.webp",
-          posterAlt: "Erica Marcano, BFR Pros graduate",
-        },
-        {
-          id: "steigbigel",
-          name: "Dr. Keith Steigbigel",
-          role: "PT, DPT, OCS, CSCS · Owner, Prolete PT",
-          poster: "/images/testimonials/video/keith-steigbigel.webp",
-          posterAlt: "Dr. Keith Steigbigel, BFR Pros graduate",
-        },
-      ],
+      // Rev 2 (2026-05-21, REVISION-02.md §3): slots removed. The cert
+      // video-testimonials component now reads VIDEO_TESTIMONIALS + the
+      // legacy VIDEOS.testimonial directly from @/lib/constants (the
+      // canonical source-of-truth), mirroring /reviews' click-to-play
+      // poster facade + VEED iframe pattern. Rev 1's `slots` array
+      // referenced the wrong consts (student-headshot photos instead of
+      // the real video posters), which is why the cards never played.
     },
   },
 
@@ -681,9 +640,6 @@ export const CERTIFICATION: CertificationContent = {
     cuffDiscountLabel: "Cuff-discount savings",
     cuffDiscountNote:
       "Up to $640 in negotiated discounts across Delfi, SmartCuffs, B Strong, and others. Called out separately, not folded into the total advertised value above (this is what you can save on a cuff if you decide you want one, not a number added to the stack).",
-    totalLabel: "Total advertised value",
-    priceLabel: "Your price today",
-    savingsLabel: "You save",
     primaryCta: "Get BFR Certified From Home",
     reuseConstant: "PRICING | CURRICULUM | BONUSES | CERTIFICATION_ENROLL_URL",
   },

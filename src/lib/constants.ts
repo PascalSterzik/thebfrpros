@@ -1053,7 +1053,7 @@ export const BONUSES = [
   { n: 7, title: "Precautions and Contraindications List", value: 25, img: "/images/bonuses/07-precautions.png", line: "Pulled straight from the Frontiers literature review. Laminate it for the cuff cart." },
   { n: 8, title: "Nutritional Recommendations for BFR", value: 25, img: "/images/bonuses/08-nutrition.png", line: "Carb timing, protein dosing, and hydration cues for the recovery window." },
   { n: 9, title: "Athletic BFR Programming Guide", value: 100, img: "/images/bonuses/09-athletic-programming.png", line: "In-season maintenance, hypertrophy at low loads, and ischemic preconditioning protocols." },
-  { n: 10, title: "BFR Training Marketing Video", value: 200, img: "/images/bonuses/10-marketing-video.png", line: "Co-brandable explainer to introduce BFR to your patients without writing a word of new copy." },
+  { n: 10, title: "BFR Training Marketing Video", value: 200, img: "/images/bonuses/10-marketing-video.png", line: "Co-brandable explainer that introduces BFR to your patients for you, no scripting or filming required." },
   { n: 11, title: "Private Facebook Group", value: 100, img: "/images/bonuses/11-facebook-group.png", line: "1,467+ certified clinicians. Dr. Rolnick answers implementation questions in real time." },
 ] as const;
 
