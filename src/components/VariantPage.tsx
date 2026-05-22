@@ -17,6 +17,7 @@ import VisualProofSection from "@/components/sections/VisualProofSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import PartnersSection from "@/components/sections/PartnersSection";
 import PricingSection from "@/components/sections/PricingSection";
+import ValueStackSection from "@/components/sections/ValueStackSection";
 import GuaranteeSection from "@/components/sections/GuaranteeSection";
 import FAQSection from "@/components/sections/FAQSection";
 import FinalCTABlock from "@/components/sections/FinalCTABlock";
@@ -73,12 +74,9 @@ export default function VariantPage({ variant }: { variant: Variant }) {
         {/* 11. Instructor authority (Rolnick + Licameli) */}
         <InstructorsSection />
 
-        {/* 11b. Authority by the numbers — moved here per Pascal so the proof
-            stack sits right before "What's Included" / 12 bonuses. */}
+        {/* 12. Authority by the numbers — the proof stack closes out right
+            before the offer block (pricing → bonuses → value stack). */}
         <StatsBlock />
-
-        {/* 12. What's Included / 12 implementation bonuses */}
-        <BonusesSection />
 
         {/* 13. CEU approvals */}
         <CEUBadgesSection />
@@ -92,23 +90,33 @@ export default function VariantPage({ variant }: { variant: Variant }) {
         {/* 16. Partners */}
         <PartnersSection />
 
-        {/* 17. Pricing, primary CTA */}
+        {/* 17. Pricing — CORE offer only ($449, no bonuses inside). HARD RULE,
+            do NOT re-invert 17/18/18b: the price anchors standalone first, the
+            bonuses land free on top, the value stack recaps last (gotcha #97 /
+            copywriting-principles.md §18 / feedback_bonus_sequencing). */}
         <PricingSection />
 
-        {/* 18. Guarantee */}
+        {/* 18. Bonuses — revealed AFTER the price as a free surprise on top. */}
+        <BonusesSection />
+
+        {/* 18b. Value Stack RECAP — the full math, AFTER both pricing and
+            bonuses. A recap, not a new price anchor. */}
+        <ValueStackSection />
+
+        {/* 19. Guarantee */}
         <GuaranteeSection />
 
-        {/* 19. FAQ, 9 questions */}
+        {/* 20. FAQ, 9 questions */}
         <FAQSection />
 
-        {/* 20. Final CTA + Warning */}
+        {/* 21. Final CTA + Warning */}
         <FinalCTABlock variant={variant} />
 
-        {/* 21. P.S. */}
+        {/* 22. P.S. */}
         <PSBlock variant={variant} />
       </main>
 
-      {/* 22. Footer */}
+      {/* 23. Footer */}
       <Footer />
 
       {/* JSON-LD @graph: Organization, WebSite, Person, Course, AggregateRating, FAQPage, BreadcrumbList, WebPage */}

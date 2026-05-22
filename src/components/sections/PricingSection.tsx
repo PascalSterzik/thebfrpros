@@ -8,23 +8,19 @@ import Stars from "@/components/shared/Stars";
 import { PRICING, STATS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// §Pascal-2026-05-08 v6: 11 bonuses (CEU credit application moved into the
-// core offer, not a bonus). Total advertised: $654 courses + $800 bonuses =
-// $1,454. Save $1,005 at $449. Plus up to $640 in real cuff-discount savings.
-const INCLUDES: { line: string; value?: string }[] = [
-  { line: "Course 1: Introduction to BFR Training (5.5 CEUs)", value: "$349" },
-  { line: "Course 2: BFR Masters Series Clinical Rounds (2.25 CEUs)", value: "$147" },
-  { line: "Course 3: What's New in BFR 2021 Webinar (2 CEUs)", value: "$79" },
-  { line: "Course 4: Device Features 2024 Webinar (2 CEUs)", value: "$79" },
-  { line: "11 implementation bonuses (screening forms, RPE tools, private FB group, marketing video, and more)", value: "$800" },
-  { line: "Up to $640 in real cuff-discount savings (Delfi, SmartCuffs, B Strong, etc.)" },
-  { line: "Lifetime access", value: "Included" },
+// CORE OFFER ONLY. HARD RULE, do NOT re-invert (copywriting-principles.md §18 /
+// gotcha #97 / feedback_bonus_sequencing): the price anchors to the
+// certification ALONE. Zero bonuses, zero cuff-savings, no total-value math in
+// this section. The 11 bonuses are revealed AFTER this section as a free
+// surprise on top of the already-shown $449 (BonusesSection); the full value
+// math appears only in the Value Stack recap that follows (ValueStackSection).
+const WHAT_YOU_GET: string[] = [
+  "37 modules across 4 courses, 11.75 hours of video, 11.75 CEUs",
+  "Self-paced and on-demand. Do it in a weekend or take 4 weeks",
+  "Equipment-agnostic: runs on the cuffs your clinic already owns",
+  "Approved for CEUs with concrete boards and dates, within APTA scope and NATA-approved",
+  "Lifetime access, including every future update",
 ];
-
-const TOTAL = INCLUDES.reduce(
-  (sum, x) => sum + (x.value && x.value.startsWith("$") ? parseInt(x.value.replace(/[$,]/g, ""), 10) : 0),
-  0,
-);
 
 export default function PricingSection() {
   return (
@@ -44,24 +40,19 @@ export default function PricingSection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy"
           >
-            ${PRICING.bundlePrice}. One bundle. <span className="underline-accent">Everything in.</span>
+            ${PRICING.bundlePrice}. One certification. <span className="underline-accent">No fake tiers</span>
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="mt-6 text-lg leading-relaxed text-ink/80"
           >
-            No tiered pricing. No upsells. No equipment in the cart. The total advertised value is{" "}
-            <span className="font-semibold text-navy">
-              ${PRICING.bundleValue.toLocaleString("en-US")}
-            </span>{" "}
-            when each component is priced separately. You pay ${PRICING.bundlePrice} for the whole bundle and save{" "}
-            <span className="font-semibold text-accent">${PRICING.savings.toLocaleString("en-US")}</span>.
+            No tiered pricing. No upsells. No equipment in the cart. ${PRICING.bundlePrice} for all 37 modules, {PRICING.contentHours} hours of video, and {PRICING.contentHours} CEUs, taught by the author of 72+ peer-reviewed BFR publications who still treats patients weekly. The certification is worth the ${PRICING.bundlePrice} on its own, before anything else is added to it.
           </motion.p>
           <motion.p
             variants={fadeUp}
             className="mt-4 text-base leading-relaxed text-muted"
           >
-            {PRICING.contentHours} hours of video content. {PRICING.completionPace}, your pace. Lifetime access. {PRICING.guaranteeDays}-day money-back guarantee. Only 1 of {STATS.certifiedPractitioners} graduates has ever taken it.
+            {PRICING.completionPace}, your pace. Lifetime access. {PRICING.guaranteeDays}-day money-back guarantee. Only 1 of {STATS.certifiedPractitioners} graduates has ever taken it.
           </motion.p>
           <motion.div variants={fadeUp} className="mt-6 flex justify-center">
             <Stars variant="light" size="md" linkTo="/reviews" />
@@ -78,23 +69,14 @@ export default function PricingSection() {
           <motion.div variants={fadeUp}>
             <article className="relative rounded-lg border border-line bg-cream/60 p-7 lg:p-10 shadow-[0_30px_60px_-30px_rgba(25,55,99,0.32)]">
               <div className="absolute -top-3 left-7 rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
-                Single bundle · everything included
+                The certification
               </div>
 
               <header className="flex flex-wrap items-end justify-between gap-4 pt-2">
                 <div>
                   <p className="small-caps-line text-muted">The Complete BFR Certification</p>
-                  <div className="mt-3 flex items-baseline gap-3">
-                    <p className="font-display text-5xl text-navy leading-none sm:text-6xl">
-                      ${PRICING.bundlePrice}
-                    </p>
-                    <p className="text-base text-muted line-through tabular-nums">
-                      ${PRICING.bundleValue.toLocaleString("en-US")}
-                    </p>
-                  </div>
-                  <p className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                    <span aria-hidden>↓</span>
-                    You save ${PRICING.savings.toLocaleString("en-US")}
+                  <p className="mt-3 font-display text-5xl text-navy leading-none sm:text-6xl">
+                    ${PRICING.bundlePrice}
                   </p>
                 </div>
                 <div className="hidden sm:block relative w-32 h-24 lg:w-40 lg:h-28 shrink-0 -rotate-3 rounded-md overflow-hidden ring-1 ring-line shadow-md">
@@ -109,10 +91,10 @@ export default function PricingSection() {
               </header>
 
               <ul className="mt-7 space-y-3 border-t border-line pt-6">
-                {INCLUDES.map((item) => (
+                {WHAT_YOU_GET.map((line) => (
                   <li
-                    key={item.line}
-                    className="grid grid-cols-[18px_1fr_auto] items-start gap-3 text-base text-ink"
+                    key={line}
+                    className="grid grid-cols-[18px_1fr] items-start gap-3 text-base text-ink"
                   >
                     <span
                       aria-hidden
@@ -128,21 +110,9 @@ export default function PricingSection() {
                         />
                       </svg>
                     </span>
-                    <p className="text-sm sm:text-base">{item.line}</p>
-                    {item.value && (
-                      <span className="text-xs sm:text-sm font-semibold text-muted tabular-nums whitespace-nowrap">
-                        {item.value}
-                      </span>
-                    )}
+                    <p className="text-sm sm:text-base">{line}</p>
                   </li>
                 ))}
-                <li className="grid grid-cols-[18px_1fr_auto] items-baseline gap-3 border-t border-line pt-4 mt-4">
-                  <span aria-hidden className="text-accent">∑</span>
-                  <p className="text-sm sm:text-base font-semibold text-navy">Total advertised value</p>
-                  <span className="text-base font-display text-navy tabular-nums whitespace-nowrap">
-                    ${TOTAL.toLocaleString("en-US")}
-                  </span>
-                </li>
               </ul>
 
               <div className="mt-8">
