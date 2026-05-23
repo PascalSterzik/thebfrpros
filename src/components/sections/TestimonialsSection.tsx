@@ -101,18 +101,24 @@ export default function TestimonialsSection() {
           <motion.div variants={fadeUp} className="lg:col-span-5">
             <p className="small-caps-line text-accent">Course graduate testimonial</p>
             <h3 className="mt-3 font-display text-display-md text-white text-balance">
-              See a clinician explain why they chose this certification, in their own words.
+              See a graduate explain why he chose this certification, in his own words.
             </h3>
           </motion.div>
           <motion.div variants={fadeUp} className="lg:col-span-7">
             <div className="relative w-full overflow-hidden rounded-lg bg-black/40 ring-1 ring-white/15 shadow-[0_60px_120px_-40px_rgba(0,0,0,0.55)]">
               <VideoPoster
-                posterSrc="/images/posters/testimonial.jpg"
+                posterSrc="/images/testimonials/video/dhimant-indrayan.webp"
                 videoSrc={VIDEOS.testimonial}
-                title="Introduction to BFR Training Course Testimonial"
+                title="Dhimant Indrayan, Founder of House of Hypertrophy, on The Complete BFR Certification"
                 sizes="(max-width: 1024px) 100vw, 600px"
+                animated={{ webm: "/videos/thumbnails/testimonial-dhimant-indrayan.webm", mp4: "/videos/thumbnails/testimonial-dhimant-indrayan.mp4" }}
               />
             </div>
+            <p className="mt-3 text-sm text-white/70 text-center">
+              <span className="font-semibold text-white">Dhimant Indrayan</span>
+              <span className="mx-2 text-white/40">·</span>
+              Founder, House of Hypertrophy
+            </p>
           </motion.div>
         </motion.div>
 
