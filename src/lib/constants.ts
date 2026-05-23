@@ -1132,6 +1132,14 @@ export const VIDEO_TESTIMONIALS = [
     aspect: "16/9",
     animated: { webm: "/videos/thumbnails/testimonial-dawn-thomas.webm", mp4: "/videos/thumbnails/testimonial-dawn-thomas.mp4" },
   },
+  {
+    name: "Dhimant Indrayan",
+    role: "Founder, House of Hypertrophy",
+    veedId: "447b2350-3678-4c64-b638-727760e4534f",
+    poster: "/images/testimonials/video/dhimant-indrayan.webp",
+    aspect: "16/9",
+    animated: { webm: "/videos/thumbnails/testimonial-dhimant-indrayan.webm", mp4: "/videos/thumbnails/testimonial-dhimant-indrayan.mp4" },
+  },
 ] as const;
 
 // TODO: thumbnails pending from Pascal — parked here so they don't get lost.

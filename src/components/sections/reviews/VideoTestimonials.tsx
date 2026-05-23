@@ -148,7 +148,7 @@ export default function VideoTestimonials() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-12 grid gap-6 sm:grid-cols-2"
+          className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 [&>li:nth-child(4)]:lg:col-start-2 [&>li:nth-child(5)]:lg:col-start-3"
         >
           {VIDEO_TESTIMONIALS.map((v) => (
             <VideoCard key={v.veedId} v={v} />

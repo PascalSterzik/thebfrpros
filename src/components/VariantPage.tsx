@@ -10,6 +10,7 @@ import DreamDeepBlock from "@/components/sections/DreamDeepBlock";
 import BridgeBlock from "@/components/sections/BridgeBlock";
 import SolutionSection from "@/components/sections/SolutionSection";
 import CurriculumSection from "@/components/sections/CurriculumSection";
+import TopTestimonials from "@/components/sections/TopTestimonials";
 import InstructorsSection from "@/components/sections/InstructorsSection";
 import BonusesSection from "@/components/sections/BonusesSection";
 import CEUBadgesSection from "@/components/sections/CEUBadgesSection";
@@ -48,6 +49,12 @@ export default function VariantPage({ variant }: { variant: Variant }) {
 
         {/* 4. Featured-in marquee */}
         <CredibilityBar />
+
+        {/* 4b. Top testimonials — three named expert quotes with photos
+            (Lee / Whyte / Toderico) surfaced right under the brand-logo
+            social proof per Pascal 2026-05-23. The full review wall + 5
+            video testimonials live further down in TestimonialsSection. */}
+        <TopTestimonials />
 
         {/* 5. Demand graph: leads as urgency context BEFORE problem so it doesn't
             interrupt the Problem→Dream→Solution flow Pascal flagged on review. */}

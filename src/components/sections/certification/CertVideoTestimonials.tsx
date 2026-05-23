@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
-import { VIDEO_TESTIMONIALS, VIDEOS } from "@/lib/constants";
+import { VIDEO_TESTIMONIALS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Rev 2 (2026-05-21, REVISION-02.md §3): full rewrite.
@@ -38,32 +38,19 @@ type CardSpec = {
   animated?: { webm: string; mp4: string };
 };
 
-// Compose the 5-card list from canonical constants. The first four come from
-// VIDEO_TESTIMONIALS (PT/AT graduates). The fifth is Dhimant Indrayan
-// (Founder, House of Hypertrophy) — his VEED happens to live on the legacy
-// VIDEOS.testimonial export (the variable name predates the VIDEO_TESTIMONIALS
-// array). Until Dhimant migrates into VIDEO_TESTIMONIALS, inline him here so
-// the labelling stays accurate. /get-certified's TestimonialsSection still
-// passes a generic "Introduction to BFR Training Course Testimonial" title
-// for the same VEED — that's a separate attribution fix to make later.
-const CARDS: CardSpec[] = [
-  ...VIDEO_TESTIMONIALS.map((v) => ({
-    key: v.veedId,
-    name: v.name,
-    role: v.role,
-    poster: v.poster,
-    embedSrc: `https://www.veed.io/embed/${v.veedId}?watermark=0&color=blue&sharing=0&title=0`,
-    animated: v.animated,
-  })),
-  {
-    key: "dhimant-indrayan",
-    name: "Dhimant Indrayan",
-    role: "Founder, House of Hypertrophy",
-    poster: "/images/testimonials/video/dhimant-indrayan.webp",
-    embedSrc: VIDEOS.testimonial,
-    animated: { webm: "/videos/thumbnails/testimonial-dhimant-indrayan.webm", mp4: "/videos/thumbnails/testimonial-dhimant-indrayan.mp4" },
-  },
-];
+// Compose the 5-card list from canonical constants. Dhimant Indrayan now
+// lives directly inside VIDEO_TESTIMONIALS (his VEED uuid is the same as the
+// legacy VIDEOS.testimonial export, but the named entry in the array carries
+// his role + poster + animated loop), so the previous inline 5th card is no
+// longer needed here.
+const CARDS: CardSpec[] = VIDEO_TESTIMONIALS.map((v) => ({
+  key: v.veedId,
+  name: v.name,
+  role: v.role,
+  poster: v.poster,
+  embedSrc: `https://www.veed.io/embed/${v.veedId}?watermark=0&color=blue&sharing=0&title=0`,
+  animated: v.animated,
+}));
 
 function VideoCard({ card }: { card: CardSpec }) {
   const [active, setActive] = useState(false);
