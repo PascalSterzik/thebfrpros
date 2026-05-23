@@ -275,12 +275,12 @@ export const VIDEOS = {
 // VisualProofSection — replaces the 4 static photos with 6 short VEED embeds
 // that show a real BFR cuff in motion across common compound lifts.
 export const ACTION_VIDEOS = [
-  { title: "Romanian Deadlift vs Regular Deadlift", src: "https://www.veed.io/embed/0ad32f9d-e62f-45e2-bda0-8abed95ece0b?watermark=0&color=red&sharing=0&title=0", posterSrc: "/images/posters/action-romanian-deadlift.jpg" },
-  { title: "Leg Press with BFR", src: "https://www.veed.io/embed/5751e248-436e-44e7-ba2b-2a2e8e63cf6a?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-leg-press.jpg" },
-  { title: "Leg Curl with BFR", src: "https://www.veed.io/embed/2e7d2fc0-5082-4732-a8f3-97b1d72b1e32?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-leg-curl.jpg" },
-  { title: "Split Squat with BFR", src: "https://www.veed.io/embed/b3e3e1f9-34d4-4672-8c83-a64956949f78?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-split-squat.jpg" },
-  { title: "Heel Elevated High-Bar Squat with BFR", src: "https://www.veed.io/embed/b8b73290-c1ed-4e7b-a4f3-7279c77d5426?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-high-bar-squat.jpg" },
-  { title: "Hip Thrust with BFR", src: "https://www.veed.io/embed/97e4b507-edc5-4662-bfcc-f8bab006f100?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-hip-thrust.jpg" },
+  { title: "Romanian Deadlift vs Regular Deadlift", src: "https://www.veed.io/embed/0ad32f9d-e62f-45e2-bda0-8abed95ece0b?watermark=0&color=red&sharing=0&title=0", posterSrc: "/images/posters/action-romanian-deadlift.jpg", animated: { webm: "/videos/thumbnails/action-romanian-deadlift.webm", mp4: "/videos/thumbnails/action-romanian-deadlift.mp4" } },
+  { title: "Leg Press with BFR", src: "https://www.veed.io/embed/5751e248-436e-44e7-ba2b-2a2e8e63cf6a?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-leg-press.jpg", animated: { webm: "/videos/thumbnails/action-leg-press.webm", mp4: "/videos/thumbnails/action-leg-press.mp4" } },
+  { title: "Leg Curl with BFR", src: "https://www.veed.io/embed/2e7d2fc0-5082-4732-a8f3-97b1d72b1e32?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-leg-curl.jpg", animated: { webm: "/videos/thumbnails/action-leg-curl.webm", mp4: "/videos/thumbnails/action-leg-curl.mp4" } },
+  { title: "Split Squat with BFR", src: "https://www.veed.io/embed/b3e3e1f9-34d4-4672-8c83-a64956949f78?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-split-squat.jpg", animated: { webm: "/videos/thumbnails/action-split-squat.webm", mp4: "/videos/thumbnails/action-split-squat.mp4" } },
+  { title: "Heel Elevated High-Bar Squat with BFR", src: "https://www.veed.io/embed/b8b73290-c1ed-4e7b-a4f3-7279c77d5426?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-high-bar-squat.jpg", animated: { webm: "/videos/thumbnails/action-high-bar-squat.webm", mp4: "/videos/thumbnails/action-high-bar-squat.mp4" } },
+  { title: "Hip Thrust with BFR", src: "https://www.veed.io/embed/97e4b507-edc5-4662-bfcc-f8bab006f100?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-hip-thrust.jpg", animated: { webm: "/videos/thumbnails/action-hip-thrust.webm", mp4: "/videos/thumbnails/action-hip-thrust.mp4" } },
 ] as const;
 
 // BFR_DEMAND_TREND was a hand-typed approximation of Google Trends data for an SVG
@@ -1106,6 +1106,7 @@ export const VIDEO_TESTIMONIALS = [
     veedId: "6c84a8f4-2a11-4f7d-b5f7-78c84bb6c6b5",
     poster: "/images/testimonials/video/matthew-delia.webp",
     aspect: "16/9",
+    animated: { webm: "/videos/thumbnails/testimonial-matthew-delia.webm", mp4: "/videos/thumbnails/testimonial-matthew-delia.mp4" },
   },
   {
     name: "Erica Marcano",
@@ -1113,6 +1114,7 @@ export const VIDEO_TESTIMONIALS = [
     veedId: "0a56db20-a55f-4fba-b990-fdbde79b2add",
     poster: "/images/testimonials/video/erica-marcano.webp",
     aspect: "16/9",
+    animated: { webm: "/videos/thumbnails/testimonial-erica-marcano.webm", mp4: "/videos/thumbnails/testimonial-erica-marcano.mp4" },
   },
   {
     name: "Keith Steigbigel",
@@ -1120,6 +1122,7 @@ export const VIDEO_TESTIMONIALS = [
     veedId: "9d70c743-2afa-439b-bc5d-c76737fa34b3",
     poster: "/images/testimonials/video/keith-steigbigel.webp",
     aspect: "16/9",
+    animated: { webm: "/videos/thumbnails/testimonial-keith-steigbigel.webm", mp4: "/videos/thumbnails/testimonial-keith-steigbigel.mp4" },
   },
   {
     name: "Dawn Thomas",
@@ -1127,6 +1130,7 @@ export const VIDEO_TESTIMONIALS = [
     veedId: "fb515674-f11a-4f58-884f-9bddf9cc3eb4",
     poster: "/images/testimonials/video/dawn-thomas.webp",
     aspect: "16/9",
+    animated: { webm: "/videos/thumbnails/testimonial-dawn-thomas.webm", mp4: "/videos/thumbnails/testimonial-dawn-thomas.mp4" },
   },
 ] as const;
 
@@ -1160,6 +1164,7 @@ export const CURRICULUM = [
     promoVideoKey: "course1Promo" as const,
     coatOfArmsSrc: "/images/course-arms/course-1.png",
     posterSrc: "/images/posters/course-1.jpg",
+    animatedSrc: { webm: "/videos/thumbnails/course-1.webm", mp4: "/videos/thumbnails/course-1.mp4" },
     summary:
       "The foundation course. 60 years of BFR research, mechanisms, pressure determination, screening, and the three pillars of clinical application.",
     modules: [
@@ -1189,6 +1194,7 @@ export const CURRICULUM = [
     promoVideoKey: "course2Promo" as const,
     coatOfArmsSrc: "/images/course-arms/course-2.png",
     posterSrc: "/images/posters/course-2.jpg",
+    animatedSrc: { webm: "/videos/thumbnails/course-2.webm", mp4: "/videos/thumbnails/course-2.mp4" },
     summary:
       "Six case-based clinical rounds with Dr. Rolnick walking through real patient decisions, each paired with a quiz on the underlying paper.",
     modules: [
@@ -1216,6 +1222,7 @@ export const CURRICULUM = [
     promoVideoKey: "course3Promo" as const,
     coatOfArmsSrc: "/images/course-arms/course-3.jpg",
     posterSrc: "/images/posters/course-3.jpg",
+    animatedSrc: { webm: "/videos/thumbnails/course-3.webm", mp4: "/videos/thumbnails/course-3.mp4" },
     summary:
       "Five 2021 papers walked through with the lead author's commentary on what each finding means for the clinic floor.",
     modules: [
@@ -1238,6 +1245,7 @@ export const CURRICULUM = [
     promoVideoKey: "course4Promo" as const,
     coatOfArmsSrc: "/images/course-arms/course-4.jpg",
     posterSrc: "/images/posters/course-4.jpg",
+    animatedSrc: { webm: "/videos/thumbnails/course-4.webm", mp4: "/videos/thumbnails/course-4.mp4" },
     summary:
       "Comparative review of 2024 cuff design data plus a practical knowledge assessment on wrapping straps versus elastic bands.",
     modules: [

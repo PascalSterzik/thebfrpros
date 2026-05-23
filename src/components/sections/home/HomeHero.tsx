@@ -82,6 +82,7 @@ export default function HomeHero() {
                 title="Dr. Nicholas Rolnick covers common questions about blood flow restriction training"
                 priority
                 sizes="(max-width: 1024px) 100vw, 800px"
+                animated={{ webm: "/videos/thumbnails/home-hero.webm", mp4: "/videos/thumbnails/home-hero.mp4" }}
               />
             </div>
           </div>

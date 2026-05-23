@@ -49,6 +49,7 @@ export default function VisualProofSection() {
                 videoSrc={v.src}
                 title={v.title}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                animated={v.animated}
               />
               <p className="px-4 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-navy/85">
                 {v.title}
