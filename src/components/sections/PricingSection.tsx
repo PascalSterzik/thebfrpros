@@ -64,7 +64,7 @@ export default function PricingSection() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-12 mx-auto max-w-3xl"
+          className="mt-12 mx-auto max-w-4xl"
         >
           <motion.div variants={fadeUp}>
             <article className="relative rounded-lg border border-line bg-cream/60 p-7 lg:p-10 shadow-[0_30px_60px_-30px_rgba(25,55,99,0.32)]">
@@ -89,61 +89,55 @@ export default function PricingSection() {
                 />
               </span>
 
-              {/* Two-column layout on desktop (certificate left, content right);
-                  stacked column on mobile + tablet (certificate above, content
-                  below). The certificate is now the headline visual on the
-                  card rather than a small thumbnail. */}
-              <div className="grid gap-7 pt-2 lg:grid-cols-[2fr_3fr] lg:gap-10 lg:items-start">
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md ring-1 ring-line shadow-[0_20px_40px_-20px_rgba(25,55,99,0.4)] -rotate-2">
-                  <Image
-                    src="/images/guarantee/certificate.png"
-                    alt="Sample BFR Pros course-completion certificate"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 280px"
-                    className="object-cover"
-                  />
-                </div>
+              {/* Single-column layout, same on mobile and desktop. The big
+                  certificate image replaces the prior $449 headline as the
+                  card's visual anchor; the price still lives on the CTA
+                  button below. Image is 1021x753 (~4:3) so aspect-[4/3]
+                  fills the container without cropping. */}
+              <p className="small-caps-line text-muted pt-2">The Complete BFR Certification</p>
 
-                <div>
-                  <p className="small-caps-line text-muted">The Complete BFR Certification</p>
-                  <p className="mt-3 font-display text-5xl text-navy leading-none sm:text-6xl">
-                    ${PRICING.bundlePrice}
-                  </p>
+              <div className="relative mt-5 aspect-[4/3] w-full overflow-hidden rounded-md ring-1 ring-line shadow-[0_30px_60px_-30px_rgba(25,55,99,0.4)] -rotate-1">
+                <Image
+                  src="/images/guarantee/certificate.png"
+                  alt="Sample BFR Pros course-completion certificate"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 816px"
+                  className="object-cover"
+                />
+              </div>
 
-                  <ul className="mt-7 space-y-3 border-t border-line pt-6">
-                    {WHAT_YOU_GET.map((line) => (
-                      <li
-                        key={line}
-                        className="grid grid-cols-[18px_1fr] items-start gap-3 text-base text-ink"
-                      >
-                        <span
-                          aria-hidden
-                          className="mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-accent/12 text-accent"
-                        >
-                          <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
-                            <path
-                              d="M1.5 5.4L4 7.8l4.5-5.6"
-                              stroke="currentColor"
-                              strokeWidth="1.4"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </span>
-                        <p className="text-sm sm:text-base">{line}</p>
-                      </li>
-                    ))}
-                  </ul>
+              <ul className="mt-8 space-y-3 border-t border-line pt-6">
+                {WHAT_YOU_GET.map((line) => (
+                  <li
+                    key={line}
+                    className="grid grid-cols-[18px_1fr] items-start gap-3 text-base text-ink"
+                  >
+                    <span
+                      aria-hidden
+                      className="mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-accent/12 text-accent"
+                    >
+                      <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
+                        <path
+                          d="M1.5 5.4L4 7.8l4.5-5.6"
+                          stroke="currentColor"
+                          strokeWidth="1.4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <p className="text-sm sm:text-base">{line}</p>
+                  </li>
+                ))}
+              </ul>
 
-                  <div className="mt-8">
-                    <PrimaryCTA
-                      size="lg"
-                      label={`Enroll Now for Just $${PRICING.bundlePrice}`}
-                      secondary={`Lifetime access · ${PRICING.guaranteeDays}-day money-back guarantee`}
-                      hint={`1 of ${STATS.certifiedPractitioners} graduates has ever taken the refund`}
-                    />
-                  </div>
-                </div>
+              <div className="mt-8">
+                <PrimaryCTA
+                  size="lg"
+                  label={`Enroll Now for Just $${PRICING.bundlePrice}`}
+                  secondary={`Lifetime access · ${PRICING.guaranteeDays}-day money-back guarantee`}
+                  hint={`1 of ${STATS.certifiedPractitioners} graduates has ever taken the refund`}
+                />
               </div>
             </article>
           </motion.div>
