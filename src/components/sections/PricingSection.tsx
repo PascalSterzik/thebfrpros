@@ -72,6 +72,23 @@ export default function PricingSection() {
                 The certification
               </div>
 
+              {/* Combined-CEU banner: the all-courses.png (11.75 CEUs total)
+                  peeks off the top-right corner, same 3D-peek treatment as
+                  the per-course curriculum banners and the value-stack
+                  combined banner. */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -top-3 -right-1 sm:-top-4 sm:-right-2 block"
+              >
+                <Image
+                  src="/images/ceus/all-courses.png"
+                  alt=""
+                  width={160}
+                  height={88}
+                  className="h-auto w-[55px] sm:w-[70px] lg:w-[80px] drop-shadow-[0_12px_22px_rgba(25,55,99,0.2)]"
+                />
+              </span>
+
               <header className="flex flex-wrap items-end justify-between gap-4 pt-2">
                 <div>
                   <p className="small-caps-line text-muted">The Complete BFR Certification</p>

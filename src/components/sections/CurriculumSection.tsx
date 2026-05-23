@@ -107,7 +107,7 @@ export default function CurriculumSection() {
                 {ceuBanner && (
                   <span
                     aria-hidden
-                    className="pointer-events-none absolute -top-3 -right-1 sm:-top-4 sm:-right-2 lg:right-auto lg:-left-2 block"
+                    className="pointer-events-none absolute -top-3 -right-2 sm:-top-4 lg:right-auto lg:left-2 block"
                   >
                     <Image
                       src={ceuBanner}
