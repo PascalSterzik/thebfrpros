@@ -38,11 +38,14 @@ type CardSpec = {
   animated?: { webm: string; mp4: string };
 };
 
-// Compose the 5-card list from canonical constants. The four named PT/AT
-// graduates come from VIDEO_TESTIMONIALS; the fifth is the legacy
-// course-graduate VEED in VIDEOS.testimonial (already a full embed URL),
-// reusing the existing /images/posters/testimonial.jpg poster Pascal shipped
-// during the Phase-1A click-to-play work.
+// Compose the 5-card list from canonical constants. The first four come from
+// VIDEO_TESTIMONIALS (PT/AT graduates). The fifth is Dhimant Indrayan
+// (Founder, House of Hypertrophy) — his VEED happens to live on the legacy
+// VIDEOS.testimonial export (the variable name predates the VIDEO_TESTIMONIALS
+// array). Until Dhimant migrates into VIDEO_TESTIMONIALS, inline him here so
+// the labelling stays accurate. /get-certified's TestimonialsSection still
+// passes a generic "Introduction to BFR Training Course Testimonial" title
+// for the same VEED — that's a separate attribution fix to make later.
 const CARDS: CardSpec[] = [
   ...VIDEO_TESTIMONIALS.map((v) => ({
     key: v.veedId,
@@ -53,11 +56,12 @@ const CARDS: CardSpec[] = [
     animated: v.animated,
   })),
   {
-    key: "course-graduate-legacy",
-    name: "BFR Pros Graduate",
-    role: "Introduction to BFR Training Course",
-    poster: "/images/posters/testimonial.jpg",
+    key: "dhimant-indrayan",
+    name: "Dhimant Indrayan",
+    role: "Founder, House of Hypertrophy",
+    poster: "/images/testimonials/video/dhimant-indrayan.webp",
     embedSrc: VIDEOS.testimonial,
+    animated: { webm: "/videos/thumbnails/testimonial-dhimant-indrayan.webm", mp4: "/videos/thumbnails/testimonial-dhimant-indrayan.mp4" },
   },
 ];
 
