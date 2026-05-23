@@ -64,7 +64,7 @@ export default function PricingSection() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-12 mx-auto max-w-2xl"
+          className="mt-12 mx-auto max-w-3xl"
         >
           <motion.div variants={fadeUp}>
             <article className="relative rounded-lg border border-line bg-cream/60 p-7 lg:p-10 shadow-[0_30px_60px_-30px_rgba(25,55,99,0.32)]">
@@ -73,12 +73,12 @@ export default function PricingSection() {
               </div>
 
               {/* Combined-CEU banner: the all-courses.png (11.75 CEUs total)
-                  peeks off the top-right corner, same 3D-peek treatment as
-                  the per-course curriculum banners and the value-stack
-                  combined banner. */}
+                  peeks off the top-right corner. Shifted +6px right vs the
+                  curriculum/value-stack banners so it sits clear of the cert
+                  badge below. */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute -top-3 -right-1 sm:-top-4 sm:-right-2 block"
+                className="pointer-events-none absolute -top-3 -right-[10px] sm:-top-4 sm:-right-[14px] block"
               >
                 <Image
                   src="/images/ceus/all-courses.png"
@@ -89,56 +89,61 @@ export default function PricingSection() {
                 />
               </span>
 
-              <header className="flex flex-wrap items-end justify-between gap-4 pt-2">
+              {/* Two-column layout on desktop (certificate left, content right);
+                  stacked column on mobile + tablet (certificate above, content
+                  below). The certificate is now the headline visual on the
+                  card rather than a small thumbnail. */}
+              <div className="grid gap-7 pt-2 lg:grid-cols-[2fr_3fr] lg:gap-10 lg:items-start">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md ring-1 ring-line shadow-[0_20px_40px_-20px_rgba(25,55,99,0.4)] -rotate-2">
+                  <Image
+                    src="/images/guarantee/certificate.png"
+                    alt="Sample BFR Pros course-completion certificate"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 280px"
+                    className="object-cover"
+                  />
+                </div>
+
                 <div>
                   <p className="small-caps-line text-muted">The Complete BFR Certification</p>
                   <p className="mt-3 font-display text-5xl text-navy leading-none sm:text-6xl">
                     ${PRICING.bundlePrice}
                   </p>
-                </div>
-                <div className="hidden sm:block relative w-32 h-24 lg:w-40 lg:h-28 shrink-0 -rotate-3 rounded-md overflow-hidden ring-1 ring-line shadow-md">
-                  <Image
-                    src="/images/guarantee/certificate.png"
-                    alt="Sample BFR Pros course-completion certificate"
-                    fill
-                    sizes="(max-width: 1024px) 128px, 160px"
-                    className="object-cover"
-                  />
-                </div>
-              </header>
 
-              <ul className="mt-7 space-y-3 border-t border-line pt-6">
-                {WHAT_YOU_GET.map((line) => (
-                  <li
-                    key={line}
-                    className="grid grid-cols-[18px_1fr] items-start gap-3 text-base text-ink"
-                  >
-                    <span
-                      aria-hidden
-                      className="mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-accent/12 text-accent"
-                    >
-                      <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
-                        <path
-                          d="M1.5 5.4L4 7.8l4.5-5.6"
-                          stroke="currentColor"
-                          strokeWidth="1.4"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </span>
-                    <p className="text-sm sm:text-base">{line}</p>
-                  </li>
-                ))}
-              </ul>
+                  <ul className="mt-7 space-y-3 border-t border-line pt-6">
+                    {WHAT_YOU_GET.map((line) => (
+                      <li
+                        key={line}
+                        className="grid grid-cols-[18px_1fr] items-start gap-3 text-base text-ink"
+                      >
+                        <span
+                          aria-hidden
+                          className="mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-accent/12 text-accent"
+                        >
+                          <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
+                            <path
+                              d="M1.5 5.4L4 7.8l4.5-5.6"
+                              stroke="currentColor"
+                              strokeWidth="1.4"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </span>
+                        <p className="text-sm sm:text-base">{line}</p>
+                      </li>
+                    ))}
+                  </ul>
 
-              <div className="mt-8">
-                <PrimaryCTA
-                  size="lg"
-                  label={`Enroll Now for Just $${PRICING.bundlePrice}`}
-                  secondary={`Lifetime access · ${PRICING.guaranteeDays}-day money-back guarantee`}
-                  hint={`1 of ${STATS.certifiedPractitioners} graduates has ever taken the refund`}
-                />
+                  <div className="mt-8">
+                    <PrimaryCTA
+                      size="lg"
+                      label={`Enroll Now for Just $${PRICING.bundlePrice}`}
+                      secondary={`Lifetime access · ${PRICING.guaranteeDays}-day money-back guarantee`}
+                      hint={`1 of ${STATS.certifiedPractitioners} graduates has ever taken the refund`}
+                    />
+                  </div>
+                </div>
               </div>
             </article>
           </motion.div>
