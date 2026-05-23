@@ -80,6 +80,7 @@ export default function HeroBlock({ variant }: { variant: Variant }) {
                 title="The Complete BFR Certification course package promo"
                 priority
                 sizes="(max-width: 1024px) 100vw, 800px"
+                animated={{ webm: "/videos/thumbnails/cert-hero.webm", mp4: "/videos/thumbnails/cert-hero.mp4" }}
               />
             </div>
           </div>
