@@ -96,7 +96,7 @@ export default function PricingSection() {
                   fills the container without cropping. */}
               <p className="small-caps-line text-muted pt-2">The Complete BFR Certification</p>
 
-              <div className="relative mt-5 aspect-[4/3] w-full overflow-hidden rounded-md ring-1 ring-line shadow-[0_30px_60px_-30px_rgba(25,55,99,0.4)] -rotate-1">
+              <div className="relative mt-5 aspect-[4/3] w-full overflow-hidden rounded-md ring-1 ring-line shadow-[0_30px_60px_-30px_rgba(25,55,99,0.4)] -rotate-1 lg:mx-auto lg:max-w-2xl">
                 <Image
                   src="/images/guarantee/certificate.png"
                   alt="Sample BFR Pros course-completion certificate"

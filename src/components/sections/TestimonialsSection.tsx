@@ -39,14 +39,20 @@ type CardSpec = {
   animated?: { webm: string; mp4: string };
 };
 
-const VIDEO_CARDS: CardSpec[] = VIDEO_TESTIMONIALS.map((v) => ({
-  key: v.veedId,
-  name: v.name,
-  role: v.role,
-  poster: v.poster,
-  embedSrc: `https://www.veed.io/embed/${v.veedId}?watermark=0&color=blue&sharing=0&title=0`,
-  animated: v.animated,
-}));
+// Pascal review (2026-05-23): /get-certified specifically renders ONLY the
+// four named PT/AT graduates — Dhimant is filtered out here so the row sits
+// as 4 wider cards on desktop. /reviews and /certification still iterate
+// the full VIDEO_TESTIMONIALS list (5 cards including Dhimant).
+const VIDEO_CARDS: CardSpec[] = VIDEO_TESTIMONIALS
+  .filter((v) => v.name !== "Dhimant Indrayan")
+  .map((v) => ({
+    key: v.veedId,
+    name: v.name,
+    role: v.role,
+    poster: v.poster,
+    embedSrc: `https://www.veed.io/embed/${v.veedId}?watermark=0&color=blue&sharing=0&title=0`,
+    animated: v.animated,
+  }));
 
 function VideoCard({ card }: { card: CardSpec }) {
   const [active, setActive] = useState(false);
@@ -190,26 +196,28 @@ export default function TestimonialsSection() {
             variants={fadeUp}
             className="mt-6 mx-auto max-w-2xl text-lg leading-relaxed text-white/80"
           >
-            Five video testimonials and {STATS.reviewCount}+ written reviews from the{" "}
+            Four video testimonials and {STATS.reviewCount}+ written reviews from the{" "}
             {STATS.certifiedPractitioners} certified practitioners.
           </motion.p>
         </motion.div>
+      </div>
 
-        {/* 5 video testimonials. 3-column grid on desktop with cards 4 + 5
-            centered on row 2, matching /certification's CertVideoTestimonials
-            and /reviews's VideoTestimonials grids. */}
-        <motion.ul
-          initial="hidden"
-          whileInView="visible"
-          viewport={inViewOnce}
-          variants={stagger}
-          className="mt-14 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 [&>li:nth-child(4)]:lg:col-start-2 [&>li:nth-child(5)]:lg:col-start-3"
-        >
-          {VIDEO_CARDS.map((card) => (
-            <VideoCard key={card.key} card={card} />
-          ))}
-        </motion.ul>
+      {/* Video testimonials grid lives OUTSIDE container-rail so it can run
+          almost full width on desktop. Four cards on lg+, one row, each card
+          wider than the container-rail-bound 3+2 layout we had before. */}
+      <motion.ul
+        initial="hidden"
+        whileInView="visible"
+        viewport={inViewOnce}
+        variants={stagger}
+        className="mx-auto mt-14 grid w-full max-w-[1600px] gap-6 px-3 sm:grid-cols-2 sm:px-8 lg:grid-cols-4 lg:px-12"
+      >
+        {VIDEO_CARDS.map((card) => (
+          <VideoCard key={card.key} card={card} />
+        ))}
+      </motion.ul>
 
+      <div className="container-rail">
         {/* Written reviews wall. Same card structure as /reviews WallOfLove
             but dark-mode styled to sit on the navy-field background, and
             paginated 9 per batch. */}
@@ -271,3 +279,4 @@ export default function TestimonialsSection() {
     </section>
   );
 }
+
