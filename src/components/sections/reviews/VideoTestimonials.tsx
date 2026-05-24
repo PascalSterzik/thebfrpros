@@ -74,8 +74,7 @@ function VideoCard({ v }: { v: VideoT }) {
                 muted
                 loop
                 playsInline
-                autoPlay
-                preload="metadata"
+                preload="none"
                 aria-hidden
                 className="absolute inset-0 h-full w-full object-cover transition group-hover:brightness-75"
               >

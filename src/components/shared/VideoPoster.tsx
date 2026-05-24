@@ -98,8 +98,8 @@ export default function VideoPoster({
             muted
             loop
             playsInline
-            autoPlay
-            preload="metadata"
+            autoPlay={priority}
+            preload={priority ? "metadata" : "none"}
             aria-hidden
             className="absolute inset-0 h-full w-full object-cover"
           >
