@@ -1288,8 +1288,8 @@ export function buildPersonPageSchemaGraph({
         isPartOf: { "@id": websiteId },
         mainEntity: { "@id": personId },
         breadcrumb: { "@id": breadcrumbId },
-        datePublished: "2026-05-12",
-        dateModified: "2026-05-12",
+        dateCreated: "2026-05-12T09:00:00-04:00",
+        dateModified: "2026-05-12T09:00:00-04:00",
       },
     ],
   };

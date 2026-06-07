@@ -170,6 +170,7 @@ export default function CertCurriculumSection() {
                       videoSrc={promoVideoSrc}
                       title={`${c.title} promo`}
                       sizes="(max-width: 1024px) 100vw, 600px"
+                      animated={c.animatedSrc}
                     />
                   </div>
                 )}

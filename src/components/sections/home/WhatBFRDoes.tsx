@@ -54,6 +54,7 @@ export default function WhatBFRDoes() {
               videoSrc={VIDEOS.whatIsBFR}
               title="What is Blood Flow Restriction training? Dr. Nicholas Rolnick explains the modality."
               sizes="(max-width: 1024px) 100vw, 800px"
+              animated={{ webm: "/videos/thumbnails/what-is-bfr.webm", mp4: "/videos/thumbnails/what-is-bfr.mp4" }}
             />
           </motion.div>
         </motion.div>

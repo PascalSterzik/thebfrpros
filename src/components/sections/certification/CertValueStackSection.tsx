@@ -76,8 +76,24 @@ export default function CertValueStackSection() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={fadeUp}
-          className="mt-12 mx-auto max-w-3xl rounded-lg border border-line bg-cream/40 p-6 lg:p-9 shadow-[0_30px_60px_-30px_rgba(25,55,99,0.22)]"
+          className="relative mt-12 mx-auto max-w-3xl rounded-lg border border-line bg-cream/40 p-6 lg:p-9 shadow-[0_30px_60px_-30px_rgba(25,55,99,0.22)]"
         >
+          {/* Combined-CEU banner: the all-courses transparent PNG (11.75 CEUs
+              total) peeks off the top-right corner, same 3D-peek treatment and
+              sizing as the per-course CEU banners on the curriculum cards. */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute -top-3 -right-1 sm:-top-4 sm:-right-2 block"
+          >
+            <Image
+              src="/images/ceus/all-courses.png"
+              alt=""
+              width={160}
+              height={88}
+              className="h-auto w-[55px] sm:w-[70px] lg:w-[80px] drop-shadow-[0_12px_22px_rgba(25,55,99,0.2)]"
+            />
+          </span>
+
           {/* Core certification rows */}
           <p className="small-caps-line text-accent">{valueStack.coreLabel}</p>
           <p className="mt-2 text-sm leading-relaxed text-ink/85">{valueStack.coreNote}</p>

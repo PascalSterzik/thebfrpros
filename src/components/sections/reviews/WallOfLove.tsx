@@ -33,7 +33,7 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 const PAGE_SIZE = 99;
 
-type WallEntry = {
+export type WallEntry = {
   id: string;
   name: string;
   role?: string;
@@ -44,7 +44,7 @@ type WallEntry = {
 
 const EXPERT_FALLBACK_DATE = "2023-03-01";
 
-function StarBar({ rating }: { rating: number }) {
+export function StarBar({ rating }: { rating: number }) {
   const Star = ({ filled }: { filled: boolean }) => (
     <svg width={14} height={14} viewBox="0 0 20 20" aria-hidden>
       <polygon
@@ -86,7 +86,7 @@ function buildEntries(): WallEntry[] {
   return [...expert, ...student].sort((a, b) => b.date.localeCompare(a.date));
 }
 
-function formatDate(iso: string): string {
+export function formatDate(iso: string): string {
   // ISO YYYY-MM-DD → "Mar 1, 2023" style. Keeps the column compact.
   const [y, m, d] = iso.split("-");
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];

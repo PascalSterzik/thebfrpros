@@ -9,6 +9,15 @@ import VideoPoster from "@/components/shared/VideoPoster";
 import { CURRICULUM, type CourseModule, VIDEOS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
+// CEU banner per course slug. Course 3 and Course 4 share the 2-CEU banner
+// (both courses are 2 CEUs each). Mirrors /certification's CertCurriculumSection.
+const CEU_BANNER_BY_SLUG: Record<string, string> = {
+  "course-1": "/images/ceus/course-1.png",
+  "course-2": "/images/ceus/course-2.png",
+  "course-3": "/images/ceus/course-3-4.png",
+  "course-4": "/images/ceus/course-3-4.png",
+};
+
 // Module rows: number, bold navy title, optional muted description, duration on right.
 function ModuleRow({ module }: { module: CourseModule }) {
   const num = typeof module.n === "number" ? String(module.n).padStart(2, "0") : module.n;
@@ -79,6 +88,7 @@ export default function CurriculumSection() {
             const open = openIndex === i;
             const promoVideoSrc = VIDEOS[c.promoVideoKey];
             const courseLabel = `Course ${String(i + 1).padStart(2, "0")}`;
+            const ceuBanner = CEU_BANNER_BY_SLUG[c.slug];
             return (
               <motion.li
                 key={c.slug}
@@ -89,6 +99,25 @@ export default function CurriculumSection() {
                 <span className="absolute left-1/2 -top-3 -translate-x-1/2 inline-flex items-center bg-navy text-white px-4 py-1.5 rounded-full font-body font-semibold text-xs tracking-[0.18em] uppercase whitespace-nowrap">
                   {courseLabel}
                 </span>
+
+                {/* CEU banner: transparent PNG peeks off the top-right corner
+                    with a 3D peek. Course 3 + Course 4 share the 2-CEU banner.
+                    Mirrors /certification's CertCurriculumSection; the CEU /
+                    value caption is part of the PNG itself. */}
+                {ceuBanner && (
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -top-3 -right-2 sm:-top-4 lg:right-auto lg:left-2 block"
+                  >
+                    <Image
+                      src={ceuBanner}
+                      alt=""
+                      width={160}
+                      height={88}
+                      className="h-auto w-[55px] sm:w-[70px] lg:w-[80px] drop-shadow-[0_12px_22px_rgba(25,55,99,0.2)]"
+                    />
+                  </span>
+                )}
 
                 {/* §Pascal-2026-05-08 v9: desktop two-column layout. Left side
                    (course meta) is sticky; right side (video + module list)
@@ -107,12 +136,6 @@ export default function CurriculumSection() {
                             className="object-contain"
                           />
                         </div>
-                        <p className="mt-3 font-display text-xl sm:text-2xl text-navy leading-none">
-                          {c.ceus} CEUs
-                        </p>
-                        <p className="mt-1 text-xs text-muted tabular-nums">
-                          ${c.courseValue} value
-                        </p>
                       </div>
                       <div className="min-w-0 lg:order-2 lg:mt-6">
                         <h3 className="font-display text-2xl sm:text-display-md text-navy text-balance leading-tight">
@@ -140,6 +163,7 @@ export default function CurriculumSection() {
                         videoSrc={promoVideoSrc}
                         title={`${c.title} promo`}
                         sizes="(max-width: 1024px) 100vw, 600px"
+                        animated={c.animatedSrc}
                       />
                     </div>
 

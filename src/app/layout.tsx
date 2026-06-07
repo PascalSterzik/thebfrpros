@@ -38,10 +38,14 @@ const fontQuote = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  // §Pascal-2026-05-08 v12: pointing at the live Vercel URL so OG previews
-  // (LinkedIn, X, Slack, etc.) resolve correctly before the custom domain is
-  // wired. Swap to "https://thebfrpros.com" once the DNS cutover completes.
-  metadataBase: new URL("https://thebfrpros.vercel.app"),
+  // §Pascal-2026-06-02: metadataBase resolves every page's relative
+  // `alternates.canonical` and `openGraph.url`/images. It MUST be the production
+  // canonical host (the www form, matching sitemap.ts ORIGIN; the apex
+  // 308-redirects to www). Previously pointed at the thebfrpros.vercel.app
+  // preview domain, which made Next emit preview-host canonicals and triggered
+  // GSC "Alternate page with proper canonical tag" on real pages (/contact,
+  // /for/*, /blog/*). Do NOT swap to the apex — it redirects.
+  metadataBase: new URL("https://www.thebfrpros.com"),
   title: {
     default: "The BFR Pros | Online BFR Certification by Dr. Nicholas Rolnick",
     template: "%s | The BFR Pros",

@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
-import { VIDEO_TESTIMONIALS, VIDEOS } from "@/lib/constants";
+import { VIDEO_TESTIMONIALS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Rev 2 (2026-05-21, REVISION-02.md §3): full rewrite.
@@ -35,32 +35,49 @@ type CardSpec = {
   role: string;
   poster: string;
   embedSrc: string;
+  animated?: { webm: string; mp4: string };
 };
 
-// Compose the 5-card list from canonical constants. The four named PT/AT
-// graduates come from VIDEO_TESTIMONIALS; the fifth is the legacy
-// course-graduate VEED in VIDEOS.testimonial (already a full embed URL),
-// reusing the existing /images/posters/testimonial.jpg poster Pascal shipped
-// during the Phase-1A click-to-play work.
-const CARDS: CardSpec[] = [
-  ...VIDEO_TESTIMONIALS.map((v) => ({
-    key: v.veedId,
-    name: v.name,
-    role: v.role,
-    poster: v.poster,
-    embedSrc: `https://www.veed.io/embed/${v.veedId}?watermark=0&color=blue&sharing=0&title=0`,
-  })),
-  {
-    key: "course-graduate-legacy",
-    name: "BFR Pros Graduate",
-    role: "Introduction to BFR Training Course",
-    poster: "/images/posters/testimonial.jpg",
-    embedSrc: VIDEOS.testimonial,
-  },
-];
+// Compose the 5-card list from canonical constants. Dhimant Indrayan now
+// lives directly inside VIDEO_TESTIMONIALS (his VEED uuid is the same as the
+// legacy VIDEOS.testimonial export, but the named entry in the array carries
+// his role + poster + animated loop), so the previous inline 5th card is no
+// longer needed here.
+const CARDS: CardSpec[] = VIDEO_TESTIMONIALS.map((v) => ({
+  key: v.veedId,
+  name: v.name,
+  role: v.role,
+  poster: v.poster,
+  embedSrc: `https://www.veed.io/embed/${v.veedId}?watermark=0&color=blue&sharing=0&title=0`,
+  animated: v.animated,
+}));
 
 function VideoCard({ card }: { card: CardSpec }) {
   const [active, setActive] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  // Same IntersectionObserver gating as the shared VideoPoster: play the
+  // muted loop only while on-screen, pause off-screen, skip entirely for
+  // prefers-reduced-motion. The static poster stays as the <video> poster
+  // fallback for slow connections and reduced-motion users.
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!card.animated || !el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.play().catch(() => {});
+        } else {
+          el.pause();
+        }
+      },
+      { threshold: 0.5 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [card.animated]);
+
   return (
     <motion.li
       variants={fadeUp}
@@ -83,13 +100,29 @@ function VideoCard({ card }: { card: CardSpec }) {
             aria-label={`Play testimonial from ${card.name}`}
             className="group absolute inset-0 h-full w-full"
           >
-            <Image
-              src={card.poster}
-              alt=""
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover transition group-hover:brightness-75"
-            />
+            {card.animated ? (
+              <video
+                ref={videoRef}
+                poster={card.poster}
+                muted
+                loop
+                playsInline
+                preload="none"
+                aria-hidden
+                className="absolute inset-0 h-full w-full object-cover transition group-hover:brightness-75"
+              >
+                <source src={card.animated.webm} type="video/webm" />
+                <source src={card.animated.mp4} type="video/mp4" />
+              </video>
+            ) : (
+              <Image
+                src={card.poster}
+                alt=""
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition group-hover:brightness-75"
+              />
+            )}
             <span className="absolute inset-0 flex items-center justify-center">
               <span className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-accent text-white shadow-[0_14px_28px_-10px_rgba(173,26,39,0.6)] transition group-hover:scale-110">
                 <svg
