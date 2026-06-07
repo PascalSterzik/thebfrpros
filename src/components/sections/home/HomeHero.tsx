@@ -3,6 +3,7 @@ import PrimaryCTA from "@/components/shared/PrimaryCTA";
 import VideoPoster from "@/components/shared/VideoPoster";
 import { HOME_HERO } from "@/content/home";
 import { VIDEOS } from "@/lib/constants";
+import Highlighted from "@/components/shared/Highlighted";
 
 // Section 2 — Homepage hero. Stage-2 awareness traffic (problem-aware,
 // doesn't yet know BFR is the answer). Order:
@@ -18,18 +19,6 @@ import { VIDEOS } from "@/lib/constants";
 //      CTA at the bottom of the page for journey consistency.
 
 const STAGGER_DELAYS = ["0ms", "80ms", "160ms", "240ms", "320ms"];
-
-function Highlighted({ text, phrase }: { text: string; phrase: string }) {
-  const i = text.indexOf(phrase);
-  if (i === -1) return <>{text}</>;
-  return (
-    <>
-      {text.slice(0, i)}
-      <span className="underline-accent">{phrase}</span>
-      {text.slice(i + phrase.length)}
-    </>
-  );
-}
 
 export default function HomeHero() {
   return (
@@ -61,7 +50,7 @@ export default function HomeHero() {
             className="opacity-0 animate-fade-up mt-6 font-display text-display-2xl lg:text-display-3xl text-white text-balance"
             style={{ animationDelay: STAGGER_DELAYS[1] }}
           >
-            <Highlighted text={HOME_HERO.headline} phrase={HOME_HERO.highlightPhrase} />
+            <Highlighted text={HOME_HERO.headline} phrase={HOME_HERO.highlight} />
           </h1>
 
           <p

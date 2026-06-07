@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CONSULTING_HERO } from "@/content/consulting";
+import Highlighted from "@/components/shared/Highlighted";
 
 // /consulting hero. Brand-locked hero pattern (server component, CSS fade-up
 // stagger, full-bleed bg photo + navy gradient, centered single column). This
@@ -9,18 +10,6 @@ import { CONSULTING_HERO } from "@/content/consulting";
 // visitors bypass the form. Credibility-matched visual = a portrait of Nick.
 
 const STAGGER_DELAYS = ["0ms", "80ms", "160ms", "240ms", "320ms", "400ms"];
-
-function Highlighted({ text, phrase }: { text: string; phrase: string }) {
-  const i = text.indexOf(phrase);
-  if (i === -1) return <>{text}</>;
-  return (
-    <>
-      {text.slice(0, i)}
-      <span className="underline-accent">{phrase}</span>
-      {text.slice(i + phrase.length)}
-    </>
-  );
-}
 
 export default function ConsultingHero() {
   return (
@@ -52,7 +41,7 @@ export default function ConsultingHero() {
             className="opacity-0 animate-fade-up mt-6 font-display text-display-2xl lg:text-display-3xl text-white text-balance"
             style={{ animationDelay: STAGGER_DELAYS[1] }}
           >
-            <Highlighted text={CONSULTING_HERO.headline} phrase={CONSULTING_HERO.highlightPhrase} />
+            <Highlighted text={CONSULTING_HERO.headline} phrase={CONSULTING_HERO.highlight} />
           </h1>
 
           <p
@@ -88,7 +77,7 @@ export default function ConsultingHero() {
             className="opacity-0 animate-fade-up mt-9 flex justify-center"
             style={{ animationDelay: STAGGER_DELAYS[5] }}
           >
-            <a href="#consulting-form" className="btn-primary">
+            <a href="#start" className="btn-primary">
               <span>{CONSULTING_HERO.primaryCta}</span>
             </a>
           </div>

@@ -36,6 +36,13 @@ function clamp(value: unknown, max = 4000): string | null {
   return s.length > max ? s.slice(0, max) : s;
 }
 
+// Accept only a well-formed UUID for the uuid column; anything else -> null
+// (a bad value would otherwise make the whole insert fail the uuid cast).
+function uuidOrNull(value: unknown): string | null {
+  const s = typeof value === "string" ? value : "";
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(s) ? s : null;
+}
+
 export async function POST(req: Request) {
   let answers: Record<string, unknown>;
   try {
@@ -52,8 +59,19 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   }
 
+  // Partial-capture metadata: the client sends a stable lead_id (one per form
+  // session) plus status incomplete|complete. Inserts are append-only; the
+  // latest row per lead_id wins (see the consulting_leads_latest view).
+  const leadId = uuidOrNull(answers.lead_id ?? answers.leadId);
+  const status = answers.status === "incomplete" ? "incomplete" : "complete";
+  const stepNum = Number(answers.step);
+  const step = Number.isFinite(stepNum) ? Math.trunc(stepNum) : null;
+
   let saved = false;
   const row = {
+    lead_id: leadId,
+    status,
+    step,
     name: clamp(answers.name, 200),
     email: clamp(answers.email, 320),
     role: clamp(answers.role, 100),
@@ -61,8 +79,7 @@ export async function POST(req: Request) {
     need_intensity: clamp(answers.needIntensity, 10),
     need_intensity_why: clamp(answers.needIntensityWhy),
     timing: clamp(answers.timing, 100),
-    authority: clamp(answers.authority, 100),
-    budget: clamp(answers.budget, 100),
+    bfr_stage: clamp(answers.bfrStage, 100),
     answers,
     site: clamp(answers.site, 200),
   };
@@ -90,7 +107,9 @@ export async function POST(req: Request) {
     console.error("[consulting] supabase insert error", err);
   }
 
-  if (RESEND_API_KEY) {
+  // Only email Nick on a COMPLETE submission, never on the partial email-capture
+  // snapshot (that would spam him with half-finished inquiries).
+  if (RESEND_API_KEY && status === "complete") {
     const summary = [
       ["Name", answers.name],
       ["Email", answers.email],
@@ -99,8 +118,7 @@ export async function POST(req: Request) {
       ["Urgency (1-10)", answers.needIntensity],
       ["Why that number", answers.needIntensityWhy],
       ["Timing", answers.timing],
-      ["Decision maker", answers.authority],
-      ["Budget ($275/hr)", answers.budget],
+      ["BFR stage", answers.bfrStage],
     ]
       .map(([label, v]) => `${label}: ${clamp(v) ?? "-"}`)
       .join("\n");

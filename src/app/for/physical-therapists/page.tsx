@@ -72,6 +72,7 @@ export default function PhysicalTherapistsPage() {
         <AudienceSolution
           eyebrow={PT.solution.eyebrow}
           headline={PT.solution.headline}
+          highlight={PT.solution.highlight}
           intro={PT.solution.intro}
           pillars={PT.solution.pillars}
         />

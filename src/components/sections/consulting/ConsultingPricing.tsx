@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CONSULTING_PRICING } from "@/content/consulting";
+import Highlighted from "@/components/shared/Highlighted";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Pricing. Shown plainly ($275/hour) on a navy field for emphasis. This is the
@@ -49,7 +50,7 @@ export default function ConsultingPricing() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-white text-balance"
           >
-            {CONSULTING_PRICING.headline}
+            <Highlighted text={CONSULTING_PRICING.headline} phrase={CONSULTING_PRICING.highlight} />
           </motion.h2>
 
           <motion.div

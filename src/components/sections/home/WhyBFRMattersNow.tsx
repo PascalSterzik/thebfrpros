@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { WHY_BFR_MATTERS_NOW } from "@/content/home";
+import Highlighted from "@/components/shared/Highlighted";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Section 5 — Belief 1 evidence stack. 60-year history, mainstream adoption,
@@ -26,7 +27,7 @@ export default function WhyBFRMattersNow() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            {WHY_BFR_MATTERS_NOW.headline}
+            <Highlighted text={WHY_BFR_MATTERS_NOW.headline} phrase={WHY_BFR_MATTERS_NOW.highlight} />
           </motion.h2>
           <motion.p
             variants={fadeUp}

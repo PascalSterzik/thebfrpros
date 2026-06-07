@@ -69,6 +69,7 @@ export default function StrengthCoachesPage() {
         <AudienceSolution
           eyebrow={SC.solution.eyebrow}
           headline={SC.solution.headline}
+          highlight={SC.solution.highlight}
           intro={SC.solution.intro}
           pillars={SC.solution.pillars}
         />

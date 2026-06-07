@@ -6,19 +6,21 @@ import ConsultingWho from "@/components/sections/consulting/ConsultingWho";
 import ConsultingAbout from "@/components/sections/consulting/ConsultingAbout";
 import ConsultingHowItWorks from "@/components/sections/consulting/ConsultingHowItWorks";
 import ConsultingPricing from "@/components/sections/consulting/ConsultingPricing";
-import ConsultingForm from "@/components/sections/consulting/ConsultingForm";
+import ConsultingLaunch from "@/components/sections/consulting/ConsultingLaunch";
+import ConsultingFormOverlay from "@/components/sections/consulting/ConsultingFormOverlay";
 import ConsultingFaq from "@/components/sections/consulting/ConsultingFaq";
 import ConsultingCloser from "@/components/sections/consulting/ConsultingCloser";
 import { CONSULTING_META, CONSULTING_FAQ } from "@/content/consulting";
 import { SITE_MENU_LINKS } from "@/lib/menus";
 import { buildConsultingSchemaGraph } from "@/lib/schema";
 
-// /consulting. Nick-personal 1:1 BFR clinical mentorship offer (Stage 4-5).
+// /consultation. Nick-personal 1:1 BFR clinical mentorship offer (Stage 4-5).
 // Sells the "BFR Case Review": bring a real patient case to the author of the
 // BFR literature, book an hour, leave with a plan. The qualification form is
-// the core conversion path; the hero also offers a direct Cal.com path
-// (dual-conversion, landing-page-principles.md §1). Price ($275/hour) is shown
-// on this page on purpose (the budget qualifier needs the number).
+// the ONLY conversion path (it gates the calendar), and it opens as a
+// full-screen overlay (ConsultingFormOverlay, triggered by the #start hash from
+// the hero, the launch band, and the closer). Price ($275/hour) is shown on
+// this page on purpose (the budget qualifier needs the number).
 
 export const metadata: Metadata = {
   title: { absolute: CONSULTING_META.title },
@@ -75,8 +77,8 @@ export default function ConsultingPage() {
         {/* Pricing — $275/hour, plainly */}
         <ConsultingPricing />
 
-        {/* Qualification form + Cal.com booking on the final step */}
-        <ConsultingForm />
+        {/* Launch band: opens the full-screen qualification overlay (#start) */}
+        <ConsultingLaunch />
 
         {/* Small FAQ */}
         <ConsultingFaq />
@@ -86,6 +88,9 @@ export default function ConsultingPage() {
       </main>
 
       <Footer />
+
+      {/* Full-screen qualification overlay; mounted once, opens on the #start hash */}
+      <ConsultingFormOverlay />
 
       {/* JSON-LD @graph: Organization, WebSite, Person (Rolnick), Service
           (hourly Offer), BreadcrumbList, FAQPage, WebPage */}

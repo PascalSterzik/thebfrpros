@@ -58,6 +58,7 @@ export type Audience = {
   solution: {
     eyebrow: string;
     headline: string;
+    highlight?: string;
     intro: string;
     pillars: ReadonlyArray<AudiencePillar>;
   };
@@ -134,6 +135,7 @@ export const PT: Audience = {
   solution: {
     eyebrow: "What this cert gives you",
     headline: "Three things most BFR courses don't carry together",
+    highlight: "carry together",
     intro:
       "The Complete BFR Certification is built around the gap PTs keep describing: research depth, equipment independence, and the implementation layer that lets you apply BFR on Monday morning.",
     pillars: [
@@ -255,6 +257,7 @@ export const AT: Audience = {
   solution: {
     eyebrow: "What this cert gives you",
     headline: "BFR built for the athletic-training workflow",
+    highlight: "athletic-training workflow",
     intro:
       "Dr. Nicholas Licameli co-instructs the certification and writes the athletic-side chapters: in-season maintenance, hypertrophy at low loads, ischemic preconditioning for performance, and the bridge from rehab into return-to-sport.",
     pillars: [
@@ -371,6 +374,7 @@ export const SC: Audience = {
   solution: {
     eyebrow: "What this cert gives you",
     headline: "Research-led BFR for performance settings",
+    highlight: "Research-led",
     intro:
       "The athletic-side chapters are written by Dr. Nicholas Licameli, a Doctor of Physical Therapy who is also an active natural bodybuilder. The clinical-floor practitioner and the under-the-bar lifter live in the same person, so the protocols are written for both contexts.",
     pillars: [

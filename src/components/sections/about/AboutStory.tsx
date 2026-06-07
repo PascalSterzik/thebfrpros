@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { ABOUT_STORY } from "@/content/about";
+import Highlighted from "@/components/shared/Highlighted";
 import { STATS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -41,7 +42,7 @@ export default function AboutStory() {
               variants={fadeUp}
               className="mt-5 font-display text-display-xl text-navy text-balance"
             >
-              {ABOUT_STORY.headline}
+              <Highlighted text={ABOUT_STORY.headline} phrase={ABOUT_STORY.highlight} />
             </motion.h2>
             <div className="mt-10 space-y-6">
               {ABOUT_STORY.paragraphs.map((p, i) => (

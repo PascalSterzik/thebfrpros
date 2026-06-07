@@ -70,6 +70,7 @@ export default function AthleticTrainersPage() {
         <AudienceSolution
           eyebrow={AT.solution.eyebrow}
           headline={AT.solution.headline}
+          highlight={AT.solution.highlight}
           intro={AT.solution.intro}
           pillars={AT.solution.pillars}
         />

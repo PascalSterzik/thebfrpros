@@ -76,6 +76,7 @@ export const PRIVACY: LegalDoc = {
       paragraphs: [
         "When you purchase The Complete BFR Certification or any other offering from The BFR Pros, as part of the buying and selling process, we collect the personal information that you give us such as your name, address, and email address.",
         "When you browse our website, we also automatically receive your computer's internet protocol (IP) address in order to provide us with information that helps us learn about your browser and operating system.",
+        "When you fill out a form on our site, such as a contact form or the consulting qualification form, we collect and store the information you enter, including your name, email, and the details of your inquiry. If you begin a form and provide your email but do not finish, we may store what you have entered so we can follow up about your inquiry. You can ask us to delete this information at any time by contacting nick@thebfrpros.com.",
         "Email marketing (if applicable): With your permission, we may send you emails about our courses, new releases, and other updates.",
       ],
     },

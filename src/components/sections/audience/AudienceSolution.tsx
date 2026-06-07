@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import type { AudiencePillar } from "@/content/audiences";
+import Highlighted from "@/components/shared/Highlighted";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // 3-pillar grid for the audience-specific solution. Same card pattern as
@@ -12,11 +13,13 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 export default function AudienceSolution({
   eyebrow,
   headline,
+  highlight,
   intro,
   pillars,
 }: {
   eyebrow: string;
   headline: string;
+  highlight?: string;
   intro: string;
   pillars: ReadonlyArray<AudiencePillar>;
 }) {
@@ -37,7 +40,7 @@ export default function AudienceSolution({
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            {headline}
+            <Highlighted text={headline} phrase={highlight} />
           </motion.h2>
           <motion.p
             variants={fadeUp}

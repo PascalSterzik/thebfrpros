@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CONSULTING_WHO } from "@/content/consulting";
+import Highlighted from "@/components/shared/Highlighted";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Who it's for / what a session delivers. One question for the visitor: "is
@@ -26,7 +27,7 @@ export default function ConsultingWho() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            {CONSULTING_WHO.headline}
+            <Highlighted text={CONSULTING_WHO.headline} phrase={CONSULTING_WHO.highlight} />
           </motion.h2>
           <motion.p
             variants={fadeUp}

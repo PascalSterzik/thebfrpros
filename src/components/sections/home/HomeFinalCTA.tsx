@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { HOME_FINAL_CTA } from "@/content/home";
+import Highlighted from "@/components/shared/Highlighted";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Final CTA — the ONE soft gateway from the homepage to /get-certified.
@@ -29,7 +30,7 @@ export default function HomeFinalCTA() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl lg:text-display-2xl text-white text-balance"
           >
-            {HOME_FINAL_CTA.headline}
+            <Highlighted text={HOME_FINAL_CTA.headline} phrase={HOME_FINAL_CTA.highlight} />
           </motion.h2>
           <motion.p
             variants={fadeUp}

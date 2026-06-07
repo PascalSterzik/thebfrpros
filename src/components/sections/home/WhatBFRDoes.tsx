@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import VideoPoster from "@/components/shared/VideoPoster";
 import { WHAT_BFR_DOES } from "@/content/home";
+import Highlighted from "@/components/shared/Highlighted";
 import { VIDEOS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -28,7 +29,7 @@ export default function WhatBFRDoes() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            {WHAT_BFR_DOES.headline}
+            <Highlighted text={WHAT_BFR_DOES.headline} phrase={WHAT_BFR_DOES.highlight} />
           </motion.h2>
           <motion.p
             variants={fadeUp}

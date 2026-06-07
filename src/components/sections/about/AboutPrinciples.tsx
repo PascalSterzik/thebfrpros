@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { ABOUT_PRINCIPLES } from "@/content/about";
+import Highlighted from "@/components/shared/Highlighted";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Three brand principles. Equipment-agnostic / Research-led / Implementation-first.
@@ -27,7 +28,7 @@ export default function AboutPrinciples() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            {ABOUT_PRINCIPLES.headline}
+            <Highlighted text={ABOUT_PRINCIPLES.headline} phrase={ABOUT_PRINCIPLES.highlight} />
           </motion.h2>
         </motion.div>
 

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CONSULTING_CLOSER } from "@/content/consulting";
+import Highlighted from "@/components/shared/Highlighted";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Founder closer, first person in Nick's voice (voice-blueprint.md): direct
@@ -28,7 +29,7 @@ export default function ConsultingCloser() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-white text-balance"
           >
-            {CONSULTING_CLOSER.headline}
+            <Highlighted text={CONSULTING_CLOSER.headline} phrase={CONSULTING_CLOSER.highlight} />
           </motion.h2>
           {CONSULTING_CLOSER.paragraphs.map((p, i) => (
             <motion.p
@@ -39,6 +40,11 @@ export default function ConsultingCloser() {
               {p}
             </motion.p>
           ))}
+          <motion.div variants={fadeUp} className="mt-9">
+            <a href="#start" className="btn-primary">
+              <span>{CONSULTING_CLOSER.ctaLabel}</span>
+            </a>
+          </motion.div>
           <motion.div variants={fadeUp} className="mt-8">
             <p className="font-display text-2xl text-white">
               {CONSULTING_CLOSER.signatureName}

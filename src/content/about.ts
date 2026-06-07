@@ -38,6 +38,7 @@ export const ABOUT_HERO = {
 export const ABOUT_STORY = {
   eyebrow: "Why we built this",
   headline: "Every BFR course we found was tied to a cuff",
+  highlight: "tied to a cuff",
   paragraphs: [
     "Owens Recovery Science is excellent, but it's tied to the Delfi PTS at $5,000 and up. NE Seminars bundles a single brand. Smart Tools is a brand. Even the platforms that don't sell cuffs lean on partnerships with companies that do. The result: practitioners learn what one manufacturer makes, then commit to that ecosystem for the next five years.",
     "Dr. Rolnick had been publishing peer-reviewed BFR research since 2020. Dr. Licameli was bridging strength coaching and rehab in clinical settings. They kept hearing the same question from licensed PTs, ATs, and S&C coaches: which BFR certification is actually evidence-based and which cuff is the right one for my practice? Two different questions. Most courses answered the second one and skipped the first.",
@@ -52,6 +53,7 @@ export const ABOUT_STORY = {
 export const ABOUT_PRINCIPLES = {
   eyebrow: "What we stand for",
   headline: "Three principles, applied to every module",
+  highlight: "Three principles",
   principles: [
     {
       eyebrow: "Principle 1",

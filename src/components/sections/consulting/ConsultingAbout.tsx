@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CONSULTING_ABOUT } from "@/content/consulting";
+import Highlighted from "@/components/shared/Highlighted";
 import { STATS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
@@ -34,7 +35,7 @@ export default function ConsultingAbout() {
               variants={fadeUp}
               className="mt-5 font-display text-display-xl text-navy text-balance"
             >
-              {CONSULTING_ABOUT.headline}
+              <Highlighted text={CONSULTING_ABOUT.headline} phrase={CONSULTING_ABOUT.highlight} />
             </motion.h2>
             {CONSULTING_ABOUT.paragraphs.map((p, i) => (
               <motion.p

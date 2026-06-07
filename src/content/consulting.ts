@@ -27,7 +27,7 @@ export const CONSULTING_META = {
 export const CONSULTING_HERO = {
   eyebrow: "1:1 clinical mentorship",
   headline: "Bring your toughest BFR case to the clinician who wrote the research",
-  highlightPhrase: "toughest BFR case",
+  highlight: "toughest BFR case",
   credentialsLine:
     "Dr. Nicholas Rolnick, PT, DPT · 74 peer-reviewed BFR publications · Active Manhattan practice",
   subhead:
@@ -41,6 +41,7 @@ export const CONSULTING_HERO = {
 export const CONSULTING_WHO = {
   eyebrow: "Who it's for",
   headline: "For the clinician with a case that's stuck",
+  highlight: "a case that's stuck",
   intro:
     "You have a patient in front of you and BFR should help, but something is in the way. The pressure, the screening, the progression, the surgeon who wants a rationale. This is the hour you bring that to.",
   items: [
@@ -66,6 +67,7 @@ export const CONSULTING_WHO = {
 export const CONSULTING_ABOUT = {
   eyebrow: "Who you're working with",
   headline: "An author of the BFR literature who still treats patients",
+  highlight: "still treats patients",
   paragraphs: [
     "Dr. Nicholas Rolnick has authored 74 peer-reviewed BFR publications and is a Topic Editor for the Frontiers blood flow restriction special issue. He peer-reviews for 26 journals and wrote Chapter 12 of the NASM textbook on warm-up, recovery, and injury prevention.",
     "He also sees patients in Manhattan every week. The case you bring is the kind he treated on Monday, so the answer you get is what he would actually do, not what reads well in an abstract.",
@@ -99,6 +101,7 @@ export const CONSULTING_HOW = {
 export const CONSULTING_PRICING = {
   eyebrow: "What it costs",
   headline: "One rate, billed by the hour",
+  highlight: "One rate",
   rate: "$275",
   rateUnit: "per hour, one-on-one",
   note: "One hour, online, just you and Nick. You pay per session. No packages and no retainer for now, the hour you need when you need it.",
@@ -110,10 +113,14 @@ export const CONSULTING_PRICING = {
 } as const;
 
 // ---- Qualification form ----------------------------------------------------
-// Typeform-style, one question per screen. BANT-derived (Budget / Authority /
-// Need / Timing) but reordered low-friction-first: engagement and need before
-// the budget confirm, because this is a $275 self-pay call, not a four-figure
-// disqualification gate. v1 has no conditional branching.
+// Typeform-style, one question per screen, shown in a full-screen overlay.
+// Need-and-engagement-first order (this is a $275 self-pay call, not a
+// four-figure disqualification gate). Each question from Q2 on carries a small
+// `affirmation` (the "pat on the back"); prompts + affirmations support {name}
+// and {answerId} tokens, interpolated at render time (see ConsultingFormFlow).
+// The final `budget` question terminally branches: a ready answer goes to the
+// Cal.com booking step; a "know more first" answer goes to the certification
+// page instead of the calendar.
 
 export type ConsultingQuestionType = "text" | "email" | "select" | "scale" | "longtext";
 
@@ -121,34 +128,29 @@ export type ConsultingQuestion = {
   id: string;
   type: ConsultingQuestionType;
   prompt: string;
+  // Shown above the prompt from Q2 on (the "pat"). Supports {name}/{answerId}.
+  affirmation?: string;
   helper?: string;
   placeholder?: string;
   options?: ReadonlyArray<string>;
   required?: boolean;
-  // Scale-only (type === "scale"): the 1-10 range labels + an always-shown
-  // free-text follow-up that captures Hormozi's why-not-X insight with no
-  // branching. `{value}` in followUp.prompt is interpolated with the picked
-  // number at render time.
+  // Scale-only (type === "scale"): the 1-10 range + end labels.
   scaleMin?: number;
   scaleMax?: number;
   scaleMinLabel?: string;
   scaleMaxLabel?: string;
-  followUp?: { id: string; prompt: string; placeholder?: string };
-  // Conditional-logic hook: built into the schema but UNUSED in v1 (no branching
-  // yet, which we do not need for an 8-question flow). Wire later by having the
-  // form skip a question whose showIf predicate over prior answers is false.
-  showIf?: { questionId: string; equals: string };
 };
 
 export const CONSULTING_FORM = {
   eyebrow: "Start here",
   headline: "See if it's a fit",
+  highlight: "a fit",
   intro:
     "A few quick questions so Nick knows your case before you book. One at a time, about two minutes.",
   progressLabel: "Question {current} of {total}",
   backLabel: "Back",
   nextLabel: "Next",
-  finishLabel: "See Nick's calendar",
+  finishLabel: "Continue",
   submittingLabel: "Sending...",
   requiredError: "Add an answer to continue.",
   emailError: "Enter a valid email so Nick can reach you.",
@@ -163,7 +165,8 @@ export const CONSULTING_FORM = {
     {
       id: "email",
       type: "email",
-      prompt: "Where should Nick send the details?",
+      affirmation: "Great!",
+      prompt: "Where should Nick send you the details, {name}?",
       helper: "Used only to confirm your session. No newsletter, no sharing.",
       placeholder: "you@yourclinic.com",
       required: true,
@@ -171,6 +174,7 @@ export const CONSULTING_FORM = {
     {
       id: "role",
       type: "select",
+      affirmation: "Perfect.",
       prompt: "What's your role?",
       options: [
         "Physical Therapist",
@@ -183,6 +187,7 @@ export const CONSULTING_FORM = {
     {
       id: "need",
       type: "longtext",
+      affirmation: "Got it.",
       prompt: "What case or challenge do you want to work through with Nick?",
       helper: "The more specific you are, the more useful the hour will be.",
       placeholder: "e.g. a post-op ACL at week 6 who is not tolerating the pressure I'd expect...",
@@ -191,37 +196,43 @@ export const CONSULTING_FORM = {
     {
       id: "needIntensity",
       type: "scale",
+      affirmation: "Thanks for laying that out.",
       prompt: "How important is it to solve this right now?",
       scaleMin: 1,
       scaleMax: 10,
       scaleMinLabel: "Can wait",
       scaleMaxLabel: "Urgent",
       required: true,
-      followUp: {
-        id: "needIntensityWhy",
-        prompt: "What makes it a {value}?",
-        placeholder: "A sentence is plenty.",
-      },
+    },
+    {
+      id: "needIntensityWhy",
+      type: "longtext",
+      affirmation: "Makes sense.",
+      prompt: "What makes it a {needIntensity}?",
+      placeholder: "A sentence is plenty.",
+      required: true,
     },
     {
       id: "timing",
       type: "select",
-      prompt: "If we could wave a magic wand, when would this be solved?",
+      affirmation: "Good to know.",
+      prompt: "If we could wave a magic wand to solve this, when should that be?",
       options: ["Now", "This month", "This quarter", "Just exploring"],
       required: true,
     },
     {
-      id: "authority",
+      id: "bfrStage",
       type: "select",
-      prompt: "Are you the one who decides on this, or would someone else sign off?",
-      options: ["I decide", "Someone else", "We decide together"],
-      required: true,
-    },
-    {
-      id: "budget",
-      type: "select",
-      prompt: "Consulting is $275 an hour. Does that work for you?",
-      options: ["Yes, that works", "I'd like to know more first"],
+      affirmation: "Last one, {name}.",
+      prompt: "Where are you with BFR right now?",
+      // Router, not a price gate: the first two options book the call; the last
+      // option (not certified) routes to the certification instead (see the flow:
+      // the terminal branch keys off the LAST option being the "not ready" one).
+      options: [
+        "I use it regularly with patients or athletes",
+        "I've started, but I'm still finding my footing",
+        "I'm not BFR-certified yet",
+      ],
       required: true,
     },
   ] as ReadonlyArray<ConsultingQuestion>,
@@ -230,9 +241,19 @@ export const CONSULTING_FORM = {
     headline: "Pick a time with Nick",
     intro:
       "Choose an hour that works for you. You'll get a confirmation and a calendar invite, and your answers are already on their way to Nick so he can prep for your case.",
-    ctaLabel: "Open Nick's calendar",
-    fallbackNote:
-      "If the calendar does not load above, the button opens it in a new tab.",
+    // Subtle fallback only: the link lives on `fallbackLinkLabel` (no big button).
+    fallbackBefore: "If the calendar does not load above, ",
+    fallbackLinkLabel: "click here",
+    fallbackAfter: " to open it in a new tab.",
+  },
+  // Shown instead of the calendar when the budget answer is not a ready "yes":
+  // route them to the self-paced certification rather than a 1:1 hour.
+  notReady: {
+    eyebrow: "Before you book",
+    headline: "Let's start you in the right place",
+    body:
+      "No problem. The certification is the best place to begin: the full system at your own pace, built on Nick's BFR research. You can book a 1:1 hour whenever a specific case comes up.",
+    ctaLabel: "Explore the certification",
   },
 } as const;
 
@@ -266,10 +287,12 @@ export const CONSULTING_FAQ = {
 export const CONSULTING_CLOSER = {
   eyebrow: "From Nick",
   headline: "Bring me the case that's keeping you up",
+  highlight: "keeping you up",
   paragraphs: [
     "I have spent years publishing the BFR research and just as many treating patients in Manhattan every week. To me it is one job. When a clinician brings me a case that is stuck, we almost always find the thing the textbook glossed over.",
     "That is the hour I want to give you. Bring the patient who is not progressing, the screen you are not sure about, the pressure you keep second-guessing. We will work it together, and you will know exactly what to do on your next visit. Book the hour.",
   ],
+  ctaLabel: "Start the case review",
   signatureName: "Dr. Nicholas Rolnick",
   signatureRole: "PT, DPT · The Human Performance Mechanic",
 } as const;

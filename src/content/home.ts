@@ -32,7 +32,7 @@ export const HOME_META = {
 export const HOME_HERO = {
   eyebrow: "Evidence-based BFR for licensed PTs, ATs, and S&C coaches",
   headline: "Stop watching post-op patients plateau",
-  highlightPhrase: "plateau",
+  highlight: "plateau",
   subhead:
     "Blood flow restriction (BFR) accelerates strength gains for post-op, in-season, and geriatric patients. Mayo Clinic, Cleveland Clinic, and US Special Operations Command all use it.",
   photoSrc: "/images/hero/hero-banner.webp",
@@ -43,6 +43,7 @@ export const HOME_HERO = {
 export const WHAT_BFR_DOES = {
   eyebrow: "What BFR does for your practice",
   headline: "Build strength when heavy loads aren't an option",
+  highlight: "Build strength",
   intro:
     "Blood flow restriction (BFR) drives strength and hypertrophy adaptations comparable to heavy resistance training using just 20-40% of one-rep max. A calibrated pneumatic cuff restricts venous return on the proximal limb while arterial flow continues, so the muscle works harder at lighter loads and the body adapts as if the load were heavy. Useful when heavy loading is contraindicated (post-op, in-season, geriatric) or simply isn't the priority.",
   pillars: [
@@ -70,6 +71,7 @@ export const WHAT_BFR_DOES = {
 export const WHY_BFR_MATTERS_NOW = {
   eyebrow: "Why now",
   headline: "Sixty years of research, decades of clinical adoption",
+  highlight: "decades of clinical adoption",
   intro:
     "The technique isn't new. The application in modern outpatient rehab and S&C is. The literature has matured, the equipment has standardized, and major institutions are bringing BFR into clinical and performance practice.",
   proofPoints: [
@@ -198,6 +200,7 @@ export const HOME_RECENT_MEDIA = {
 export const HOME_FINAL_CTA = {
   eyebrow: "The next step",
   headline: "Ready to apply BFR yourself?",
+  highlight: "apply BFR yourself",
   body:
     "The Complete BFR Certification teaches the protocols, screening, and pressure science. Taught by Dr. Nicholas Rolnick, equipment-agnostic, online and self-paced.",
   primaryCta: "Explore the certification",
