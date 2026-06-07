@@ -15,7 +15,7 @@ export const FAQ: FAQItem[] = [
   },
   {
     q: "How is The BFR Pros different from Owens Recovery Science, PESI, or Mike Reinold's course?",
-    a: "Three differences: research depth, equipment independence, and curriculum scope. The BFR Pros is led by Dr. Nicholas Rolnick, who has authored 72+ peer-reviewed BFR publications. Owens is excellent education tied to the Delfi PTS device. PESI is a generic CE platform with shorter coverage. Mike Reinold's course is a strong starting point. The Complete BFR Certification is the comprehensive 37-module specialty for clinicians who want to be the BFR specialist in their region.",
+    a: "Three differences: research depth, equipment independence, and curriculum scope. The BFR Pros is led by Dr. Nicholas Rolnick, who has authored 74 peer-reviewed BFR publications. Owens is excellent education tied to the Delfi PTS device. PESI is a generic CE platform with shorter coverage. Mike Reinold's course is a strong starting point. The Complete BFR Certification is the comprehensive 37-module specialty for clinicians who want to be the BFR specialist in their region.",
   },
   {
     q: "How long does the certification take to complete?",

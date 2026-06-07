@@ -9,7 +9,7 @@
 // framings), Research/04-offer-brief.md (full objection list). All copy
 // here adheres to brand-guide.md:
 //   - No comparative superlatives (Forbidden Claims).
-//   - Specific 72+ publication count, not "most-published".
+//   - Specific 74 publication count, not "most-published".
 //   - No terminal periods on headlines (Principle 5).
 //   - Lead with the practitioner's outcome, not the cert (Principle 1).
 //   - No false scarcity.
@@ -98,7 +98,7 @@ export const PT: Audience = {
   meta: {
     title: "BFR for Physical Therapists | The BFR Pros",
     description:
-      "BFR certification built for outpatient PTs: post-op ACL, rotator cuff, total knee at month four, geriatric loading. 11.75 CEUs, NY/NJ PT board approved, equipment-agnostic, taught by Dr. Nicholas Rolnick (72+ peer-reviewed BFR publications).",
+      "BFR certification built for outpatient PTs: post-op ACL, rotator cuff, total knee at month four, geriatric loading. 11.75 CEUs, NY/NJ PT board approved, equipment-agnostic, taught by Dr. Nicholas Rolnick (74 peer-reviewed BFR publications).",
     canonicalPath: "/for/physical-therapists",
     ogImagePath: "/og/home",
   },
@@ -204,9 +204,9 @@ export const PT: Audience = {
   finalCta: {
     eyebrow: "Bring BFR to your post-op caseload",
     headline: "Ready to apply BFR with your post-op caseload?",
-    body: "37 modules, 11.75 CEUs, equipment-agnostic, built on Dr. Rolnick's 72+ peer-reviewed publications. Apply BFR with your first patient by week two.",
+    body: "37 modules, 11.75 CEUs, equipment-agnostic, built on Dr. Rolnick's 74 peer-reviewed publications. Apply BFR with your first patient by week two.",
     primaryCta: "Explore the certification",
-    primaryCtaHref: "/get-certified",
+    primaryCtaHref: "/certification",
   },
 };
 
@@ -322,7 +322,7 @@ export const AT: Audience = {
     headline: "Ready to apply BFR in the training room?",
     body: "11.75 BOC Category A CEUs across 37 modules. Built for the in-season athlete, the return-to-sport window, and the cuff that fits the setting.",
     primaryCta: "Explore the certification",
-    primaryCtaHref: "/get-certified",
+    primaryCtaHref: "/certification",
   },
 };
 
@@ -436,7 +436,7 @@ export const SC: Audience = {
     headline: "Ready to apply BFR with your athletes?",
     body: "37 modules, 11.75 hours of contact education, equipment-agnostic. Performance applications written by a competitive natural bodybuilder and Doctor of Physical Therapy.",
     primaryCta: "Explore the certification",
-    primaryCtaHref: "/get-certified",
+    primaryCtaHref: "/certification",
   },
 };
 

@@ -18,7 +18,7 @@ export default function StrippedHeader({
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur header-shadow">
       <div className="container-rail flex h-[60px] items-center justify-between">
-        <Link href="/certification" className="flex items-center" aria-label={`${SITE.brandName} home`}>
+        <Link href="/bfr-certification" className="flex items-center" aria-label={`${SITE.brandName} home`}>
           <span className="relative block h-10 w-[82px] sm:h-11 sm:w-[90px]">
             <Image
               src="/images/logos/bfr-pros-secondary.png"

@@ -114,7 +114,7 @@ export default function BlogPostPage({
           headline="Ready to apply BFR yourself?"
           body="Every post on the blog points at one thing: applying BFR with the patient in front of you. The Complete BFR Certification is where the protocols, screening, and pressure science are taught."
           primaryCta="Explore the certification"
-          primaryCtaHref="/get-certified"
+          primaryCtaHref="/certification"
         />
       </main>
 

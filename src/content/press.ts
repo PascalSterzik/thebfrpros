@@ -51,5 +51,5 @@ export const PRESS_FINAL_CTA = {
   headline: "Ready to apply BFR yourself?",
   body: "The Complete BFR Certification teaches the protocols, screening, and pressure science Nick walks through in every interview. Equipment-agnostic, online and self-paced.",
   primaryCta: "Explore the certification",
-  primaryCtaHref: "/get-certified",
+  primaryCtaHref: "/certification",
 } as const;

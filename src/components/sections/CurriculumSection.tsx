@@ -58,7 +58,7 @@ export default function CurriculumSection() {
             variants={fadeUp}
             className="mt-6 text-lg leading-relaxed text-ink/80 mx-auto max-w-2xl text-left"
           >
-            Built on 72+ peer-reviewed publications by the lead instructor. Every module ships with the citation list, so the science is auditable from inside the course.
+            Built on 74 peer-reviewed publications by the lead instructor. Every module ships with the citation list, so the science is auditable from inside the course.
           </motion.p>
           <motion.p
             variants={fadeUp}

@@ -87,7 +87,7 @@ export async function GET() {
               fontWeight: 500,
             }}
           >
-            4.8★ from 767+ reviews · 72+ peer-reviewed BFR publications
+            4.8★ from 767+ reviews · 74 peer-reviewed BFR publications
           </div>
         </div>
       </div>

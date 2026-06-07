@@ -9,7 +9,7 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 const STRANGER_QUESTIONS = [
   {
     q: "Who is teaching this?",
-    a: "Dr. Nicholas Rolnick. Active practicing PT in Manhattan. 72+ peer-reviewed BFR publications. Adjunct Assistant Professor of Physical Therapy at New York Medical College. NASM Chapter 12 author. Featured in CNN, the Wall Street Journal, Forbes, ESPN, Men's Health, GQ, PubMed, and NSCA.",
+    a: "Dr. Nicholas Rolnick. Active practicing PT in Manhattan. 74 peer-reviewed BFR publications. Adjunct Assistant Professor of Physical Therapy at New York Medical College. NASM Chapter 12 author. Featured in CNN, the Wall Street Journal, Forbes, ESPN, Men's Health, GQ, PubMed, and NSCA.",
   },
   {
     q: "What is being offered?",
@@ -37,7 +37,7 @@ const ICON_PROPS = {
 const PILLARS = [
   {
     title: "Research-led, not product-led",
-    body: "Built on 72+ peer-reviewed BFR publications by the lead instructor. Updated as the literature evolves.",
+    body: "Built on 74 peer-reviewed BFR publications by the lead instructor. Updated as the literature evolves.",
     icon: (
       <svg {...ICON_PROPS}>
         <path d="M4 19.5a2.5 2.5 0 0 1 2.5-2.5H20" />
@@ -209,7 +209,7 @@ export default function SolutionSection() {
             variants={fadeUp}
             className="mt-6 max-w-3xl text-base leading-relaxed text-ink/75"
           >
-            Only one of these courses is led by a clinician with 72+ peer-reviewed BFR publications. Research depth is in the body, not the table, because it doesn't fit a comparable column.
+            Only one of these courses is led by a clinician with 74 peer-reviewed BFR publications. Research depth is in the body, not the table, because it doesn't fit a comparable column.
           </motion.p>
         </motion.div>
 

@@ -19,7 +19,7 @@ const ABOUT_STATS = [
   { value: STATS.certifiedPractitioners, label: "Certified practitioners" },
   { value: STATS.publications, label: "Peer-reviewed BFR publications" },
   { value: "60+", label: "Continuing-ed sessions taught" },
-  { value: "26+", label: "Journals peer-reviewed" },
+  { value: "26", label: "Journals peer-reviewed" },
 ] as const;
 
 export default function AboutStory() {

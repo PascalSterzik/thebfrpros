@@ -6,7 +6,7 @@ import { PUBLICATIONS_LINKS } from "@/content/research";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Where the full publication record lives — outbound links to Google
-// Scholar + ResearchGate for the complete 72+ paper trail. Anchored at
+// Scholar + ResearchGate for the complete 74 paper trail. Anchored at
 // the bottom of /research/publications so the reader has somewhere to
 // go after the featured-papers list.
 

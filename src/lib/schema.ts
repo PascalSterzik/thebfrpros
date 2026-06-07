@@ -1,7 +1,7 @@
 // JSON-LD schema generators. One @graph per page so the rich-results test sees one
 // connected entity tree instead of competing snippets.
 
-import { CEU_APPROVALS, ENROLL_URL, LICAMELI, PRICING, ROLNICK, SITE, STATS } from "./constants";
+import { CEU_APPROVALS, CONSULTING, ENROLL_URL, LICAMELI, PRICING, ROLNICK, SITE, STATS } from "./constants";
 
 type HomeSchemaInput = {
   pageTitle: string;
@@ -90,7 +90,7 @@ export function buildHomeSchemaGraph({ pageTitle, pageDescription, faq }: HomeSc
           "37-module, 11.75 CEU professional certification in evidence-based blood flow restriction training for licensed physical therapists, athletic trainers, and strength and conditioning coaches.",
         provider: { "@id": orgId },
         instructor: { "@id": personId },
-        url: `${SITE.origin}/get-certified`,
+        url: `${SITE.origin}/certification`,
         educationalLevel: "Professional",
         teaches: "Blood flow restriction (BFR) training",
         coursePrerequisites: "Licensed PT, AT, S&C coach, or equivalent allied-health credential",
@@ -1040,6 +1040,146 @@ export function buildContactSchemaGraph({ pageTitle, pageDescription }: ContactS
         breadcrumb: { "@id": breadcrumbId },
         datePublished: "2026-05-12",
         dateModified: "2026-05-12",
+      },
+    ],
+  };
+}
+
+// /consulting. Service (the 1:1 BFR mentorship offering) with the canonical
+// Rolnick Person as provider, an hourly Offer via UnitPriceSpecification, and
+// an optional FAQPage. Reuses the same Person @id as every other page so Google
+// resolves one Rolnick entity sitewide.
+type ConsultingSchemaInput = {
+  pageTitle: string;
+  pageDescription: string;
+  faq?: ReadonlyArray<{ q: string; a: string }>;
+};
+
+export function buildConsultingSchemaGraph({
+  pageTitle,
+  pageDescription,
+  faq,
+}: ConsultingSchemaInput) {
+  const pageUrl = `${SITE.origin}/consultation`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const personId = `${SITE.origin}/about/nicholas-rolnick#person`;
+  const serviceId = `${pageUrl}#service`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+  const faqId = `${pageUrl}#faq`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+        sameAs: [
+          SITE.social.instagram,
+          SITE.social.facebook,
+          SITE.social.youtube,
+          SITE.social.tiktok,
+          SITE.social.twitter,
+        ],
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: SITE.phone,
+            email: SITE.contactEmail,
+            contactType: "customer support",
+            areaServed: "US",
+            availableLanguage: ["English"],
+          },
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "Person",
+        "@id": personId,
+        name: ROLNICK.fullName,
+        jobTitle: "Doctor of Physical Therapy",
+        description: `Founder of ${SITE.brandName}. ${ROLNICK.publicationsLine}.`,
+        image: `${SITE.origin}/images/instructors/rolnick-large.jpg`,
+        alumniOf: ROLNICK.alumniOf.map((a) => ({ "@type": "EducationalOrganization", name: a.name })),
+        affiliation: ROLNICK.affiliations.map((name) => ({ "@type": "Organization", name })),
+        worksFor: { "@id": orgId },
+        sameAs: [
+          "https://www.researchgate.net/profile/Nicholas-Rolnick",
+          SITE.social.instagram,
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": serviceId,
+        name: "1:1 BFR Clinical Mentorship",
+        serviceType: "Blood flow restriction clinical case consultation",
+        description:
+          "One-on-one BFR case-review sessions for licensed physical therapists, athletic trainers, and strength and conditioning coaches. Bring a specific patient case and work the screening, limb occlusion pressure, and programming with Dr. Nicholas Rolnick.",
+        provider: { "@id": personId },
+        areaServed: "Worldwide",
+        audience: {
+          "@type": "Audience",
+          audienceType:
+            "Physical therapists, athletic trainers, and strength and conditioning coaches",
+        },
+        offers: {
+          "@type": "Offer",
+          priceCurrency: CONSULTING.currency,
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: CONSULTING.hourlyRate,
+            priceCurrency: CONSULTING.currency,
+            unitCode: "HUR",
+            unitText: "hour",
+          },
+          availability: "https://schema.org/InStock",
+          url: pageUrl,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "Consulting", item: pageUrl },
+        ],
+      },
+      ...(faq && faq.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": faqId,
+              mainEntity: faq.map(({ q, a }) => ({
+                "@type": "Question",
+                name: q,
+                acceptedAnswer: { "@type": "Answer", text: a },
+              })),
+            },
+          ]
+        : []),
+      {
+        "@type": "WebPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": serviceId },
+        mainEntity: { "@id": serviceId },
+        breadcrumb: { "@id": breadcrumbId },
+        primaryImageOfPage: `${SITE.origin}/og/home`,
+        datePublished: "2026-06-06",
+        dateModified: "2026-06-06",
+        author: { "@id": personId },
       },
     ],
   };

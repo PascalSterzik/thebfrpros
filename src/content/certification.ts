@@ -359,15 +359,15 @@ export type CertificationContent = {
 
 export const CERTIFICATION: CertificationContent = {
   slug: "certification",
-  routePath: "/certification",
+  routePath: "/bfr-certification",
 
   meta: {
     title: "The Vendor-Neutral BFR Certification | The BFR Pros",
     description:
-      "The BFR certification that does not sell cuffs and is not paid by a cuff manufacturer. 37 modules, 11.75 CEUs, taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. Equipment-agnostic. 30-day money-back guarantee.",
+      "The BFR certification that does not sell cuffs and is not paid by a cuff manufacturer. 37 modules, 11.75 CEUs, taught by Dr. Nicholas Rolnick, author of 74 peer-reviewed BFR publications. Equipment-agnostic. 30-day money-back guarantee.",
     ogImage: "/og/get-certified",
     robots: "noindex, follow",
-    canonical: "https://www.thebfrpros.com/get-certified",
+    canonical: "https://www.thebfrpros.com/certification",
   },
 
   bigIdeaGate: {
@@ -399,7 +399,7 @@ export const CERTIFICATION: CertificationContent = {
     primaryCta: "Get BFR Certified From Home",
     secondaryCta: "See why it's different",
     supportingStat: [
-      { value: "72+", label: "peer-reviewed BFR publications by the instructor" },
+      { value: "74", label: "peer-reviewed BFR publications by the instructor" },
       { value: "1,467+", label: "practitioners certified" },
       { value: "1", label: "has ever taken the 30-day refund" },
       { value: "$0", label: "paid to this course by any cuff manufacturer" },
@@ -464,7 +464,7 @@ export const CERTIFICATION: CertificationContent = {
       "What changed recently is not the science. It is the visibility. The modality is in APTA scope of practice for PTs and approved by the BOC for athletic trainers. It is in active use across the US military, Mayo Clinic, and the Ivy Rehab Network. The mechanism is settled. The adoption curve is not.",
     ],
     evidenceLine:
-      "The curriculum is anchored to peer-reviewed literature and authored by Dr. Nicholas Rolnick, who has published 72+ peer-reviewed BFR papers and is Topic Editor of the Frontiers blood flow restriction special issue. You are not catching up to the research through this certification. You are being trained by an author of it.",
+      "The curriculum is anchored to peer-reviewed literature and authored by Dr. Nicholas Rolnick, who has published 74 peer-reviewed BFR papers and is Topic Editor of the Frontiers blood flow restriction special issue. You are not catching up to the research through this certification. You are being trained by an author of it.",
     reuseConstant: "STATS",
   },
 
@@ -545,7 +545,7 @@ export const CERTIFICATION: CertificationContent = {
     headline: "AN AUTHOR OF THE LITERATURE WHO STILL TREATS PATIENTS WEEKLY",
     highlight: "STILL TREATS PATIENTS WEEKLY",
     rolnick: [
-      "Dr. Nicholas Rolnick, PT, DPT, MS, CSCS. Author of 72+ peer-reviewed BFR publications. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living for the blood flow restriction special issue. Peer reviewer for 26+ journals. Adjunct Assistant Professor of Physical Therapy at New York Medical College.",
+      "Dr. Nicholas Rolnick, PT, DPT, MS, CSCS. Author of 74 peer-reviewed BFR publications. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living for the blood flow restriction special issue. Peer reviewer for 26 journals. Adjunct Assistant Professor of Physical Therapy at New York Medical College.",
       "He treats patients in Manhattan every week. The reason that matters to you specifically: the certification you take is written by someone whose Tuesday looks like yours, not by an academic who left the clinic a decade ago and not by a personality with a thin published footprint. When a surgeon asks what the research says, you can point to the specific paper, because the person who taught you wrote a number of them.",
     ],
     licameli:
@@ -604,7 +604,7 @@ export const CERTIFICATION: CertificationContent = {
     headline: "ONE PRICE FOR THE CERTIFICATION, NO FAKE TIERS",
     highlight: "NO FAKE TIERS",
     priceFrame:
-      "$449 for the full certification. Not a stripped-down tier with the real version dangled above it. Not an upsell ladder. One price for all 37 modules, 11.75 hours of video, and 11.75 CEUs, taught by the author of 72+ peer-reviewed BFR publications who still treats patients weekly. At 11.75 CEUs that is roughly $38 a CEU, for a credential a single-day device-bundled course cannot match without a cuff you may never afford. Two post-op patients you keep instead of lose covers it. The certification is worth the $449 on its own, before anything else is added to it.",
+      "$449 for the full certification. Not a stripped-down tier with the real version dangled above it. Not an upsell ladder. One price for all 37 modules, 11.75 hours of video, and 11.75 CEUs, taught by the author of 74 peer-reviewed BFR publications who still treats patients weekly. At 11.75 CEUs that is roughly $38 a CEU, for a credential a single-day device-bundled course cannot match without a cuff you may never afford. Two post-op patients you keep instead of lose covers it. The certification is worth the $449 on its own, before anything else is added to it.",
     whatYouGet: [
       "37 modules across 4 courses, 11.75 hours of video, 11.75 CEUs",
       "Self-paced and on-demand. Do it in a weekend or take 4 weeks",
@@ -644,7 +644,7 @@ export const CERTIFICATION: CertificationContent = {
       "The certification you saw above was $449. The eleven tools you saw after were free on top of it. Here is the full picture in one place, with the dollar value beside each piece, so the math is on the page.",
     coreLabel: "The Complete BFR Certification",
     coreNote:
-      "37 modules across 4 courses, 11.75 hours of video, 11.75 CEUs, taught by the author of 72+ peer-reviewed BFR publications. The certification is worth this on its own, before anything else is added to it.",
+      "37 modules across 4 courses, 11.75 hours of video, 11.75 CEUs, taught by the author of 74 peer-reviewed BFR publications. The certification is worth this on its own, before anything else is added to it.",
     bonusesNote:
       "Eleven implementation tools, every one of them included on top of the certification at no additional cost.",
     cuffDiscountLabel: "Cuff-discount savings",
@@ -670,7 +670,7 @@ export const CERTIFICATION: CertificationContent = {
       },
       {
         q: "What is the real difference between you and Owens, PESI, Smart Tools, or Mike Reinold?",
-        a: "Structural, not marginal. They each have an equipment alignment or a CEU-mill model or a single-practitioner footprint. The BFR Pros sells no cuffs, takes no manufacturer money, is taught by an author of 72+ peer-reviewed BFR papers who still treats patients, and publishes its refund rate. None of the named competitors can match all of that without rebuilding their business.",
+        a: "Structural, not marginal. They each have an equipment alignment or a CEU-mill model or a single-practitioner footprint. The BFR Pros sells no cuffs, takes no manufacturer money, is taught by an author of 74 peer-reviewed BFR papers who still treats patients, and publishes its refund rate. None of the named competitors can match all of that without rebuilding their business.",
       },
       {
         q: "I do not have $5,000 for Delfi cuffs.",
@@ -761,12 +761,12 @@ export const CERTIFICATION: CertificationContent = {
 
   complianceNotes: [
     "STRUCTURAL, do not re-invert: the price (Section 12) is revealed BEFORE the bonuses (Section 13). The $449 anchors to the core certification alone; the eleven bonuses are then stacked on top as a free surprise that adds zero to the price. Section 13b Value Stack lives AFTER bonuses and is a recap, not a new anchor; do not move it before pricing. Session C must render pricing before bonuses before value stack, and must not list any bonus inside pricing.whatYouGet. Reversing this folds the bonus value into the price anchor and collapses the perceived-value multiplier. Hard rule: copywriting-principles.md Bonus Sequencing (Pascal masterclass, 2026-05-19). Note: the existing /get-certified page has the same inversion; Pascal is fixing that separately, do not propagate it here.",
-    "Net Impression on every clinical claim: BFR is presented as an evidence-backed modality (72+ peer-reviewed publications, settled mechanism), not as a guaranteed patient outcome. Safety incidence figures are attributed to the 13,000-person BFR safety survey, stated as survey-reported rates.",
+    "Net Impression on every clinical claim: BFR is presented as an evidence-backed modality (74 peer-reviewed publications, settled mechanism), not as a guaranteed patient outcome. Safety incidence figures are attributed to the 13,000-person BFR safety survey, stated as survey-reported rates.",
     "No earnings or income claim is made. 'Become the local specialist', 'cash-pay', and 'surgeons send their tough cases to you' are framed as positioning and as the avatar's own stated aspiration, not as a promised financial result. No dollar figure or multiplier is presented as an outcome the buyer will achieve.",
     "Testimonials (Lee, Whyte, Toderico, Nightingale) are verbatim from the live bfrtraining.com course page via the TESTIMONIALS constant. Four Pillars: real and named (consent via published-on-own-site source), substantiated (real graduates), typicality stated proximate via proof.typicalityNote and footer.testimonialDisclaimer, proximate disclosure rendered next to the wall by Session C.",
     "Scarcity is real and external only (search-volume growth, patient-demand pressure, first-mover positioning). No countdown timer, no seat count, no time-limited price. Brand-guide false-scarcity rule and FTC Universal Violation on fake scarcity both satisfied.",
     "Refund terms stated proximate to price (pricing.refundTermsAboveCta) and restated in P.P.S. Guarantor entity named. Signature triad present in footer (name, title, entity).",
-    "Forbidden Claims grep clean: no 'leading', 'gold standard', 'most-published', 'world-class', 'best-in-class', 'cutting-edge', 'act now', 'spots filling', 'limited time', 'new cohort'. Specific counts used throughout (72+, 1,467+, 1, 11.75, 37, 0.06%).",
+    "Forbidden Claims grep clean: no 'leading', 'gold standard', 'most-published', 'world-class', 'best-in-class', 'cutting-edge', 'act now', 'spots filling', 'limited time', 'new cohort'. Specific counts used throughout (74, 1,467+, 1, 11.75, 37, 0.06%).",
     "Modality-vs-brand discipline: featuredIn is framed strictly as a modality-level claim with an explicit note to Session C not to repackage it as personal media features.",
     "Rev 1 (2026-05-20): every primary CTA on /certification reads 'Get BFR Certified From Home' and routes to CERTIFICATION_ENROLL_URL (campaign-scoped Teachable checkout, additive to ENROLL_URL which stays bound to /get-certified). The lead-magnet section is temporarily removed pending nurture-pipeline setup; PLAN.md §6 dual-conversion is suspended for this revision (see REVISION-01.md §8).",
     "Session D owns the full compliance-copywriting.md Part 3 14-point gate, website-qa 9-phase, and the live-render checks. This file passed the Session B claim-level pass + the Rev 1 surface edits only.",

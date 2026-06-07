@@ -71,7 +71,7 @@ export type Variant = {
 export const VARIANTS: Record<"v3", Variant> = {
   v3: {
     slug: "v3",
-    routePath: "/get-certified",
+    routePath: "/certification",
     belief: "Belief 6: patient-demand and competitor adoption",
     beliefNumber: 6,
     metaTitle: "Your Patients Are Already Asking for BFR. Be the Clinic That Delivers.",
@@ -91,7 +91,7 @@ export const VARIANTS: Record<"v3", Variant> = {
       eyebrow: "The Complete BFR Certification",
       headline: "Your patients are already asking for BFR. Be the clinic that delivers it",
       subhead:
-        "37 modules, 11.75 CEUs, taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. Equipment-agnostic, 30-day money-back guarantee.",
+        "37 modules, 11.75 CEUs, taught by Dr. Nicholas Rolnick, author of 74 peer-reviewed BFR publications. Equipment-agnostic, 30-day money-back guarantee.",
       primaryCta: "Get BFR Certified",
       secondaryCta: "See the curriculum",
       supportingStat: [

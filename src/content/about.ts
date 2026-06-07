@@ -28,7 +28,7 @@ export const ABOUT_HERO = {
   headline: "We teach the technique, not the cuff",
   highlight: "the technique",
   subhead:
-    "The Complete BFR Certification is built on 72+ peer-reviewed publications by Dr. Nicholas Rolnick. He treats post-op patients in Manhattan every week. Dr. Nicholas Licameli bridges rehab-side programming and athletic performance. Together they built the certification we couldn't find when we went looking for it.",
+    "The Complete BFR Certification is built on 74 peer-reviewed publications by Dr. Nicholas Rolnick. He treats post-op patients in Manhattan every week. Dr. Nicholas Licameli bridges rehab-side programming and athletic performance. Together they built the certification we couldn't find when we went looking for it.",
   photoSrc: "/images/hero/hero-banner.webp",
   photoAlt: "Dr. Nicholas Rolnick applying a blood flow restriction cuff to a patient's leg",
 } as const;
@@ -41,7 +41,7 @@ export const ABOUT_STORY = {
   paragraphs: [
     "Owens Recovery Science is excellent, but it's tied to the Delfi PTS at $5,000 and up. NE Seminars bundles a single brand. Smart Tools is a brand. Even the platforms that don't sell cuffs lean on partnerships with companies that do. The result: practitioners learn what one manufacturer makes, then commit to that ecosystem for the next five years.",
     "Dr. Rolnick had been publishing peer-reviewed BFR research since 2020. Dr. Licameli was bridging strength coaching and rehab in clinical settings. They kept hearing the same question from licensed PTs, ATs, and S&C coaches: which BFR certification is actually evidence-based and which cuff is the right one for my practice? Two different questions. Most courses answered the second one and skipped the first.",
-    "The Complete BFR Certification was built on the answer to the first question. 72+ peer-reviewed publications. 37 modules. 11.75 CEUs. The protocols, screening, and pressure science taught independent of any single device. Practitioners pick the cuff that fits their clinic and budget after they understand the technique, not before.",
+    "The Complete BFR Certification was built on the answer to the first question. 74 peer-reviewed publications. 37 modules. 11.75 CEUs. The protocols, screening, and pressure science taught independent of any single device. Practitioners pick the cuff that fits their clinic and budget after they understand the technique, not before.",
     "1,467+ certified PTs, ATs, and S&C coaches now hold this credential. One of them has used the 30-day money-back guarantee. The other 1,466 implemented BFR with their first patient and stayed.",
   ],
 } as const;
@@ -63,7 +63,7 @@ export const ABOUT_PRINCIPLES = {
       eyebrow: "Principle 2",
       title: "Research-led",
       body:
-        "Every protocol is grounded in peer-reviewed research. Dr. Rolnick's 72+ publications form the spine of the curriculum, and every cited paper is in the downloadable module-by-module bibliography. When the research updates, the curriculum updates. We tell practitioners what the literature says and where the literature is still emerging, not what makes for a confident-sounding marketing line.",
+        "Every protocol is grounded in peer-reviewed research. Dr. Rolnick's 74 publications form the spine of the curriculum, and every cited paper is in the downloadable module-by-module bibliography. When the research updates, the curriculum updates. We tell practitioners what the literature says and where the literature is still emerging, not what makes for a confident-sounding marketing line.",
     },
     {
       eyebrow: "Principle 3",
@@ -106,7 +106,7 @@ export const ABOUT_TEAM = {
       role: "Founder-Owner",
       credentials: "PT, DPT, MS, CSCS",
       bio:
-        "Author of 72+ peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Adjunct Assistant Professor of Physical Therapy at New York Medical College. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living. Active clinical practice in Manhattan. Founded The BFR Pros, LLC in June 2018.",
+        "Author of 74 peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Adjunct Assistant Professor of Physical Therapy at New York Medical College. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living. Active clinical practice in Manhattan. Founded The BFR Pros, LLC in June 2018.",
       photoSrc: "/images/instructors/rolnick-large.jpg",
       profileHref: "/about/nicholas-rolnick",
       profileLabel: "Read the full profile",
@@ -144,17 +144,17 @@ export const ABOUT_FINAL_CTA = {
   eyebrow: "The next step",
   headline: "Ready to apply BFR yourself?",
   body:
-    "The Complete BFR Certification teaches the protocols, screening, and pressure science behind everything written above. Built on Dr. Rolnick's 72+ publications, equipment-agnostic, online and self-paced.",
+    "The Complete BFR Certification teaches the protocols, screening, and pressure science behind everything written above. Built on Dr. Rolnick's 74 publications, equipment-agnostic, online and self-paced.",
   primaryCta: "Explore the certification",
-  primaryCtaHref: "/get-certified",
+  primaryCtaHref: "/certification",
 } as const;
 
 // ----- /about/nicholas-rolnick -----------------------------------------------
 
 export const ROLNICK_META = {
-  title: "Dr. Nicholas Rolnick | 72+ Peer-Reviewed BFR Publications",
+  title: "Dr. Nicholas Rolnick | 74 Peer-Reviewed BFR Publications",
   description:
-    "Doctor of Physical Therapy, NSCA CSCS. Co-founder and lead instructor of The BFR Pros. 72+ peer-reviewed BFR publications. Adjunct Assistant Professor of Physical Therapy at New York Medical College. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living. Active clinical practice in Manhattan.",
+    "Doctor of Physical Therapy, NSCA CSCS. Co-founder and lead instructor of The BFR Pros. 74 peer-reviewed BFR publications. Adjunct Assistant Professor of Physical Therapy at New York Medical College. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living. Active clinical practice in Manhattan.",
   canonicalPath: "/about/nicholas-rolnick",
   ogImagePath: "/og/home",
 } as const;
@@ -165,7 +165,7 @@ export const ROLNICK_HERO = {
   credentialsLine: "PT, DPT, MS, CSCS",
   tagline: "The Human Performance Mechanic",
   subhead:
-    "Author of 72+ peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Adjunct Assistant Professor of Physical Therapy at New York Medical College. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living. Active clinical practice in Manhattan.",
+    "Author of 74 peer-reviewed BFR publications. Doctor of Physical Therapy from Columbia University with honors. Adjunct Assistant Professor of Physical Therapy at New York Medical College. Topic Editor at Frontiers in Physiology and Frontiers in Sports and Active Living. Active clinical practice in Manhattan.",
   photoSrc: "/images/instructors/rolnick-large.jpg",
 } as const;
 
@@ -175,17 +175,17 @@ export const ROLNICK_BODY = {
   paragraphs: [
     "Dr. Rolnick earned his Doctor of Physical Therapy at Columbia University with honors, after a Master of Science in Health Promotion Management at American University and a Bachelor of Arts in Biology at Franklin & Marshall College. He authored Chapter 12 of the National Academy of Sports Medicine textbook on Warm-up, Recovery, and Injury Prevention, and he co-authored the Smart Tools Level One BFR Course Manual in 2018, a foundational curriculum still in wide use today. He is a New York State licensed Physical Therapist (license #0416481, valid through 2029) and an NSCA Certified Strength and Conditioning Specialist (license #201175480, current through Dec 2026). He founded The BFR Pros, LLC in June 2018, and on September 4, 2020 launched the on-demand Introduction to BFR Training course that became the spine of the certification.",
     "Today, Dr. Rolnick is Adjunct Assistant Professor of Physical Therapy at New York Medical College in Valhalla, advising student BFR research projects. He previously served as faculty at Lehman College CUNY (Kinesiology and Biomechanics, 2019 – 2025) and at Concordia University Chicago (Strength and Conditioning, Kinesiology, 2017 – 2021). He is also Topic Editor for Frontiers in Physiology and Frontiers in Sports and Active Living across Volumes I and II of the Impact of Blood Flow Restriction Device Features research collection (2024 – 2026), and a peer reviewer for more than 26 named journals.",
-    "His 72+ peer-reviewed BFR publications span Frontiers in Physiology, the British Journal of Sports Medicine, the Strength and Conditioning Journal, Medicine and Science in Sports and Exercise, the Scandinavian Journal of Medicine and Science in Sports, Sports Medicine Open, and many others. The Pillars of BFR Training framework, the post-surgical screening algorithm, and the pressure-and-perception research that anchor The Complete BFR Certification all came out of that body of work.",
+    "His 74 peer-reviewed BFR publications span Frontiers in Physiology, the British Journal of Sports Medicine, the Strength and Conditioning Journal, Medicine and Science in Sports and Exercise, the Scandinavian Journal of Medicine and Science in Sports, Sports Medicine Open, and many others. The Pillars of BFR Training framework, the post-surgical screening algorithm, and the pressure-and-perception research that anchor The Complete BFR Certification all came out of that body of work.",
     "He maintains an active outpatient physical therapy practice in Manhattan and sees patients every week. The post-op ACL at week six, the rotator cuff repair at month three, the geriatric patient whose joints cannot tolerate heavy loading. The cases that show up in the curriculum are the cases he treats on Monday morning. The certification is built on the chart from Friday.",
     "Beyond research and clinical practice, Dr. Rolnick has been personally featured in the New York Post, CNN Life But Better, Men's Health, FOX 32 Chicago, CNET, BLOOM-WFLA-TV, Zenger News, the Scarsdale Inquirer, WESTFAIROnline, WELL+GOOD, AskMen, Eat This Not That, and Vitamin Shop's What's Good. He has been named to UPDOC Media's Top 40 Physical Therapy Influencers and Movement Guides' Top 5 Strength and Conditioning Coach Instagram Accounts, and to WebPT's 12 Physical Therapists to Watch. He hosts the BFR Better-For-Results Podcast and has appeared as a guest on more than 15 podcasts covering BFR, hypertrophy, rehab, and the integration of research into clinical practice.",
   ],
 } as const;
 
 export const ROLNICK_STATS = [
-  { value: "72+", label: "peer-reviewed BFR publications" },
-  { value: "26+", label: "journals peer-reviewed" },
-  { value: "10+", label: "years in active Manhattan practice" },
-  { value: "14+", label: "major media features" },
+  { value: "74", label: "peer-reviewed BFR publications" },
+  { value: "26", label: "journals peer-reviewed" },
+  { value: "10", label: "years in active Manhattan practice" },
+  { value: "14", label: "major media features" },
 ] as const;
 
 export const ROLNICK_CREDENTIALS = {
@@ -213,7 +213,7 @@ export const ROLNICK_CREDENTIALS = {
       org: "Frontiers in Physiology and Frontiers in Sports and Active Living",
     },
     {
-      role: "Peer reviewer for 26+ named journals",
+      role: "Peer reviewer for 26 named journals",
       org: "Frontiers, Scandinavian Journal of Medicine and Science in Sports, Sports Medicine Open, BJSM, PM&R, and others",
     },
     {
@@ -290,9 +290,9 @@ export const ROLNICK_FINAL_CTA = {
   eyebrow: "Inside the certification",
   headline: "Ready to learn BFR from the source?",
   body:
-    "The Complete BFR Certification is built on Dr. Rolnick's 72+ peer-reviewed publications and the cases he treats every week. 37 modules, 11.75 CEUs, equipment-agnostic.",
+    "The Complete BFR Certification is built on Dr. Rolnick's 74 peer-reviewed publications and the cases he treats every week. 37 modules, 11.75 CEUs, equipment-agnostic.",
   primaryCta: "Explore the certification",
-  primaryCtaHref: "/get-certified",
+  primaryCtaHref: "/certification",
 } as const;
 
 // ----- /about/nicholas-licameli ----------------------------------------------
@@ -373,7 +373,7 @@ export const LICAMELI_FINAL_CTA = {
   body:
     "The Complete BFR Certification teaches both rehab-side protocols and athletic applications. Dr. Licameli's chapters cover everything from in-season maintenance to ischemic preconditioning to the bodybuilding-adjacent applications most rehab courses skip.",
   primaryCta: "Explore the certification",
-  primaryCtaHref: "/get-certified",
+  primaryCtaHref: "/certification",
 } as const;
 
 // ----- /about/marty-rolnick ----------------------------------------------------
@@ -423,7 +423,7 @@ export const MARTY_FINAL_CTA = {
   body:
     "The voice you hear across The BFR Pros points at one thing: practitioners who can apply BFR with their first patient. The Complete BFR Certification is the work the message points at.",
   primaryCta: "Explore the certification",
-  primaryCtaHref: "/get-certified",
+  primaryCtaHref: "/certification",
 } as const;
 
 // ----- /about/erica-marcano ----------------------------------------------------
@@ -496,5 +496,5 @@ export const MARCANO_FINAL_CTA = {
   body:
     "The Complete BFR Certification covers the screening, pressure science, and programming that an Athletic Trainer applies on the sideline and in the rehab room. 37 modules, 11.75 CEUs, BOC-approved.",
   primaryCta: "Explore the certification",
-  primaryCtaHref: "/get-certified",
+  primaryCtaHref: "/certification",
 } as const;

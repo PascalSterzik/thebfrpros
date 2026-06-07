@@ -21,8 +21,8 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 const ROLNICK_FACTS = [
   { value: STATS.publications, label: "peer-reviewed BFR publications" },
   { value: STATS.yearsInClinic, label: "years in active Manhattan practice" },
-  { value: "26+", label: "journals peer-reviewed" },
-  { value: "14+", label: "major media features" },
+  { value: "26", label: "journals peer-reviewed" },
+  { value: "14", label: "major media features" },
 ];
 
 export default function InstructorsSection() {

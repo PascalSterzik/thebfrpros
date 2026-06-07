@@ -1,20 +1,27 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// Retired 2026-05-17: the Phase 1A concept variants /get-certified-v1 and
-// /get-certified-v2 were removed (duplicate-content SEO problem — both were
-// indexed and publicly reachable). They 301 to the canonical /get-certified
-// so legacy inbound links and any remaining search-index entries transfer
-// cleanly. This is a server-issued 301 at the Vercel edge, not a client
-// meta refresh. The matcher is scoped to exactly these two paths so the
-// middleware does not run on any other request.
+// 301 redirects for renamed/retired routes, issued at the Vercel edge (a real
+// server 301, not a client meta refresh). The matcher is scoped to exactly
+// these paths so the middleware never runs on any other request.
 //
-// /preview is intentionally NOT redirected — it was an internal noindex
-// review index with no SEO value, so it just 404s now (the route folder is
-// gone and the new branded not-found.tsx handles it).
+// 2026-06-06 slug refactor (single-noun URLs): the main cert sales page moved
+// /get-certified -> /certification and the consult page /consulting ->
+// /consultation. Old URLs 301 to the new ones so inbound links + the search
+// index transfer cleanly. The retired Phase-1A concept variants
+// (/get-certified-v1, /get-certified-v2) now 301 to /certification as well.
+// (/preview is intentionally NOT redirected; it 404s.)
+//
+// The paid campaign LP moved /certification -> /bfr-certification, but it is
+// noindex/paid-only with no organic inbound links, so it needs no redirect, and
+// /certification is now the main sales page. (If ads still point at
+// /certification, repoint them to /bfr-certification, or they land on the main
+// page.)
 const REDIRECTS: Record<string, string> = {
-  "/get-certified-v1": "/get-certified",
-  "/get-certified-v2": "/get-certified",
+  "/get-certified": "/certification",
+  "/get-certified-v1": "/certification",
+  "/get-certified-v2": "/certification",
+  "/consulting": "/consultation",
 };
 
 export function middleware(request: NextRequest) {
@@ -29,5 +36,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/get-certified-v1", "/get-certified-v2"],
+  matcher: ["/get-certified", "/get-certified-v1", "/get-certified-v2", "/consulting"],
 };

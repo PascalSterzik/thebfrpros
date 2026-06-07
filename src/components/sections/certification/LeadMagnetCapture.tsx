@@ -66,7 +66,7 @@ export default function LeadMagnetCapture({
         body: JSON.stringify({
           first_name: firstName,
           email,
-          source: "/certification",
+          source: "/bfr-certification",
           lead_magnet: "bfr-safety-screening-checklist",
         }),
       });

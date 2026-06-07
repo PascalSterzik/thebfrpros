@@ -3,16 +3,17 @@ import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import ContactHero from "@/components/sections/contact/ContactHero";
 import ContactWays from "@/components/sections/contact/ContactWays";
-import ContactForm from "@/components/sections/contact/ContactForm";
 import { CONTACT_META } from "@/content/contact";
 import { SITE_MENU_LINKS } from "@/lib/menus";
 import { buildContactSchemaGraph } from "@/lib/schema";
 
 // /contact. Stage-4/5 traffic that already knows who we are and wants to
 // reach out. Architecture: hero (locked pattern) -> direct contact ways
-// (phone + email, tap-to-act on mobile) -> async form. No soft gateway to
-// /get-certified at the end — this page's job is contact, not selling.
-// The footer already links to /get-certified for anyone who shifts intent.
+// (phone + email, tap-to-act on mobile). The contact form was removed
+// 2026-06-06 (low-value); the page stays live for SEO / NAP value. No soft
+// gateway to /get-certified at the end, this page's job is contact, not
+// selling. The footer already links to /get-certified for anyone who shifts
+// intent.
 
 export const metadata: Metadata = {
   title: { absolute: CONTACT_META.title },
@@ -55,7 +56,6 @@ export default function ContactPage() {
       <main id="main">
         <ContactHero />
         <ContactWays />
-        <ContactForm />
       </main>
 
       <Footer />

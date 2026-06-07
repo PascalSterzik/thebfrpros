@@ -18,7 +18,7 @@ export const HOME_META = {
   // layout.tsx title.template so "| The BFR Pros" doesn't double-suffix.
   title: "The BFR Pros | Online BFR Certification by Dr. Nicholas Rolnick",
   description:
-    "Online BFR certification taught by Dr. Nicholas Rolnick, author of 72+ peer-reviewed BFR publications. 37 modules, 11.75 CEUs, equipment-agnostic, 30-day money-back guarantee.",
+    "Online BFR certification taught by Dr. Nicholas Rolnick, author of 74 peer-reviewed BFR publications. 37 modules, 11.75 CEUs, equipment-agnostic, 30-day money-back guarantee.",
   canonicalPath: "/",
   ogImagePath: "/og/home",
 } as const;
@@ -147,7 +147,7 @@ export const HOME_INSTRUCTOR = {
   eyebrow: "Your instructors",
   headline: "Learn from the source",
   intro:
-    "Dr. Nicholas Rolnick has authored 72+ peer-reviewed BFR publications and maintains an active clinical practice in Manhattan. Dr. Nicholas Licameli, the co-instructor, bridges rehab-side BFR programming and athletic performance applications.",
+    "Dr. Nicholas Rolnick has authored 74 peer-reviewed BFR publications and maintains an active clinical practice in Manhattan. Dr. Nicholas Licameli, the co-instructor, bridges rehab-side BFR programming and athletic performance applications.",
   ctaLabel: "Read the instructor profile",
   ctaHref: "/about/nicholas-rolnick",
   ctaComingSoon: false,
@@ -201,5 +201,5 @@ export const HOME_FINAL_CTA = {
   body:
     "The Complete BFR Certification teaches the protocols, screening, and pressure science. Taught by Dr. Nicholas Rolnick, equipment-agnostic, online and self-paced.",
   primaryCta: "Explore the certification",
-  primaryCtaHref: "/get-certified",
+  primaryCtaHref: "/certification",
 } as const;

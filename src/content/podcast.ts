@@ -53,5 +53,5 @@ export const PODCAST_FINAL_CTA = {
   body:
     "Every conversation on the show points at one thing: practitioners who can apply BFR safely and well. The Complete BFR Certification is where that work is taught.",
   primaryCta: "Explore the certification",
-  primaryCtaHref: "/get-certified",
+  primaryCtaHref: "/certification",
 } as const;

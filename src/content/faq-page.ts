@@ -5,7 +5,7 @@
 // Source: Research/04-offer-brief.md objection list + brand-guide.md
 // Forbidden Claims discipline. Every answer leads with a direct sentence-1
 // response (AEO-optimized) before expanding. No comparative superlatives,
-// no false scarcity, specific 72+ publication count where it applies.
+// no false scarcity, specific 74 publication count where it applies.
 
 export type FAQPageItem = { q: string; a: string };
 
@@ -40,7 +40,7 @@ export const FAQ_PAGE: ReadonlyArray<FAQPageCategory> = [
     items: [
       {
         q: "What is The Complete BFR Certification?",
-        a: "A 37-module, 11.75-CEU professional certification in evidence-based blood flow restriction training. Built for licensed Physical Therapists, Athletic Trainers, and Strength & Conditioning Coaches. Taught primarily by Dr. Nicholas Rolnick (PT, MS, CSCS, author of 72+ peer-reviewed BFR publications) with co-instructor Dr. Nicholas Licameli (PT, DPT) covering the athletic-side chapters.",
+        a: "A 37-module, 11.75-CEU professional certification in evidence-based blood flow restriction training. Built for licensed Physical Therapists, Athletic Trainers, and Strength & Conditioning Coaches. Taught primarily by Dr. Nicholas Rolnick (PT, MS, CSCS, author of 74 peer-reviewed BFR publications) with co-instructor Dr. Nicholas Licameli (PT, DPT) covering the athletic-side chapters.",
       },
       {
         q: "How long does the certification take to complete?",

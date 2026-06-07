@@ -58,7 +58,7 @@ export default function FAQPage() {
           headline="Ready to apply BFR yourself?"
           body="37 modules, 11.75 CEUs, 30-day money-back guarantee. The curriculum exists to answer everything above in the depth a clinical decision needs."
           primaryCta="Explore the certification"
-          primaryCtaHref="/get-certified"
+          primaryCtaHref="/certification"
         />
       </main>
 

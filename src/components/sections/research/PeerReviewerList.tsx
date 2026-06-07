@@ -5,7 +5,7 @@ import SectionLabel from "@/components/shared/SectionLabel";
 import { ROLNICK_PEER_REVIEWER_JOURNALS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// Phase 2b (2026-05-13): the 26+ journals Dr. Rolnick serves as peer
+// Phase 2b (2026-05-13): the 26 journals Dr. Rolnick serves as peer
 // reviewer for. Surfaces a major credibility signal that wasn't on the
 // site before — being asked to review for a journal is the field's
 // vote that the reviewer knows the literature. Multi-column list keeps

@@ -338,10 +338,14 @@ body.menu-open {
    prefers-reduced-motion override in @layer base. Marquee scroll is a
    continuous low-amplitude horizontal motion (no flash, no parallax, no zoom),
    below the vestibular trigger threshold, and is core to the brand rhythm.
-   §Pascal-2026-05-13 Phase 1c: animation-duration is now driven by the
-   --marquee-duration CSS variable (default 50s) so each Marquee instance can
-   normalize per-logo travel time via inline style. Split from the shorthand
-   so var() resolves through !important. */
+   animation-duration is driven by the --marquee-duration CSS variable, set per
+   instance via inline style. §2026-06-06: Marquee.tsx now measures each track's
+   rendered width and sets the duration so every marquee scrolls at one constant
+   px/second (MARQUEE_PX_PER_SECOND), replacing the old Phase-1c per-logo-COUNT
+   formula that drifted by logo width (e.g. journals ~22px/s vs featured-in
+   ~38px/s). The 50s fallback applies only before measurement, and the animation
+   class is withheld until then, so it is effectively unused. Split from the
+   shorthand so var() resolves through !important. */
 @keyframes marquee-rtl {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }

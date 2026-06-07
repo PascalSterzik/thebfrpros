@@ -13,12 +13,56 @@ export const ENROLL_URL =
 export const CERTIFICATION_ENROLL_URL =
   "https://checkout.teachable.com/secure/626725/checkout/order_mk2b9f5s?affcode=626725_rzfv6exi";
 
-// Where the /contact form posts. Default is a `mailto:` so the static site
-// works immediately without an external service. When MailerLite / GoHighLevel
-// is wired (per BUILD-BRIEF email-tool decision), swap this to the real POST
-// endpoint URL — the ContactForm component handles both mailto: and http:
-// transports. One-line swap, no other code changes needed.
+// Lead-capture POST endpoint (default `mailto:` so the static site works
+// immediately without an external service). When MailerLite / GoHighLevel is
+// wired (per BUILD-BRIEF email-tool decision), swap this to the real POST
+// endpoint URL: LeadMagnetCapture on /get-certified handles both mailto: and
+// http: transports. One-line swap, no other code changes needed. (The /contact
+// form that previously consumed this was removed 2026-06-06; /contact is now
+// phone + email only.)
 export const CONTACT_FORM_ENDPOINT = "mailto:nick@thebfrpros.com";
+
+// ---- /consulting (1:1 clinical mentorship) --------------------------------
+// New offer (2026-06-06): Dr. Rolnick sells one-on-one BFR case-review
+// sessions to individual clinicians (PT / AT / S&C) at an hourly rate. Hourly
+// only for v1; packages can be added later. The rate lives here as the single
+// source of truth (schema.ts + the budget question read it); display strings
+// like "$275 an hour" are composed in src/content/consulting.ts.
+export const CONSULTING = {
+  hourlyRate: 275,
+  currency: "USD",
+  currencySymbol: "$",
+} as const;
+
+// Where the /consulting qualification form posts its answers. Wired to the
+// site's own API route, which persists each submission to Supabase
+// (consulting_leads, via the anon key + INSERT-only RLS policy, so saving needs
+// NO env setup) and best-effort emails Nick if RESEND_API_KEY is set. The form's
+// submit handler treats any non-`mailto:` value as a JSON POST, so this stays a
+// one-line swap (back to a `mailto:` or out to a CRM/GHL endpoint) if ever needed.
+export const CONSULTING_FORM_ENDPOINT = "/api/consulting";
+
+// The BFR Pros Cal.com booking link for 1:1 consulting (Pascal-provided
+// 2026-06-06, live). Two uses: (1) the hero "Book a call" CTA + the booking-step
+// fallback button link to CONSULTING_CAL_URL in a new tab; (2) the ConsultingForm
+// booking step renders Cal.com's official inline embed using CONSULTING_CAL_LINK
+// (the cal.com slug; embed namespace "consult"). Full embed snippet + setup notes
+// archived at "Agency/Clients/The BFR Pros/Consulting-Integrations-Setup.md".
+export const CONSULTING_CAL_URL = "https://cal.com/thebfrpros/consult";
+export const CONSULTING_CAL_LINK = "thebfrpros/consult";
+
+// Supabase REST config for the /consulting form (POST /api/consulting writes to
+// the consulting_leads table). The anon (publishable) key is safe to commit and
+// expose: it is already public (used in other Sterzik Solutions apps), and the
+// consulting_leads table is protected by RLS with an INSERT-only policy for anon
+// (the public can submit but cannot read or modify ANY data; only the
+// service_role, used from the Supabase dashboard, can read submissions). So the
+// form saves with NO env setup. To harden later, set SUPABASE_SERVICE_ROLE_KEY
+// (and optionally SUPABASE_URL) in the deploy env; the route prefers those if
+// present. Project: Sterzik Solutions (brvebfxaexxjghvwyidy).
+export const SUPABASE_URL = "https://brvebfxaexxjghvwyidy.supabase.co";
+export const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJydmViZnhhZXh4amdodnd5aWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxNjc5MjcsImV4cCI6MjA4ODc0MzkyN30.PJmaphJ1QDjKTwihIjnGKQf5pTfPFGj2f5EGatzwbqs";
 
 // GA4 Measurement ID. Wired into the app via @next/third-parties/google in
 // src/app/layout.tsx. Kept here (not an env var) so the live tag is committed,
@@ -50,13 +94,13 @@ export const SITE = {
   // now 404s (no SEO value, was noindex).
   routes: {
     home: "/",
-    getCertified: "/get-certified",
+    getCertified: "/certification",
   },
 } as const;
 
 export const STATS = {
-  publications: "72+",
-  publicationsExact: 72,
+  publications: "74",
+  publicationsExact: 74,
   ceus: "11.75",
   ceusExact: 11.75,
   modules: "37",
@@ -67,8 +111,8 @@ export const STATS = {
   certifiedPractitioners: "1,467+",
   practitionersExact: 1467,
   refundsToDate: 1,
-  mediaOutlets: "14+",
-  yearsInClinic: "10+",
+  mediaOutlets: "14",
+  yearsInClinic: "10",
   socialFollowers: "42K+",
 } as const;
 
@@ -104,7 +148,7 @@ export const ROLNICK = {
   affiliations: [
     "Adjunct Assistant Professor of Physical Therapy, New York Medical College (Valhalla, NY, since Jul 2021)",
     "Topic Editor, Frontiers in Physiology and Frontiers in Sports and Active Living (Volumes I + II, 2024 – 2026)",
-    "Peer reviewer for 26+ journals",
+    "Peer reviewer for 26 journals",
     "NASM Chapter 12 author (Warm-up, Recovery, Injury Prevention)",
     "Founder of The BFR Pros, LLC (since June 2018)",
   ],
@@ -317,7 +361,7 @@ export const ROLNICK_PUBLICATIONS = [
 // RTL marquee. Each card: journal name + Rolnick publication-count badge +
 // short note + outbound link to a Rolnick article in that journal. Counts
 // are conservative anchors based on the CV (Research/rolnick-cv-facts.md)
-// — the full 72+ trail extends across many more journals; these six are
+// — the full 74 trail extends across many more journals; these six are
 // the heaviest-load anchors.
 export const ROLNICK_JOURNAL_CARDS = [
   {
@@ -340,19 +384,19 @@ export const ROLNICK_JOURNAL_CARDS = [
   },
   {
     name: "British Journal of Sports Medicine",
-    count: "2+",
+    count: "2",
     note: "Co-first author on the BFR methods and apparatus position paper (2025)",
     href: "https://bjsm.bmj.com/content/early/2025/02/07/bjsports-2024-109365",
   },
   {
     name: "Scandinavian Journal of Medicine and Science in Sports",
-    count: "1+",
+    count: "1",
     note: "Low-intensity resistance + BFR systematic review on arterial stiffness",
     href: "https://onlinelibrary.wiley.com/doi/10.1111/sms.13902",
   },
   {
     name: "Sports Medicine and Health Science",
-    count: "1+",
+    count: "1",
     note: "BFR training in older adults: overview of systematic reviews",
     href: "https://doi.org/10.1016/j.smhs.2025.10.002",
   },
@@ -410,7 +454,7 @@ export const ROLNICK_PEER_REVIEWER_JOURNALS = [
 // verbatim from the live thebfrpros.com/published-research page (titles +
 // abstracts) plus the source-of-truth URL list in
 // Research/dr-rolnick-publications-and-appearances.md. Used on /research
-// and /research/publications. Six papers are surfaced; the full 72+
+// and /research/publications. Six papers are surfaced; the full 74
 // publication body is represented by the journal marquee.
 export const ROLNICK_FEATURED_PAPERS = [
   {

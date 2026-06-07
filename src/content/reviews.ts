@@ -100,7 +100,7 @@ export const REVIEWS_FINAL_CTA = {
   eyebrow: "Join 1,467+ certified practitioners",
   headline: "Ready to apply BFR yourself?",
   body:
-    "37 modules. 11.75 CEUs. 30-day money-back guarantee. Built on Dr. Rolnick's 72+ peer-reviewed BFR publications.",
+    "37 modules. 11.75 CEUs. 30-day money-back guarantee. Built on Dr. Rolnick's 74 peer-reviewed BFR publications.",
   primaryCta: "Explore the certification",
-  primaryCtaHref: "/get-certified",
+  primaryCtaHref: "/certification",
 } as const;

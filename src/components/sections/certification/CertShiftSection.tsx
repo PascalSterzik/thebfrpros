@@ -10,7 +10,7 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // The Shift section (Belief 2). Sato 1966 / 60-year discovery story, BFR in
 // APTA + BOC scope, military and Mayo adoption. The evidence line lands on
-// the 72+ peer-reviewed publications by the instructor so the modality
+// the 74 peer-reviewed publications by the instructor so the modality
 // credibility and the instructor credibility compound in one block.
 export default function CertShiftSection() {
   const { shift } = CERTIFICATION;

@@ -21,10 +21,17 @@ import type { HeaderMenuLink } from "@/components/shared/Header";
 // external link but renders in the standard navy color, not red —
 // red is reserved for the ACTIVE menu item (the page the visitor is
 // currently on) per Header.tsx.
+//
+// 2026-06-06: "Contact" removed from the header (footer-only now; the contact
+// form was retired and /contact is phone + email only). "Get Consulting" added
+// as the 2nd item for visibility of the new 1:1 offer. The two "Get X" items
+// (Get BFR Certified, Get Consulting) are the active offers; Research / About
+// stay deliberately passive. Final 5: Get BFR Certified, Get Consulting,
+// Research, About, Find BFR Providers.
 export const SITE_MENU_LINKS: HeaderMenuLink[] = [
-  { href: "/get-certified", label: "Get BFR Certified" },
+  { href: "/certification", label: "Get BFR Certified" },
+  { href: "/consultation", label: "Get Consulting" },
   { href: "/research", label: "Research" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
   { href: "https://bfrproviders.com", label: "Find BFR Providers", external: true },
 ];

@@ -93,7 +93,7 @@ export default function HomeHero() {
             <PrimaryCTA
               label="Explore the certification"
               secondary=""
-              href="/get-certified"
+              href="/certification"
               starsVariant="dark"
             />
           </div>

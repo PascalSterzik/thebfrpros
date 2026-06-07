@@ -74,7 +74,7 @@ export default function NotFound() {
                 className="opacity-0 animate-fade-up mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
                 style={{ animationDelay: STAGGER_DELAYS[3] }}
               >
-                <Link href="/get-certified" className="btn-primary">
+                <Link href="/certification" className="btn-primary">
                   <span>See the certification</span>
                 </Link>
                 <Link href="/" className="btn-secondary btn-on-navy">
