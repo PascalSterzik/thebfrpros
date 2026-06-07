@@ -149,10 +149,12 @@ export default function ConsultingFormFlow() {
 
     if (aff) {
       setFlash(aff);
+      // A calm, readable beat — long enough to take the reaction in without
+      // rushing, before the next question arrives.
       window.setTimeout(() => {
         setFlash(null);
         setStep((s) => s + 1);
-      }, 900);
+      }, 1600);
     } else {
       setStep((s) => s + 1);
     }
@@ -225,7 +227,7 @@ export default function ConsultingFormFlow() {
               key="flash"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.22, ease: editorialEase }}
+              transition={{ duration: 0.4, ease: editorialEase }}
             >
               <p className="font-body text-4xl font-bold text-accent">{flash}</p>
             </motion.div>
@@ -426,10 +428,18 @@ function ScaleSelector({
           );
         })}
       </div>
-      <div className="mt-2 flex justify-between text-xs text-muted">
+      {/* Desktop: the scale is one row of 10, so the end labels sit correctly
+          under 1 and 10. */}
+      <div className="mt-2 hidden justify-between text-xs text-muted sm:flex">
         <span>{q.scaleMinLabel}</span>
         <span>{q.scaleMaxLabel}</span>
       </div>
+      {/* Mobile: the scale wraps to two rows (1-5 / 6-10), so edge labels would
+          appear to describe only the second row. A single caption names both
+          ends unambiguously instead. */}
+      <p className="mt-2 text-center text-xs text-muted sm:hidden">
+        {q.scaleMin} = {q.scaleMinLabel}, {q.scaleMax} = {q.scaleMaxLabel}
+      </p>
     </div>
   );
 }

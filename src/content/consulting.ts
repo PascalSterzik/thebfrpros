@@ -197,11 +197,13 @@ export const CONSULTING_FORM = {
       id: "needIntensity",
       type: "scale",
       affirmation: "Thanks for laying that out.",
-      prompt: "How important is it to solve this right now?",
+      // Importance, NOT urgency (urgency is the timing/magic-wand question). No
+      // "right now", and the end labels describe importance, not time.
+      prompt: "How important is it to solve this?",
       scaleMin: 1,
       scaleMax: 10,
-      scaleMinLabel: "Can wait",
-      scaleMaxLabel: "Urgent",
+      scaleMinLabel: "Not important",
+      scaleMaxLabel: "Very important",
       required: true,
     },
     {
