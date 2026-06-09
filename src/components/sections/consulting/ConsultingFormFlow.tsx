@@ -238,7 +238,7 @@ export default function ConsultingFormFlow() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.28, ease: editorialEase }}
             >
-              {qualified ? <Booking /> : <NotReady />}
+              {qualified ? <Booking answers={answers} /> : <NotReady />}
             </motion.div>
           ) : (
             <motion.div
@@ -444,8 +444,19 @@ function ScaleSelector({
   );
 }
 
-function Booking() {
+function Booking({ answers }: { answers: Record<string, string> }) {
   const b = CONSULTING_FORM.booking;
+
+  // Prefill the Cal.com booking with what they already gave us, so they never
+  // retype name/email, and Nick sees the case on the calendar event. Values go
+  // through URLSearchParams (encodes quotes/newlines/backslashes), so the
+  // resulting calLink is safe to drop into the injected script string.
+  const params = new URLSearchParams();
+  if (answers.name) params.set("name", answers.name);
+  if (answers.email) params.set("email", answers.email);
+  if (answers.need) params.set("notes", answers.need);
+  const qs = params.toString().replace(/\+/g, "%20");
+  const calLink = qs ? `${CONSULTING_CAL_LINK}?${qs}` : CONSULTING_CAL_LINK;
 
   // Cal.com official inline embed. We inject the exact vanilla snippet via a
   // created <script> so it runs client-side with no npm dep and no Cal typing.
@@ -459,11 +470,11 @@ function Booking() {
     s.text = `
 (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
 Cal("init", "consult", {origin:"https://app.cal.com"});
-Cal.ns.consult("inline", { elementOrSelector:"#my-cal-inline-consult", config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"}, calLink: "${CONSULTING_CAL_LINK}" });
+Cal.ns.consult("inline", { elementOrSelector:"#my-cal-inline-consult", config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"}, calLink: "${calLink}" });
 Cal.ns.consult("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
 `;
     document.body.appendChild(s);
-  }, []);
+  }, [calLink]);
 
   return (
     <div className="text-center">
