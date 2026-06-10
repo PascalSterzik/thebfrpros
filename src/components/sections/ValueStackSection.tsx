@@ -83,7 +83,7 @@ export default function ValueStackSection() {
           {/* Core certification rows */}
           <p className="small-caps-line text-accent">The Complete BFR Certification</p>
           <p className="mt-2 text-sm leading-relaxed text-ink/85">
-            37 modules across 4 courses, {PRICING.contentHours} hours of video, {PRICING.contentHours} CEUs, taught by the author of 72+ peer-reviewed BFR publications. The certification is worth this on its own, before anything else is added to it.
+            37 modules across 4 courses, {PRICING.contentHours} hours of video, {PRICING.contentHours} CEUs, taught by the author of {STATS.publications} peer-reviewed BFR publications. The certification is worth this on its own, before anything else is added to it.
           </p>
 
           <ul className="mt-5 divide-y divide-line/60 border-y border-line/60">

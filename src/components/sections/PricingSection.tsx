@@ -46,7 +46,7 @@ export default function PricingSection() {
             variants={fadeUp}
             className="mt-6 text-lg leading-relaxed text-ink/80"
           >
-            No tiered pricing. No upsells. No equipment in the cart. ${PRICING.bundlePrice} for all 37 modules, {PRICING.contentHours} hours of video, and {PRICING.contentHours} CEUs, taught by the author of 72+ peer-reviewed BFR publications who still treats patients weekly. The certification is worth the ${PRICING.bundlePrice} on its own, before anything else is added to it.
+            No tiered pricing. No upsells. No equipment in the cart. ${PRICING.bundlePrice} for all 37 modules, {PRICING.contentHours} hours of video, and {PRICING.contentHours} CEUs, taught by the author of {STATS.publications} peer-reviewed BFR publications who still treats patients weekly. The certification is worth the ${PRICING.bundlePrice} on its own, before anything else is added to it.
           </motion.p>
           <motion.p
             variants={fadeUp}
