@@ -9,6 +9,7 @@ import AreasList from "@/components/sections/about/AreasList";
 import AudienceCEUs from "@/components/sections/audience/AudienceCEUs";
 import AudienceTestimonials from "@/components/sections/audience/AudienceTestimonials";
 import BioFinalCTA from "@/components/sections/about/BioFinalCTA";
+import TeamTrainingPointer from "@/components/sections/team-training/TeamTrainingPointer";
 import { AT, filterTestimonialsForAudience } from "@/content/audiences";
 import { SITE_MENU_LINKS } from "@/lib/menus";
 import { buildAudienceSchemaGraph } from "@/lib/schema";
@@ -92,6 +93,8 @@ export default function AthleticTrainersPage() {
           items={AT.ceus.items}
         />
         <AudienceTestimonials items={filterTestimonialsForAudience(AT)} />
+        {/* Light cross-pointer to the clinic team-training lane (spec §7.3, bucket C) */}
+        <TeamTrainingPointer variant="athleticTrainers" />
         <BioFinalCTA
           eyebrow={AT.finalCta.eyebrow}
           headline={AT.finalCta.headline}

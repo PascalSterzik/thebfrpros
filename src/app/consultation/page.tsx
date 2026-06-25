@@ -10,6 +10,7 @@ import ConsultingLaunch from "@/components/sections/consulting/ConsultingLaunch"
 import ConsultingFormOverlay from "@/components/sections/consulting/ConsultingFormOverlay";
 import ConsultingFaq from "@/components/sections/consulting/ConsultingFaq";
 import ConsultingCloser from "@/components/sections/consulting/ConsultingCloser";
+import TeamTrainingPointer from "@/components/sections/team-training/TeamTrainingPointer";
 import { CONSULTING_META, CONSULTING_FAQ } from "@/content/consulting";
 import { SITE_MENU_LINKS } from "@/lib/menus";
 import { buildConsultingSchemaGraph } from "@/lib/schema";
@@ -82,6 +83,9 @@ export default function ConsultingPage() {
 
         {/* Small FAQ */}
         <ConsultingFaq />
+
+        {/* Light cross-pointer: a clinic owner exploring 1:1 may want team training (spec §7.3) */}
+        <TeamTrainingPointer variant="consultation" />
 
         {/* Founder closer (Nick, first person) */}
         <ConsultingCloser />

@@ -50,6 +50,66 @@ export const CONSULTING_FORM_ENDPOINT = "/api/consulting";
 export const CONSULTING_CAL_URL = "https://cal.com/thebfrpros/consult";
 export const CONSULTING_CAL_LINK = "thebfrpros/consult";
 
+// ---- /train-your-team (clinic team-training lane) -------------------------
+// New secondary offer lane (2026-06, Phase 4): Dr. Rolnick trains a clinic's
+// WHOLE team to one BFR protocol in a single engagement. Two flat-priced
+// offers. The structured numbers live here (single source of truth: the offer
+// cards + buildTeamTrainingSchemaGraph read them); display prose is composed in
+// src/content/team-training.ts.
+//
+// presentationOrder is LOCKED (spec §5.3 + feedback_bonus_sequencing): each
+// offer card renders core -> price -> bonus -> ceuTotal, NEVER the bonus before
+// the price. The card component iterates this array so the order can't drift.
+// CEU math is honest: in-person 13.5 = 8 workshop + 5.5 course; virtual 5.5 is
+// the course alone (the 4 live hours are NOT separately CEU-filed). perSeatAnchor
+// is the individual professionalseminars.com/bfr workshop, used ONLY as a
+// per-seat price anchor, never as "the same workshop" (spec §9.3.2 / §9.3.6).
+export const TEAM_TRAINING = {
+  currency: "USD",
+  currencySymbol: "$",
+  teamCapacity: 30, // "up to 30" is a capacity fact, NOT scarcity (spec §9.1)
+  presentationOrder: ["core", "price", "bonus", "ceuTotal"] as const,
+  courseModules: 13,
+  courseCeu: 5.5,
+  perSeatAnchor: 699,
+  offers: {
+    inPerson: {
+      id: "in-person",
+      name: "In-Person Workshop",
+      price: 11000,
+      priceDisplay: "$11,000",
+      liveHours: 8,
+      ceuTotal: 13.5,
+      ceuWorkshop: 8,
+      ceuCourse: 5.5,
+    },
+    virtual: {
+      id: "virtual",
+      name: "Live Virtual Training",
+      price: 5000,
+      priceDisplay: "$5,000",
+      liveHours: 4,
+      ceuTotal: 5.5,
+      ceuCourse: 5.5,
+    },
+  },
+} as const;
+
+// Where the /train-your-team qualify form posts its answers. Wired to the site's
+// own API route (POST /api/team-training -> Supabase clinic_inquiries via the
+// anon key + INSERT-only RLS, so saving needs NO env setup; best-effort emails
+// Nick if RESEND_API_KEY is set). Mirrors CONSULTING_FORM_ENDPOINT.
+export const TEAM_TRAINING_FORM_ENDPOINT = "/api/team-training";
+
+// The team-training Cal.com booking link. PASCAL CREATES THIS EVENT TYPE and
+// supplies the slug (spec §6.5, open item §G.4); the suggested slug is
+// thebfrpros/team-training (used here as the placeholder). The form's qualified
+// + champion branches render Cal.com's official inline embed using
+// TEAM_TRAINING_CAL_LINK (embed namespace "team-training"); the fallback link
+// uses TEAM_TRAINING_CAL_URL. No on-page copy depends on the URL.
+export const TEAM_TRAINING_CAL_URL = "https://cal.com/thebfrpros/team-training";
+export const TEAM_TRAINING_CAL_LINK = "thebfrpros/team-training";
+
 // Supabase REST config for the /consulting form (POST /api/consulting writes to
 // the consulting_leads table). The anon (publishable) key is safe to commit and
 // expose: it is already public (used in other Sterzik Solutions apps), and the

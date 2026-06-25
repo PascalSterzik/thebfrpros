@@ -17,11 +17,18 @@ import type { NextRequest } from "next/server";
 // /certification is now the main sales page. (If ads still point at
 // /certification, repoint them to /bfr-certification, or they land on the main
 // page.)
+// Phase 4 (2026-06): the legacy clinic/team-hosting page /bfr-masters-workshop
+// 301s to the new /train-your-team lane. (Confirmed via archive grep that the
+// legacy page is the CLINIC/team page, "HOST THIS" / "your team / staff /
+// clinic", so the redirect is audience-correct; spec §7.5. Pre-cutover the old
+// site still serves the legacy page, so this is for post-cutover inbound links
+// and bookmarks.)
 const REDIRECTS: Record<string, string> = {
   "/get-certified": "/certification",
   "/get-certified-v1": "/certification",
   "/get-certified-v2": "/certification",
   "/consulting": "/consultation",
+  "/bfr-masters-workshop": "/train-your-team",
 };
 
 export function middleware(request: NextRequest) {
@@ -36,5 +43,11 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/get-certified", "/get-certified-v1", "/get-certified-v2", "/consulting"],
+  matcher: [
+    "/get-certified",
+    "/get-certified-v1",
+    "/get-certified-v2",
+    "/consulting",
+    "/bfr-masters-workshop",
+  ],
 };

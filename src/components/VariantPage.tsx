@@ -23,6 +23,7 @@ import GuaranteeSection from "@/components/sections/GuaranteeSection";
 import FAQSection from "@/components/sections/FAQSection";
 import FinalCTABlock from "@/components/sections/FinalCTABlock";
 import PSBlock from "@/components/sections/PSBlock";
+import TeamTrainingPointer from "@/components/sections/team-training/TeamTrainingPointer";
 import { FAQ } from "@/content/faq";
 import type { Variant } from "@/content/variants";
 import { buildSchemaGraph } from "@/lib/schema";
@@ -115,6 +116,9 @@ export default function VariantPage({ variant }: { variant: Variant }) {
 
         {/* 20. FAQ, 9 questions */}
         <FAQSection />
+
+        {/* Light cross-pointer: an owner on the cert page should discover the team lane (spec §7.3) */}
+        <TeamTrainingPointer variant="certification" />
 
         {/* 21. Final CTA + Warning */}
         <FinalCTABlock variant={variant} />

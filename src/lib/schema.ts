@@ -1,7 +1,7 @@
 // JSON-LD schema generators. One @graph per page so the rich-results test sees one
 // connected entity tree instead of competing snippets.
 
-import { CEU_APPROVALS, CONSULTING, ENROLL_URL, LICAMELI, PRICING, ROLNICK, SITE, STATS } from "./constants";
+import { CEU_APPROVALS, CONSULTING, ENROLL_URL, LICAMELI, PRICING, ROLNICK, SITE, STATS, TEAM_TRAINING } from "./constants";
 
 type HomeSchemaInput = {
   pageTitle: string;
@@ -1179,6 +1179,175 @@ export function buildConsultingSchemaGraph({
         primaryImageOfPage: `${SITE.origin}/og/home`,
         datePublished: "2026-06-06",
         dateModified: "2026-06-06",
+        author: { "@id": personId },
+      },
+    ],
+  };
+}
+
+type TeamTrainingSchemaInput = {
+  pageTitle: string;
+  pageDescription: string;
+  faq?: ReadonlyArray<{ q: string; a: string }>;
+};
+
+// /train-your-team clinic team-training lane. @graph: Organization + WebSite +
+// canonical Rolnick Person + Service (serviceType "BFR team training", provider =
+// Org, areaServed US) with a hasOfferCatalog of TWO Offer nodes (In-Person
+// $11,000 / Live Virtual $5,000, priceSpecification, USD) + BreadcrumbList +
+// FAQPage + WebPage. Indexable (the canonical organic team-training page).
+//
+// Schema gate (spec §7.4): do NOT attach the course's AggregateRating
+// (4.8 / 767 reviews) to the team Service or its Offers. Those reviews are for
+// the intro COURSE, not the team engagements; attaching them here is the same
+// mismatch caught on the bloodflowrestriction seam page. No AggregateRating here.
+export function buildTeamTrainingSchemaGraph({
+  pageTitle,
+  pageDescription,
+  faq,
+}: TeamTrainingSchemaInput) {
+  const pageUrl = `${SITE.origin}/train-your-team`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const personId = `${SITE.origin}/about/nicholas-rolnick#person`;
+  const serviceId = `${pageUrl}#service`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+  const faqId = `${pageUrl}#faq`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+        sameAs: [
+          SITE.social.instagram,
+          SITE.social.facebook,
+          SITE.social.youtube,
+          SITE.social.tiktok,
+          SITE.social.twitter,
+        ],
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: SITE.phone,
+            email: SITE.contactEmail,
+            contactType: "customer support",
+            areaServed: "US",
+            availableLanguage: ["English"],
+          },
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      {
+        "@type": "Person",
+        "@id": personId,
+        name: ROLNICK.fullName,
+        jobTitle: "Doctor of Physical Therapy",
+        description: `Founder of ${SITE.brandName}. ${ROLNICK.publicationsLine}.`,
+        image: `${SITE.origin}/images/instructors/rolnick-large.jpg`,
+        alumniOf: ROLNICK.alumniOf.map((a) => ({ "@type": "EducationalOrganization", name: a.name })),
+        affiliation: ROLNICK.affiliations.map((name) => ({ "@type": "Organization", name })),
+        worksFor: { "@id": orgId },
+        sameAs: [
+          "https://www.researchgate.net/profile/Nicholas-Rolnick",
+          SITE.social.instagram,
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": serviceId,
+        name: "BFR Team Training",
+        serviceType: "BFR team training",
+        description:
+          "On-site and live virtual blood flow restriction training for a clinic's whole team, up to 30 people, taught to one protocol in a single engagement by Dr. Nicholas Rolnick. Both formats include the full Introduction to BFR course.",
+        provider: { "@id": orgId },
+        areaServed: "US",
+        audience: {
+          "@type": "Audience",
+          audienceType:
+            "Physical therapy and rehabilitation clinic owners, clinical directors, and athletic-training or performance directors",
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Team training offers",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              name: TEAM_TRAINING.offers.inPerson.name,
+              description:
+                "Eight hours on-site, hands-on, whole team up to 30, travel and the Introduction to BFR course included. 13.5 CEUs per person.",
+              price: TEAM_TRAINING.offers.inPerson.price,
+              priceCurrency: TEAM_TRAINING.currency,
+              priceSpecification: {
+                "@type": "PriceSpecification",
+                price: TEAM_TRAINING.offers.inPerson.price,
+                priceCurrency: TEAM_TRAINING.currency,
+              },
+              availability: "https://schema.org/InStock",
+              url: pageUrl,
+            },
+            {
+              "@type": "Offer",
+              name: TEAM_TRAINING.offers.virtual.name,
+              description:
+                "Four hours live online, whole team up to 30, the Introduction to BFR course included. 5.5 CEUs per person.",
+              price: TEAM_TRAINING.offers.virtual.price,
+              priceCurrency: TEAM_TRAINING.currency,
+              priceSpecification: {
+                "@type": "PriceSpecification",
+                price: TEAM_TRAINING.offers.virtual.price,
+                priceCurrency: TEAM_TRAINING.currency,
+              },
+              availability: "https://schema.org/InStock",
+              url: pageUrl,
+            },
+          ],
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "Train Your Team", item: pageUrl },
+        ],
+      },
+      ...(faq && faq.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": faqId,
+              mainEntity: faq.map(({ q, a }) => ({
+                "@type": "Question",
+                name: q,
+                acceptedAnswer: { "@type": "Answer", text: a },
+              })),
+            },
+          ]
+        : []),
+      {
+        "@type": "WebPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pageTitle,
+        description: pageDescription,
+        isPartOf: { "@id": websiteId },
+        about: { "@id": serviceId },
+        mainEntity: { "@id": serviceId },
+        breadcrumb: { "@id": breadcrumbId },
+        primaryImageOfPage: `${SITE.origin}/og/home`,
+        datePublished: "2026-06-25",
+        dateModified: "2026-06-25",
         author: { "@id": personId },
       },
     ],

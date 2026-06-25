@@ -126,6 +126,22 @@ export const HOME_AUDIENCES = [
   },
 ] as const;
 
+// "Train Your Team" self-ID band (spec §4.3, Phase 4). A wayfinding POINTER that
+// sells the team IDEA and routes to /train-your-team. Permitted under brand-guide
+// Principle 6 because it carries NO offer mechanics. HARD scope gate (blocks the
+// build): NO price, NO in-person-vs-virtual comparison, NO CEU stack, NO offer
+// stack, NO booking embed, NO qualify form. Idea and link only. The CTA uses an
+// exploratory verb ("See how...") for Stage-2 traffic, never "Book"/"Get started".
+export const HOME_TRAIN_YOUR_TEAM = {
+  eyebrow: "For clinic owners and directors",
+  headline: "Train the clinic, not the clinician",
+  highlight: "not the clinician",
+  body:
+    "Most BFR training certifies one therapist at a time. This brings the workshop to your floor and gets your whole team to one protocol, so BFR becomes a service the clinic delivers, not a thing one person knows.",
+  ctaLabel: "See how team training works",
+  href: "/train-your-team",
+} as const;
+
 // Phase 4 (2026-05-13): brand-hub team strip replacing the old
 // HomeInstructor section. Renders ABOUT_TEAM.members + mascot (single
 // source of truth). Card density is tighter than /about's AboutTeam:

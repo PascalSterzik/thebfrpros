@@ -12,11 +12,12 @@ import { SITE } from "@/lib/constants";
 
 const COLS = [
   {
-    heading: "For Practitioners",
+    heading: "For Practitioners & Clinics",
     links: [
       { label: "For Physical Therapists", href: "/for/physical-therapists" },
       { label: "For Athletic Trainers", href: "/for/athletic-trainers" },
       { label: "For Strength Coaches", href: "/for/strength-coaches" },
+      { label: "Train Your Team", href: "/train-your-team" },
     ],
   },
   {

@@ -6,6 +6,7 @@ import CredibilityBar from "@/components/sections/CredibilityBar";
 import WhatBFRDoes from "@/components/sections/home/WhatBFRDoes";
 import WhyBFRMattersNow from "@/components/sections/home/WhyBFRMattersNow";
 import WhoItsForCards from "@/components/sections/home/WhoItsForCards";
+import HomeTrainYourTeam from "@/components/sections/home/HomeTrainYourTeam";
 import HomeTeam from "@/components/sections/home/HomeTeam";
 import HomeProofRow from "@/components/sections/home/HomeProofRow";
 import HomeRecentEpisodes from "@/components/sections/home/HomeRecentEpisodes";
@@ -83,6 +84,11 @@ export default function HomePage() {
 
         {/* Who It's For — audience identification (PT / AT / S&C) */}
         <WhoItsForCards />
+
+        {/* Train Your Team — clinic-owner self-ID band, routes to /train-your-team.
+            Extends the WhoItsForCards self-ID axis ("or do you run a clinic?").
+            Wayfinding pointer only: no price/comparison/offer/form (spec §4.3). */}
+        <HomeTrainYourTeam />
 
         {/* Team — brand-hub 5-human + mascot grid, tighter density vs /about's AboutTeam */}
         <HomeTeam />

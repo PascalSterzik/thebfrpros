@@ -4,7 +4,7 @@ import { BLOG_POSTS } from "@/lib/constants";
 // Dynamic sitemap served at /sitemap.xml (App Router convention). Replaced the
 // hand-maintained public/sitemap.xml on 2026-05-17, which had drifted to 4 URLs
 // (/, /get-certified, and the two now-retired concept variants) while the site
-// actually ships 23 static routes + 73 blog posts. Blog slugs derive from
+// actually ships 24 static routes + 73 blog posts. Blog slugs derive from
 // BLOG_POSTS so the sitemap can never fall behind the blog again. Excluded by
 // design: the retired concept-variant routes (/get-certified-v1,
 // /get-certified-v2 — they 301), the deleted /preview index, every /og/*
@@ -35,6 +35,9 @@ const STATIC_ROUTES: RouteEntry[] = [
 
   // 1:1 clinical mentorship offer (Nick-personal, footer + header nav)
   { path: "/consultation", changeFrequency: "weekly", priority: 0.8 },
+
+  // Clinic team-training lane (the canonical organic team-training page, indexable)
+  { path: "/train-your-team", changeFrequency: "weekly", priority: 0.8 },
 
   // Audience landing pages
   { path: "/for/physical-therapists", changeFrequency: "weekly", priority: 0.8 },
