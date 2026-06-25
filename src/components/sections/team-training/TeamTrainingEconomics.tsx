@@ -53,7 +53,14 @@ export default function TeamTrainingEconomics() {
               className="flex flex-col rounded-lg border border-line bg-white p-7"
             >
               <span className="font-display text-display-md text-accent">{i + 1}</span>
-              <h3 className="mt-3 font-display text-2xl text-navy">{p.title}</h3>
+              {/* DM Sans (not Compacta) on purpose: these titles are full
+                  sentences that end in a period; rendering them as a display
+                  heading would uppercase them and put a terminal period on
+                  Compacta caps (brand-guide Principle 5). Body font keeps the
+                  copy verbatim and the punctuation correct. */}
+              <h3 className="mt-3 font-body text-xl font-bold normal-case tracking-normal text-navy">
+                {p.title}
+              </h3>
               <p className="mt-3 text-base leading-relaxed text-ink/80">{p.body}</p>
             </motion.li>
           ))}
