@@ -13,6 +13,7 @@ import TeamTrainingEconomics from "@/components/sections/team-training/TeamTrain
 import TeamTrainingProof from "@/components/sections/team-training/TeamTrainingProof";
 import TeamTrainingFaq from "@/components/sections/team-training/TeamTrainingFaq";
 import TeamTrainingCloser from "@/components/sections/team-training/TeamTrainingCloser";
+import TeamTrainingFormOverlay from "@/components/sections/team-training/TeamTrainingFormOverlay";
 import { TEAM_TRAINING_META, TEAM_TRAINING_FAQ } from "@/content/team-training";
 import { SITE_MENU_LINKS } from "@/lib/menus";
 import { buildTeamTrainingSchemaGraph } from "@/lib/schema";
@@ -109,7 +110,9 @@ export default function TeamTrainingPage() {
 
       <Footer />
 
-      {/* Phase 4b: <TeamTrainingFormOverlay /> mounts here (opens on #start). */}
+      {/* Full-screen qualify overlay; mounted once, opens on the #start hash from
+          the hero, per-card, launch-band, authority, and closer CTAs. */}
+      <TeamTrainingFormOverlay />
 
       {/* JSON-LD @graph: Organization, WebSite, Person (Rolnick), Service
           (hasOfferCatalog of two Offers), BreadcrumbList, FAQPage, WebPage.
