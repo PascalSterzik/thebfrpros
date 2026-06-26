@@ -4,24 +4,23 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import SectionLabel from "@/components/shared/SectionLabel";
-import { VIDEO_TESTIMONIALS } from "@/lib/constants";
+import { VIDEO_TESTIMONIALS, gumletEmbed } from "@/lib/constants";
 import { REVIEWS_VIDEO_INTRO } from "@/content/reviews";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// Phase 2c (2026-05-13): 4 VEED.io video embeds with poster-thumbnail
+// Phase 2c (2026-05-13): 4 Gumlet video embeds with poster-thumbnail
 // facade (click to load iframe). Same lazy pattern as the YouTube
 // EpisodeGrid — avoids loading 4 iframes at page paint. Each card
 // renders the converted-to-WebP thumbnail at 16:9 + play overlay;
-// click swaps in the VEED iframe with watermark=0 + sharing=0 + title=0
-// per the existing VEED query-string convention used elsewhere on the
-// site (lib/constants.ts VIDEOS).
+// click swaps in the Gumlet iframe with autoplay=true (the click is the
+// required user gesture), built via gumletEmbed in lib/constants.ts.
 
 type VideoT = (typeof VIDEO_TESTIMONIALS)[number];
 
 function VideoCard({ v }: { v: VideoT }) {
   const [active, setActive] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const embedSrc = `https://www.veed.io/embed/${v.veedId}?watermark=0&color=blue&sharing=0&title=0`;
+  const embedSrc = gumletEmbed(v.gumletId, true);
 
   // Same IntersectionObserver gating as the shared VideoPoster: play the
   // muted loop only while on-screen, pause off-screen, skip entirely for
@@ -55,10 +54,11 @@ function VideoCard({ v }: { v: VideoT }) {
           <iframe
             src={embedSrc}
             title={`Video testimonial from ${v.name}`}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute inset-0 h-full w-full"
             loading="lazy"
+            referrerPolicy="origin"
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;clipboard-write;"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full border-0"
           />
         ) : (
           <button
@@ -150,7 +150,7 @@ export default function VideoTestimonials() {
           className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 [&>li:nth-child(4)]:lg:col-start-2 [&>li:nth-child(5)]:lg:col-start-3"
         >
           {VIDEO_TESTIMONIALS.map((v) => (
-            <VideoCard key={v.veedId} v={v} />
+            <VideoCard key={v.gumletId} v={v} />
           ))}
         </motion.ul>
       </div>

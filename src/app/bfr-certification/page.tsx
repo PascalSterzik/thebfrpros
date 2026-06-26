@@ -114,8 +114,8 @@ export default function CertificationPage() {
         {/* Section 9, your instructor */}
         <CertInstructorSection />
 
-        {/* Section 10a, VIDEO testimonials (Rev 1 §6, 5 slots; placeholders
-            until Pascal supplies the assets) */}
+        {/* Section 10a, VIDEO testimonials (Rev 1 §6, 4 Gumlet embeds with
+            poster facade) */}
         <CertVideoTestimonials />
 
         {/* Section 10b, proof (text testimonials + 1-of-1,467) */}

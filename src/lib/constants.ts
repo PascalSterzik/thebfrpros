@@ -359,32 +359,61 @@ export const FEATURED_IN = [
   { name: "NFL", src: "/images/featured/nfl.png", w: 90, h: 56 },
 ] as const;
 
-// VEED.io video embeds. Source of truth: Assets/Videos/video-embeds.md.
-// Each value is the embed src URL (already includes watermark=0&color=blue&sharing=0&title=0).
+// Gumlet video embeds. Source of truth: Assets/Videos/video-embeds.md.
+// Migrated off VEED.io on 2026-06-26 (Veed was cancelled; every Veed embed
+// went dead and was re-uploaded to Gumlet). gumletEmbed() builds the player
+// URL from a Gumlet asset ID. preload=false keeps the click-to-play poster
+// facade cheap; the facade (shared VideoPoster + the testimonial cards) swaps
+// autoplay=false -> autoplay=true when it mounts the iframe, because the click
+// is the required user gesture. disable_player_controls=false keeps the native
+// player controls visible.
+export const gumletEmbed = (id: string, autoplay = false) =>
+  `https://play.gumlet.io/embed/${id}?preload=false&autoplay=${autoplay}&loop=false&disable_player_controls=false`;
+
 export const VIDEOS = {
-  coursePackagePromo: "https://www.veed.io/embed/b95b8cb0-60e6-44b8-ba46-6b4a8f18bd71?watermark=0&color=blue&sharing=0&title=0",
-  module0Preview: "https://www.veed.io/embed/6090711f-f32f-41ac-a6a2-4840df4eb9e1?watermark=0&color=blue&sharing=0&title=0",
-  testimonial: "https://www.veed.io/embed/447b2350-3678-4c64-b638-727760e4534f?watermark=0&color=blue&sharing=0&title=0",
-  whatIsBFR: "https://www.veed.io/embed/c9d62acf-0808-4194-a27c-6ec3d94ea85a?watermark=0&color=blue&sharing=0&title=0",
+  coursePackagePromo: gumletEmbed("6a3d96608a92d68f436bd585"),
+  // Module 0 was NOT in Pascal's Gumlet upload batch, so it has no live embed
+  // yet. Kept null so ModulePreview hides its embed instead of shipping the
+  // dead Veed URL; restore by setting gumletEmbed("<id>") once Pascal supplies
+  // the ID.
+  module0Preview: null as string | null, // TODO: Gumlet ID pending
+  whatIsBFR: gumletEmbed("6a3dae193583eb1726d55270"),
   // Homepage hero video: Nick covering common questions about BFR. Stage-2
-  // friendly (no cert pitch). Used in HomeHero.tsx below the subhead.
-  homepageHero: "https://www.veed.io/embed/a6ceb7f2-af2c-411c-aaf5-c8121e59816b?watermark=0&color=blue&sharing=0&title=0",
-  course1Promo: "https://www.veed.io/embed/277fd3eb-8c96-419c-86a1-f928bf84abe0?watermark=0&color=blue&sharing=0&title=0",
-  course2Promo: "https://www.veed.io/embed/e1723f87-a5c7-4f54-9c4f-e8c8dfb83488?watermark=0&color=blue&sharing=0&title=0",
-  course3Promo: "https://www.veed.io/embed/0f0f4e0f-a62a-41a4-8880-5c4f941d1671?watermark=0&color=blue&sharing=0&title=0",
-  course4Promo: "https://www.veed.io/embed/fcb198ed-bd3a-43f8-a281-b8e87d40548a?watermark=0&color=blue&sharing=0&title=0",
+  // friendly (no cert pitch). Used in HomeHero.tsx + CertHero.tsx.
+  homepageHero: gumletEmbed("6a3d96b13583eb1726d39620"),
+  course1Promo: gumletEmbed("6a3db17e79d93c513c348694"),
+  course2Promo: gumletEmbed("6a3db1c63583eb1726d586be"),
+  course3Promo: gumletEmbed("6a3db1f83583eb1726d5896c"),
+  course4Promo: gumletEmbed("6a3db21e3583eb1726d58b88"),
+} as const;
+
+// Arsenal: uploaded to Gumlet and ready, but intentionally NOT placed on any
+// page yet (source of truth: Assets/Videos/video-embeds.md "Arsenal"). Reach
+// for these when a home is decided; wiring them is a separate, future task.
+export const VIDEOS_ARSENAL = {
+  // Who is Dr. Nicholas Rolnick (The Human Performance Mechanic). 16/9.
+  whoIsRolnick: gumletEmbed("69ff69c8d4e28d9d1c9ad2c8"),
+  // How to perform BFR Training, putting on the cuff. 16/9.
+  howToCuff: gumletEmbed("69ff69f0347cfac89d7470ba"),
+  // Dhimant Indrayan testimonial (House of Hypertrophy YouTuber, off the
+  // PT/AT avatar). Was the legacy VIDEOS.testimonial / VIDEO_TESTIMONIALS[4]
+  // slot on Veed; parked here unwired per the migration plan. 16/9.
+  dhimantTestimonial: gumletEmbed("6a3e734079d93c513c477c9e"),
 } as const;
 
 // §Pascal-2026-05-08: BFR-in-action exercise demonstration clips. Used in
-// VisualProofSection — replaces the 4 static photos with 6 short VEED embeds
-// that show a real BFR cuff in motion across common compound lifts.
+// VisualProofSection — replaces the 4 static photos with 6 short Gumlet embeds
+// that show a real BFR cuff in motion across common compound lifts. Each clip
+// keeps its poster + animated-loop facade; only the embed src moved to Gumlet
+// (2026-06-26 migration). The Veed color/watermark/sharing params are dropped
+// (Veed-only).
 export const ACTION_VIDEOS = [
-  { title: "Romanian Deadlift vs Regular Deadlift", src: "https://www.veed.io/embed/0ad32f9d-e62f-45e2-bda0-8abed95ece0b?watermark=0&color=red&sharing=0&title=0", posterSrc: "/images/posters/action-romanian-deadlift.jpg", animated: { webm: "/videos/thumbnails/action-romanian-deadlift.webm", mp4: "/videos/thumbnails/action-romanian-deadlift.mp4" } },
-  { title: "Leg Press with BFR", src: "https://www.veed.io/embed/5751e248-436e-44e7-ba2b-2a2e8e63cf6a?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-leg-press.jpg", animated: { webm: "/videos/thumbnails/action-leg-press.webm", mp4: "/videos/thumbnails/action-leg-press.mp4" } },
-  { title: "Leg Curl with BFR", src: "https://www.veed.io/embed/2e7d2fc0-5082-4732-a8f3-97b1d72b1e32?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-leg-curl.jpg", animated: { webm: "/videos/thumbnails/action-leg-curl.webm", mp4: "/videos/thumbnails/action-leg-curl.mp4" } },
-  { title: "Split Squat with BFR", src: "https://www.veed.io/embed/b3e3e1f9-34d4-4672-8c83-a64956949f78?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-split-squat.jpg", animated: { webm: "/videos/thumbnails/action-split-squat.webm", mp4: "/videos/thumbnails/action-split-squat.mp4" } },
-  { title: "Heel Elevated High-Bar Squat with BFR", src: "https://www.veed.io/embed/b8b73290-c1ed-4e7b-a4f3-7279c77d5426?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-high-bar-squat.jpg", animated: { webm: "/videos/thumbnails/action-high-bar-squat.webm", mp4: "/videos/thumbnails/action-high-bar-squat.mp4" } },
-  { title: "Hip Thrust with BFR", src: "https://www.veed.io/embed/97e4b507-edc5-4662-bfcc-f8bab006f100?watermark=0&color=blue&sharing=0&title=0", posterSrc: "/images/posters/action-hip-thrust.jpg", animated: { webm: "/videos/thumbnails/action-hip-thrust.webm", mp4: "/videos/thumbnails/action-hip-thrust.mp4" } },
+  { title: "Romanian Deadlift vs Regular Deadlift", src: gumletEmbed("6a3db7b879d93c513c34e3bb"), posterSrc: "/images/posters/action-romanian-deadlift.jpg", animated: { webm: "/videos/thumbnails/action-romanian-deadlift.webm", mp4: "/videos/thumbnails/action-romanian-deadlift.mp4" } },
+  { title: "Leg Press with BFR", src: gumletEmbed("6a3db6aa3583eb1726d5d0b0"), posterSrc: "/images/posters/action-leg-press.jpg", animated: { webm: "/videos/thumbnails/action-leg-press.webm", mp4: "/videos/thumbnails/action-leg-press.mp4" } },
+  { title: "Leg Curl with BFR", src: gumletEmbed("6a3db55a3583eb1726d5bc42"), posterSrc: "/images/posters/action-leg-curl.jpg", animated: { webm: "/videos/thumbnails/action-leg-curl.webm", mp4: "/videos/thumbnails/action-leg-curl.mp4" } },
+  { title: "Split Squat with BFR", src: gumletEmbed("6a3db8e779d93c513c34f291"), posterSrc: "/images/posters/action-split-squat.jpg", animated: { webm: "/videos/thumbnails/action-split-squat.webm", mp4: "/videos/thumbnails/action-split-squat.mp4" } },
+  { title: "Heel Elevated High-Bar Squat with BFR", src: gumletEmbed("6a3db27479d93c513c349500"), posterSrc: "/images/posters/action-high-bar-squat.jpg", animated: { webm: "/videos/thumbnails/action-high-bar-squat.webm", mp4: "/videos/thumbnails/action-high-bar-squat.mp4" } },
+  { title: "Hip Thrust with BFR", src: gumletEmbed("6a3db29c3583eb1726d59365"), posterSrc: "/images/posters/action-hip-thrust.jpg", animated: { webm: "/videos/thumbnails/action-hip-thrust.webm", mp4: "/videos/thumbnails/action-hip-thrust.mp4" } },
 ] as const;
 
 // BFR_DEMAND_TREND was a hand-typed approximation of Google Trends data for an SVG
@@ -1198,16 +1227,18 @@ export const TESTIMONIALS = [
 // 2026-05-13) so the 681-entry survey export does not bloat the shared
 // Next.js chunk that constants.ts feeds.
 
-// Phase 2c (2026-05-13): /reviews video-testimonials section. Four VEED.io
-// embeds in 16:9 plus 2 UGC vertical-format clips parked for later (Pascal
-// hasn't supplied thumbnails for those yet). Thumbnail webps live under
-// public/images/testimonials/video/{name}.webp (converted from PNG via
-// Pillow; sources moved to _Trash after conversion).
+// Phase 2c (2026-05-13): /reviews video-testimonials section. Migrated to
+// Gumlet 2026-06-26 (veedId -> gumletId). Four named PT/AT graduates in 16:9.
+// Two UGC vertical clips and Dhimant Indrayan (House of Hypertrophy) are NOT
+// in this live list: the verticals are parked below (no posters yet) and
+// Dhimant is parked unwired in VIDEOS_ARSENAL (off the PT/AT avatar). All four
+// render the same on /reviews, /certification and /get-certified. Thumbnail
+// webps live under public/images/testimonials/video/{name}.webp.
 export const VIDEO_TESTIMONIALS = [
   {
     name: "Matthew D'Elia",
     role: "Physical Therapist",
-    veedId: "6c84a8f4-2a11-4f7d-b5f7-78c84bb6c6b5",
+    gumletId: "6a3e720a79d93c513c4756c4",
     poster: "/images/testimonials/video/matthew-delia.webp",
     aspect: "16/9",
     animated: { webm: "/videos/thumbnails/testimonial-matthew-delia.webm", mp4: "/videos/thumbnails/testimonial-matthew-delia.mp4" },
@@ -1215,7 +1246,7 @@ export const VIDEO_TESTIMONIALS = [
   {
     name: "Erica Marcano",
     role: "Athletic Trainer, MS, ATC, CSCS",
-    veedId: "0a56db20-a55f-4fba-b990-fdbde79b2add",
+    gumletId: "6a3e6fe379d93c513c471378",
     poster: "/images/testimonials/video/erica-marcano.webp",
     aspect: "16/9",
     animated: { webm: "/videos/thumbnails/testimonial-erica-marcano.webm", mp4: "/videos/thumbnails/testimonial-erica-marcano.mp4" },
@@ -1223,7 +1254,7 @@ export const VIDEO_TESTIMONIALS = [
   {
     name: "Keith Steigbigel",
     role: "PT, DPT, OCS, CSCS, Owner, Prolete PT",
-    veedId: "9d70c743-2afa-439b-bc5d-c76737fa34b3",
+    gumletId: "6a3e72413583eb1726e858a6",
     poster: "/images/testimonials/video/keith-steigbigel.webp",
     aspect: "16/9",
     animated: { webm: "/videos/thumbnails/testimonial-keith-steigbigel.webm", mp4: "/videos/thumbnails/testimonial-keith-steigbigel.mp4" },
@@ -1231,26 +1262,18 @@ export const VIDEO_TESTIMONIALS = [
   {
     name: "Dawn Thomas",
     role: "Physical Therapist",
-    veedId: "fb515674-f11a-4f58-884f-9bddf9cc3eb4",
+    gumletId: "6a3e72aa8a92d68f4380b4c6",
     poster: "/images/testimonials/video/dawn-thomas.webp",
     aspect: "16/9",
     animated: { webm: "/videos/thumbnails/testimonial-dawn-thomas.webm", mp4: "/videos/thumbnails/testimonial-dawn-thomas.mp4" },
   },
-  {
-    name: "Dhimant Indrayan",
-    role: "Founder, House of Hypertrophy",
-    veedId: "447b2350-3678-4c64-b638-727760e4534f",
-    poster: "/images/testimonials/video/dhimant-indrayan.webp",
-    aspect: "16/9",
-    animated: { webm: "/videos/thumbnails/testimonial-dhimant-indrayan.webm", mp4: "/videos/thumbnails/testimonial-dhimant-indrayan.mp4" },
-  },
 ] as const;
 
-// TODO: thumbnails pending from Pascal — parked here so they don't get lost.
-// When Pascal supplies posters, add them to VIDEO_TESTIMONIALS above with
-// aspect: "9/16" and the corresponding poster path.
-// - Arash from PreHab Guys: veedId "e732af41-7b20-4ba5-8750-22eb98853d6f"
-// - Brazilian Researcher:    veedId "163ca6a1-f6c2-45bc-acc3-4424f580ba80"
+// TODO: two vertical UGC testimonials uploaded to Gumlet but NOT wired (no
+// posters yet). When Pascal supplies posters, add them to VIDEO_TESTIMONIALS
+// above with the noted aspect + poster path, and frame them vertically.
+// - Arash, PreHab Guys:    gumletId "6a3e752b3583eb1726e8aeb7" (aspect 9/16)
+// - Brazilian Researcher:  gumletId "6a3e95043583eb1726ec48d5" (aspect 11/20)
 
 // 4 courses, full module breakdown verbatim from the live bfrtraining.com course page
 // (§K.5 of the iteration plan). Module type 'video' / 'quiz' / 'pdf' / 'chart' is no

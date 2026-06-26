@@ -6,7 +6,7 @@ import VideoPoster from "@/components/shared/VideoPoster";
 import { ACTION_VIDEOS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// §Pascal-2026-05-08: Replaced static photos with 6 short VEED embeds showing
+// §Pascal-2026-05-08: Replaced static photos with 6 short Gumlet embeds showing
 // real BFR cuffs across common compound lifts. Reads as proof — actual reps,
 // not stylized hero shots.
 export default function VisualProofSection() {

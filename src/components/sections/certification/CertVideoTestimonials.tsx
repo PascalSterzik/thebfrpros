@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
-import { VIDEO_TESTIMONIALS } from "@/lib/constants";
+import { VIDEO_TESTIMONIALS, gumletEmbed } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Rev 2 (2026-05-21, REVISION-02.md §3): full rewrite.
@@ -16,18 +16,19 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 //     three FACE photos from /images/students/ (Lee/Whyte/Toderico) into the
 //     video-testimonial cards; those headshots back the verbatim text
 //     testimonials in TESTIMONIALS, not the video posters. The canonical
-//     video-testimonial source is VIDEO_TESTIMONIALS (src/lib/constants.ts)
-//     + the legacy course-graduate clip in VIDEOS.testimonial, both already
-//     consumed by /reviews. gotcha #91 source-of-truth: when wiring an asset
-//     by name, the canonical const is the named one in constants.ts.
+//     video-testimonial source is VIDEO_TESTIMONIALS (src/lib/constants.ts),
+//     already consumed by /reviews (the legacy VIDEOS.testimonial clip was
+//     dropped in the 2026-06-26 Gumlet migration). gotcha #91 source-of-truth:
+//     when wiring an asset by name, the canonical const is the named one in
+//     constants.ts.
 //  2. Wrong embed mechanism. The previous component mounted an HTML
-//     `<video src>` on click. VEED embed URLs only render inside `<iframe>`,
+//     `<video src>` on click. Gumlet embed URLs only render inside `<iframe>`,
 //     never inside `<video>`, so the click did nothing.
 //
 // The fix mirrors src/components/sections/reviews/VideoTestimonials.tsx:
-// static poster -> `<button onClick>` -> mount the VEED iframe and let
-// VEED's own play button handle audio/playback (the documented
-// 2-click-with-audio flow per the Phase-2c click-to-play pattern).
+// static poster -> `<button onClick>` -> mount the Gumlet iframe with
+// autoplay=true (the click is the required user gesture) per the Phase-2c
+// click-to-play pattern.
 
 type CardSpec = {
   key: string;
@@ -38,17 +39,17 @@ type CardSpec = {
   animated?: { webm: string; mp4: string };
 };
 
-// Compose the 5-card list from canonical constants. Dhimant Indrayan now
-// lives directly inside VIDEO_TESTIMONIALS (his VEED uuid is the same as the
-// legacy VIDEOS.testimonial export, but the named entry in the array carries
-// his role + poster + animated loop), so the previous inline 5th card is no
-// longer needed here.
+// Compose the card list from canonical constants. As of the 2026-06-26 Gumlet
+// migration VIDEO_TESTIMONIALS holds the four named PT/AT graduates; Dhimant
+// Indrayan was dropped from the live list and parked in VIDEOS_ARSENAL, so this
+// section now renders four cards. embedSrc carries autoplay=true because the
+// card only mounts the iframe after the poster click (the required gesture).
 const CARDS: CardSpec[] = VIDEO_TESTIMONIALS.map((v) => ({
-  key: v.veedId,
+  key: v.gumletId,
   name: v.name,
   role: v.role,
   poster: v.poster,
-  embedSrc: `https://www.veed.io/embed/${v.veedId}?watermark=0&color=blue&sharing=0&title=0`,
+  embedSrc: gumletEmbed(v.gumletId, true),
   animated: v.animated,
 }));
 
@@ -88,10 +89,11 @@ function VideoCard({ card }: { card: CardSpec }) {
           <iframe
             src={card.embedSrc}
             title={`Video testimonial from ${card.name}`}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute inset-0 h-full w-full"
             loading="lazy"
+            referrerPolicy="origin"
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;clipboard-write;"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full border-0"
           />
         ) : (
           <button

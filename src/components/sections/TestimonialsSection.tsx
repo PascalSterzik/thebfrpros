@@ -6,7 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PrimaryCTA from "@/components/shared/PrimaryCTA";
 import Stars from "@/components/shared/Stars";
-import { STATS, VIDEO_TESTIMONIALS } from "@/lib/constants";
+import { STATS, VIDEO_TESTIMONIALS, gumletEmbed } from "@/lib/constants";
 import { STUDENT_TESTIMONIALS } from "@/content/student-reviews";
 import {
   StarBar,
@@ -19,7 +19,7 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 // Toderico) moved out into TopTestimonials, rendered right under the brand
 // CredibilityBar. The 4th expert (Nightingale, no photo) is no longer
 // rendered on /get-certified. This section is now the deep social-proof
-// block: 5 video testimonials + a paginated written-review wall styled for
+// block: 4 video testimonials + a paginated written-review wall styled for
 // the dark navy-field background.
 //
 // Mirrors the King-Kong WallOfLove pattern from /reviews but with
@@ -39,20 +39,20 @@ type CardSpec = {
   animated?: { webm: string; mp4: string };
 };
 
-// Pascal review (2026-05-23): /get-certified specifically renders ONLY the
-// four named PT/AT graduates — Dhimant is filtered out here so the row sits
-// as 4 wider cards on desktop. /reviews and /certification still iterate
-// the full VIDEO_TESTIMONIALS list (5 cards including Dhimant).
-const VIDEO_CARDS: CardSpec[] = VIDEO_TESTIMONIALS
-  .filter((v) => v.name !== "Dhimant Indrayan")
-  .map((v) => ({
-    key: v.veedId,
-    name: v.name,
-    role: v.role,
-    poster: v.poster,
-    embedSrc: `https://www.veed.io/embed/${v.veedId}?watermark=0&color=blue&sharing=0&title=0`,
-    animated: v.animated,
-  }));
+// Pascal review (2026-05-23): /get-certified renders the four named PT/AT
+// graduates as a single full-width row of 4. Since the 2026-06-26 Gumlet
+// migration dropped Dhimant from VIDEO_TESTIMONIALS, all three sections
+// (/get-certified, /reviews, /certification) now show the same four cards, so
+// no per-section filter is needed. embedSrc carries autoplay=true because the
+// card only mounts the iframe after the poster click (the required gesture).
+const VIDEO_CARDS: CardSpec[] = VIDEO_TESTIMONIALS.map((v) => ({
+  key: v.gumletId,
+  name: v.name,
+  role: v.role,
+  poster: v.poster,
+  embedSrc: gumletEmbed(v.gumletId, true),
+  animated: v.animated,
+}));
 
 function VideoCard({ card }: { card: CardSpec }) {
   const [active, setActive] = useState(false);
@@ -88,10 +88,11 @@ function VideoCard({ card }: { card: CardSpec }) {
           <iframe
             src={card.embedSrc}
             title={`Video testimonial from ${card.name}`}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute inset-0 h-full w-full"
             loading="lazy"
+            referrerPolicy="origin"
+            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;clipboard-write;"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full border-0"
           />
         ) : (
           <button

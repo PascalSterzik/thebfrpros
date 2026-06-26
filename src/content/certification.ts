@@ -213,8 +213,8 @@ export type CertificationContent = {
     // in the footer.
     typicalityNote: string;
     // Rev 2 (2026-05-21, REVISION-02.md §3): slots dropped. The component
-    // now reads VIDEO_TESTIMONIALS + VIDEOS directly from @/lib/constants
-    // (the canonical source-of-truth) and composes the 5-card list inline.
+    // now reads VIDEO_TESTIMONIALS directly from @/lib/constants (the
+    // canonical source-of-truth) and composes the 4-card list inline.
     // Keep label/headline/highlight/intro only.
     videoTestimonials: {
       label: string;
@@ -573,17 +573,18 @@ export const CERTIFICATION: CertificationContent = {
       "Individual results vary. These are the experiences of the named practitioners and are not a guarantee that any specific clinical or practice outcome is typical. The 1-of-1,467 figure is the graduate refund rate, an implementation proxy, not a performance promise.",
     videoTestimonials: {
       label: "FROM THE GRADUATES",
-      headline: "FIVE PRACTITIONERS, IN THEIR OWN WORDS",
+      headline: "FOUR PRACTITIONERS, IN THEIR OWN WORDS",
       highlight: "IN THEIR OWN WORDS",
       intro:
         "Short clips from graduates who deployed BFR with their own patients after the certification. Tap a card to play the full audio. Names and credentials match the verbatim testimonials below.",
       // Rev 2 (2026-05-21, REVISION-02.md §3): slots removed. The cert
-      // video-testimonials component now reads VIDEO_TESTIMONIALS + the
-      // legacy VIDEOS.testimonial directly from @/lib/constants (the
-      // canonical source-of-truth), mirroring /reviews' click-to-play
-      // poster facade + VEED iframe pattern. Rev 1's `slots` array
-      // referenced the wrong consts (student-headshot photos instead of
-      // the real video posters), which is why the cards never played.
+      // video-testimonials component now reads VIDEO_TESTIMONIALS directly
+      // from @/lib/constants (the canonical source-of-truth), mirroring
+      // /reviews' click-to-play poster facade + Gumlet iframe pattern. The
+      // legacy VIDEOS.testimonial clip was dropped in the 2026-06-26 Gumlet
+      // migration. Rev 1's `slots` array referenced the wrong consts
+      // (student-headshot photos instead of the real video posters), which
+      // is why the cards never played.
     },
   },
 

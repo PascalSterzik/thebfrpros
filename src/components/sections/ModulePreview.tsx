@@ -10,6 +10,14 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 const PREVIEW_PDF_HREF = "/downloads/bfr-pros-module-bibliographies-preview.pdf";
 
 export default function ModulePreview() {
+  // module0Preview is null until Pascal re-uploads Module 0 to Gumlet (it was
+  // not in the 2026-06-26 migration batch). Hide the whole section rather than
+  // ship a dead embed; it returns automatically once VIDEOS.module0Preview is
+  // set to a gumletEmbed(...) URL. This is an always-visible inline embed (no
+  // poster facade), so it stays autoplay=false.
+  const moduleVideoSrc = VIDEOS.module0Preview;
+  if (!moduleVideoSrc) return null;
+
   return (
     <section
       id="module-preview"
@@ -45,10 +53,11 @@ export default function ModulePreview() {
             <div className="mt-3 relative w-full overflow-hidden rounded-lg bg-black/5 ring-1 ring-line shadow-[0_30px_60px_-30px_rgba(25,55,99,0.35)] mx-auto max-w-3xl">
               <div className="relative pb-[56.25%]">
                 <iframe
-                  src={VIDEOS.module0Preview}
+                  src={moduleVideoSrc}
                   title="Module 0: Introduction to BFR Training (Free Preview)"
                   loading="lazy"
-                  allow="autoplay; fullscreen; picture-in-picture"
+                  referrerPolicy="origin"
+                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;clipboard-write;"
                   allowFullScreen
                   className="absolute inset-0 h-full w-full border-0"
                 />

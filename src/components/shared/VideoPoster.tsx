@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-// §Pascal-2026-05-08 v12: click-to-play poster wrapper for VEED iframes.
+// §Pascal-2026-05-08 v12: click-to-play poster wrapper for Gumlet iframes.
 // Initial render = static poster image + play-button overlay (LCP-friendly,
-// ~50 KB versus a 2-4s VEED iframe boot). On click, swap to the iframe with
-// autoplay=1 so the user gets the video immediately.
+// ~50 KB versus a 2-4s Gumlet iframe boot). On click, swap to the iframe with
+// autoplay=true so the user gets the video immediately (the click is the
+// required user gesture).
 //
 // 2026-05-22: optional `animated` prop. When supplied, the poster frame
 // renders a muted autoplay loop (WebM VP9 primary, MP4 H.264 fallback)
@@ -15,8 +16,8 @@ import { useEffect, useRef, useState } from "react";
 // >=50% on-screen, pauses otherwise) and is skipped entirely when the OS
 // requests reduced motion. The static posterSrc stays as the <video>
 // poster attribute, so it shows during load, on slow connections, and for
-// reduced-motion users. Click-to-play VEED iframe behaviour is unchanged:
-// the loop is a visual hook, the real (audio) video is still VEED.
+// reduced-motion users. Click-to-play iframe behaviour is unchanged:
+// the loop is a visual hook, the real (audio) video is still the Gumlet embed.
 type AnimatedSources = {
   /** WebM VP9 loop, preferred (smaller). Optional. */
   webm?: string;
@@ -64,18 +65,18 @@ export default function VideoPoster({
   }, [animated]);
 
   if (playing) {
-    // §Pascal-2026-05-08 v14: no autoplay query param. The browser/VEED
-    // combo was forcing muted-autoplay across the iframe boundary; dropping
-    // autoplay restores the original flow — VEED's player loads with its
-    // own play button on the first frame, user clicks it once, video plays
-    // with sound. Two clicks total (poster → VEED play button) but the LCP
-    // win still applies because the iframe only loads on the first click.
+    // The poster click is the user gesture, so the mounted Gumlet iframe gets
+    // autoplay=true (swapped from the autoplay=false base) and plays
+    // immediately. The iframe only loads on click, so the LCP win still holds.
+    const src = videoSrc.replace("autoplay=false", "autoplay=true");
     return (
       <div className="relative w-full pb-[56.25%]">
         <iframe
-          src={videoSrc}
+          src={src}
           title={title}
-          allow="autoplay; fullscreen; picture-in-picture"
+          loading="lazy"
+          referrerPolicy="origin"
+          allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;clipboard-write;"
           allowFullScreen
           className="absolute inset-0 h-full w-full border-0"
         />

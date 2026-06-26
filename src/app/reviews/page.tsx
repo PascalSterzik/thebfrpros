@@ -16,7 +16,7 @@ import { buildReviewsSchemaGraph } from "@/lib/schema";
 // King-Kong reviews pattern: Hero (locked + 3-excerpts row) -> Wall of
 // Love (filtered card grid of all 17 verbatim reviews) -> Standalone
 // pull-quote (Lee's competitor-comparison quote in editorial-quote
-// serif italic) -> Video testimonials (4 VEED embeds with poster-
+// serif italic) -> Video testimonials (4 Gumlet embeds with poster-
 // thumbnail facade) -> Soft gateway. The prior ReviewsStatStrip +
 // LongFormReviews + StudentReviewsGrid surfaces collapse into the new
 // Wall of Love + PullQuoteSection. CollectionPage schema unchanged —
