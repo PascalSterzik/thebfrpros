@@ -103,12 +103,12 @@ export const TEAM_TRAINING_FORM_ENDPOINT = "/api/team-training";
 
 // The team-training Cal.com booking link. PASCAL CREATES THIS EVENT TYPE and
 // supplies the slug (spec §6.5, open item §G.4); the suggested slug is
-// thebfrpros/team-training (used here as the placeholder). The form's qualified
+// thebfrpros/train-your-team (LIVE, Nick created it, wired 2026-06-17). The form's qualified
 // + champion branches render Cal.com's official inline embed using
 // TEAM_TRAINING_CAL_LINK (embed namespace "team-training"); the fallback link
 // uses TEAM_TRAINING_CAL_URL. No on-page copy depends on the URL.
-export const TEAM_TRAINING_CAL_URL = "https://cal.com/thebfrpros/team-training";
-export const TEAM_TRAINING_CAL_LINK = "thebfrpros/team-training";
+export const TEAM_TRAINING_CAL_URL = "https://cal.com/thebfrpros/train-your-team";
+export const TEAM_TRAINING_CAL_LINK = "thebfrpros/train-your-team";
 
 // Supabase REST config for the /consulting form (POST /api/consulting writes to
 // the consulting_leads table). The anon (publishable) key is safe to commit and
