@@ -22,4 +22,4 @@ keywords: []
 
 ## Abstract
 
-_Abstract not available from open databases (letter/editorial, trade journal, preprint, or non-indexed venue). Use the DOI or ResearchGate link for the full record._
+Emerging evidence indicates that low load blood flow restriction (BFR) training is an effective strategy to increase muscular adaptations. Yet, it remains questionable as to whether combining BFR with traditional resistance training can potentiate hypertrophic adaptations. The purpose of this article is to provide an evidence-based review of current research on the topic including underlying mechanisms of BFR training and draw practical conclusions as to how BFR can be applied by physique athletes to optimize increases in muscle mass.
