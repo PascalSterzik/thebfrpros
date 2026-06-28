@@ -163,7 +163,7 @@ export const PUBLICATIONS: ReadonlyArray<Publication> = [
       "openAccess": ""
     },
     "keywords": [],
-    "abstract": "**Background.** Blood flow restriction (BFR) training involves exercising under partial vascular occlusion to induce muscular adaptations, and the accurate determination of arterial occlusion pressure (AOP) is essential for its safe and effective prescription. Although limb size and blood pressure are established determinants of AOP, the role of lower-limb tissue composition and the influence of body position and sex on these relationships remain poorly understood.\n\n**Purpose.** This study aimed to examine the association between lower-limb body composition and lower-limb AOP measured using an 18-cm cuff across different body positions, while also exploring the influence of sex.\n\n**Methods.** Fifty-one healthy adults (25 men, 26 women) participated in this cross-sectional study. Whole-body and lower-limb composition were assessed using dual-energy X-ray absorptiometry (DXA). AOP was measured at the right thigh using a portable Doppler ultrasound in supine, seated, and standing positions. Associations were examined using bivariate correlations, multiple regression models adjusted for sex, commonality analyses (LMG metric), and linear mixed models for interactions.\n\n**Results.** In the seated position, fat mass was positively associated with AOP (β = 3.55; 95% CI: 0.15 to 6.96; p = 0.041), whereas lean mass was not. In the standing position, both lean mass (β = 2.96; 95% CI: 1.10 to 4.82; p = 0.002) and fat mass (β = 3.44; 95% CI: 0.48 to 6.40; p = 0.023) were positively associated with AOP. A significant lean mass × position interaction indicated weaker associations in the seated (β = −1.61; p < 0.001) and supine (β = −1.90; p < 0.001) positions compared with standing, while a significant fat mass × position interaction was observed only between the seated and supine positions (β = −2.45; p = 0.031). No significant sex-related interactions were detected.\n\n**Conclusion.** These findings indicate that lower-limb composition, especially lean and fat mass, is associated with AOP in a position-dependent manner, suggesting that tissue characteristics may be considered when estimating occlusion pressure using indirect methods.",
+    "abstract": "**Background.** Blood flow restriction (BFR) training involves exercising under partial vascular occlusion to induce muscular adaptations, and the accurate determination of arterial occlusion pressure (AOP) is essential for its safe and effective prescription. Although limb size and blood pressure are established determinants of AOP, the role of lower-limb tissue composition and the influence of body position and sex on these relationships remain poorly understood.\r\n\r\n**Purpose.** This study aimed to examine the association between lower-limb body composition and lower-limb AOP measured using an 18-cm cuff across different body positions, while also exploring the influence of sex.\r\n\r\n**Methods.** Fifty-one healthy adults (25 men, 26 women) participated in this cross-sectional study. Whole-body and lower-limb composition were assessed using dual-energy X-ray absorptiometry (DXA). AOP was measured at the right thigh using a portable Doppler ultrasound in supine, seated, and standing positions. Associations were examined using bivariate correlations, multiple regression models adjusted for sex, commonality analyses (LMG metric), and linear mixed models for interactions.\r\n\r\n**Results.** In the seated position, fat mass was positively associated with AOP (β = 3.55; 95% CI: 0.15 to 6.96; p = 0.041), whereas lean mass was not. In the standing position, both lean mass (β = 2.96; 95% CI: 1.10 to 4.82; p = 0.002) and fat mass (β = 3.44; 95% CI: 0.48 to 6.40; p = 0.023) were positively associated with AOP. A significant lean mass × position interaction indicated weaker associations in the seated (β = −1.61; p < 0.001) and supine (β = −1.90; p < 0.001) positions compared with standing, while a significant fat mass × position interaction was observed only between the seated and supine positions (β = −2.45; p = 0.031). No significant sex-related interactions were detected.\r\n\r\n**Conclusion.** These findings indicate that lower-limb composition, especially lean and fat mass, is associated with AOP in a position-dependent manner, suggesting that tissue characteristics may be considered when estimating occlusion pressure using indirect methods.",
     "abstractStatus": "full"
   },
   {
@@ -329,7 +329,7 @@ export const PUBLICATIONS: ReadonlyArray<Publication> = [
       "openAccess": ""
     },
     "keywords": [],
-    "abstract": "**Background.** Blood flow restriction (BFR) exercise is recommended with personalized pressures between 40% and 80% of arterial occlusion pressure (AOP) to ensure safety and efficacy. However, many studies use fixed pressures or personalized pressures based on brachial blood pressure, such as 130% of resting brachial systolic pressure (SBP), which may lead to inconsistencies. This study aimed to estimate the percentage of AOP in the thigh when using fixed pressures (e.g., 100, 200, and 300 mmHg) or 130% of SBP.\n\n**Methods.** Fifty-one healthy participants (18–40 years) underwent anthropometric measurements, brachial blood pressure assessment, and AOP determination in the thigh in supine, seated, and standing positions using an 18 cm cuff. AOP measurements were randomized and compared to fixed pressures and 130% of SBP.\n\n**Results.** AOP was significantly higher than 100 mmHg in all positions (p < 0.001), with 100 mmHg corresponding to 80.5%, 62%, and 56.9% of AOP in the supine, seated, and standing positions, respectively. Conversely, 200 mmHg significantly exceeded AOP (p < 0.001), reaching 160.9%, 124.2%, and 113.7% in the same positions. Compared to SBP, supine AOP was lower than 130% of SBP (p < 0.001), standing AOP was higher, and seated AOP showed no significant difference (p = 0.595). In the seated and standing positions, 130% of SBP corresponded to 92.5% and 84.7% of AOP, respectively.\n\n**Conclusion.** Fixed pressures may fall within the recommended range for BFR prescription, but findings are specific to AOP assessment with an 18 cm cuff. Personalization remains crucial for accuracy and safety.",
+    "abstract": "**Background.** Blood flow restriction (BFR) exercise is recommended with personalized pressures between 40% and 80% of arterial occlusion pressure (AOP) to ensure safety and efficacy. However, many studies use fixed pressures or personalized pressures based on brachial blood pressure, such as 130% of resting brachial systolic pressure (SBP), which may lead to inconsistencies. This study aimed to estimate the percentage of AOP in the thigh when using fixed pressures (e.g., 100, 200, and 300 mmHg) or 130% of SBP.\r\n\r\n**Methods.** Fifty-one healthy participants (18–40 years) underwent anthropometric measurements, brachial blood pressure assessment, and AOP determination in the thigh in supine, seated, and standing positions using an 18 cm cuff. AOP measurements were randomized and compared to fixed pressures and 130% of SBP.\r\n\r\n**Results.** AOP was significantly higher than 100 mmHg in all positions (p < 0.001), with 100 mmHg corresponding to 80.5%, 62%, and 56.9% of AOP in the supine, seated, and standing positions, respectively. Conversely, 200 mmHg significantly exceeded AOP (p < 0.001), reaching 160.9%, 124.2%, and 113.7% in the same positions. Compared to SBP, supine AOP was lower than 130% of SBP (p < 0.001), standing AOP was higher, and seated AOP showed no significant difference (p = 0.595). In the seated and standing positions, 130% of SBP corresponded to 92.5% and 84.7% of AOP, respectively.\r\n\r\n**Conclusion.** Fixed pressures may fall within the recommended range for BFR prescription, but findings are specific to AOP assessment with an 18 cm cuff. Personalization remains crucial for accuracy and safety.",
     "abstractStatus": "full"
   },
   {
@@ -337,20 +337,20 @@ export const PUBLICATIONS: ReadonlyArray<Publication> = [
     "title": "Blood flow restriction training prescription percentage of lower limb arterial occlusion pressure at fixed values and based on brachial systolic blood pressure",
     "year": 2025,
     "type": "Journal article",
-    "journal": "",
-    "volume": "",
+    "journal": "Sport Sciences for Health",
+    "volume": "21",
     "issue": "",
-    "pages": "",
+    "pages": "2233-2239",
     "authors": [
-      "de Queiros VS",
-      "Rolnick N",
-      "Kamiş O",
-      "Alves JM",
-      "Neto GR",
-      "Amorim S",
-      "Gonzaga JM",
-      "Aniceto RR",
-      "Cabral BGAT"
+      "Victor S. de Queiros",
+      "Nicholas Rolnick",
+      "Okan Kamiş",
+      "Júlio M. Alves",
+      "Gabriel R. Neto",
+      "Samuel Amorim",
+      "Jozilma Medeiros Gonzaga",
+      "Rodrigo R. Aniceto",
+      "Breno Guilherme de Araújo Tinôco Cabral"
     ],
     "rolnickRole": "Co-author",
     "doi": "10.1007/s11332-025-01456-0",
@@ -362,8 +362,8 @@ export const PUBLICATIONS: ReadonlyArray<Publication> = [
       "openAccess": ""
     },
     "keywords": [],
-    "abstract": "",
-    "abstractStatus": "summary"
+    "abstract": "**Background.** Blood flow restriction (BFR) exercise is recommended with personalized pressures between 40 and 80% of arterial occlusion pressure (AOP) to ensure safety and efficacy. However, many studies use fixed pressures or personalized pressures based on brachial blood pressure, such as 130% of resting brachial systolic pressure (rbSBP), which may lead to inconsistencies. This study aimed to estimate the percentage of AOP in the thigh when using fixed pressures (e.g., 100, 200, and 300 mmHg) or 130% of SBP.\n\n**Methods.** Fifty-one healthy participants (18–40 years) underwent anthropometric measurements, brachial blood pressure assessment, and AOP determination in the thigh in supine, seated, and standing positions using an 18 cm cuff. AOP measurements were randomized and compared to fixed pressures and 130% of SBP.\n\n**Results.** AOP was higher than 100 mmHg in all positions, with 100 mmHg corresponding to 80.5%, 62%, and 56.9% of AOP in the supine, seated, and standing positions, respectively. Conversely, 200 mmHg exceeded AOP, reaching 160.9%, 124.2%, and 113.7% in the same positions. Compared to SBP, supine AOP was lower than 130% of rbSBP, standing AOP was higher, and seated AOP showed no significant difference (p = 0.595). In the seated and standing positions, 130% of rbSBP corresponded to 92.5% and 84.7% of AOP, respectively.\n\n**Conclusion.** A fixed pressure of 100 mmHg may fall within the recommended range for BFR prescription, but findings are specific to AOP assessment with an 18 cm cuff. Personalization remains crucial for accuracy and safety.",
+    "abstractStatus": "full"
   },
   {
     "slug": "2025-blood-flow-restriction-methods-apparatus-still-matter",
@@ -467,7 +467,7 @@ export const PUBLICATIONS: ReadonlyArray<Publication> = [
       "openAccess": ""
     },
     "keywords": [],
-    "abstract": "It is recommended that the pressure used in blood flow restriction (BFR) exercise be personalized, based on 40% to 80% of the arterial occlusion pressure (AOP). However, many studies still use arbitrary pressures (such as 100 mmHg) or personalized pressures based on resting brachial systolic blood pressure (rbSBP), such as 130% of rbSBP.\n\n**Purpose.** To estimate the percentage of AOP when adopting arbitrary pressures or 130% of rbSBP.\n\n**Method.** A total of 31 healthy participants (aged 18-40 years) underwent anthropometric assessments, brachial blood pressure measurement, and lower-limb AOP evaluation in supine, seated, and standing positions, using an 11-cm wide nylon cuff. The order of AOP assessments was randomized. AOP was compared with three reference values: 100, 200, and 300 mmHg, as well as with values equivalent to 130% of rbSBP.\n\n**Results.** The mean AOP was significantly higher than 100 mmHg in all positions (p < 0.01). The value of 100 mmHg represented 67%, 53%, and 50% of AOP in the supine, seated, and standing positions, respectively. The mean AOP was significantly lower than 200 mmHg in the supine (p < 0.01) and seated (p = 0.034) positions, with 200 mmHg representing 135% and 107% of AOP in the supine and seated positions, respectively. When compared to rbSBP, the AOP measured in the seated and standing positions was higher than the pressures corresponding to 130% of rbSBP (p < 0.01), while no differences were observed between supine AOP and 130% of rbSBP. The value of 130% of rbSBP represented 78% and 73% of AOP in the seated and standing positions, respectively.\n\n**Conclusion.** Using 100 mmHg or 130% of rbSBP may result in AOP percentages within the recommended pressure range for BFR exercise prescription. It is important to note that these results are specific to AOP assessments performed with an 11-cm cuff. Supported by: PW and VSQ were financed in part by a scholarship from the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES), Brazil - finance code 001.",
+    "abstract": "It is recommended that the pressure used in blood flow restriction (BFR) exercise be personalized, based on 40% to 80% of the arterial occlusion pressure (AOP). However, many studies still use arbitrary pressures (such as 100 mmHg) or personalized pressures based on resting brachial systolic blood pressure (rbSBP), such as 130% of rbSBP.\r\n\r\n**Purpose.** To estimate the percentage of AOP when adopting arbitrary pressures or 130% of rbSBP.\r\n\r\n**Method.** A total of 31 healthy participants (aged 18-40 years) underwent anthropometric assessments, brachial blood pressure measurement, and lower-limb AOP evaluation in supine, seated, and standing positions, using an 11-cm wide nylon cuff. The order of AOP assessments was randomized. AOP was compared with three reference values: 100, 200, and 300 mmHg, as well as with values equivalent to 130% of rbSBP.\r\n\r\n**Results.** The mean AOP was significantly higher than 100 mmHg in all positions (p < 0.01). The value of 100 mmHg represented 67%, 53%, and 50% of AOP in the supine, seated, and standing positions, respectively. The mean AOP was significantly lower than 200 mmHg in the supine (p < 0.01) and seated (p = 0.034) positions, with 200 mmHg representing 135% and 107% of AOP in the supine and seated positions, respectively. When compared to rbSBP, the AOP measured in the seated and standing positions was higher than the pressures corresponding to 130% of rbSBP (p < 0.01), while no differences were observed between supine AOP and 130% of rbSBP. The value of 130% of rbSBP represented 78% and 73% of AOP in the seated and standing positions, respectively.\r\n\r\n**Conclusion.** Using 100 mmHg or 130% of rbSBP may result in AOP percentages within the recommended pressure range for BFR exercise prescription. It is important to note that these results are specific to AOP assessments performed with an 11-cm cuff. Supported by: PW and VSQ were financed in part by a scholarship from the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES), Brazil - finance code 001.",
     "abstractStatus": "full"
   },
   {
@@ -1277,7 +1277,7 @@ export const PUBLICATIONS: ReadonlyArray<Publication> = [
       "openAccess": ""
     },
     "keywords": [],
-    "abstract": "**Objective.** This systematic review and meta-analysis analyzed the effect of low-load resistance training (LL-RT) with blood flow restriction (BFR) versus high-load resistance training (HL-RT) on muscle hypertrophy focusing on the repetition scheme adopted.\n\n**Methods.** Four databases were searched to identify randomized controlled trials that compared the effect of LL-RT with BFR versus HL-RT on muscle hypertrophy. Standardized mean differences (SMD) were pooled in a random effects meta-analysis.\n\n**Results.** The overall analysis did not demonstrate significant differences between conditions (SMD = 0.046; p = 0.14). A similar result was observed when we separately analyzed studies that used sets to momentary muscle failure (SMD = 0.033; p = 0.520), sets of 15 repetitions (SMD = 0.005; p = 0.937) and a fixed repetition scheme composed of 75 repetitions (SMD = 0.088; p = 0.177). The analysis considering body region indicates no difference in lower limb exercise between HL-RT and LL-RT with BFR (SMD = 0.00066; p = 0.795) while upper limb exercise favors HL-RT (SMD = 0.231; p = 0.005).\n\n**Conclusion.** LL-RT with BFR elicits muscle hypertrophy similar to HL-RT regardless of the employed repetition scheme, although there appears to be a small beneficial effect in favor of HL-RT in upper limb exercise.",
+    "abstract": "**Objective.** This systematic review and meta-analysis analyzed the effect of low-load resistance training (LL-RT) with blood flow restriction (BFR) versus high-load resistance training (HL-RT) on muscle hypertrophy focusing on the repetition scheme adopted.\r\n\r\n**Methods.** Four databases were searched to identify randomized controlled trials that compared the effect of LL-RT with BFR versus HL-RT on muscle hypertrophy. Standardized mean differences (SMD) were pooled in a random effects meta-analysis.\r\n\r\n**Results.** The overall analysis did not demonstrate significant differences between conditions (SMD = 0.046; p = 0.14). A similar result was observed when we separately analyzed studies that used sets to momentary muscle failure (SMD = 0.033; p = 0.520), sets of 15 repetitions (SMD = 0.005; p = 0.937) and a fixed repetition scheme composed of 75 repetitions (SMD = 0.088; p = 0.177). The analysis considering body region indicates no difference in lower limb exercise between HL-RT and LL-RT with BFR (SMD = 0.00066; p = 0.795) while upper limb exercise favors HL-RT (SMD = 0.231; p = 0.005).\r\n\r\n**Conclusion.** LL-RT with BFR elicits muscle hypertrophy similar to HL-RT regardless of the employed repetition scheme, although there appears to be a small beneficial effect in favor of HL-RT in upper limb exercise.",
     "abstractStatus": "full"
   },
   {
@@ -1396,6 +1396,36 @@ export const PUBLICATIONS: ReadonlyArray<Publication> = [
     "keywords": [],
     "abstract": "",
     "abstractStatus": "summary"
+  },
+  {
+    "slug": "2023-measuring-arterial-occlusion-pressure-training-blood-flow-restriction",
+    "title": "Measuring arterial occlusion pressure for training with blood flow restriction: a scoping review and recommendations for measurement",
+    "year": 2024,
+    "type": "Journal article",
+    "journal": "Sport Sciences for Health",
+    "volume": "20",
+    "issue": "",
+    "pages": "259-272",
+    "authors": [
+      "Victor S. de Queiros",
+      "Nicholas Rolnick",
+      "Phelipe Wilde",
+      "Artur de Melo",
+      "Breno G. A. T. Cabral",
+      "Paulo M. S. Dantas"
+    ],
+    "rolnickRole": "Co-author",
+    "doi": "10.1007/s11332-023-01135-y",
+    "pmid": "",
+    "pmcid": "",
+    "links": {
+      "doi": "https://doi.org/10.1007/s11332-023-01135-y",
+      "researchgate": "https://www.researchgate.net/publication/374779206",
+      "openAccess": ""
+    },
+    "keywords": [],
+    "abstract": "**Purpose.** It is recommended that the pressure applied in training with blood flow restriction (BFR) be relativized based on the arterial occlusion pressure (AOP). However, several factors can affect the measurement of AOP that may require consideration. The purpose of this review was to explore variables capable of impacting AOP and provide recommendations for measurement.\n\n**Methods.** On August 8, 2023, PubMed® and Scopus databases were consulted to identify studies that analyzed variables capable of affecting AOP. In addition, the list of references of eligible studies, as well as Google Scholar citations, were consulted to identify additional studies.\n\n**Results.** Twenty-three studies (n = 1335 participants) were included in this review. Studies analyzed the effects of cuff characteristics (n = 9), cuff bladder position (n = 1), body position (n = 6), inflation protocol (n = 1), time (n = 1), sex (n = 5), and segment (n = 5) on AOP. Results demonstrated that wider cuffs promote arterial occlusion with lower external pressures. In addition to width, cuff placement also affects AOP; when the bladder is positioned above the artery, less external pressure is needed to promote arterial occlusion. Body position significantly affects AOP, with more pronounced effects in the lower limbs. The time of day AOP is measured, but not the inflation protocol, has a significant effect on AOP. For the effect of sex and segment, results were divergent.\n\n**Conclusion.** In conclusion, several factors may influence AOP. For standardizing the prescribed pressure in training with BFR, all these variables should be considered.",
+    "abstractStatus": "full"
   },
   {
     "slug": "2024-response-commentary-by-dr-matthew-j-clarkson-concerns",
@@ -1773,7 +1803,7 @@ export const PUBLICATIONS: ReadonlyArray<Publication> = [
       "openAccess": ""
     },
     "keywords": [],
-    "abstract": "**Introduction.** Recommendations for time under blood flow restriction (BFR) during resistance training (RT) vary between 5 to 10 minutes, and beneficial effects on muscle mass and strength have already been reported. However, there exists the potential for longer times under restriction to produce greater acute activation of the exercise pressor reflex and subsequent sympathetic pathways leading to a greater hemodynamic response.\n\n**Objective.** To verify blood pressure responses to dynamic resistance exercise with different times (5 vs. 10 minutes) under blood flow restriction in normotensive subjects.\n\n**Methods.** In a randomized crossover trial design, twelve healthy and physically active male participants completed a training with BFR under the following protocols: control, BFR-5 minutes, BFR-10 minutes. Systolic blood pressure (SBP) and diastolic blood pressure (DBP) measurements were taken by an experienced researcher immediately after each exercise set.\n\n**Results.** Both BFR-5 minutes and BFR-10 minutes induced acute elevations in SBP, DBP and heart rate (HR) as the sets progressed, without statistical differences between them. However, BFR-10 displayed a superior effect size for SBP and DBP compared to BFR-5 minutes.\n\n**Conclusion.** Based on the present study results, the time under BFR during resistance exercise does not affect blood pressure response in normotensive subjects.",
+    "abstract": "**Introduction.** Recommendations for time under blood flow restriction (BFR) during resistance training (RT) vary between 5 to 10 minutes, and beneficial effects on muscle mass and strength have already been reported. However, there exists the potential for longer times under restriction to produce greater acute activation of the exercise pressor reflex and subsequent sympathetic pathways leading to a greater hemodynamic response.\r\n\r\n**Objective.** To verify blood pressure responses to dynamic resistance exercise with different times (5 vs. 10 minutes) under blood flow restriction in normotensive subjects.\r\n\r\n**Methods.** In a randomized crossover trial design, twelve healthy and physically active male participants completed a training with BFR under the following protocols: control, BFR-5 minutes, BFR-10 minutes. Systolic blood pressure (SBP) and diastolic blood pressure (DBP) measurements were taken by an experienced researcher immediately after each exercise set.\r\n\r\n**Results.** Both BFR-5 minutes and BFR-10 minutes induced acute elevations in SBP, DBP and heart rate (HR) as the sets progressed, without statistical differences between them. However, BFR-10 displayed a superior effect size for SBP and DBP compared to BFR-5 minutes.\r\n\r\n**Conclusion.** Based on the present study results, the time under BFR during resistance exercise does not affect blood pressure response in normotensive subjects.",
     "abstractStatus": "full"
   },
   {
@@ -1979,33 +2009,6 @@ export const PUBLICATIONS: ReadonlyArray<Publication> = [
     ],
     "abstract": "**Objective.** To examine the effects of autoregulated (AUTO) and non-autoregulated (NAUTO) blood flow restriction (BFR) application on adverse effects, performance, cardiovascular and perceptual responses during resistance exercise.\r\n\r\n**Methods.** Fifty-six healthy participants underwent AUTO and NAUTO BFR resistance exercise in a randomised crossover design using a training session with fixed amount of repetitions and a training session until volitional failure. Cardiovascular parameters, rate of perceived effort (RPE), rate of perceived discomfort (RPD) and number of repetitions were investigated after training, while the presence of delayed onset muscle soreness (DOMS) was verified 24 hours post-session. Adverse events during or following training were also monitored.\r\n\r\n**Results.** AUTO outperformed NAUTO in the failure protocol (p<0.001), while AUTO scored significantly lower for DOMS 24 hours after exercise (p<0.001). Perceptions of effort and discomfort were significantly higher in NAUTO compared with AUTO in both fixed (RPE: p=0.014, RPD: p<0.001) and failure protocol (RPE: p=0.028, RPD: p<0.001). Sixteen adverse events (7.14%) were recorded, with a sevenfold incidence in the fixed protocol for NAUTO compared with AUTO (NAUTO: n=7 vs AUTO: n=1) and five (NAUTO) vs three (AUTO) adverse events in the failure protocol. No significant differences in cardiovascular parameters were found comparing both pressure applications.\r\n\r\n**Conclusion.** Autoregulation appears to enhance safety and performance in both fixed and failure BFR-training protocols. AUTO BFR training did not seem to affect cardiovascular stress differently, but was associated with lower DOMS, perceived effort and discomfort compared with NAUTO.\r\n\r\n**Trial Registration Number.** NCT04996680.",
     "abstractStatus": "full"
-  },
-  {
-    "slug": "2023-measuring-arterial-occlusion-pressure-training-blood-flow-restriction",
-    "title": "Measuring arterial occlusion pressure for training with blood flow restriction: a scoping review and recommendations for measurement",
-    "year": 2023,
-    "type": "Journal article",
-    "journal": "",
-    "volume": "",
-    "issue": "",
-    "pages": "",
-    "authors": [
-      "de Queiros V.S.",
-      "Rolnick N",
-      "Wilde P. et al"
-    ],
-    "rolnickRole": "Co-author",
-    "doi": "10.1007/s11332-023-01135-y",
-    "pmid": "",
-    "pmcid": "",
-    "links": {
-      "doi": "https://doi.org/10.1007/s11332-023-01135-y",
-      "researchgate": "https://www.researchgate.net/publication/374779206",
-      "openAccess": ""
-    },
-    "keywords": [],
-    "abstract": "",
-    "abstractStatus": "summary"
   },
   {
     "slug": "2023-no-differences-exercise-performance-perceptual-response-or-safety",
@@ -2345,7 +2348,7 @@ export const PUBLICATIONS: ReadonlyArray<Publication> = [
       "openAccess": ""
     },
     "keywords": [],
-    "abstract": "**Background.** High frequency (1–2 times per day) low-intensity blood flow restriction (BFR) training has been recommended as a prescription approach for short durations of time to maximize relevant physiological adaptations. However, some studies demonstrate negative physiological changes after short periods of high-frequency BFR training, including prolonged strength decline and muscle fiber atrophy.\n\n**Objectives.** To provide a comprehensive overview of short-term, high-frequency blood flow restriction training, including main adaptations, myocellular stress, limitations in the literature, and future perspectives.\n\n**Methods.** A systematic search of electronic databases (Scopus, PubMed®, and Web of Science) was performed from the earliest record to April 23, 2022. Two independent reviewers selected experimental studies that analyzed physical training protocols (aerobic or resistance) of high weekly frequency (>4 days/week) and short durations (≤3 weeks).\n\n**Results.** In total, 22 studies were included in this review. The samples were composed exclusively of young predominantly male individuals. Muscle strength and hypertrophy were the main outcomes analyzed in the studies. In general, studies have demonstrated increases in strength and muscle size after short term (1–3 weeks), high-frequency low-intensity BFR training, non-failure, but not after control conditions (non-BFR; equalized training volume). Under failure conditions, some studies have demonstrated strength decline and muscle fiber atrophy after BFR conditions, accompanying increases in muscle damage markers. Significant limitations exist in the current HF-BFR literature due to large heterogeneities in methodologies.\n\n**Conclusion.** The synthesis presented indicates that short-term, high-frequency BFR training programs can generate significant neuromuscular adaptations. However, in resistance training to failure, strength declines and muscle fiber atrophy were reported. Currently, there are no studies analyzing low-frequency vs. high-frequency in short-term BFR training. Comparisons between resistance exercises of similar intensities (e.g., combined effort) are lacking, limiting conclusions on whether the effect is a product of proximity to failure or a specific effect of BFR.",
+    "abstract": "**Background.** High frequency (1–2 times per day) low-intensity blood flow restriction (BFR) training has been recommended as a prescription approach for short durations of time to maximize relevant physiological adaptations. However, some studies demonstrate negative physiological changes after short periods of high-frequency BFR training, including prolonged strength decline and muscle fiber atrophy.\r\n\r\n**Objectives.** To provide a comprehensive overview of short-term, high-frequency blood flow restriction training, including main adaptations, myocellular stress, limitations in the literature, and future perspectives.\r\n\r\n**Methods.** A systematic search of electronic databases (Scopus, PubMed®, and Web of Science) was performed from the earliest record to April 23, 2022. Two independent reviewers selected experimental studies that analyzed physical training protocols (aerobic or resistance) of high weekly frequency (>4 days/week) and short durations (≤3 weeks).\r\n\r\n**Results.** In total, 22 studies were included in this review. The samples were composed exclusively of young predominantly male individuals. Muscle strength and hypertrophy were the main outcomes analyzed in the studies. In general, studies have demonstrated increases in strength and muscle size after short term (1–3 weeks), high-frequency low-intensity BFR training, non-failure, but not after control conditions (non-BFR; equalized training volume). Under failure conditions, some studies have demonstrated strength decline and muscle fiber atrophy after BFR conditions, accompanying increases in muscle damage markers. Significant limitations exist in the current HF-BFR literature due to large heterogeneities in methodologies.\r\n\r\n**Conclusion.** The synthesis presented indicates that short-term, high-frequency BFR training programs can generate significant neuromuscular adaptations. However, in resistance training to failure, strength declines and muscle fiber atrophy were reported. Currently, there are no studies analyzing low-frequency vs. high-frequency in short-term BFR training. Comparisons between resistance exercises of similar intensities (e.g., combined effort) are lacking, limiting conclusions on whether the effect is a product of proximity to failure or a specific effect of BFR.",
     "abstractStatus": "full"
   },
   {
@@ -2652,6 +2655,7 @@ export const PUBLICATION_SLUGS: ReadonlyArray<string> = [
   "2024-impact-limb-occlusion-pressure-assessment-position-performance-cardiovascular",
   "2024-implementation-clinical-outcomes-blood-flow-restriction-training-adults",
   "2024-integrating-blood-flow-restriction-training-the-personal-training",
+  "2023-measuring-arterial-occlusion-pressure-training-blood-flow-restriction",
   "2024-response-commentary-by-dr-matthew-j-clarkson-concerns",
   "2024-standardizing-blood-flow-restriction-research-crucial-role-identifying",
   "2024-unpacking-blood-flow-restriction-device-features-literature-multi",
@@ -2669,7 +2673,6 @@ export const PUBLICATION_SLUGS: ReadonlyArray<string> = [
   "2023-fiber-type-specific-hypertrophy-the-use-low-load",
   "2023-important-methodological-concern-regarding-article-effect-leg-half",
   "2023-investigating-autoregulation-applied-blood-flow-restriction-training-pressures",
-  "2023-measuring-arterial-occlusion-pressure-training-blood-flow-restriction",
   "2023-no-differences-exercise-performance-perceptual-response-or-safety",
   "2023-reliability-validity-a-portable-traction-dynamometer-knee-strength",
   "2023-working-around-client-s-low-back-pain-strategies",
