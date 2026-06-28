@@ -2,23 +2,29 @@ import type { Metadata } from "next";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import ResearchHero from "@/components/sections/research/ResearchHero";
-import FeaturedPapers from "@/components/sections/research/FeaturedPapers";
+import PublicationsLibrary from "@/components/sections/research/PublicationsLibrary";
 import PublicationsExternalLinks from "@/components/sections/research/PublicationsExternalLinks";
 import BioFinalCTA from "@/components/sections/about/BioFinalCTA";
 import {
   PUBLICATIONS_META,
   PUBLICATIONS_HERO,
-  PUBLICATIONS_INTRO,
+  PUBLICATIONS_LIBRARY,
   PUBLICATIONS_FINAL_CTA,
 } from "@/content/research";
-import { ROLNICK_FEATURED_PAPERS } from "@/lib/constants";
+import {
+  PUBLICATIONS,
+  formatJournal,
+  publicationTypeBadge,
+  publicationYears,
+  typeCounts,
+} from "@/lib/publications";
 import { SITE_MENU_LINKS } from "@/lib/menus";
 import { buildPublicationsSchemaGraph } from "@/lib/schema";
 
-// /research/publications. Deep publication list with full abstracts and
-// outbound article links. CollectionPage schema with ScholarlyArticle
-// ItemList. External link to ResearchGate covers the remainder of the
-// 74 paper trail beyond the 6 featured here.
+// /research/publications. The on-site publications library: all 76 unique
+// publications, filterable by type + year and grouped by year, each linking to
+// its own detail page. CollectionPage schema with a ScholarlyArticle ItemList
+// pointing at the on-site detail pages.
 
 export const metadata: Metadata = {
   title: { absolute: PUBLICATIONS_META.title },
@@ -47,15 +53,26 @@ export const metadata: Metadata = {
 };
 
 export default function PublicationsPage() {
+  // Light projection for the client list (no abstracts in the bundle).
+  const libraryItems = PUBLICATIONS.map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    year: p.year,
+    type: p.type,
+    typeBadge: publicationTypeBadge(p.type),
+    journal: formatJournal(p.journal),
+    role: p.rolnickRole,
+    hasAbstract: p.abstractStatus === "full",
+  }));
+
   const schema = buildPublicationsSchemaGraph({
     pageTitle: PUBLICATIONS_META.title,
     pageDescription: PUBLICATIONS_META.description,
-    papers: ROLNICK_FEATURED_PAPERS.map((p) => ({
+    items: PUBLICATIONS.map((p) => ({
+      slug: p.slug,
       title: p.title,
-      abstract: p.abstract,
-      url: p.url,
-      journal: p.journal,
       year: p.year,
+      journal: p.journal,
     })),
   });
 
@@ -70,11 +87,13 @@ export default function PublicationsPage() {
           highlight={PUBLICATIONS_HERO.highlight}
           subhead={PUBLICATIONS_HERO.subhead}
         />
-        <FeaturedPapers
-          mode="full"
-          eyebrow={PUBLICATIONS_INTRO.eyebrow}
-          headline={PUBLICATIONS_INTRO.headline}
-          intro={PUBLICATIONS_INTRO.paragraphs.join(" ")}
+        <PublicationsLibrary
+          eyebrow={PUBLICATIONS_LIBRARY.eyebrow}
+          headline={PUBLICATIONS_LIBRARY.headline}
+          intro={PUBLICATIONS_LIBRARY.intro}
+          items={libraryItems}
+          typeFilters={typeCounts()}
+          years={publicationYears()}
         />
         <PublicationsExternalLinks />
         <BioFinalCTA

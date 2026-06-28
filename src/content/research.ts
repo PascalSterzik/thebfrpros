@@ -60,33 +60,33 @@ export const RESEARCH_FINAL_CTA = {
 } as const;
 
 // ----- /research/publications ------------------------------------------------
+// The on-site publications library. Every publication now has its own page with
+// its abstract (42) or a factual citation-only summary (34); the full record
+// lives here, not behind a ResearchGate link-out.
 
 export const PUBLICATIONS_META = {
   title: "Publications | Dr. Nicholas Rolnick BFR Research | The BFR Pros",
-  description: `Featured peer-reviewed BFR publications by Dr. Nicholas Rolnick across Frontiers, BJSM, the Strength and Conditioning Journal, ScienceDirect, and Sage. Abstracts and direct article links.`,
+  description: `The on-site library of Dr. Nicholas Rolnick's blood flow restriction research. Filter his journal articles, letters, and commentaries by type and year, each with its abstract or citation and a direct link to the published paper. Dr. Rolnick is the author of ${STATS.publications} peer-reviewed BFR publications.`,
   canonicalPath: "/research/publications",
   ogImagePath: "/og/home",
 } as const;
 
 export const PUBLICATIONS_HERO = {
   eyebrow: "Publications",
-  headline: "Featured peer-reviewed BFR research",
-  highlight: "peer-reviewed",
-  subhead: `A curated set of peer-reviewed publications by Dr. Nicholas Rolnick across the ${STATS.publications} total. Abstracts pulled verbatim from the journal-of-record listings. Each title links to the published article.`,
+  headline: "Dr. Rolnick's BFR research, every paper on the record",
+  highlight: "every paper on the record",
+  subhead: `Dr. Nicholas Rolnick is the author of ${STATS.publications} peer-reviewed BFR publications. This library brings his journal articles, letters, and commentaries together in one place, each with its abstract or citation and a link straight to the published paper.`,
 } as const;
 
-export const PUBLICATIONS_INTRO = {
-  eyebrow: "About this list",
-  headline: "What's included and what isn't",
-  paragraphs: [
-    `This page surfaces a representative sample of Dr. Rolnick's peer-reviewed BFR publications. The full ${STATS.publications}+ publication count spans the journals listed in the marquee below; not every paper has been formatted for surface display on this page yet.`,
-    "For the complete, current publication list, see Dr. Rolnick's ResearchGate profile (link at the bottom of the page). Each article title here links directly to the journal record where the manuscript and abstract live.",
-  ],
+export const PUBLICATIONS_LIBRARY = {
+  eyebrow: "The full record",
+  headline: "Browse the publications",
+  intro: `Each entry opens to the paper's abstract or a short factual summary, its authors, and a direct link to the published article. The headline figure, ${STATS.publications} peer-reviewed BFR publications, is the authority stat; this library also includes letters, commentaries, and a book chapter, so the records below are labeled by type.`,
 } as const;
 
 export const PUBLICATIONS_LINKS = {
-  eyebrow: "Where the rest lives",
-  headline: "The full publication record",
+  eyebrow: "Also indexed at",
+  headline: "Find the same work on ResearchGate",
   links: [
     {
       label: "ResearchGate, Dr. Nicholas Rolnick",
@@ -99,6 +99,16 @@ export const PUBLICATIONS_FINAL_CTA = {
   eyebrow: "Apply the research",
   headline: "Ready to put the research to work?",
   body: "Every protocol in The Complete BFR Certification cites the literature it came from. The module-by-module bibliography (Bonus 5) covers every paper.",
+  primaryCta: "Explore the certification",
+  primaryCtaHref: "/certification",
+} as const;
+
+// ----- /research/publications/[slug] -----------------------------------------
+
+export const PUBLICATION_DETAIL_FINAL_CTA = {
+  eyebrow: "Apply the research",
+  headline: "From the paper to the patient",
+  body: "Every protocol in The Complete BFR Certification cites the literature it came from, including this line of work. The module-by-module bibliography (Bonus 5) maps each claim back to its paper.",
   primaryCta: "Explore the certification",
   primaryCtaHref: "/certification",
 } as const;

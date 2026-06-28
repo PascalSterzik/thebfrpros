@@ -1,0 +1,181 @@
+// Generates src/content/publications.ts from the markdown sources in
+// src/content/publications/*.md. Zero-dependency: a small parser tailored to
+// the fixed frontmatter schema those files use (see any .md in that folder).
+//
+// The .md files are the editable source of truth (version-controlled, and the
+// 35 citation-only entries get upgraded by editing them). This script bakes
+// them into a typed TS data module so the Next.js pages import inlined data
+// the same way /blog imports BLOG_POST_BODIES, with no runtime fs read and no
+// new dependency.
+//
+// Run after editing any .md:  node scripts/generate-publications.mjs
+//
+// Dedup: two source files can describe the same paper (same DOI). The live
+// dataset keeps one record per DOI; the dropped file is logged below so the
+// data gap stays visible.
+
+import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const HERE = dirname(fileURLToPath(import.meta.url));
+const SRC_DIR = join(HERE, "..", "src", "content", "publications");
+const OUT_FILE = join(HERE, "..", "src", "content", "publications.ts");
+
+function parseScalar(v) {
+  v = v.trim();
+  if (v === "") return "";
+  if (v === "[]") return [];
+  const q = v.match(/^"([\s\S]*)"$/);
+  if (q) return q[1].replace(/\\"/g, '"');
+  if (/^-?\d+$/.test(v)) return Number(v);
+  return v;
+}
+
+function parseFrontmatter(raw) {
+  const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+  if (!m) throw new Error("no frontmatter");
+  const block = m[1];
+  const body = m[2];
+  const obj = { links: {} };
+  let listKey = null;
+  let mapKey = null;
+
+  for (const line of block.split(/\r?\n/)) {
+    if (line.trim() === "") continue;
+    const top = line.match(/^([a-z_]+):(.*)$/);
+    if (top && !/^\s/.test(line)) {
+      const key = top[1];
+      const rest = top[2].trim();
+      listKey = null;
+      mapKey = null;
+      if (key === "authors" || key === "keywords") {
+        if (rest === "" ) { obj[key] = []; listKey = key; }
+        else obj[key] = parseScalar(rest);
+      } else if (key === "links") {
+        obj.links = {};
+        mapKey = "links";
+      } else {
+        obj[key] = parseScalar(rest);
+      }
+      continue;
+    }
+    const item = line.match(/^\s+-\s+(.*)$/);
+    if (item && listKey) { obj[listKey].push(parseScalar(item[1])); continue; }
+    const nested = line.match(/^\s+([a-z_]+):\s*(.*)$/);
+    if (nested && mapKey === "links") { obj.links[nested[1]] = parseScalar(nested[2]); continue; }
+  }
+
+  const abstractBody = body.replace(/^\s*##\s*Abstract\s*/i, "").trim();
+  const isSummary = /Abstract not available/i.test(abstractBody) || abstractBody === "";
+  return { fm: obj, abstract: isSummary ? "" : abstractBody, abstractStatus: isSummary ? "summary" : "full" };
+}
+
+const files = readdirSync(SRC_DIR).filter((f) => f.endsWith(".md") && f !== "INDEX.md").sort();
+
+const all = files.map((f) => {
+  const slug = f.replace(/\.md$/, "");
+  const { fm, abstract, abstractStatus } = parseFrontmatter(readFileSync(join(SRC_DIR, f), "utf8"));
+  return {
+    slug,
+    title: String(fm.title ?? ""),
+    year: Number(fm.year),
+    type: String(fm.type ?? ""),
+    ...(fm.subtype ? { subtype: String(fm.subtype) } : {}),
+    journal: String(fm.journal ?? ""),
+    volume: String(fm.volume ?? ""),
+    issue: String(fm.issue ?? ""),
+    pages: String(fm.pages ?? ""),
+    authors: Array.isArray(fm.authors) ? fm.authors.map(String) : [],
+    rolnickRole: String(fm.rolnick_role ?? ""),
+    doi: String(fm.doi ?? ""),
+    pmid: String(fm.pmid ?? ""),
+    pmcid: String(fm.pmcid ?? ""),
+    links: {
+      doi: String(fm.links?.doi ?? ""),
+      researchgate: String(fm.links?.researchgate ?? ""),
+      openAccess: String(fm.links?.open_access ?? ""),
+    },
+    keywords: Array.isArray(fm.keywords) ? fm.keywords.map(String) : [],
+    abstract,
+    abstractStatus,
+  };
+});
+
+// Dedup by DOI. Within a DOI collision, prefer the slug without a trailing
+// -<digits> PMID suffix, then the shorter slug, then alphabetical.
+const hasNumericSuffix = (s) => /-\d{4,}$/.test(s);
+const byDoi = new Map();
+const noDoi = [];
+for (const p of all) {
+  if (!p.doi) { noDoi.push(p); continue; }
+  const g = byDoi.get(p.doi) ?? [];
+  g.push(p);
+  byDoi.set(p.doi, g);
+}
+const dropped = [];
+const kept = [];
+for (const [, group] of byDoi) {
+  if (group.length === 1) { kept.push(group[0]); continue; }
+  group.sort((a, b) =>
+    (hasNumericSuffix(a.slug) - hasNumericSuffix(b.slug)) ||
+    (a.slug.length - b.slug.length) ||
+    a.slug.localeCompare(b.slug));
+  kept.push(group[0]);
+  for (const d of group.slice(1)) dropped.push({ dropped: d.slug, keptInstead: group[0].slug, doi: d.doi });
+}
+const pubs = [...kept, ...noDoi];
+
+// Sort newest year first, then title A→Z (stable, deterministic).
+pubs.sort((a, b) => (b.year - a.year) || a.title.localeCompare(b.title));
+
+const header = `// AUTO-GENERATED by scripts/generate-publications.mjs — DO NOT EDIT BY HAND.
+// Source of truth: src/content/publications/*.md (edit those, then re-run the
+// generator). Mirrors the /blog content pattern: inlined typed data, no runtime
+// fs read, no extra dependency. ${pubs.length} unique publications.
+
+export type PublicationAbstractStatus = "full" | "summary";
+
+export type Publication = {
+  /** URL slug, reused verbatim from the source filename. */
+  slug: string;
+  title: string;
+  year: number;
+  /** "Journal article" | "Letter/commentary" | "Book chapter" */
+  type: string;
+  subtype?: string;
+  journal: string;
+  volume: string;
+  issue: string;
+  pages: string;
+  authors: string[];
+  /** "First author" | "Co-first author" | "Co-author" | "Author" */
+  rolnickRole: string;
+  doi: string;
+  pmid: string;
+  pmcid: string;
+  links: { doi: string; researchgate: string; openAccess: string };
+  keywords: string[];
+  /** Verbatim abstract for 'full'; empty string for 'summary' (citation-only). */
+  abstract: string;
+  /** 'full' = real abstract present. 'summary' = citation-only, upgrade later. */
+  abstractStatus: PublicationAbstractStatus;
+};
+
+export const PUBLICATIONS: ReadonlyArray<Publication> = ${JSON.stringify(pubs, null, 2)};
+
+export const PUBLICATION_SLUGS: ReadonlyArray<string> = ${JSON.stringify(pubs.map((p) => p.slug), null, 2)};
+`;
+
+writeFileSync(OUT_FILE, header, "utf8");
+
+// Report.
+const types = {};
+for (const p of pubs) types[p.type] = (types[p.type] || 0) + 1;
+console.log(`Source files: ${all.length}`);
+console.log(`Unique publications written: ${pubs.length}`);
+console.log(`By type:`, JSON.stringify(types));
+console.log(`Full abstract: ${pubs.filter((p) => p.abstractStatus === "full").length} | citation-only: ${pubs.filter((p) => p.abstractStatus === "summary").length}`);
+console.log(`Empty authors: ${pubs.filter((p) => p.authors.length === 0).length}`);
+console.log(`Dropped duplicates (${dropped.length}):`, JSON.stringify(dropped, null, 2));
+console.log(`Wrote ${OUT_FILE}`);

@@ -2,6 +2,7 @@
 // connected entity tree instead of competing snippets.
 
 import { CEU_APPROVALS, CONSULTING, ENROLL_URL, LICAMELI, PRICING, ROLNICK, SITE, STATS, TEAM_TRAINING } from "./constants";
+import type { Publication } from "@/content/publications";
 
 type HomeSchemaInput = {
   pageTitle: string;
@@ -600,11 +601,21 @@ export function buildResearchSchemaGraph({
   };
 }
 
+// /research/publications library index. CollectionPage carrying an ItemList of
+// every on-site publication. Each ScholarlyArticle's `url` points at its own
+// detail page (internal-link depth); the full abstract + sameAs live on that
+// detail page rather than being inlined 76× here.
+type PublicationsLibrarySchemaInput = {
+  pageTitle: string;
+  pageDescription: string;
+  items: ReadonlyArray<{ slug: string; title: string; year: number; journal: string }>;
+};
+
 export function buildPublicationsSchemaGraph({
   pageTitle,
   pageDescription,
-  papers,
-}: ResearchSchemaInput) {
+  items,
+}: PublicationsLibrarySchemaInput) {
   const pageUrl = `${SITE.origin}/research/publications`;
   const orgId = `${SITE.origin}#organization`;
   const websiteId = `${SITE.origin}#website`;
@@ -649,25 +660,129 @@ export function buildPublicationsSchemaGraph({
         breadcrumb: { "@id": breadcrumbId },
         mainEntity: {
           "@type": "ItemList",
-          itemListElement: papers.map((p, i) => ({
+          numberOfItems: items.length,
+          itemListElement: items.map((p, i) => ({
             "@type": "ListItem",
             position: i + 1,
+            url: `${SITE.origin}/research/publications/${p.slug}`,
             item: {
               "@type": "ScholarlyArticle",
               headline: p.title,
-              abstract: p.abstract,
               author: { "@id": personId },
               datePublished: String(p.year),
-              isPartOf: { "@type": "Periodical", name: p.journal },
-              ...(p.url ? { url: p.url } : {}),
+              ...(p.journal ? { isPartOf: { "@type": "Periodical", name: p.journal } } : {}),
+              url: `${SITE.origin}/research/publications/${p.slug}`,
             },
           })),
         },
         datePublished: "2026-05-12",
-        dateModified: "2026-05-12",
+        dateModified: "2026-06-26",
       },
     ],
   };
+}
+
+// /research/publications/[slug] per-publication detail. MedicalScholarlyArticle
+// (the whole dataset is BFR clinical / exercise-science work) with the canonical
+// Rolnick Person reused for author + reviewedBy (E-E-A-T), datePublished, the
+// journal as Periodical, sameAs = [DOI, ResearchGate, open-access], the DOI as a
+// PropertyValue identifier, and a Breadcrumb (Research › Publications › Title).
+// Co-authors render as plain Person nodes so they don't collide with the
+// canonical Rolnick @id. Abstract is emitted only when a real one exists.
+export function buildPublicationDetailSchemaGraph(pub: Publication) {
+  const pageUrl = `${SITE.origin}/research/publications/${pub.slug}`;
+  const orgId = `${SITE.origin}#organization`;
+  const websiteId = `${SITE.origin}#website`;
+  const personId = `${SITE.origin}/about/nicholas-rolnick#person`;
+  const breadcrumbId = `${pageUrl}#breadcrumb`;
+  const articleId = `${pageUrl}#article`;
+
+  // Rolnick → canonical Person @id; everyone else → plain Person. The 9 entries
+  // with no author list still resolve to the known author (Rolnick).
+  const author = pub.authors.length
+    ? pub.authors.map((name) =>
+        name.toLowerCase().includes("rolnick")
+          ? { "@id": personId }
+          : { "@type": "Person", name },
+      )
+    : [{ "@id": personId }];
+
+  const sameAs = [pub.links.doi, pub.links.researchgate, pub.links.openAccess].filter(Boolean);
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": orgId,
+        name: SITE.brandName,
+        url: SITE.origin,
+        logo: `${SITE.origin}/images/logos/bfr-pros-primary.png`,
+      },
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: SITE.origin,
+        name: SITE.brandName,
+        publisher: { "@id": orgId },
+      },
+      rolnickPersonRef(orgId),
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE.origin },
+          { "@type": "ListItem", position: 2, name: "Research", item: `${SITE.origin}/research` },
+          { "@type": "ListItem", position: 3, name: "Publications", item: `${SITE.origin}/research/publications` },
+          { "@type": "ListItem", position: 4, name: pub.title, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "MedicalScholarlyArticle",
+        "@id": articleId,
+        headline: pub.title,
+        name: pub.title,
+        author,
+        reviewedBy: { "@id": personId },
+        publisher: { "@id": orgId },
+        datePublished: String(pub.year),
+        url: pageUrl,
+        mainEntityOfPage: pageUrl,
+        ...(pub.journal ? { isPartOf: { "@type": "Periodical", name: pub.journal } } : {}),
+        ...(pub.pages ? { pagination: pub.pages } : {}),
+        ...(pub.abstractStatus === "full" ? { abstract: pub.abstract } : {}),
+        ...(pub.keywords.length ? { keywords: pub.keywords.join(", ") } : {}),
+        ...(pub.doi
+          ? { identifier: { "@type": "PropertyValue", propertyID: "DOI", value: pub.doi } }
+          : {}),
+        ...(sameAs.length ? { sameAs } : {}),
+      },
+      {
+        "@type": "WebPage",
+        "@id": pageUrl,
+        url: pageUrl,
+        name: pub.title,
+        description: publicationPageDescription(pub),
+        isPartOf: { "@id": websiteId },
+        about: { "@id": personId },
+        breadcrumb: { "@id": breadcrumbId },
+        mainEntity: { "@id": articleId },
+        datePublished: "2026-06-26",
+        dateModified: "2026-06-26",
+      },
+    ],
+  };
+}
+
+// Short factual WebPage description for the detail schema. Mirrors the on-page
+// meta description without importing the client-facing helper into schema.ts.
+function publicationPageDescription(pub: Publication): string {
+  if (pub.abstractStatus === "full") {
+    const flat = pub.abstract.replace(/\*\*/g, "").replace(/\s+/g, " ").trim();
+    return flat.length <= 200 ? flat : flat.slice(0, 200).replace(/\s+\S*$/, "") + "…";
+  }
+  const venue = pub.journal ? `, published in ${pub.journal} (${pub.year})` : ` (${pub.year})`;
+  return `${pub.title}${venue}. Read the full record via the DOI, ResearchGate, or open-access link.`;
 }
 
 // /reviews page. CollectionPage carrying the canonical AggregateRating

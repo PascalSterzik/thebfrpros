@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { BLOG_POSTS } from "@/lib/constants";
+import { PUBLICATION_SLUGS } from "@/content/publications";
 
 // Dynamic sitemap served at /sitemap.xml (App Router convention). Replaced the
 // hand-maintained public/sitemap.xml on 2026-05-17, which had drifted to 4 URLs
@@ -85,5 +86,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...staticEntries, ...blogEntries];
+  // One page per unique publication at /research/publications/[slug]. Monthly
+  // cadence, same leaf priority as blog posts (one notch below the
+  // /research/publications hub already in STATIC_ROUTES).
+  const publicationEntries: MetadataRoute.Sitemap = PUBLICATION_SLUGS.map((slug) => ({
+    url: `${ORIGIN}/research/publications/${slug}`,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
+  return [...staticEntries, ...blogEntries, ...publicationEntries];
 }
