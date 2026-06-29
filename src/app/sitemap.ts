@@ -11,7 +11,10 @@ import { PUBLICATION_SLUGS } from "@/content/publications";
 // /get-certified-v2 — they 301), the deleted /preview index, every /og/*
 // image route, AND the standalone /certification campaign LP (paid traffic
 // only, ships noindex+canonical to /get-certified per PLAN.md §8 + §11; the
-// duplicate-content guardrail learned from the v1/v2 retirement). next.config
+// duplicate-content guardrail learned from the v1/v2 retirement), AND the
+// /the-loading-wall opt-in LP + its /the-loading-wall/thank-you page (paid /
+// owned-traffic squeeze page, robots noindex+follow, never in SITE_MENU_LINKS;
+// PLAN.md §8). next.config
 // has trailingSlash:false, so only "/" carries a trailing slash.
 //
 // Canonical host is the WWW form. The apex https://thebfrpros.com 308-redirects
