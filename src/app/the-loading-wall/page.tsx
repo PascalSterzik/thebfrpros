@@ -97,7 +97,7 @@ export default function LoadingWallPage() {
         {/* EMOTIONAL HOOK */}
         <section className="py-12 lg:py-16">
           <div className="container-narrow">
-            <div className="mx-auto max-w-2xl space-y-5 text-center">
+            <div className="mx-auto max-w-2xl space-y-5 text-left">
               {hook.paragraphs.map((p, i) => (
                 <p key={i} className="text-lg leading-relaxed text-ink/90">
                   {p}
@@ -148,9 +148,21 @@ export default function LoadingWallPage() {
               </div>
             </div>
 
-            <p className="mx-auto mt-12 max-w-3xl border-t border-line pt-8 text-center text-base leading-relaxed text-muted">
-              {report.credibility}
-            </p>
+            <div className="mx-auto mt-12 max-w-3xl border-t border-line pt-8">
+              <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-8">
+                <Image
+                  src={report.authorImageSrc}
+                  alt={report.authorImageAlt}
+                  width={400}
+                  height={400}
+                  sizes="(max-width: 640px) 160px, 176px"
+                  className="h-40 w-40 flex-none rounded-lg object-cover shadow-navy-md ring-1 ring-line sm:h-44 sm:w-44"
+                />
+                <p className="text-left text-base leading-relaxed text-muted">
+                  {report.credibility}
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -178,14 +190,15 @@ export default function LoadingWallPage() {
           </div>
         </section>
 
-        {/* TRUST BAR - Dr. Rolnick personal media features (author credibility) */}
-        <section className="cream-field py-12 lg:py-16">
+        {/* TRUST BAR - Dr. Rolnick personal media features (author credibility).
+            White background so the white-bg logo files blend in (no weird boxes). */}
+        <section className="border-t border-line bg-white py-12 lg:py-16">
           <div className="container-rail">
             <p className="small-caps-line text-center text-muted">{trustBar.heading}</p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-7">
               {trustBar.logos.map((logo) => (
-                <span key={logo.alt} className="relative block h-7 w-24 opacity-70 grayscale sm:h-8 sm:w-28">
-                  <Image src={logo.src} alt={logo.alt} fill sizes="112px" className="object-contain" />
+                <span key={logo.alt} className="relative block h-9 w-28 opacity-80 grayscale sm:h-10 sm:w-32">
+                  <Image src={logo.src} alt={logo.alt} fill sizes="128px" className="object-contain" />
                 </span>
               ))}
             </div>
@@ -195,9 +208,9 @@ export default function LoadingWallPage() {
         {/* FINAL CTA - second opt-in form */}
         <section className="border-t border-line py-14 lg:py-20">
           <div className="container-narrow">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-display-md lg:text-display-lg text-balance">{finalCta.heading}</h2>
-              <div className="mt-6 space-y-4">
+            <div className="mx-auto max-w-2xl">
+              <h2 className="text-center text-display-md lg:text-display-lg text-balance">{finalCta.heading}</h2>
+              <div className="mt-6 space-y-4 text-left">
                 {finalCta.body.map((p, i) => (
                   <p key={i} className="text-lg leading-relaxed text-ink/90">
                     {p}

@@ -68,15 +68,11 @@ export const LOADING_WALL = {
           "The 4 quiet mistakes that cost post-op patients months of progress,",
         body: "including the one built into nearly every protocol you were handed in school. (It's mistake #2, and you are almost certainly making it right now.)",
       },
-      {
-        strong:
-          "\"I'm restricting blood flow. Am I going to cause a clot?\"",
-        body: "The safety question that stops most clinicians from ever trying blood flow restriction, answered with the actual numbers from a national survey of thousands of cases.",
-      },
-      {
-        strong: "Why you do NOT need a $5,000 cuff to get results,",
-        body: "and the single variable that matters far more than the brand of device you buy. (This one quietly saves your practice thousands.)",
-      },
+      // Removed 2026-06-29 (Pascal): the "Am I going to cause a clot?" and
+      // "$5,000 cuff" bullets assumed the reader already knows/uses blood flow
+      // restriction. This page is for the problem-aware reader who does NOT yet
+      // know BFR is the answer, so a BFR-presuming bullet is the wrong awareness
+      // stage. Kept the result/curiosity bullets that work regardless.
       {
         strong:
           "The real difference between the clinician who can confidently load the patient nobody else can load, and the one still waiting for a tool they were never handed.",
@@ -85,6 +81,8 @@ export const LOADING_WALL = {
     ],
     credibility:
       "The Loading Wall was written by Dr. Nicholas Rolnick, PT, DPT, MS, CSCS, founder of The BFR Pros and author of 74 peer-reviewed publications on blood flow restriction and low-load training. He is a practicing physical therapist in Manhattan, an Adjunct Assistant Professor of Physical Therapy at New York Medical College, and a Topic Editor for the journals Frontiers in Physiology and Frontiers in Sports and Active Living. More than 1,467 clinicians have trained in BFR with him, and his certification holds a 4.8-star rating across 767+ reviews.",
+    authorImageSrc: "/images/instructors/rolnick-large.jpg",
+    authorImageAlt: "Dr. Nicholas Rolnick, PT, DPT, MS, CSCS, founder of The BFR Pros",
   },
 
   testimonials: {
@@ -114,19 +112,20 @@ export const LOADING_WALL = {
   },
 
   trustBar: {
-    // Dr. Rolnick PERSONAL media features (author-credibility, the correct
-    // evidence set for a reader who does not yet know BFR). NOT the homepage
-    // modality FEATURED_IN bar. Verified against Research/rolnick-cv-facts.md.
+    // Dr. Rolnick PERSONAL media features ONLY (where HE was featured, not the
+    // BFR-modality coverage), per Pascal 2026-06-29. Sourced from the "Featured
+    // in (the News)" asset folder, landscape format only (the square AskMen and
+    // the modality-folder NY Post / CNN / FOX logos were dropped). These are
+    // white-background .jpg/.webp logos, so the section renders on WHITE so the
+    // logo backgrounds disappear instead of showing weird white boxes.
     heading: "Dr. Nicholas Rolnick Has Been Featured In",
     logos: [
-      { src: "/images/featured/ny-post.png", alt: "New York Post" },
-      { src: "/images/featured/cnn.png", alt: "CNN" },
-      { src: "/images/featured/fox-32-chicago.png", alt: "FOX" },
       { src: "/images/featured/mens-health.jpg", alt: "Men's Health" },
+      { src: "/images/featured/cnn-health.jpg", alt: "CNN Health" },
       { src: "/images/featured/cnet.jpg", alt: "CNET" },
-      { src: "/images/featured/webpt.jpg", alt: "WebPT" },
       { src: "/images/featured/well-good.jpg", alt: "Well+Good" },
-      { src: "/images/featured/askmen.jpg", alt: "AskMen" },
+      { src: "/images/featured/webpt.jpg", alt: "WebPT" },
+      { src: "/images/featured/eat-this-not-that.jpg", alt: "Eat This, Not That!" },
     ],
   },
 
