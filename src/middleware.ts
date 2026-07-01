@@ -63,18 +63,15 @@ const REDIRECTS: Record<string, string> = {
   "/live-workshop-reg-": "/certification",
   "/workshop-information": "/certification",
   "/bfrtraining-armmanual": "/certification",
-};
 
-// Slugs whose old /bfr-blog value does not map 1:1 to a new /blog slug. Handled
-// before the generic /bfr-blog/<slug> -> /blog/<slug> rule. Values are full
-// destination paths so dropped posts can fall back to the /blog index.
-const BLOG_SLUG_REMAP: Record<string, string> = {
-  "success-story-mark-wahlburg-pl2ln": "/blog/success-story-mark-wahlburg",
-  "meniscal-repair-acl-akrx7": "/blog/success-story-meniscus-repair",
-  "meniscal-repair-acl-2": "/blog/success-story-meniscus-repair",
-  "success-story-natural-bodybuilder": "/blog",
-  "science-behind-bfr-1": "/blog",
-  "progressive-overload-bfr-wzpm8": "/blog",
+  // 2026-07-02: further legacy URLs surfaced in GSC "Crawled - currently not
+  // indexed". /for-practitioners was the individual-education hub -> cert;
+  // /for-companies was the clinic/team hub -> team lane.
+  "/erica-marcano": "/about/erica-marcano",
+  "/for-practitioners": "/certification",
+  "/for-companies": "/train-your-team",
+  "/home-1": "/",
+  "/about-us2": "/about",
 };
 
 export function middleware(request: NextRequest) {
@@ -90,16 +87,17 @@ export function middleware(request: NextRequest) {
   }
 
   // Legacy Squarespace blog: /bfr-blog (incl. ?author= filter pages) and
-  // /bfr-blog/<slug> -> /blog[/<slug>]. Slugs match 1:1 except the remap above;
-  // unknown slugs fall through to /blog/<slug> (404s the same as today) unless
-  // remapped.
+  // /bfr-blog/<slug> -> /blog[/<slug>]. The migration preserved slugs 1:1
+  // (verified against the live sitemap, incl. Squarespace suffixes like -pl2ln
+  // / -akrx7 / -wzpm8), so a straight prefix swap is correct. A slug with no
+  // matching post falls through to /blog/<slug>, which 404s the same as today.
   if (pathname === "/bfr-blog") {
     url.pathname = "/blog";
     return NextResponse.redirect(url, 301);
   }
   if (pathname.startsWith("/bfr-blog/")) {
     const slug = pathname.slice("/bfr-blog/".length).replace(/\/$/, "");
-    url.pathname = BLOG_SLUG_REMAP[slug] ?? (slug ? `/blog/${slug}` : "/blog");
+    url.pathname = slug ? `/blog/${slug}` : "/blog";
     return NextResponse.redirect(url, 301);
   }
 
@@ -148,6 +146,11 @@ export const config = {
     "/live-workshop-reg-",
     "/workshop-information",
     "/bfrtraining-armmanual",
+    "/erica-marcano",
+    "/for-practitioners",
+    "/for-companies",
+    "/home-1",
+    "/about-us2",
     "/bfr-blog",
     "/bfr-blog/:path*",
     "/the-bfr-pros-store",
