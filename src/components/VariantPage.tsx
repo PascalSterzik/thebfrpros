@@ -128,7 +128,9 @@ export default function VariantPage({ variant }: { variant: Variant }) {
       </main>
 
       {/* 23. Footer */}
-      <Footer />
+      {/* No newsletter signup here: /certification is the sales page and its only
+          job on scroll is the certification. Pascal-2026-07-30. */}
+      <Footer showNewsletter={false} />
 
       {/* JSON-LD @graph: Organization, WebSite, Person, Course, AggregateRating, FAQPage, BreadcrumbList, WebPage */}
       <script

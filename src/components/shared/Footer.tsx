@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import NewsletterForm from "@/components/shared/NewsletterForm";
 import Stars from "@/components/shared/Stars";
 import { SITE } from "@/lib/constants";
 
@@ -54,10 +55,44 @@ const SOCIAL = [
   { label: "X / Twitter", href: SITE.social.twitter, icon: "x" },
 ] as const;
 
-export default function Footer() {
+// `showNewsletter` defaults to true: every page carrying the shared footer gets
+// the signup. /certification passes false (see the band comment below).
+export default function Footer({ showNewsletter = true }: { showNewsletter?: boolean } = {}) {
   return (
     <footer className="navy-field">
       <div className="container-rail py-16 lg:py-20">
+        {/* Newsletter band (2026-07-30). Sits above the nav columns because four
+            fields do not fit a footer column, and burying the signup in one
+            would make it invisible. Placed in the SHARED footer only, so the
+            pages with their own footers exclude themselves: /bfr-certification
+            (CertFooter) and /the-loading-wall + thank-you (LoadingWallFooter).
+            Pascal 2026-07-30 also ruled it OFF /certification, the main sales
+            page, whose only job while scrolling is selling the certification;
+            that page passes showNewsletter={false} via VariantPage. */}
+        {showNewsletter && (
+        <div className="mb-14 grid gap-8 border-b border-white/10 pb-14 md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-5">
+            {/* Copy is Pascal's, locked 2026-07-30. Problem/CTA/result per the
+                brand-guide StoryBrand structure; the ask ("Join...") lives in the
+                copy, the button just executes it. Two earlier drafts were rejected
+                for inventing reader problems that were stated as fact. */}
+            <p className="eyebrow-light">Newsletter</p>
+            <h2 className="mt-4 font-display text-display-md text-white text-balance">
+              STAY UP-TO-DATE IN BFR
+            </h2>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-white/75">
+              Join The BFR Pros email newsletter to get all the latest happenings in the
+              space of BFR, plus important information related to The BFR Pros. Written by
+              Dr. Nicholas Rolnick, author of 74 peer-reviewed BFR publications. Roughly
+              once every other week.
+            </p>
+          </div>
+          <div className="md:col-span-7">
+            <NewsletterForm />
+          </div>
+        </div>
+        )}
+
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <Image
