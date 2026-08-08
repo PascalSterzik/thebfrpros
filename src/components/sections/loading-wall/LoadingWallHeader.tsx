@@ -20,7 +20,10 @@ export default function LoadingWallHeader({
 }) {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur header-shadow">
-      <div className="container-rail flex h-[60px] items-center justify-between gap-3">
+      {/* §Pascal-2026-08-08: 60px was too tight once the CTA moved in. The
+          button is 44px, which left only 8px of air above and below it. At
+          72/80px that becomes 14px on mobile and 18px on desktop. */}
+      <div className="container-rail flex h-[72px] items-center justify-between gap-3 sm:h-[80px]">
         <span className="relative block h-9 w-[74px] shrink-0 sm:h-10 sm:w-[82px]">
           <Image
             src="/images/logos/bfr-pros-secondary.png"

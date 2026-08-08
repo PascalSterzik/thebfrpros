@@ -104,7 +104,7 @@ export default function LoadingWallPage() {
                   sticky header, which would otherwise cover the form on
                   arrival. */}
               {OPT_IN_SOURCES.map((s) => (
-                <span key={s} id={`${OPT_IN_ANCHOR}-${s}`} className="block scroll-mt-20" />
+                <span key={s} id={`${OPT_IN_ANCHOR}-${s}`} className="block scroll-mt-28" />
               ))}
 
               <div className="mt-8 mx-auto w-full max-w-xl rounded-lg border border-line bg-white p-6 shadow-navy-lg sm:p-8">
@@ -123,17 +123,13 @@ export default function LoadingWallPage() {
         <section className="py-12 lg:py-16">
           <div className="container-narrow">
             <div className="mx-auto max-w-2xl space-y-5 text-left">
+              {/* §Pascal-2026-08-08: no CTA here. The hook only sets up the
+                  problem; the ask belongs after the guide contents. */}
               {hook.paragraphs.map((p, i) => (
                 <p key={i} className="text-lg leading-relaxed text-ink/90">
                   {p}
                 </p>
               ))}
-
-              {/* First CTA after the hero. The hook closes on "the method that
-                  is", so the ask lands while the reader is still in the pain. */}
-              <div className="pt-3">
-                <OptInTrigger label={hook.cta} source="hook" />
-              </div>
             </div>
           </div>
         </section>
@@ -183,6 +179,13 @@ export default function LoadingWallPage() {
               </div>
             </div>
 
+            {/* §Pascal-2026-08-08: the ask sits directly under the bullets,
+                where the reader has just seen what is in the guide, and ABOVE
+                the Rolnick credibility block rather than after it. */}
+            <div className="mt-10 text-center">
+              <OptInTrigger label={report.cta} source="report" />
+            </div>
+
             <div className="mx-auto mt-12 max-w-3xl border-t border-line pt-8">
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-8">
                 <Image
@@ -196,12 +199,6 @@ export default function LoadingWallPage() {
                 <p className="text-left text-base leading-relaxed text-muted">
                   {report.credibility}
                 </p>
-              </div>
-
-              {/* Second CTA. The reader has now seen what is inside the guide
-                  and who wrote it, which is the peak of this section. */}
-              <div className="mt-8 text-center">
-                <OptInTrigger label={report.cta} source="report" />
               </div>
             </div>
           </div>

@@ -66,7 +66,7 @@ export const LOADING_WALL = {
     ],
     introLine:
       "Download your free copy of the guide Dr. Nicholas Rolnick wrote for clinicians who are done waiting:",
-    cta: "SEND ME THE FREE GUIDE",
+    // §Pascal-2026-08-08: the hook's CTA was removed, so no `cta` here.
   },
 
   report: {

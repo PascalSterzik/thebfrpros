@@ -8,4 +8,6 @@
 export const OPT_IN_ANCHOR = "optin";
 
 // Sources in page order. Adding one means adding its marker in page.tsx too.
-export const OPT_IN_SOURCES = ["header", "hook", "report", "final-cta"] as const;
+// "hook" was dropped 2026-08-08 with the CTA that used it; a marker with no
+// trigger pointing at it is just a dead anchor.
+export const OPT_IN_SOURCES = ["header", "report", "final-cta"] as const;
