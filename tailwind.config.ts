@@ -31,11 +31,28 @@ const config: Config = {
         // both breakpoints. Body type stepped up to 20px/24px so the headline
         // hierarchy also needs to scale up to maintain the gap to body.
         // Line-heights unchanged; only the size clamps bumped.
-        "display-3xl": ["clamp(4rem, 8.4vw, 6.75rem)", { lineHeight: "0.92", letterSpacing: "-0.02em" }],
-        "display-2xl": ["clamp(3.85rem, 7.85vw, 6.5rem)", { lineHeight: "0.94", letterSpacing: "-0.02em" }],
-        "display-xl": ["clamp(3.1rem, 6.3vw, 5rem)", { lineHeight: "0.96", letterSpacing: "-0.018em" }],
-        "display-lg": ["clamp(2.55rem, 4.5vw, 3.85rem)", { lineHeight: "0.98", letterSpacing: "-0.015em" }],
-        "display-md": ["clamp(2.1rem, 3.5vw, 2.9rem)", { lineHeight: "1.02", letterSpacing: "-0.012em" }],
+        //
+        // §Pascal-2026-08-08: whole ramp scaled DOWN to 0.8x, mobile min +
+        // vw slope + desktop max alike ("I'd actually decrease the size of h1
+        // and h2 for desktop and mobile. It's just way too big. Not just on
+        // this page, but on thebfrpros.com too"). Applied as one uniform
+        // multiplier rather than per-tier edits so every ratio in the ramp is
+        // preserved and no tier can invert against its neighbour at any
+        // viewport. Desktop max: 3xl 108->86px, 2xl 104->83px, xl 80->64px,
+        // lg 62->50px, md 46->37px. Line-heights and tracking unchanged.
+        // §Pascal-2026-08-08 (revision): desktop H1 down a further ~10%. Only
+        // the vw slope and the max were cut; both mins are untouched, so
+        // mobile H1 stays where it is (below ~850px the clamp sits on its min
+        // anyway). display-2xl comes down with 3xl not for its own sake but
+        // because it doubles as the desktop H2 on dark final-CTA blocks, and
+        // leaving it at 6.3vw would have rendered that H2 LARGER than the H1.
+        "display-3xl": ["clamp(3.2rem, 6vw, 4.85rem)", { lineHeight: "0.92", letterSpacing: "-0.02em" }],
+        "display-2xl": ["clamp(3.1rem, 5.65vw, 4.68rem)", { lineHeight: "0.94", letterSpacing: "-0.02em" }],
+        "display-xl": ["clamp(2.5rem, 5vw, 4rem)", { lineHeight: "0.96", letterSpacing: "-0.018em" }],
+        "display-lg": ["clamp(2.05rem, 3.6vw, 3.1rem)", { lineHeight: "0.98", letterSpacing: "-0.015em" }],
+        "display-md": ["clamp(1.7rem, 2.8vw, 2.3rem)", { lineHeight: "1.02", letterSpacing: "-0.012em" }],
+        // Desktop value. The responsive 0.8rem/1rem pair lives on .eyebrow in
+        // globals.css; this token is the `text-eyebrow` utility (unused today).
         eyebrow: ["1rem", { lineHeight: "1.2", letterSpacing: "0.18em" }],
       },
       maxWidth: {

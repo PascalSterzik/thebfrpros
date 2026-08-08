@@ -47,13 +47,18 @@
     }
   }
 
+  /* §Pascal-2026-08-08: 22/28px → 20/25px, following the headline ramp down.
+     This is close to the floor: body above is Pascal-locked at 20/24px, so the
+     subhead cannot go further without rendering SMALLER than ordinary body
+     copy. On mobile it now matches body exactly and reads as the lead
+     paragraph by position and colour rather than by size. */
   .subhead {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.4;
   }
   @media (min-width: 1024px) {
     .subhead {
-      font-size: 28px;
+      font-size: 25px;
     }
   }
 
@@ -109,11 +114,15 @@
 
   /* §Pascal-2026-05-08 v10: eyebrow label sits above every section H2.
      Bumped from 0.78rem → 1rem so it reads at a readable scale alongside
-     the bigger H1/H2 type. */
+     the bigger H1/H2 type.
+     §Pascal-2026-08-08: back down to 0.8rem. That v10 bump existed to keep
+     pace with the H1/H2 bump, and the display ramp was just scaled to 0.8x,
+     so the eyebrow follows it down by the same factor. Keep in sync with
+     .eyebrow-pill and the `eyebrow` fontSize token in tailwind.config.ts. */
   .eyebrow {
     @apply font-body uppercase font-semibold;
     letter-spacing: 0.18em;
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1.2;
     color: var(--color-accent);
   }
@@ -284,9 +293,13 @@
     border-color: rgba(25, 55, 99, 0.18);
   }
 
+  /* §Pascal-2026-08-08: 0.95rem → 0.76rem, the same 0.8x as .eyebrow. Not a
+     separate design call: this micro-label sat just under .eyebrow (15.2 vs
+     16px), so shrinking only the eyebrow would have made every card role
+     label and trust-bar kicker LARGER than the section eyebrow above it. */
   .small-caps-line {
     @apply font-body uppercase font-semibold;
-    font-size: 0.95rem;
+    font-size: 0.76rem;
     letter-spacing: 0.16em;
   }
 
@@ -365,7 +378,9 @@ body.menu-open {
 /* Eyebrow pill: rounded background lozenge for the hero eyebrow per §D.3.
    §Pascal-2026-05-08 v10: scaled to match .eyebrow (1rem) so the hero eyebrow
    reads at the same authority as every other section's eyebrow. The pill
-   chrome is the only visual difference, font scale stays in sync. */
+   chrome is the only visual difference, font scale stays in sync.
+   §Pascal-2026-08-08: 1rem → 0.8rem, tracking .eyebrow down. Padding is in em
+   so the lozenge shrinks with the text on its own. */
 .eyebrow-pill {
   display: inline-flex;
   align-items: center;
@@ -377,10 +392,31 @@ body.menu-open {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1.2;
 }
 .eyebrow-pill-on-navy {
   background: rgba(255, 255, 255, 0.10);
   color: var(--color-white);
+}
+
+/* §Pascal-2026-08-08 (revision): "on desktop the eyebrow size was good", so
+   the 0.8x cut earlier today applies to MOBILE only. These labels are now
+   responsive the way body type already is (20/24px), returning to their
+   original sizes from lg up. .small-caps-line rides along because its whole
+   reason for shrinking was to stay under .eyebrow.
+   Two mechanics worth not re-deriving later: this block is unlayered and last
+   in the file so it beats both the @layer components .eyebrow rule and the
+   unlayered .eyebrow-pill above; and .eyebrow-light is named explicitly
+   because its `@apply eyebrow` copies declarations, never media queries. */
+@media (min-width: 1024px) {
+  .eyebrow,
+  .eyebrow-light,
+  .eyebrow-pill {
+    font-size: 1rem;
+  }
+
+  .small-caps-line {
+    font-size: 0.95rem;
+  }
 }
