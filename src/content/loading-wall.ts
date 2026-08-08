@@ -20,15 +20,41 @@ export const LOADING_WALL = {
 
   header: {
     logoAlt: "The BFR Pros",
+    // §Pascal-2026-08-08: the sticky header was already 60px of every screen
+    // holding nothing but a logo. Short label so it clears the logo at 375px.
+    cta: "GET THE GUIDE",
+  },
+
+  // Opens from any CTA below the hero. Heading stays this short on purpose:
+  // the two fields and the button say the rest.
+  modal: {
+    heading: "Where should we send it?",
+    cta: "SEND ME THE FREE GUIDE",
+    microcopy: "Free instant download. No spam. Unsubscribe anytime.",
   },
 
   hero: {
-    eyebrow:
-      "ATTENTION: PHYSICAL THERAPISTS, ATHLETIC TRAINERS & S&C COACHES WHO ARE TIRED OF WATCHING POST-OP PATIENTS PLATEAU",
+    // §Pascal-2026-08-08: eyebrow shortened twice over. (1) Job titles use the
+    // homepage's abbreviations ("PTs, ATs, and S&C coaches", home.ts HOME_HERO)
+    // instead of spelling them out. (2) The pain clause ("who are tired of
+    // watching post-op patients plateau") was cut: the headline 20px below it
+    // already carries that exact pain, so on this page the clause is repetition,
+    // not reinforcement. Source string is sentence case like the rest of the
+    // site; the eyebrow class uppercases it, same as the homepage pill.
+    eyebrow: "Attention: PTs, ATs, and S&C coaches",
     headline:
       "5 Evidence-Based Ways To Rebuild Post-Op Strength When You Can't Load Them Heavy Yet",
+    // §Pascal-2026-08-08: `highlight` fields feed <Highlighted>, the site's
+    // red-wash marker. Each phrase must appear VERBATIM in its heading string
+    // (exact case, straight apostrophes) or the component silently renders the
+    // heading plain. Change a heading, re-check its highlight.
+    highlight: "Rebuild Post-Op Strength",
+    // §Pascal-2026-08-08: dropped the closing "Enter your email below and we'll
+    // send The Loading Wall straight to your inbox" (the form and the
+    // "SEND ME THE FREE GUIDE" button already say it) and swapped the colon for
+    // ", you'll discover".
     subhead:
-      "Inside this free 23-page guide: what the research on low-load training reveals about the recovery gap most clinicians were never taught to close, and the modality that closes it. Enter your email below and we'll send The Loading Wall straight to your inbox.",
+      "Inside this free 23-page guide, you'll discover what the research on low-load training reveals about the recovery gap most clinicians were never taught to close, and the modality that closes it.",
     cta: "SEND ME THE FREE GUIDE",
     microcopy: "Free instant download. No spam. Unsubscribe anytime.",
   },
@@ -40,6 +66,7 @@ export const LOADING_WALL = {
     ],
     introLine:
       "Download your free copy of the guide Dr. Nicholas Rolnick wrote for clinicians who are done waiting:",
+    cta: "SEND ME THE FREE GUIDE",
   },
 
   report: {
@@ -48,6 +75,7 @@ export const LOADING_WALL = {
     coverSrc: "/images/loading-wall/cover.png",
     coverAlt: "The Loading Wall guide cover",
     bulletsIntro: "In this free guide, you'll discover:",
+    bulletsIntroHighlight: "you'll discover",
     bullets: [
       {
         strong:
@@ -83,10 +111,12 @@ export const LOADING_WALL = {
       "The Loading Wall was written by Dr. Nicholas Rolnick, PT, DPT, MS, CSCS, founder of The BFR Pros and author of 74 peer-reviewed publications on blood flow restriction and low-load training. He is a practicing physical therapist in Manhattan, an Adjunct Assistant Professor of Physical Therapy at New York Medical College, and a Topic Editor for the journals Frontiers in Physiology and Frontiers in Sports and Active Living. More than 1,467 clinicians have trained in BFR with him, and his certification holds a 4.8-star rating across 767+ reviews.",
     authorImageSrc: "/images/instructors/rolnick-large.jpg",
     authorImageAlt: "Dr. Nicholas Rolnick, PT, DPT, MS, CSCS, founder of The BFR Pros",
+    cta: "SEND ME THE FREE GUIDE",
   },
 
   testimonials: {
     heading: "What Practitioners Are Saying",
+    highlight: "Practitioners",
     // Verbatim from the 767-response student survey (Rehab Professionals who
     // scored the program 9-10). Results / practical-value language only, no
     // course-mechanics praise, per the awareness-stage proof rule.
@@ -131,8 +161,12 @@ export const LOADING_WALL = {
 
   finalCta: {
     heading: "Get Instant Access To The Loading Wall",
+    highlight: "Instant Access",
     body: [
-      "Enter your name and email below. We'll send The Loading Wall straight to your inbox, and you'll have it in under 60 seconds, in time to put the first technique to work with your next post-op patient.",
+      // §Pascal-2026-08-08: opening sentence "Enter your name and email below."
+      // was cut when this block's inline form became a button. There are no
+      // fields below it any more, and the button already makes the ask.
+      "We'll send The Loading Wall straight to your inbox, and you'll have it in under 60 seconds, in time to put the first technique to work with your next post-op patient.",
       "There is no countdown timer on this page and no pressure to buy anything. But the post-op patient on your caseload right now is losing strength this week, in a window that does not reopen. The sooner you read this, the sooner that stops.",
     ],
     cta: "YES, SEND ME THE FREE GUIDE",

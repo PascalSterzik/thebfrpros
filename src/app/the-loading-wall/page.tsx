@@ -4,6 +4,9 @@ import Image from "next/image";
 import LoadingWallHeader from "@/components/sections/loading-wall/LoadingWallHeader";
 import LoadingWallFooter from "@/components/sections/loading-wall/LoadingWallFooter";
 import OptInForm from "@/components/sections/loading-wall/OptInForm";
+import OptInTrigger from "@/components/sections/loading-wall/OptInTrigger";
+import { OPT_IN_ANCHOR, OPT_IN_SOURCES } from "@/components/sections/loading-wall/optInHash";
+import Highlighted from "@/components/shared/Highlighted";
 import { LOADING_WALL } from "@/content/loading-wall";
 
 // /the-loading-wall - single-purpose opt-in (squeeze) page for the free lead
@@ -14,6 +17,21 @@ import { LOADING_WALL } from "@/content/loading-wall";
 // conversion = the email -> MailerLite group -> guide. Copy is VERBATIM from
 // content/loading-wall.ts (the locked copy doc, headline Option A); this file
 // only lays it out.
+//
+// §Pascal-2026-08-08: the 2026-06-29 decision above still governs STRUCTURE
+// (no nav, white surface, centered, form above the fold). It does NOT govern
+// the visual system. Pascal: the page "looks like a template ... doesn't look
+// on brand". So the site's type scale, eyebrow pill and <Highlighted> red-wash
+// marker are now applied on top of the Suby structure: hero H1 at the site
+// hero scale (display-2xl/3xl), section H2s at the site section scale
+// (display-xl), and four highlighted phrases Pascal picked by hand.
+//
+// §Pascal-2026-08-08 (later, same day): ONE form on the page, in the hero.
+// Every other CTA (sticky header, after the hook, after the report, final CTA)
+// is a plain anchor that scrolls to it. A modal version was built first and
+// then dropped, Pascal: "if we keep the form on the page, we don't need the
+// pop-up". OptInModal.tsx is left in the tree unmounted, same convention as
+// StickyCTABar.tsx, so it can come back with a one-line restore.
 //
 // SEO: robots noindex, follow (paid/owned-traffic LP, not an SEO asset).
 // Excluded from src/app/sitemap.ts and never added to SITE_MENU_LINKS.
@@ -65,22 +83,29 @@ export default function LoadingWallPage() {
 
   return (
     <>
-      <LoadingWallHeader logoAlt={header.logoAlt} />
+      <LoadingWallHeader logoAlt={header.logoAlt} cta={header.cta} />
 
       <main id="main" className="bg-white">
         {/* ABOVE THE FOLD - eyebrow / headline / subhead / form, centered on white */}
         <section className="border-b border-line">
           <div className="container-narrow pt-10 pb-12 lg:pt-12 lg:pb-16">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-[0.8rem] font-semibold uppercase leading-snug tracking-[0.1em] text-accent sm:text-sm">
-                {hero.eyebrow}
-              </p>
+              <span className="eyebrow-pill">{hero.eyebrow}</span>
 
-              <h1 className="mt-5 text-display-md lg:text-display-lg text-balance">
-                {hero.headline}
+              <h1 className="mt-6 font-display text-display-2xl lg:text-display-3xl text-balance">
+                <Highlighted text={hero.headline} phrase={hero.highlight} />
               </h1>
 
               <p className="subhead mt-5 mx-auto max-w-2xl text-muted">{hero.subhead}</p>
+
+              {/* Zero-height jump targets, one per CTA below. They all land on
+                  the form, but each leaves its own hash so OptInForm can tell
+                  which button sent the visitor. scroll-mt clears the 60px
+                  sticky header, which would otherwise cover the form on
+                  arrival. */}
+              {OPT_IN_SOURCES.map((s) => (
+                <span key={s} id={`${OPT_IN_ANCHOR}-${s}`} className="block scroll-mt-20" />
+              ))}
 
               <div className="mt-8 mx-auto w-full max-w-xl rounded-lg border border-line bg-white p-6 shadow-navy-lg sm:p-8">
                 <OptInForm
@@ -103,6 +128,12 @@ export default function LoadingWallPage() {
                   {p}
                 </p>
               ))}
+
+              {/* First CTA after the hero. The hook closes on "the method that
+                  is", so the ask lands while the reader is still in the pain. */}
+              <div className="pt-3">
+                <OptInTrigger label={hook.cta} source="hook" />
+              </div>
             </div>
           </div>
         </section>
@@ -132,8 +163,12 @@ export default function LoadingWallPage() {
               </div>
 
               <div>
-                <p className="font-display text-2xl uppercase tracking-[-0.01em] text-navy lg:text-3xl">
-                  {report.bulletsIntro}
+                {/* Sized display-md/lg rather than the display-xl section
+                    scale: this heading sits in the right column of a two-column
+                    grid beside the 340px cover, so the full section scale would
+                    crowd it. */}
+                <p className="font-display uppercase text-display-md lg:text-display-lg text-navy">
+                  <Highlighted text={report.bulletsIntro} phrase={report.bulletsIntroHighlight} />
                 </p>
                 <ul className="mt-6 space-y-4">
                   {report.bullets.map((b, i) => (
@@ -162,6 +197,12 @@ export default function LoadingWallPage() {
                   {report.credibility}
                 </p>
               </div>
+
+              {/* Second CTA. The reader has now seen what is inside the guide
+                  and who wrote it, which is the peak of this section. */}
+              <div className="mt-8 text-center">
+                <OptInTrigger label={report.cta} source="report" />
+              </div>
             </div>
           </div>
         </section>
@@ -169,7 +210,9 @@ export default function LoadingWallPage() {
         {/* TESTIMONIAL PANEL */}
         <section className="py-14 lg:py-20">
           <div className="container-rail">
-            <h2 className="text-center text-display-md text-balance">{testimonials.heading}</h2>
+            <h2 className="text-center font-display text-display-xl text-balance">
+              <Highlighted text={testimonials.heading} phrase={testimonials.highlight} />
+            </h2>
             <div className="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-3">
               {testimonials.items.map((t) => (
                 <figure
@@ -205,11 +248,13 @@ export default function LoadingWallPage() {
           </div>
         </section>
 
-        {/* FINAL CTA - second opt-in form */}
+        {/* FINAL CTA - button into the modal (was a second inline form) */}
         <section className="border-t border-line py-14 lg:py-20">
           <div className="container-narrow">
             <div className="mx-auto max-w-2xl">
-              <h2 className="text-center text-display-md lg:text-display-lg text-balance">{finalCta.heading}</h2>
+              <h2 className="text-center font-display text-display-xl text-balance">
+                <Highlighted text={finalCta.heading} phrase={finalCta.highlight} />
+              </h2>
               <div className="mt-6 space-y-4 text-left">
                 {finalCta.body.map((p, i) => (
                   <p key={i} className="text-lg leading-relaxed text-ink/90">
@@ -218,13 +263,12 @@ export default function LoadingWallPage() {
                 ))}
               </div>
 
-              <div className="mt-9 mx-auto w-full max-w-xl rounded-lg border border-line bg-white p-6 shadow-navy-lg sm:p-8">
-                <OptInForm
-                  idPrefix="final"
-                  cta={finalCta.cta}
-                  microcopy={finalCta.microcopy}
-                  location="loading-wall-final-cta"
-                />
+              {/* §Pascal-2026-08-08: was a second copy of the 224px form
+                  block. Now a button into the modal, so the page carries one
+                  form, not two. */}
+              <div className="mt-9 text-center">
+                <OptInTrigger label={finalCta.cta} source="final-cta" />
+                <p className="mt-4 text-xs leading-relaxed text-muted">{finalCta.microcopy}</p>
               </div>
             </div>
           </div>
@@ -236,6 +280,7 @@ export default function LoadingWallPage() {
         privacyLabel={footer.privacyLabel}
         privacyHref={footer.privacyHref}
       />
+
     </>
   );
 }

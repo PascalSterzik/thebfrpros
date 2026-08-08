@@ -8,6 +8,13 @@ import { NextResponse } from "next/server";
 // Env (server-side only, never shipped to the client bundle):
 //   MAILERLITE_API_KEY                 - account API token (Bearer)
 //   MAILERLITE_LOADING_WALL_GROUP_ID   - the "The Loading Wall" group id
+//   MAILERLITE_PROFESSION_FIELD_KEY    - optional, only if the profession
+//                                        custom field is not keyed `profession`
+//
+// §Pascal-2026-08-08: now takes firstName / lastName / profession instead of a
+// single `name`, matching /api/newsletter so both opt-ins write the same shape.
+// The profession custom field must EXIST in MailerLite; the API silently drops
+// unknown field keys, so a missing field looks like a success and loses data.
 // If either is missing the route returns a clean 500 (no crash); the page
 // shows an inline retry message. Session C wires the env vars + live test.
 //
@@ -24,6 +31,11 @@ export const dynamic = "force-dynamic";
 
 const MAILERLITE_ENDPOINT = "https://connect.mailerlite.com/api/subscribers";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Custom field key on the MailerLite side. Override with
+// MAILERLITE_PROFESSION_FIELD_KEY if the real key differs (MailerLite slugifies
+// field names, e.g. a "Zip" field ends up keyed `z_i_p`). Same env var and
+// default as /api/newsletter, which writes the same column.
+const DEFAULT_PROFESSION_FIELD = "profession";
 
 function clamp(value: unknown, max = 320): string {
   if (value === undefined || value === null) return "";
@@ -48,7 +60,9 @@ export async function POST(req: Request) {
   }
 
   const email = clamp(payload.email).toLowerCase();
-  const name = clamp(payload.name, 200);
+  const firstName = clamp(payload.firstName, 200);
+  const lastName = clamp(payload.lastName, 200);
+  const profession = clamp(payload.profession, 200);
   if (!EMAIL_RE.test(email)) {
     return NextResponse.json({ ok: false, error: "invalid_email" }, { status: 400 });
   }
@@ -60,6 +74,16 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "not_configured" }, { status: 500 });
   }
 
+  // Only send fields we actually have. Sending an empty string would overwrite
+  // a value an existing subscriber already has (e.g. from the newsletter form
+  // or the Teachable import). Same rule as /api/newsletter.
+  const professionField =
+    process.env.MAILERLITE_PROFESSION_FIELD_KEY || DEFAULT_PROFESSION_FIELD;
+  const fields: Record<string, string> = {};
+  if (firstName) fields.name = firstName;
+  if (lastName) fields.last_name = lastName;
+  if (profession) fields[professionField] = profession;
+
   try {
     const res = await fetch(MAILERLITE_ENDPOINT, {
       method: "POST",
@@ -70,7 +94,7 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         email,
-        fields: name ? { name } : {},
+        fields,
         groups: [groupId],
       }),
     });
