@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { sendGAEvent } from "@next/third-parties/google";
+import { OTHER, PROFESSIONS, resolveProfession } from "@/lib/professions";
 
 // Sitewide newsletter opt-in, rendered inside the shared Footer.
 //
@@ -19,27 +20,12 @@ import { sendGAEvent } from "@next/third-parties/google";
 // hostile, so the form swaps in place for a confirmation line. Leaving the
 // emptied form on screen instead would invite double submits.
 //
-// Fields are first name, last name, email, profession (Nick's ask). Profession
-// is a SELECT, not free text: the 767-response intro-course survey stored it as
-// a 2-option select (Rehab 94% / Fitness 6%), which is too coarse to segment on
-// (682 people in one bucket is the list, not a segment). Free text would return
-// "PT" / "Physical Therapist" / "physio" / "DPT" and segment even worse. The
-// option list is grounded in that survey plus brand-guide Target Audience;
-// "Other" reveals a text input so the tail is captured without guessing, and
-// after a few months the Other answers say which option to promote.
+// Fields are first name, last name, email, profession (Nick's ask). The option
+// list and the reasoning for a SELECT over free text now live in
+// @/lib/professions, shared with the /the-loading-wall opt-in so the two lists
+// cannot drift apart.
 
 type Status = "idle" | "sending" | "done" | "error";
-
-const OTHER = "Other";
-
-// Nick-approved 2026-07-30. Changing these after launch fragments the data.
-const PROFESSIONS = [
-  "Physical Therapist / PTA",
-  "Athletic Trainer",
-  "Strength & Conditioning / Personal Trainer",
-  "Student",
-  OTHER,
-] as const;
 
 // Inputs sit on the navy footer, so they carry explicit light-surface colors.
 // The native <select> option list inherits the OS menu surface, not this
@@ -63,10 +49,7 @@ export default function NewsletterForm() {
     if (company) return; // honeypot tripped: pretend nothing happened
     if (!email) return;
 
-    // Send what they typed rather than the literal "Other", so the MailerLite
-    // column always holds a real profession.
-    const resolvedProfession =
-      profession === OTHER ? professionOther.trim() || OTHER : profession;
+    const resolvedProfession = resolveProfession(profession, professionOther);
 
     setStatus("sending");
     try {
