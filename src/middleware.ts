@@ -72,6 +72,11 @@ const REDIRECTS: Record<string, string> = {
   "/for-companies": "/train-your-team",
   "/home-1": "/",
   "/about-us2": "/about",
+
+  // 2026-08: still-404 after the July fix (GSC recrawl). Plural typo of /faq
+  // and an old mission page.
+  "/faqs": "/faq",
+  "/mission-vision": "/about",
 };
 
 export function middleware(request: NextRequest) {
@@ -151,6 +156,8 @@ export const config = {
     "/for-companies",
     "/home-1",
     "/about-us2",
+    "/faqs",
+    "/mission-vision",
     "/bfr-blog",
     "/bfr-blog/:path*",
     "/the-bfr-pros-store",
