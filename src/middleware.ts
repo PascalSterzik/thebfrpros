@@ -77,6 +77,23 @@ const REDIRECTS: Record<string, string> = {
   // and an old mission page.
   "/faqs": "/faq",
   "/mission-vision": "/about",
+
+  // 2026-09-24: the last live 404s in GSC ("Not found (404)" + "Crawled -
+  // currently not indexed") and the old-site URLs visitors still hit in the
+  // July GA 404 report. Every target confirmed by matching page title.
+  // /podcast-appearances listed Nick's guest spots on other shows -> press.
+  // /bfr-blog/bfr- is a truncated link Google keeps recrawling.
+  // /cdn-cgi/l/email-protection is the old site's obfuscated email link.
+  "/podcast-appearances": "/press",
+  "/book-a-speaking-engagement": "/contact",
+  "/terms-conditions": "/terms",
+  "/about-nick": "/about/nicholas-rolnick",
+  "/nick-licameli": "/about/nicholas-licameli",
+  "/a-one-two-punch-for-bfr-and-tendinopathy-part-1": "/blog/bfr-and-tendinopathy-part-1",
+  "/another-bfr-success-story-chris-hemsworth-revisited": "/blog/success-story-chris-hemsworth-revisited",
+  "/another-bfr-success-story-being-a-grandfather": "/blog/success-story-grandfather",
+  "/bfr-blog/bfr-": "/blog",
+  "/cdn-cgi/l/email-protection": "/contact",
 };
 
 export function middleware(request: NextRequest) {
@@ -106,11 +123,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
-  // Discontinued store -> homepage (all /the-bfr-pros-store and /product-page).
+  // Discontinued store -> homepage (all /the-bfr-pros-store and /product-page,
+  // plus the older WooCommerce store's products, tags, categories and cart).
   if (
     pathname === "/the-bfr-pros-store" ||
     pathname.startsWith("/the-bfr-pros-store/") ||
-    pathname.startsWith("/product-page/")
+    pathname.startsWith("/product-page/") ||
+    pathname === "/cart" ||
+    pathname === "/sport-grips" ||
+    pathname.startsWith("/product/") ||
+    pathname.startsWith("/product-tag/") ||
+    pathname.startsWith("/product-category/")
   ) {
     url.pathname = "/";
     return NextResponse.redirect(url, 301);
@@ -158,6 +181,20 @@ export const config = {
     "/about-us2",
     "/faqs",
     "/mission-vision",
+    "/podcast-appearances",
+    "/book-a-speaking-engagement",
+    "/terms-conditions",
+    "/about-nick",
+    "/nick-licameli",
+    "/a-one-two-punch-for-bfr-and-tendinopathy-part-1",
+    "/another-bfr-success-story-chris-hemsworth-revisited",
+    "/another-bfr-success-story-being-a-grandfather",
+    "/cdn-cgi/l/email-protection",
+    "/cart",
+    "/sport-grips",
+    "/product/:path*",
+    "/product-tag/:path*",
+    "/product-category/:path*",
     "/bfr-blog",
     "/bfr-blog/:path*",
     "/the-bfr-pros-store",
