@@ -158,8 +158,8 @@ export const SITE = {
 } as const;
 
 export const STATS = {
-  publications: "74",
-  publicationsExact: 74,
+  publications: "80",
+  publicationsExact: 80,
   ceus: "11.75",
   ceusExact: 11.75,
   modules: "37",
@@ -171,7 +171,7 @@ export const STATS = {
   practitionersExact: 1467,
   refundsToDate: 1,
   mediaOutlets: "14",
-  yearsInClinic: "10",
+  yearsInClinic: "9",
   socialFollowers: "42K+",
 } as const;
 
@@ -202,12 +202,14 @@ export const ROLNICK = {
     { name: "American University", role: "MS, Health Promotion Management (2014)" },
     { name: "Franklin & Marshall College", role: "BA, Biology (2010)" },
   ],
-  // Active university appointment (Lehman 2019-2025 and Concordia 2017-2021 are now past;
-  // see brand-guide.md Source-of-Truth for Rolnick Claims and Research/rolnick-cv-facts.md).
+  // Current affiliations only. This array feeds the JSON-LD `affiliation` property, so it
+  // must not imply a current university appointment. Per the Oct 2026 CV there is none:
+  // New York Medical College (Adjunct Assistant Professor of PT, Jul 2021 – Jul 2025),
+  // Lehman College (Aug 2019 – Jul 2025) and Concordia (Jan 2017 – Jul 2021) have all ended.
+  // The past-tense credentials live in content/about.ts (ROLNICK_CREDENTIALS).
   affiliations: [
-    "Adjunct Assistant Professor of Physical Therapy, New York Medical College (Valhalla, NY, since Jul 2021)",
-    "Topic Editor, Frontiers in Physiology and Frontiers in Sports and Active Living (Volumes I + II, 2024 – 2026)",
-    "Peer reviewer for 26 journals",
+    "Topic Editor, Frontiers in Physiology and Frontiers in Sports and Active Living (Volumes I, II, and III, 2024 – 2027)",
+    "Peer reviewer for 31 journals",
     "NASM Chapter 12 author (Warm-up, Recovery, Injury Prevention)",
     "Founder of The BFR Pros, LLC (since June 2018)",
   ],
@@ -240,6 +242,17 @@ export const ROLNICK = {
 // Current logo coverage: 18 of 18 entries.
 // Current URL coverage: 14 of 18 entries (still missing: NY Post, both
 // WELL+GOOD entries, Scarsdale Inquirer).
+//
+// 2026-10 update (CV, Oct 2026): added 8 entries from the CV MEDIA FEATURES
+// section (4 print features from Jul-Sep 2026, The NonClinical PT 2018, and
+// BronxNet, WDHA-FM, Q104.3 radio/TV from 2022). 26 entries total. The new
+// Eat This, Not That! entry reuses the existing logo. The other 7 have NO logo
+// file on disk (logoSrc: null, so the cards show the outlet name as text)
+// and NO article URL on file (url: null, so the cards render without the
+// Read-article CTA). Add logo files to /public/images/featured/ and URLs when
+// Pascal supplies them. Video interviews in the CV (FreshLearn, Kinesport
+// France, Physiotutors) are not here: they belong in ROLNICK_INTERVIEWS, which
+// needs a YouTube id for each.
 export type RolnickMediaEntry = {
   outlet: string;
   headline: string;
@@ -249,6 +262,10 @@ export type RolnickMediaEntry = {
 };
 
 export const ROLNICK_PERSONAL_MEDIA: ReadonlyArray<RolnickMediaEntry> = [
+  { outlet: "Eat This, Not That!", headline: "4 Morning Exercises That Restore Neck Strength Faster Than Massage After 55", date: "Sep 16, 2026", logoSrc: "/images/featured/eat-this-not-that.jpg", url: null },
+  { outlet: "Men's Journal", headline: "Physical Therapist Shares 6 Moves Men Over 50 Need to Prevent Falls and Build Reaction Power", date: "Sep 11, 2026", logoSrc: null, url: null },
+  { outlet: "EatingWell", headline: "Physical Therapists Wish You'd Stop Making These 5 Exercise Mistakes", date: "Aug 9, 2026", logoSrc: null, url: null },
+  { outlet: "Fit&Well", headline: "Crunches Can Be a Pain in the Neck! A Physical Therapist and Neck Pain Specialist Recommends Three Core-Strengthening Alternatives", date: "Jul 10, 2026", logoSrc: null, url: null },
   { outlet: "New York Post", headline: "Use the talk test to lower your risk of having a heart attack like Hulk Hogan", date: "Aug 9, 2025", logoSrc: "/images/featured/ny-post.png", url: null },
   { outlet: "CNN Life But Better", headline: "Increase your chances of living longer with 14 gym-free ways to sneak more movement in your day", date: "Jul 31, 2025", logoSrc: "/images/featured/cnn.png", url: "https://edition.cnn.com/2025/07/31/health/ways-to-move-more-exercise-wellness" },
   { outlet: "Men's Health", headline: "What Blood Flow Restriction Training Can Do for Your Workouts", date: "Apr 9, 2025", logoSrc: "/images/featured/mens-health.jpg", url: "https://www.menshealth.com/fitness/a27285291/blood-flow-restriction-training/" },
@@ -258,6 +275,9 @@ export const ROLNICK_PERSONAL_MEDIA: ReadonlyArray<RolnickMediaEntry> = [
   { outlet: "The Scarsdale Inquirer", headline: "Scarsdale Grad Rolnick Thrives As Physical Therapist", date: "Aug 12, 2022", logoSrc: "/images/featured/scarsdale-inquirer.png", url: null },
   { outlet: "WESTFAIROnline", headline: "A Physical Therapist's Antidote to Anxiety", date: "Aug 9, 2022", logoSrc: "/images/featured/westfair.webp", url: "https://westfaironline.com/health-care/a-physical-therapists-antidote-to-anxiety/" },
   { outlet: "FOX 32 Chicago", headline: "Blood Flow Restriction Training Gaining Steam In Fitness Community", date: "Jul 29, 2022", logoSrc: "/images/featured/fox-32-chicago.png", url: "https://www.fox32chicago.com/video/1098800" },
+  { outlet: "BronxNet Public Media", headline: "Sports Roundup with Bobby C", date: "Jul 25, 2022", logoSrc: null, url: null },
+  { outlet: "WDHA-FM", headline: "Jersey Magazine", date: "Jul 24, 2022", logoSrc: null, url: null },
+  { outlet: "Q104.3 New York (iHeartRadio)", headline: "Benefits of Weight Lifting Without Lifting Weights", date: "Jul 17, 2022", logoSrc: null, url: null },
   { outlet: "CNET", headline: "Blood Flow Restriction Training Gets You Stronger Without the Heavy Weights", date: "Jun 8, 2022", logoSrc: "/images/featured/cnet.jpg", url: "https://www.cnet.com/health/fitness/get-stronger-with-blood-flow-restriction-training/" },
   { outlet: "Eat This, Not That!", headline: "10 Ways to Burn More Calories During Every Walk", date: "Nov 4, 2021", logoSrc: "/images/featured/eat-this-not-that.jpg", url: "https://www.eatthis.com/news-burn-more-calories-walking/" },
   { outlet: "Vitamin Shop WHAT'S GOOD", headline: "6 Ways To Support And Strengthen Your Knees", date: "Oct 27, 2021", logoSrc: "/images/featured/whats-good.webp", url: "https://whatsgood.vitaminshoppe.com/ways-to-strengthen-your-knees/" },
@@ -267,6 +287,7 @@ export const ROLNICK_PERSONAL_MEDIA: ReadonlyArray<RolnickMediaEntry> = [
   { outlet: "Movement Guides", headline: "The Top 5 Strength and Conditioning Coach Instagram Accounts to Follow", date: "Jan 1, 2021", logoSrc: "/images/featured/movement-guides.webp", url: "https://movementguides.com/top-5-strength-coach-instagram-accounts-to-follow-2021/" },
   { outlet: "WebPT", headline: "12 Physical Therapists to Watch in 2021", date: "Dec 31, 2020", logoSrc: "/images/featured/webpt.jpg", url: "https://www.webpt.com/blog/12-physical-therapists-to-watch-in-2021" },
   { outlet: "WELL + GOOD", headline: "Thanks to Blood Flow Restriction Training, Injuries No Longer Have to Cramp Your Workout Progress", date: "Feb 27, 2020", logoSrc: "/images/featured/well-good.jpg", url: null },
+  { outlet: "The NonClinical PT", headline: "Spotlight: The Human Performance Mechanic, Nicholas Rolnick", date: "Apr 15, 2018", logoSrc: null, url: null },
 ] as const;
 
 export const LICAMELI = {
@@ -297,8 +318,8 @@ export const CEU_COURSE_APPROVALS = [
   {
     body: "New Jersey State PT Board",
     audience: "Physical Therapists",
-    detail: "Approved through January 31, 2026",
-    note: "Approval IDs: 2207-114 (5.5 PT CEUs), 2206-14 (2.25), 2210-53 (2)",
+    detail: "Approved through January 31, 2028, for 2 of the 4 courses",
+    note: "Introduction to BFR Training: 5 PT CEUs (approval 2602-92). BFR Masters Series Clinical Rounds: 2.25 PT CEUs (approval 2602-93)",
     logoSrc: null,
   },
 ] as const;
@@ -331,7 +352,7 @@ export const CEU_APPROVALS = [
   { body: "Board of Certification (BOC)", detail: "Approved Provider AP# P10226", hasLogo: true, logoSrc: "/images/badges/boc-approved.png" },
   { body: "American Physical Therapy Association", detail: "BFR within PT scope of practice", hasLogo: false },
   { body: "New York State PT Board", detail: "Approved through December 11, 2027", hasLogo: true, logoSrc: "/images/badges/apta-ny.png" },
-  { body: "New Jersey PT Board", detail: "Approved through January 31, 2026", hasLogo: false },
+  { body: "New Jersey PT Board", detail: "Approved through January 31, 2028 (2 of 4 courses)", hasLogo: false },
   { body: "National Athletic Trainers Association", detail: "BFR approved for ATs", hasLogo: false },
 ] as const;
 
@@ -449,7 +470,7 @@ export const ROLNICK_PUBLICATIONS = [
 // RTL marquee. Each card: journal name + Rolnick publication-count badge +
 // short note + outbound link to a Rolnick article in that journal. Counts
 // are conservative anchors based on the CV (Research/rolnick-cv-facts.md)
-// — the full 74 trail extends across many more journals; these six are
+// — the full 80 trail extends across many more journals; these six are
 // the heaviest-load anchors.
 export const ROLNICK_JOURNAL_CARDS = [
   {
@@ -472,8 +493,8 @@ export const ROLNICK_JOURNAL_CARDS = [
   },
   {
     name: "British Journal of Sports Medicine",
-    count: "2",
-    note: "Co-first author on the BFR methods and apparatus position paper (2025)",
+    count: "4",
+    note: "Co-first author on the BFR methods and apparatus paper (2025) and a 2026 systematic review and meta-analysis",
     href: "https://bjsm.bmj.com/content/early/2025/02/07/bjsports-2024-109365",
   },
   {
@@ -500,26 +521,36 @@ export const ROLNICK_TOPIC_EDITOR = {
   volumes: [
     { label: "Volume I", years: "2024 – 2025" },
     { label: "Volume II", years: "2025 – 2026" },
+    { label: "Volume III", years: "2026 – 2027" },
   ],
   alsoCommunityReviewer:
     "Community Reviewer (Editor), Rehabilitation for Musculoskeletal Conditions and Interventions for Rehabilitation, Frontiers in Sports and Active Living (2025)",
 } as const;
 
-// Phase 2b (2026-05-13): 26 named journals where Dr. Rolnick serves as peer
-// reviewer. Order roughly mirrors the CV § PEER REVIEWER block, newest tier
-// first. Verified against Research/rolnick-cv-facts.md.
+// Phase 2b (2026-05-13): named journals where Dr. Rolnick serves as peer
+// reviewer. 2026-10 CV update: 31 journals (the CV lists 31 entries; its profile
+// text says "more than 30"). Order mirrors the CV § PEER REVIEWER block, newest
+// start year first; the comments mark each start year. Names follow the CV.
 export const ROLNICK_PEER_REVIEWER_JOURNALS = [
-  "Frontiers in Sport and Active Living",
+  // Started 2026
+  "Experimental Gerontology",
+  "Clinical Case Reports",
+  "International Journal of Sports Physical Therapy",
+  "Strength and Conditioning Journal",
+  // Started 2025
+  "Frontiers in Sports and Active Living",
   "Journal of Fitness, Wellness and Human Performance",
   "Multiple Sclerosis and Related Disorders",
-  "International Journal of Strength & Conditioning",
+  "International Journal of Strength and Conditioning",
   "Annals of Medicine Elevate",
+  // Started 2024
   "Scandinavian Journal of Medicine & Science in Sports",
   "PM&R: The Journal of Injury, Function and Rehabilitation",
-  "International Journal of Sports Physiology & Performance",
+  "International Journal of Sports Physiology and Performance",
   "German Journal of Exercise and Sport Research",
-  "Journal of Sports Science",
-  "Medicine and Science in Sport and Exercise",
+  "Journal of Sports Sciences",
+  "Medicine & Science in Sports & Exercise",
+  // Started 2023
   "Journal of Medicine, Surgery, and Public Health",
   "Physical Therapy in Sport",
   "Frontiers in Physiology",
@@ -527,14 +558,17 @@ export const ROLNICK_PEER_REVIEWER_JOURNALS = [
   "Journal of Sport and Health Science",
   "Biology of Sport",
   "Journal of Science and Medicine in Sport",
-  "International Journal of Environmental and Public Health",
+  // Started 2022
+  "International Journal of Environmental Research and Public Health",
   "Scientific Reports",
-  "European Journal of Sports Science",
+  "European Journal of Sport Science",
   "BMC Sports Science, Medicine and Rehabilitation",
+  // Started 2021
   "Sports Medicine - Open",
   "PeerJ",
   "Medical Hypotheses",
-  "Journal of Strength & Conditioning Research",
+  // Started 2020
+  "Journal of Strength and Conditioning Research",
   "Sports Health",
 ] as const;
 
@@ -542,7 +576,7 @@ export const ROLNICK_PEER_REVIEWER_JOURNALS = [
 // verbatim from the live thebfrpros.com/published-research page (titles +
 // abstracts) plus the source-of-truth URL list in
 // Research/dr-rolnick-publications-and-appearances.md. Used on /research
-// and /research/publications. Six papers are surfaced; the full 74
+// and /research/publications. Six papers are surfaced; the full 80
 // publication body is represented by the journal marquee.
 export const ROLNICK_FEATURED_PAPERS = [
   {

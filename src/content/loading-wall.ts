@@ -108,7 +108,7 @@ export const LOADING_WALL = {
       },
     ],
     credibility:
-      "The Loading Wall was written by Dr. Nicholas Rolnick, PT, DPT, MS, CSCS, founder of The BFR Pros and author of 74 peer-reviewed publications on blood flow restriction and low-load training. He is a practicing physical therapist in Manhattan, an Adjunct Assistant Professor of Physical Therapy at New York Medical College, and a Topic Editor for the journals Frontiers in Physiology and Frontiers in Sports and Active Living. More than 1,467 clinicians have trained in BFR with him, and his certification holds a 4.8-star rating across 767+ reviews.",
+      "The Loading Wall was written by Dr. Nicholas Rolnick, PT, DPT, MS, CSCS, founder of The BFR Pros and author of 80 peer-reviewed publications on blood flow restriction and low-load training. He is a practicing physical therapist in Manhattan, a former Adjunct Assistant Professor of Physical Therapy at New York Medical College (2021 to 2025), and a Topic Editor for the journals Frontiers in Physiology and Frontiers in Sports and Active Living. More than 1,467 clinicians have trained in BFR with him, and his certification holds a 4.8-star rating across 767+ reviews.",
     authorImageSrc: "/images/instructors/rolnick-large.jpg",
     authorImageAlt: "Dr. Nicholas Rolnick, PT, DPT, MS, CSCS, founder of The BFR Pros",
     cta: "SEND ME THE FREE GUIDE",

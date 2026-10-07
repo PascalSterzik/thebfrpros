@@ -5,7 +5,7 @@
 // Source: Research/04-offer-brief.md objection list + brand-guide.md
 // Forbidden Claims discipline. Every answer leads with a direct sentence-1
 // response (AEO-optimized) before expanding. No comparative superlatives,
-// no false scarcity, specific 74 publication count where it applies.
+// no false scarcity, specific 80 publication count where it applies.
 
 export type FAQPageItem = { q: string; a: string };
 
@@ -40,7 +40,7 @@ export const FAQ_PAGE: ReadonlyArray<FAQPageCategory> = [
     items: [
       {
         q: "What is The Complete BFR Certification?",
-        a: "A 37-module, 11.75-CEU professional certification in evidence-based blood flow restriction training. Built for licensed Physical Therapists, Athletic Trainers, and Strength & Conditioning Coaches. Taught primarily by Dr. Nicholas Rolnick (PT, MS, CSCS, author of 74 peer-reviewed BFR publications) with co-instructor Dr. Nicholas Licameli (PT, DPT) covering the athletic-side chapters.",
+        a: "A 37-module, 11.75-CEU professional certification in evidence-based blood flow restriction training. Built for licensed Physical Therapists, Athletic Trainers, and Strength & Conditioning Coaches. Taught primarily by Dr. Nicholas Rolnick (PT, MS, CSCS, author of 80 peer-reviewed BFR publications) with co-instructor Dr. Nicholas Licameli (PT, DPT) covering the athletic-side chapters.",
       },
       {
         q: "How long does the certification take to complete?",
@@ -78,7 +78,7 @@ export const FAQ_PAGE: ReadonlyArray<FAQPageCategory> = [
     items: [
       {
         q: "Is The Complete BFR Certification accepted for CEU credits in my state?",
-        a: "Yes, in most US states. The certification is approved by the Board of Certification (BOC, AP# P10226), the New York State PT Board (through December 11, 2027), and the New Jersey PT Board (through January 31, 2026). Reciprocal in 35 additional states. Individual filing required in 13 states (AZ, DC, MD, MS, NM, CA, LA, IL, MN, NV, OH, TX, WV). If your state isn't listed, contact us at nick@thebfrpros.com and we'll confirm the specific path for your license.",
+        a: "Yes, in most US states. The certification is approved by the Board of Certification (BOC, AP# P10226), the New York State PT Board (through December 11, 2027), and the New Jersey PT Board (through January 31, 2028, for the Introduction course and Clinical Rounds). Reciprocal in 35 additional states. Individual filing required in 13 states (AZ, DC, MD, MS, NM, CA, LA, IL, MN, NV, OH, TX, WV). If your state isn't listed, contact us at nick@thebfrpros.com and we'll confirm the specific path for your license.",
       },
       {
         q: "Is BFR within the PT scope of practice?",

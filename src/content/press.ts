@@ -1,6 +1,6 @@
 // /press page copy. Stage-2/3 brand-richness page that combines three
 // buckets of Rolnick-personal media into one stop: ROLNICK_PERSONAL_MEDIA
-// (18 personal article features), ROLNICK_INTERVIEWS (4 long-form video
+// (personal article features), ROLNICK_INTERVIEWS (4 long-form video
 // interviews), and ROLNICK_PODCASTS (15 podcast guest appearances).
 // All three are BRAND-level claims and belong here, not on the homepage
 // FEATURED_IN bar (modality-level). Per brand-guide.md Source-of-Truth.

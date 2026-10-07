@@ -13,7 +13,7 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 // level claims only (modality-vs-brand discipline): no FEATURED_IN logos here.
 const STATS_ROW = [
   { value: STATS.publications, label: "peer-reviewed BFR publications" },
-  { value: "26", label: "journals peer-reviewed" },
+  { value: "31", label: "journals peer-reviewed" },
   { value: STATS.yearsInClinic, label: "years in active Manhattan practice" },
 ];
 

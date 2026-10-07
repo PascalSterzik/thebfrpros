@@ -2,7 +2,7 @@
 // the two pages share the brand voice and several constants — keeping them
 // in one place makes the once-per-quarter editorial pass easier.
 //
-// Source grounding: brand-guide.md publication count (74) + lib/constants.ts
+// Source grounding: brand-guide.md publication count (80) + lib/constants.ts
 // ROLNICK_PUBLICATIONS journals + ROLNICK_FEATURED_PAPERS. No fabrication
 // of papers; we surface the 6 featured ones and represent the rest via
 // the journal marquee.
@@ -39,7 +39,7 @@ export const RESEARCH_JOURNALS = {
   eyebrow: "Where the work appears",
   headline: "Peer-reviewed journals clinicians read",
   intro:
-    "Each logo links to a specific Rolnick article in that journal. The 74 publication count spans these journals plus additional sister publications.",
+    "Each logo links to a specific Rolnick article in that journal. The 80 publication count spans these journals plus additional sister publications.",
 } as const;
 
 export const RESEARCH_FEATURED_PREVIEW = {

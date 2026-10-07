@@ -83,7 +83,7 @@ export default function Footer({ showNewsletter = true }: { showNewsletter?: boo
             <p className="mt-4 max-w-md text-sm leading-relaxed text-white/75">
               Join The BFR Pros email newsletter to get all the latest happenings in the
               space of BFR, plus important information related to The BFR Pros. Written by
-              Dr. Nicholas Rolnick, author of 74 peer-reviewed BFR publications. Roughly
+              Dr. Nicholas Rolnick, author of 80 peer-reviewed BFR publications. Roughly
               once every other week.
             </p>
           </div>
@@ -103,7 +103,7 @@ export default function Footer({ showNewsletter = true }: { showNewsletter?: boo
               className="h-20 w-auto"
             />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/75">
-              Equipment-agnostic BFR certification built on 74 peer-reviewed publications by the lead instructor,{" "}
+              Equipment-agnostic BFR certification built on 80 peer-reviewed publications by the lead instructor,{" "}
               <span className="text-white">Dr. Nicholas Rolnick</span>.
             </p>
             <div className="mt-7 flex flex-col gap-2 text-sm text-white/80">

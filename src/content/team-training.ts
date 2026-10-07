@@ -25,7 +25,7 @@
 export const TEAM_TRAINING_META = {
   title: "Train Your Team in BFR | On-Site & Live Virtual Workshops | The BFR Pros",
   description:
-    "Train your whole clinic to one BFR protocol in a single engagement, on your floor or live online, with the cuffs you already own. Taught by Dr. Nicholas Rolnick, author of 74 peer-reviewed BFR publications.",
+    "Train your whole clinic to one BFR protocol in a single engagement, on your floor or live online, with the cuffs you already own. Taught by Dr. Nicholas Rolnick, author of 80 peer-reviewed BFR publications.",
   canonicalPath: "/train-your-team",
   ogImagePath: "/og/home",
 } as const;
@@ -80,12 +80,12 @@ export const TEAM_TRAINING_LEGITIMACY = {
   highlight: "not a trend",
   paragraphs: [
     "If part of you worries this is the kind of thing that's gone in eighteen months, that's a fair question to ask before you put a five-figure check behind it. The research already answered it.",
-    "BFR has a 20-year evidence base. Dr. Nicholas Rolnick has authored 74 peer-reviewed BFR publications. The modality is used by professional athletes across major sports, and patients who try it tend to ask to keep going.",
+    "BFR has a 20-year evidence base. Dr. Nicholas Rolnick has authored 80 peer-reviewed BFR publications. The modality is used by professional athletes across major sports, and patients who try it tend to ask to keep going.",
     "One honest note, because it matters to the people you'd train: BFR matches heavy lifting for muscle size, not for peak strength. It's the bridge for the patients you can't load heavy yet, the post-op knee, the painful shoulder, the older adult. It's not a replacement for everything you already do. That's exactly why it earns a place in a clinic, and exactly the kind of claim a fad never makes.",
   ],
   // Stat row (counts only, never "most-published").
   stats: [
-    { value: "74", label: "peer-reviewed publications" },
+    { value: "80", label: "peer-reviewed publications" },
     { value: "20", label: "year research base" },
     { value: "Pro", label: "athletes across major sports" },
   ],
@@ -216,7 +216,7 @@ export const TEAM_TRAINING_AUTHORITY = {
   headline: "The person teaching your team is the one the field points to",
   highlight: "the field points to",
   paragraphs: [
-    "Dr. Nicholas Rolnick has authored 74 peer-reviewed BFR publications. He's Topic Editor of the Frontiers special issues on BFR device features, a peer reviewer for 26 journals, and an adjunct professor of physical therapy who still treats patients in Manhattan. He has taught more than 60 continuing-education sessions, including on-site, whole-team workshops for clinic networks like Ivy Rehab and Professional Physical Therapy.",
+    "Dr. Nicholas Rolnick has authored 80 peer-reviewed BFR publications. He's Topic Editor of the Frontiers special issues on BFR device features, a peer reviewer for 31 journals, a former adjunct professor of physical therapy, and a clinician who still treats patients in Manhattan. He has taught more than 60 continuing-education sessions, including on-site, whole-team workshops for clinic networks like Ivy Rehab and Professional Physical Therapy.",
     "So when the most skeptical senior therapist on your staff asks \"is this just a fad,\" you have an answer that ends the conversation.",
   ],
   capexHeading: "And he has no cuff to sell you",
@@ -308,7 +308,7 @@ export const TEAM_TRAINING_FAQ = {
     },
     {
       q: "Is BFR a fad, or worth building a service around?",
-      a: "Twenty years of research, 74 peer-reviewed publications by your instructor, and use by professional athletes across major sports. It's the modality clinics reach for when they need to load a patient who can't tolerate heavy weight yet. That's a durable need, not a trend.",
+      a: "Twenty years of research, 80 peer-reviewed publications by your instructor, and use by professional athletes across major sports. It's the modality clinics reach for when they need to load a patient who can't tolerate heavy weight yet. That's a durable need, not a trend.",
     },
     {
       q: "Do we have to buy a $5,000 machine for the whole clinic?",

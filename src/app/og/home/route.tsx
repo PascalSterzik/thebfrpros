@@ -80,7 +80,7 @@ export async function GET() {
               fontWeight: 500,
             }}
           >
-            74 peer-reviewed BFR publications · 11.75 CEUs · 4.8★ from 767+ reviews
+            80 peer-reviewed BFR publications · 11.75 CEUs · 4.8★ from 767+ reviews
           </div>
         </div>
       </div>

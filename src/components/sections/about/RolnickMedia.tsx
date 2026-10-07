@@ -14,7 +14,7 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 // stretch to "Dr. Rolnick's work appeared in [those same outlets]"
 // without verifying each one personally featured Nick.
 //
-// New version uses ROLNICK_PERSONAL_MEDIA — 18 entries with the specific
+// New version uses ROLNICK_PERSONAL_MEDIA, with the specific
 // article title + date verified against Assets/CV Nicholas Rolnick.pdf
 // and Research/rolnick-cv-facts.md. Card grid with one entry per
 // verified piece. Brand-level claim, defensible because each card

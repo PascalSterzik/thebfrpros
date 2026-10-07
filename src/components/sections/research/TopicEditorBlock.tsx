@@ -5,8 +5,8 @@ import SectionLabel from "@/components/shared/SectionLabel";
 import { ROLNICK_TOPIC_EDITOR } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// Phase 2b (2026-05-13): Dr. Rolnick's editorial roles at Frontiers. Two
-// research-collection volumes (2024-2025, 2025-2026) plus a Community
+// Phase 2b (2026-05-13): Dr. Rolnick's editorial roles at Frontiers. Three
+// research-collection volumes (2024-2025, 2025-2026, 2026-2027) plus a Community
 // Reviewer (Editor) role. Major credibility signal not previously
 // surfaced on the site.
 
@@ -34,7 +34,7 @@ export default function TopicEditorBlock() {
             variants={fadeUp}
             className="mt-6 mx-auto max-w-2xl text-base leading-relaxed text-ink/80"
           >
-            Dr. Rolnick serves as Topic Editor at {ROLNICK_TOPIC_EDITOR.publisher} for the {ROLNICK_TOPIC_EDITOR.collection} research collection across two consecutive volumes. The role shapes which methodological papers get accepted into the literature on cuff design, autoregulation, and pressure standardization.
+            Dr. Rolnick serves as Topic Editor at {ROLNICK_TOPIC_EDITOR.publisher} for the {ROLNICK_TOPIC_EDITOR.collection} research collection across three consecutive volumes. The role shapes which methodological papers get accepted into the literature on cuff design, autoregulation, and pressure standardization.
           </motion.p>
         </motion.div>
 
@@ -43,7 +43,7 @@ export default function TopicEditorBlock() {
           whileInView="visible"
           viewport={inViewOnce}
           variants={stagger}
-          className="mt-12 grid gap-5 sm:grid-cols-2 mx-auto max-w-3xl"
+          className="mt-12 grid gap-5 sm:grid-cols-3 mx-auto max-w-3xl"
         >
           {ROLNICK_TOPIC_EDITOR.volumes.map((v) => (
             <motion.div

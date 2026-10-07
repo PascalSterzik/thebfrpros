@@ -10,7 +10,7 @@ import { PRESS_META, PRESS_HERO, PRESS_FINAL_CTA } from "@/content/press";
 import { SITE_MENU_LINKS } from "@/lib/menus";
 
 // /press. Brand-richness hub combining 3 buckets of Nick-personal media:
-// 18 mainstream/clinical press features (ROLNICK_PERSONAL_MEDIA), 4 long
+// mainstream/clinical press features (ROLNICK_PERSONAL_MEDIA), 4 long
 // -form video interviews (ROLNICK_INTERVIEWS), and 15 podcast guest
 // appearances (ROLNICK_PODCASTS). Stage-2/3 awareness — supports the
 // "is this person legit?" beat without selling the cert. Linked from

@@ -2,8 +2,8 @@
 // for the 1:1 BFR clinical-mentorship route.
 //
 // Positioning (brand/Nick-level, Stage 4-5 high intent): bring your toughest
-// BFR case to the clinician who wrote the research. Authority = 74 peer-
-// reviewed BFR publications, Topic Editor at Frontiers, peer reviewer for 26
+// BFR case to the clinician who wrote the research. Authority = 80 peer-
+// reviewed BFR publications, Topic Editor at Frontiers, peer reviewer for 31
 // journals, active Manhattan practice. The named mechanism is the "BFR Case
 // Review" (one hour, one case, one-on-one). Price ($275/hour) is shown on
 // purpose: this is the offer's own page and the budget qualifier needs the
@@ -19,7 +19,7 @@
 export const CONSULTING_META = {
   title: "BFR Consulting with Dr. Nicholas Rolnick | The BFR Pros",
   description:
-    "Book a 1:1 BFR Case Review with Dr. Nicholas Rolnick, author of 74 peer-reviewed BFR publications and an active Manhattan clinician. One hour, one case, $275. Bring the patient who is stuck and leave with a plan you can run on your next visit.",
+    "Book a 1:1 BFR Case Review with Dr. Nicholas Rolnick, author of 80 peer-reviewed BFR publications and an active Manhattan clinician. One hour, one case, $275. Bring the patient who is stuck and leave with a plan you can run on your next visit.",
   canonicalPath: "/consultation",
   ogImagePath: "/og/home",
 } as const;
@@ -29,7 +29,7 @@ export const CONSULTING_HERO = {
   headline: "Bring your toughest BFR case to the clinician who wrote the research",
   highlight: "toughest BFR case",
   credentialsLine:
-    "Dr. Nicholas Rolnick, PT, DPT · 74 peer-reviewed BFR publications · Active Manhattan practice",
+    "Dr. Nicholas Rolnick, PT, DPT · 80 peer-reviewed BFR publications · Active Manhattan practice",
   subhead:
     "Book a BFR Case Review: one hour, one-on-one, $275. Bring a patient who is not progressing and we work the screening, the pressure, and the programming together. You leave with a plan you can run on your next visit.",
   primaryCta: "Start with a few questions",
@@ -69,7 +69,7 @@ export const CONSULTING_ABOUT = {
   headline: "An author of the BFR literature who still treats patients",
   highlight: "still treats patients",
   paragraphs: [
-    "Dr. Nicholas Rolnick has authored 74 peer-reviewed BFR publications and is a Topic Editor for the Frontiers blood flow restriction special issue. He peer-reviews for 26 journals and wrote Chapter 12 of the NASM textbook on warm-up, recovery, and injury prevention.",
+    "Dr. Nicholas Rolnick has authored 80 peer-reviewed BFR publications and is a Topic Editor for the Frontiers blood flow restriction special issue. He peer-reviews for 31 journals and wrote Chapter 12 of the NASM textbook on warm-up, recovery, and injury prevention.",
     "He also sees patients in Manhattan every week. The case you bring is the kind he treated on Monday, so the answer you get is what he would actually do, not what reads well in an abstract.",
   ],
   imageSrc: "/images/action/rolnick-applying-cuff.jpg",

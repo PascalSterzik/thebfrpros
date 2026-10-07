@@ -7,7 +7,7 @@ export type FAQItem = { q: string; a: string };
 export const FAQ: FAQItem[] = [
   {
     q: "Is The Complete BFR Certification accepted for CEU credits in my state?",
-    a: "Yes, in most US states. The certification is approved by the Board of Certification (BOC, AP# P10226), the New York State PT Board (through December 11, 2027), and the New Jersey PT Board (through January 31, 2026). The American Physical Therapy Association recognizes blood flow restriction within PT scope of practice, and the National Athletic Trainers Association approves BFR for ATs. If your state isn't listed, contact us at nick@thebfrpros.com and we'll confirm the specific path for your license.",
+    a: "Yes, in most US states. The certification is approved by the Board of Certification (BOC, AP# P10226), the New York State PT Board (through December 11, 2027), and the New Jersey PT Board (through January 31, 2028, for the Introduction course and Clinical Rounds). The American Physical Therapy Association recognizes blood flow restriction within PT scope of practice, and the National Athletic Trainers Association approves BFR for ATs. If your state isn't listed, contact us at nick@thebfrpros.com and we'll confirm the specific path for your license.",
   },
   {
     q: "Do I need to buy a specific cuff to take the certification?",
@@ -15,7 +15,7 @@ export const FAQ: FAQItem[] = [
   },
   {
     q: "How is The BFR Pros different from Owens Recovery Science, PESI, or Mike Reinold's course?",
-    a: "Three differences: research depth, equipment independence, and curriculum scope. The BFR Pros is led by Dr. Nicholas Rolnick, who has authored 74 peer-reviewed BFR publications. Owens is excellent education tied to the Delfi PTS device. PESI is a generic CE platform with shorter coverage. Mike Reinold's course is a strong starting point. The Complete BFR Certification is the comprehensive 37-module specialty for clinicians who want to be the BFR specialist in their region.",
+    a: "Three differences: research depth, equipment independence, and curriculum scope. The BFR Pros is led by Dr. Nicholas Rolnick, who has authored 80 peer-reviewed BFR publications. Owens is excellent education tied to the Delfi PTS device. PESI is a generic CE platform with shorter coverage. Mike Reinold's course is a strong starting point. The Complete BFR Certification is the comprehensive 37-module specialty for clinicians who want to be the BFR specialist in their region.",
   },
   {
     q: "How long does the certification take to complete?",

@@ -7,7 +7,7 @@ import { ROLNICK_PERSONAL_MEDIA } from "@/lib/constants";
 import { PRESS_FEATURES_INTRO } from "@/content/press";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// Phase 4 (2026-05-13): /press page section #2. Renders the 18-entry
+// Phase 4 (2026-05-13): /press page section #2. Renders the
 // ROLNICK_PERSONAL_MEDIA list as a card grid.
 // Phase 4 (Pascal feedback rounds 1 + 2):
 //   - Cards show the outlet LOGO above the headline when available.

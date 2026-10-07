@@ -7,7 +7,7 @@ import { OTHER, PROFESSIONS, resolveProfession } from "@/lib/professions";
 // Sitewide newsletter opt-in, rendered inside the shared Footer.
 //
 // Deliberately NOT a lead-magnet capture. Pascal + Nick 2026-07-30: the offer
-// is Nick himself (BFR research first-hand from the author of 74 peer-reviewed
+// is Nick himself (BFR research first-hand from the author of 80 peer-reviewed
 // publications), not a beginner guide. Site visitors already searched BFR, so
 // they are problem/solution/product-aware; a starter-kit magnet would read
 // down-market to exactly the practitioners worth having on the list. The

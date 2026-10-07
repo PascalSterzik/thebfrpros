@@ -9,7 +9,7 @@
 // framings), Research/04-offer-brief.md (full objection list). All copy
 // here adheres to brand-guide.md:
 //   - No comparative superlatives (Forbidden Claims).
-//   - Specific 74 publication count, not "most-published".
+//   - Specific 80 publication count, not "most-published".
 //   - No terminal periods on headlines (Principle 5).
 //   - Lead with the practitioner's outcome, not the cert (Principle 1).
 //   - No false scarcity.
@@ -99,7 +99,7 @@ export const PT: Audience = {
   meta: {
     title: "BFR for Physical Therapists | The BFR Pros",
     description:
-      "BFR certification built for outpatient PTs: post-op ACL, rotator cuff, total knee at month four, geriatric loading. 11.75 CEUs, NY/NJ PT board approved, equipment-agnostic, taught by Dr. Nicholas Rolnick (74 peer-reviewed BFR publications).",
+      "BFR certification built for outpatient PTs: post-op ACL, rotator cuff, total knee at month four, geriatric loading. 11.75 CEUs, NY/NJ PT board approved, equipment-agnostic, taught by Dr. Nicholas Rolnick (80 peer-reviewed BFR publications).",
     canonicalPath: "/for/physical-therapists",
     ogImagePath: "/og/home",
   },
@@ -147,7 +147,7 @@ export const PT: Audience = {
       {
         eyebrow: "Pillar 2",
         title: "Within your PT scope of practice",
-        body: "APTA recognizes BFR within the PT scope of practice: no additional license, no extra certification body. The course itself is approved by the New York State PT Board through December 2027 and the New Jersey State PT Board through January 2026, reciprocal across 35 additional states. The CEU stack alone is what most PTs need for renewal cycles.",
+        body: "APTA recognizes BFR within the PT scope of practice: no additional license, no extra certification body. The course itself is approved by the New York State PT Board through December 2027 and the New Jersey State PT Board through January 2028 (two of the four courses), reciprocal across 35 additional states. The CEU stack alone is what most PTs need for renewal cycles.",
       },
       {
         eyebrow: "Pillar 3",
@@ -159,7 +159,7 @@ export const PT: Audience = {
   scope: {
     eyebrow: "Inside your scope",
     headline: "BFR is in PT scope per APTA",
-    body: "The American Physical Therapy Association's position is that blood flow restriction training falls within the PT scope of practice. The Complete BFR Certification is approved for continuing education through the New York State PT Board (December 2024 through December 2027) and the New Jersey State PT Board (through January 2026), reciprocal in 35 additional states.",
+    body: "The American Physical Therapy Association's position is that blood flow restriction training falls within the PT scope of practice. The Complete BFR Certification is approved for continuing education through the New York State PT Board (December 2024 through December 2027) and the New Jersey State PT Board (through January 2028, two of the four courses), reciprocal in 35 additional states.",
     citationLabel: "APTA + NY + NJ State PT Board approvals",
   },
   applications: {
@@ -186,7 +186,7 @@ export const PT: Audience = {
       },
       {
         body: "New Jersey State PT Board",
-        detail: "Approved through January 31, 2026. Approval IDs 2207-114 (5.5 PT CEUs), 2206-14 (2.25), 2210-53 (2).",
+        detail: "Approved through January 31, 2028, for two of the four courses. Approval IDs 2602-92 (Introduction to BFR Training, 5 PT CEUs) and 2602-93 (Clinical Rounds, 2.25 PT CEUs).",
       },
       {
         body: "Reciprocal states",
@@ -206,7 +206,7 @@ export const PT: Audience = {
   finalCta: {
     eyebrow: "Bring BFR to your post-op caseload",
     headline: "Ready to apply BFR with your post-op caseload?",
-    body: "37 modules, 11.75 CEUs, equipment-agnostic, built on Dr. Rolnick's 74 peer-reviewed publications. Apply BFR with your first patient by week two.",
+    body: "37 modules, 11.75 CEUs, equipment-agnostic, built on Dr. Rolnick's 80 peer-reviewed publications. Apply BFR with your first patient by week two.",
     primaryCta: "Explore the certification",
     primaryCtaHref: "/certification",
   },

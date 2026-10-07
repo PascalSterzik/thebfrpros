@@ -5,7 +5,7 @@ import SectionLabel from "@/components/shared/SectionLabel";
 import { ROLNICK_PEER_REVIEWER_JOURNALS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// Phase 2b (2026-05-13): the 26 journals Dr. Rolnick serves as peer
+// Phase 2b (2026-05-13): the journals Dr. Rolnick serves as peer
 // reviewer for. Surfaces a major credibility signal that wasn't on the
 // site before — being asked to review for a journal is the field's
 // vote that the reviewer knows the literature. Multi-column list keeps
@@ -29,7 +29,7 @@ export default function PeerReviewerList() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy text-balance"
           >
-            Peer reviewer for {ROLNICK_PEER_REVIEWER_JOURNALS.length}+ journals
+            Peer reviewer for {ROLNICK_PEER_REVIEWER_JOURNALS.length} journals
           </motion.h2>
           <motion.p
             variants={fadeUp}

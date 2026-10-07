@@ -42,7 +42,7 @@ export default function CEUBadgesSection() {
             variants={fadeUp}
             className="mt-6 text-lg leading-relaxed text-ink/80"
           >
-            Approved by the Board of Certification (athletic trainers) and the New York + New Jersey state PT boards (physical therapists). The map below shows where the courses are pre-approved and where individual filing is needed.
+            Approved by the Board of Certification (athletic trainers), the New York State PT board (all four courses) and the New Jersey State PT board (two courses) for physical therapists. The map below shows where the courses are pre-approved and where individual filing is needed.
           </motion.p>
         </motion.div>
 
