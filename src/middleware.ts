@@ -94,6 +94,11 @@ const REDIRECTS: Record<string, string> = {
   "/another-bfr-success-story-being-a-grandfather": "/blog/success-story-grandfather",
   "/bfr-blog/bfr-": "/blog",
   "/cdn-cgi/l/email-protection": "/contact",
+
+  // 2026-10-08: the Research Square preprint page duplicated the published
+  // Sport Sciences for Health paper, so it was removed. 301 to the published page.
+  "/research/publications/2025-blood-flow-restriction-training-prescription-analysis-alternative-methods":
+    "/research/publications/2025-blood-flow-restriction-training-prescription-percentage-lower-limb",
 };
 
 export function middleware(request: NextRequest) {
@@ -202,5 +207,6 @@ export const config = {
     "/product-page/:path*",
     "/bfr-in-the-media",
     "/bfr-in-the-media/:path*",
+    "/research/publications/2025-blood-flow-restriction-training-prescription-analysis-alternative-methods",
   ],
 };

@@ -212,6 +212,9 @@ export const ROLNICK = {
     "Peer reviewer for 31 journals",
     "NASM Chapter 12 author (Warm-up, Recovery, Injury Prevention)",
     "Founder of The BFR Pros, LLC (since June 2018)",
+    "Expert Witness and Consultant, Lumen Expert Solutions (since September 2026)",
+    "Chief Executive Officer, SportGrips (since September 2024)",
+    "Medical Ambassador, The Good Feet Store (since April 2024)",
   ],
   publicationsLine: `${STATS.publications} peer-reviewed BFR publications`,
   // mediaList is the MODALITY-level set surfaced alongside FEATURED_IN logos. Nick-personal
@@ -695,6 +698,8 @@ export const BFR_PODCAST_EPISODES: ReadonlyArray<BFRPodcastEpisode> = [
   { number: 18, title: "Auto-Regulation & BFR", topic: "Auto-regulation", youtubeId: "Ly_VnzhG_o0" },
   { number: 19, title: "Exploring Blood Flow Restriction", topic: "BFR fundamentals", youtubeId: "45Oq6sOchlo" },
   { number: 20, title: "PT Pet Peeves, Rehab BFR, & Social Media", topic: "Clinical practice", youtubeId: "t5GszFvFjVY" },
+  { number: 21, title: "Debating the Importance of AOP Pressure Prescription in Blood Flow Restriction Research and Practice", topic: "Pressure prescription", youtubeId: "oaz2MmFySsc" },
+  { number: 22, title: "Blood Flow Restriction Training: What the Science Actually Says | Dr. Jeremy Loenneke", topic: "Research evidence", youtubeId: "ij9s1v0P9dQ" },
 ];
 
 // Blog posts published on the live site at thebfrpros.com/bfr-blog/[slug].

@@ -243,6 +243,18 @@ export const ROLNICK_CREDENTIALS = {
       org: "The BFR Pros, LLC",
     },
     {
+      role: "Expert Witness and Consultant (Sep 2026 – present)",
+      org: "Lumen Expert Solutions, New York City. Reviews medical records and gives opinions on physical therapy standard of care, rehabilitation, exercise prescription, and blood flow restriction training",
+    },
+    {
+      role: "Chief Executive Officer (Sep 2024 – present)",
+      org: "Grasp the Grip LLC DBA SportGrips, portable grip and forearm strengthening equipment",
+    },
+    {
+      role: "Medical Ambassador (Apr 2024 – present)",
+      org: "The Good Feet Store",
+    },
+    {
       role: "Author, Introduction to BFR Training (launched Sep 4, 2020)",
       org: "On-demand course at bfrtraining.com (spine of The Complete BFR Certification)",
     },

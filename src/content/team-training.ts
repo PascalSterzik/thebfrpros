@@ -328,7 +328,7 @@ export const TEAM_TRAINING_FAQ = {
     },
     {
       q: "What CEUs do we get, and will my state accept them?",
-      a: "The in-person workshop is 13.5 CEUs per person (8 from the on-site workshop, recorded as NY PT board and BOC approved, plus 5.5 from the included course). The live virtual is 5.5 CEUs per person from the course. The course is BOC-approved nationally for athletic trainers and approved by the New York and New Jersey PT boards. Being straight with you: the course CEUs are not pre-approved in 13 states (AZ, DC, MD, MS, NM, CA, LA, IL, MN, NV, OH, TX, WV); a self-file application is included for those. Tell us your state on the call and we'll confirm exactly where you stand.",
+      a: "The in-person workshop is 13.5 CEUs per person (8 from the on-site workshop, plus 5.5 from the included course). The 8-hour workshop is approved by the New York PT board, the New Jersey PT board (approval 2602-91, through January 31, 2028) and BOC. The live virtual is 5.5 CEUs per person from the course. The course is BOC-approved nationally for athletic trainers and approved by the New York and New Jersey PT boards (New Jersey counts the course at 5 CEUs, approval 2602-92). Being straight with you: the course CEUs are not pre-approved in 13 states (AZ, DC, MD, MS, NM, CA, LA, IL, MN, NV, OH, TX, WV); a self-file application is included for those. Tell us your state on the call and we'll confirm exactly where you stand.",
     },
     {
       q: "Is the included course just a throwaway add-on?",
