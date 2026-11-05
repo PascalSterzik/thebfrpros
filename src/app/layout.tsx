@@ -4,6 +4,8 @@ import { DM_Sans, EB_Garamond } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GA_MEASUREMENT_ID } from "@/lib/constants";
 import "./globals.css";
+import SaleBanner from "@/components/shared/SaleBanner";
+import { isSaleActive } from "@/lib/sale";
 
 // Compacta Bold is The BFR Pros' brand display font (self-hosted from Assets/Fonts).
 const fontDisplay = localFont({
@@ -95,6 +97,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${fontDisplay.variable} ${fontBody.variable} ${fontQuote.variable}`}>
       <body>
+        {/* Site-wide sale bar (src/lib/sale.ts). Renders nothing outside the sale window. */}
+        <SaleBanner initialActive={isSaleActive()} />
         {children}
         <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
       </body>

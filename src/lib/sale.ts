@@ -1,28 +1,30 @@
-// Time-boxed price promotion for /certification (Nick, November 2026).
+// Time-boxed price promotion (Nick, November 2026).
 //
-// While the sale is active, /certification shows the sale price beside the
-// struck-through regular price, a sale banner, and routes every checkout CTA
-// to the Teachable purchase link with the coupon pre-applied. Outside the
-// window everything falls back to PRICING.bundlePrice automatically: the page
-// is ISR (`revalidate` in src/app/certification/page.tsx), so it re-renders
-// to the regular price within minutes after `endsAt`. To end early or extend,
-// change `endsAt`. To run a new sale, change the fields below.
+// While the sale is active:
+//   - every page except the paid LP /bfr-certification shows the sale banner
+//     (src/components/shared/SaleBanner.tsx, mounted in the root layout);
+//   - /certification shows the sale price beside the struck-through regular price.
+// Outside the window everything falls back to PRICING.bundlePrice by itself:
+// /certification is ISR (`revalidate` in src/app/certification/page.tsx) and the
+// banner re-checks the clock in the browser. To end early or extend, change
+// `endsAt`. To run a new sale, change the fields below.
 //
-// The coupon itself lives in Teachable (percent off, same expiry). The page
-// does not lower the checkout price on its own.
+// The checkout price is set in Teachable by the client. This file only changes
+// what the website shows.
 
-import { ENROLL_URL, PRICING } from "./constants";
+import { PRICING } from "./constants";
 
 export const SALE = {
   percentOff: 45,
-  // 449 * 0.55 = 246.95, what Teachable charges with a 45% coupon.
+  // 449 * 0.55 = 246.95
   price: 246.95,
-  couponCode: "NOVEMBER45",
   // Starts Nov 1 00:00 US Eastern (EDT), ends Nov 30 23:59:59 US Eastern (EST).
   startsAt: Date.parse("2026-11-01T00:00:00-04:00"),
   endsAt: Date.parse("2026-12-01T00:00:00-05:00"),
   label: "November sale",
   endLabel: "November 30",
+  bannerText: "November sale! 45% OFF The BFR Certification. Click to learn more",
+  bannerHref: "/certification",
 } as const;
 
 export function isSaleActive(now: number = Date.now()): boolean {
@@ -39,20 +41,14 @@ export type PriceState = {
   priceLabel: string;
   /** The regular price, shown struck through while on sale. */
   regularLabel: string;
-  /** Checkout link, with the coupon applied while on sale. */
-  enrollUrl: string;
 };
 
 export function getPriceState(onSale: boolean): PriceState {
   const regularLabel = formatPrice(PRICING.bundlePrice);
-  if (!onSale) {
-    return { onSale, priceLabel: regularLabel, regularLabel, enrollUrl: ENROLL_URL };
-  }
   return {
     onSale,
-    priceLabel: formatPrice(SALE.price),
+    priceLabel: onSale ? formatPrice(SALE.price) : regularLabel,
     regularLabel,
-    enrollUrl: `${ENROLL_URL}&coupon_code=${SALE.couponCode}`,
   };
 }
 

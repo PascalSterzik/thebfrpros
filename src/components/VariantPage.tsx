@@ -28,7 +28,6 @@ import { FAQ } from "@/content/faq";
 import type { Variant } from "@/content/variants";
 import { buildSchemaGraph } from "@/lib/schema";
 import { SITE_MENU_LINKS } from "@/lib/menus";
-import SaleBanner from "@/components/sections/SaleBanner";
 import { PriceProvider } from "@/components/shared/PriceContext";
 import { getPriceState, withCurrentPrice } from "@/lib/sale";
 
@@ -47,8 +46,6 @@ export default function VariantPage({ variant, onSale = false }: { variant: Vari
 
   return (
     <PriceProvider onSale={onSale}>
-      <SaleBanner />
-
       {/* 1. Sticky header (Pascal-2026-05-13 retrofit: only the global header
           remains on the cert page. The earlier CertAnchorNav secondary bar
           was removed at Pascal's direction — single menu sitewide.) */}
