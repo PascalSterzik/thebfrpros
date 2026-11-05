@@ -24,6 +24,8 @@ import CertFooter from "@/components/sections/certification/CertFooter";
 import FAQSection from "@/components/sections/FAQSection";
 
 import { CERTIFICATION } from "@/content/certification";
+import { PriceProvider } from "@/components/shared/PriceContext";
+import { isSaleActive } from "@/lib/sale";
 
 // /certification, the standalone vendor-neutral campaign LP. Built for cold
 // paid traffic, ships robots `noindex, follow` + a canonical link to
@@ -51,6 +53,9 @@ import { CERTIFICATION } from "@/content/certification";
 //   - insert CertValueStackSection between Bonuses (13) and FAQ (14) as the
 //     gotcha-#97-respecting recap (NOT a new price anchor).
 
+// ISR: checkout links follow the sale window in src/lib/sale.ts without a redeploy.
+export const revalidate = 600;
+
 export const metadata: Metadata = {
   title: CERTIFICATION.meta.title,
   description: CERTIFICATION.meta.description,
@@ -74,7 +79,7 @@ export const metadata: Metadata = {
 
 export default function CertificationPage() {
   return (
-    <>
+    <PriceProvider onSale={isSaleActive()}>
       {/* Section 0, stripped campaign header (the single persistent CTA) */}
       <StrippedHeader
         navCta={CERTIFICATION.header.navCta}
@@ -168,6 +173,6 @@ export default function CertificationPage() {
       {/* Bottom StickyCTABar removed in Rev 1 (REVISION-01.md §2). The top
           StrippedHeader is the single persistent CTA on the page; the file
           stays for re-enablement if A/B testing argues otherwise. */}
-    </>
+    </PriceProvider>
   );
 }

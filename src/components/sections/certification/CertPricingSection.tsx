@@ -1,10 +1,12 @@
 "use client";
 
+import { usePrice } from "@/components/shared/PriceContext";
+
 import { motion } from "framer-motion";
 import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
-import { CERTIFICATION_ENROLL_URL, PRICING } from "@/lib/constants";
+import { PRICING } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // HARD RULE, do NOT re-invert (copywriting-principles.md §18 / gotcha #97 /
@@ -16,6 +18,7 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 //
 // Refund terms render PROXIMATE to the CTA per compliance gate (FTC).
 export default function CertPricingSection() {
+  const { enrollUrl } = usePrice();
   const { pricing } = CERTIFICATION;
   return (
     <section id="pricing" className="section-wrap bg-white" aria-label="What the certification costs">
@@ -93,7 +96,7 @@ export default function CertPricingSection() {
             </p>
 
             <a
-              href={CERTIFICATION_ENROLL_URL}
+              href={enrollUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-accent px-6 py-4 font-display text-xl sm:text-2xl md:text-3xl uppercase tracking-tight text-white transition hover:bg-accent-deeper text-balance"

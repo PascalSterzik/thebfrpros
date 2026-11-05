@@ -1,5 +1,7 @@
+"use client";
+
 import Stars from "@/components/shared/Stars";
-import { ENROLL_URL } from "@/lib/constants";
+import { usePrice } from "@/components/shared/PriceContext";
 
 type Props = {
   label?: string;
@@ -44,7 +46,9 @@ export default function PrimaryCTA({
   const sizeCls = size === "lg" ? "!py-[1.55rem] !text-[2.25rem] sm:!px-[70px]" : "";
   const alignCls = align === "left" ? "items-start" : "items-center";
 
-  const target = href ?? ENROLL_URL;
+  // Default checkout link; the sale product while a sale is active (src/lib/sale.ts).
+  const { enrollUrl } = usePrice();
+  const target = href ?? enrollUrl;
   const isExternal = !target.startsWith("#") && !target.startsWith("/");
 
   return (

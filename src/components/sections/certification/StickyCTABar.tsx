@@ -1,7 +1,8 @@
 "use client";
 
+import { usePrice } from "@/components/shared/PriceContext";
+
 import { useEffect, useState } from "react";
-import { CERTIFICATION_ENROLL_URL } from "@/lib/constants";
 
 // Slim sticky CTA bar that appears once the visitor scrolls past the hero.
 // Campaign-LP convention (PLAN.md §5 row 0): the page has ONE exit.
@@ -19,6 +20,7 @@ export default function StickyCTABar({
   label: string;
   cta: string;
 }) {
+  const { enrollUrl } = usePrice();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -51,7 +53,7 @@ export default function StickyCTABar({
           {label}
         </p>
         <a
-          href={CERTIFICATION_ENROLL_URL}
+          href={enrollUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2 sm:px-5 sm:py-2.5 font-body text-sm sm:text-base font-semibold text-white transition hover:bg-accent-deeper"

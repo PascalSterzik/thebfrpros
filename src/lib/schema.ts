@@ -1586,9 +1586,11 @@ type SchemaInput = {
   faq: Array<{ q: string; a: string }>;
   /** Price paid today (sale price while a sale runs). Defaults to PRICING.bundlePrice. */
   price?: number;
+  /** Checkout link for the Offer. Defaults to ENROLL_URL. */
+  offerUrl?: string;
 };
 
-export function buildSchemaGraph({ variantPath, pageTitle, pageDescription, faq, price }: SchemaInput) {
+export function buildSchemaGraph({ variantPath, pageTitle, pageDescription, faq, price, offerUrl }: SchemaInput) {
   const pageUrl = `${SITE.origin}${variantPath}`;
   const orgId = `${SITE.origin}#organization`;
   const websiteId = `${SITE.origin}#website`;
@@ -1673,7 +1675,7 @@ export function buildSchemaGraph({ variantPath, pageTitle, pageDescription, faq,
             price: price ?? PRICING.bundlePrice,
             priceCurrency: PRICING.currency,
             availability: "https://schema.org/InStock",
-            url: ENROLL_URL,
+            url: offerUrl ?? ENROLL_URL,
             category: "Professional certification",
           },
         ],

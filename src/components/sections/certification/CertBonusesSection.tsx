@@ -1,11 +1,13 @@
 "use client";
 
+import { usePrice } from "@/components/shared/PriceContext";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
-import { BONUSES, CERTIFICATION_ENROLL_URL, PRICING } from "@/lib/constants";
+import { BONUSES, PRICING } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Bonuses revealed AFTER the price as a free surprise on top of the
@@ -24,6 +26,7 @@ const BONUS_VALUE_SUBTOTAL = BONUSES
   .reduce((sum, b) => sum + b.value, 0);
 
 export default function CertBonusesSection() {
+  const { enrollUrl } = usePrice();
   const { bonuses } = CERTIFICATION;
   return (
     <section id="bonuses" className="section-wrap cream-field" aria-label="Bonuses and guarantee">
@@ -148,7 +151,7 @@ export default function CertBonusesSection() {
           </motion.p>
           <motion.div variants={fadeUp} className="mt-7 flex justify-center">
             <a
-              href={CERTIFICATION_ENROLL_URL}
+              href={enrollUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-4 font-display text-xl sm:text-2xl md:text-3xl uppercase tracking-tight text-white transition hover:bg-accent-deeper text-balance"

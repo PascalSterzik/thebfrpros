@@ -42,6 +42,7 @@ export default function VariantPage({ variant, onSale = false }: { variant: Vari
     pageDescription: variant.metaDescription,
     faq,
     price: Number(price.priceLabel.slice(1)),
+    offerUrl: price.enrollUrl,
   });
 
   return (

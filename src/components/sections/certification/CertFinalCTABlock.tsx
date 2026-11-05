@@ -1,11 +1,13 @@
 "use client";
 
+import { usePrice } from "@/components/shared/PriceContext";
+
 import { motion } from "framer-motion";
 import Highlighted from "@/components/shared/Highlighted";
 import SectionLabel from "@/components/shared/SectionLabel";
 import Stars from "@/components/shared/Stars";
 import { CERTIFICATION } from "@/content/certification";
-import { CERTIFICATION_ENROLL_URL, PRICING, STATS } from "@/lib/constants";
+import { PRICING, STATS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Rev 1 (2026-05-20, REVISION-01.md §3 + §4): campaign-only final CTA.
@@ -20,6 +22,7 @@ import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 // Visual pattern intentionally mirrors the shared block so the cert page
 // reads as part of the same brand surface.
 export default function CertFinalCTABlock() {
+  const { enrollUrl } = usePrice();
   const { finalCta } = CERTIFICATION;
   return (
     <section className="section-wrap navy-field" aria-label="Final call to action">
@@ -48,7 +51,7 @@ export default function CertFinalCTABlock() {
 
           <motion.div variants={fadeUp} className="mt-10 flex flex-col items-center gap-4">
             <a
-              href={CERTIFICATION_ENROLL_URL}
+              href={enrollUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-5 sm:px-10 font-display text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-white transition hover:bg-accent-deeper text-balance"

@@ -1,8 +1,10 @@
 "use client";
 
+import { usePrice } from "@/components/shared/PriceContext";
+
 import Image from "next/image";
 import Link from "next/link";
-import { CERTIFICATION_ENROLL_URL, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 
 // Campaign-only header for /certification. Logo + single text CTA. NO
 // SITE_MENU_LINKS nav (exit-reduction discipline for cold paid traffic).
@@ -15,6 +17,7 @@ export default function StrippedHeader({
   navCta: string;
   logoAlt: string;
 }) {
+  const { enrollUrl } = usePrice();
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur header-shadow">
       <div className="container-rail flex h-[60px] items-center justify-between">
@@ -31,7 +34,7 @@ export default function StrippedHeader({
         </Link>
 
         <a
-          href={CERTIFICATION_ENROLL_URL}
+          href={enrollUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 sm:px-5 sm:py-2.5 font-body text-sm sm:text-base font-semibold text-white transition hover:bg-accent-deeper"

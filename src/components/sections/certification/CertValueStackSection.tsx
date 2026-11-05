@@ -1,5 +1,7 @@
 "use client";
 
+import { usePrice } from "@/components/shared/PriceContext";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Highlighted from "@/components/shared/Highlighted";
@@ -7,7 +9,6 @@ import SectionLabel from "@/components/shared/SectionLabel";
 import { CERTIFICATION } from "@/content/certification";
 import {
   BONUSES,
-  CERTIFICATION_ENROLL_URL,
   CURRICULUM,
   PRICING,
 } from "@/lib/constants";
@@ -43,6 +44,7 @@ function fmt(n: number) {
 }
 
 export default function CertValueStackSection() {
+  const { enrollUrl } = usePrice();
   const { valueStack } = CERTIFICATION;
   return (
     <section id="value-stack" className="section-wrap bg-white" aria-label="Everything you walk out with">
@@ -200,7 +202,7 @@ export default function CertValueStackSection() {
 
           <div className="mt-4 flex justify-center">
             <a
-              href={CERTIFICATION_ENROLL_URL}
+              href={enrollUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-4 font-display text-xl sm:text-2xl md:text-3xl uppercase tracking-tight text-white transition hover:bg-accent-deeper text-balance"

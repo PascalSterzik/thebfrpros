@@ -1,12 +1,14 @@
 "use client";
 
+import { usePrice } from "@/components/shared/PriceContext";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Highlighted from "@/components/shared/Highlighted";
 import Stars from "@/components/shared/Stars";
 import VideoPoster from "@/components/shared/VideoPoster";
 import { CERTIFICATION } from "@/content/certification";
-import { CERTIFICATION_ENROLL_URL, VIDEOS } from "@/lib/constants";
+import { VIDEOS } from "@/lib/constants";
 import { heroItem, heroStagger } from "@/lib/motion";
 
 // Campaign hero for /certification. Vendor-neutral / drawer-cuff Big Idea
@@ -30,6 +32,7 @@ import { heroItem, heroStagger } from "@/lib/motion";
 //  - Highlighted underline-accent applied to the Big Idea phrase
 //    "CUFF COMPANY'S DISTRIBUTION CHANNEL" via the shared component.
 export default function CertHero() {
+  const { enrollUrl } = usePrice();
   const { hero } = CERTIFICATION;
 
   return (
@@ -97,7 +100,7 @@ export default function CertHero() {
             className="mt-10 flex flex-col items-center gap-4"
           >
             <a
-              href={CERTIFICATION_ENROLL_URL}
+              href={enrollUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-5 sm:px-10 font-display text-2xl sm:text-3xl md:text-4xl uppercase tracking-tight text-white transition hover:bg-accent-deeper text-balance"
