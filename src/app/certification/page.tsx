@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import VariantPage from "@/components/VariantPage";
 import { VARIANTS } from "@/content/variants";
+import { isSaleActive } from "@/lib/sale";
 
 const v = VARIANTS.v3;
+
+// ISR: re-render at most every 10 minutes, so a time-boxed sale (src/lib/sale.ts)
+// switches on and off by itself without a redeploy.
+export const revalidate = 600;
 
 export const metadata: Metadata = {
   title: v.metaTitle,
@@ -23,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function GetCertifiedV3Page() {
-  return <VariantPage variant={v} />;
+  return <VariantPage variant={v} onSale={isSaleActive()} />;
 }

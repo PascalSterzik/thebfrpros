@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import PrimaryCTA from "@/components/shared/PrimaryCTA";
 import { COMPETITOR_TABLE } from "@/lib/constants";
+import { usePrice } from "@/components/shared/PriceContext";
+import { withCurrentPrice } from "@/lib/sale";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 const STRANGER_QUESTIONS = [
@@ -70,6 +72,7 @@ const PILLARS = [
 ];
 
 export default function SolutionSection() {
+  const price = usePrice();
   return (
     <section id="solution" className="section-wrap bg-white">
       <div className="container-rail">
@@ -140,7 +143,7 @@ export default function SolutionSection() {
             {STRANGER_QUESTIONS.map((s) => (
               <div key={s.q} className="grid gap-2 py-6 sm:grid-cols-[180px_1fr] sm:gap-8">
                 <dt className="small-caps-line text-accent">{s.q}</dt>
-                <dd className="text-base leading-relaxed text-ink">{s.a}</dd>
+                <dd className="text-base leading-relaxed text-ink">{withCurrentPrice(s.a, price)}</dd>
               </div>
             ))}
           </motion.dl>

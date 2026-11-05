@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { BONUSES, PRICING } from "@/lib/constants";
+import { usePrice } from "@/components/shared/PriceContext";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 // Bonuses revealed AFTER PricingSection as a free surprise on top of the
@@ -17,6 +18,7 @@ const BONUS_VALUE_SUBTOTAL = BONUSES
   .reduce((sum, b) => sum + b.value, 0);
 
 export default function BonusesSection() {
+  const price = usePrice();
   return (
     <section id="bonuses" className="section-wrap cream-field">
       <div className="container-rail">
@@ -34,13 +36,13 @@ export default function BonusesSection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy"
           >
-            Everything below is <span className="underline-accent">free</span>, on top of the ${PRICING.bundlePrice} you just saw
+            Everything below is <span className="underline-accent">free</span>, on top of the {price.priceLabel} you just saw
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="mt-6 text-lg leading-relaxed text-ink/80 max-w-2xl mx-auto"
           >
-            The ${PRICING.bundlePrice} you just read was for the certification itself: the modules, the CEUs, the instruction. It is worth that on its own. Here is what nobody told you on the way in. Every one of the 11 tools below comes with it, and not a single one adds a dollar to the price.
+            The {price.priceLabel} you just read was for the certification itself: the modules, the CEUs, the instruction. It is worth that on its own. Here is what nobody told you on the way in. Every one of the 11 tools below comes with it, and not a single one adds a dollar to the price.
           </motion.p>
           <motion.p
             variants={fadeUp}
@@ -52,7 +54,7 @@ export default function BonusesSection() {
             variants={fadeUp}
             className="mt-5 text-sm font-semibold text-accent"
           >
-            ${BONUS_VALUE_SUBTOTAL.toLocaleString("en-US")} in tools, included free on top of the ${PRICING.bundlePrice} certification. Plus up to ${PRICING.cuffSavingsUpTo} in real cuff-discount savings.
+            ${BONUS_VALUE_SUBTOTAL.toLocaleString("en-US")} in tools, included free on top of the {price.priceLabel} certification. Plus up to ${PRICING.cuffSavingsUpTo} in real cuff-discount savings.
           </motion.p>
         </motion.div>
 
@@ -103,7 +105,7 @@ export default function BonusesSection() {
           transition={{ duration: 0.7 }}
           className="mt-12 mx-auto max-w-3xl text-center text-base leading-relaxed text-ink/85"
         >
-          ${PRICING.bundlePrice} for the certification. Eleven implementation tools stacked on top of it. None of them moved the price by a dollar. You pay for the certification, you walk out with all of it.
+          {price.priceLabel} for the certification. Eleven implementation tools stacked on top of it. None of them moved the price by a dollar. You pay for the certification, you walk out with all of it.
         </motion.p>
       </div>
     </section>

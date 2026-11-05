@@ -4,9 +4,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { PRICING } from "@/lib/constants";
+import { usePrice } from "@/components/shared/PriceContext";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
 export default function GuaranteeSection() {
+  const price = usePrice();
   return (
     <section className="section-wrap cream-field" aria-label="Guarantee">
       <div className="container-narrow text-center">
@@ -41,8 +43,7 @@ export default function GuaranteeSection() {
             variants={fadeUp}
             className="mt-6 text-lg leading-relaxed text-ink/85"
           >
-            Enroll. Take the modules. Apply BFR with your first patient. If the certification doesn't earn its place in your practice, email us within {PRICING.guaranteeDays} days and we refund the full {PRICING.currencySymbol}
-            {PRICING.bundlePrice}. The risk is on us, not you. The reason we can offer this is because every refund is one we don't get back.
+            Enroll. Take the modules. Apply BFR with your first patient. If the certification doesn't earn its place in your practice, email us within {PRICING.guaranteeDays} days and we refund the full {price.priceLabel}. The risk is on us, not you. The reason we can offer this is because every refund is one we don't get back.
           </motion.p>
         </motion.div>
       </div>

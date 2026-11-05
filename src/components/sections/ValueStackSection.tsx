@@ -6,6 +6,8 @@ import SectionLabel from "@/components/shared/SectionLabel";
 import PrimaryCTA from "@/components/shared/PrimaryCTA";
 import { BONUSES, CURRICULUM, PRICING, STATS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
+import { usePrice } from "@/components/shared/PriceContext";
+import { SALE } from "@/lib/sale";
 
 // The Hormozi-style value-stack RECAP. Renders AFTER PricingSection AND
 // BonusesSection. HARD RULE, do NOT re-invert (gotcha #97 /
@@ -30,6 +32,7 @@ function fmt(n: number) {
 }
 
 export default function ValueStackSection() {
+  const price = usePrice();
   return (
     <section id="value-stack" className="section-wrap bg-white" aria-label="Everything you walk out with">
       <div className="container-rail">
@@ -53,7 +56,7 @@ export default function ValueStackSection() {
             variants={fadeUp}
             className="mt-6 mx-auto max-w-2xl text-lg leading-relaxed text-ink/80"
           >
-            The certification you saw above was ${PRICING.bundlePrice}. The 11 tools you saw after were free on top of it. Here is the full picture in one place, with the dollar value beside each piece, so the math is on the page.
+            The certification you saw above was {price.priceLabel}. The 11 tools you saw after were free on top of it. Here is the full picture in one place, with the dollar value beside each piece, so the math is on the page.
           </motion.p>
         </motion.div>
 
@@ -168,9 +171,19 @@ export default function ValueStackSection() {
             <p className="font-display text-2xl sm:text-3xl text-muted tabular-nums line-through">
               {fmt(TOTAL_ADVERTISED_VALUE)}
             </p>
+            {price.onSale && (
+              <p className="font-display text-2xl sm:text-3xl text-muted tabular-nums line-through">
+                {price.regularLabel}
+              </p>
+            )}
             <p className="font-display text-4xl sm:text-5xl text-accent tabular-nums">
-              {fmt(PRICING.bundlePrice)}
+              {price.onSale ? price.priceLabel : fmt(PRICING.bundlePrice)}
             </p>
+            {price.onSale && (
+              <p className="small-caps-line text-accent">
+                {SALE.label}: {SALE.percentOff}% off. Ends {SALE.endLabel}
+              </p>
+            )}
           </div>
 
           {/* Refund proximate to the CTA. */}

@@ -7,6 +7,8 @@ import PrimaryCTA from "@/components/shared/PrimaryCTA";
 import Stars from "@/components/shared/Stars";
 import { PRICING, STATS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
+import { SalePrice, usePrice } from "@/components/shared/PriceContext";
+import { SALE } from "@/lib/sale";
 
 // CORE OFFER ONLY. HARD RULE, do NOT re-invert (copywriting-principles.md §18 /
 // gotcha #97 / feedback_bonus_sequencing): the price anchors to the
@@ -23,6 +25,7 @@ const WHAT_YOU_GET: string[] = [
 ];
 
 export default function PricingSection() {
+  const price = usePrice();
   return (
     <section id="pricing" className="section-wrap bg-white">
       <div className="container-rail">
@@ -40,13 +43,18 @@ export default function PricingSection() {
             variants={fadeUp}
             className="mt-5 font-display text-display-xl text-navy"
           >
-            ${PRICING.bundlePrice}. One certification. <span className="underline-accent">No fake tiers</span>
+            <SalePrice />. One certification. <span className="underline-accent">No fake tiers</span>
           </motion.h2>
+          {price.onSale && (
+            <motion.p variants={fadeUp} className="mt-4 small-caps-line text-accent">
+              {SALE.label}: {SALE.percentOff}% off. Ends {SALE.endLabel}
+            </motion.p>
+          )}
           <motion.p
             variants={fadeUp}
             className="mt-6 text-lg leading-relaxed text-ink/80"
           >
-            No tiered pricing. No upsells. No equipment in the cart. ${PRICING.bundlePrice} for all 37 modules, {PRICING.contentHours} hours of video, and {PRICING.contentHours} CEUs, taught by the author of {STATS.publications} peer-reviewed BFR publications who still treats patients weekly. The certification is worth the ${PRICING.bundlePrice} on its own, before anything else is added to it.
+            No tiered pricing. No upsells. No equipment in the cart. {price.priceLabel} for all 37 modules, {PRICING.contentHours} hours of video, and {PRICING.contentHours} CEUs, taught by the author of {STATS.publications} peer-reviewed BFR publications who still treats patients weekly. The certification is worth the ${PRICING.bundlePrice} on its own, before anything else is added to it.
           </motion.p>
           <motion.p
             variants={fadeUp}
@@ -134,7 +142,7 @@ export default function PricingSection() {
               <div className="mt-8">
                 <PrimaryCTA
                   size="lg"
-                  label={`Enroll Now for Just $${PRICING.bundlePrice}`}
+                  label={`Enroll Now for Just ${price.priceLabel}`}
                   secondary={`Lifetime access · ${PRICING.guaranteeDays}-day money-back guarantee`}
                   hint={`1 of ${STATS.certifiedPractitioners} graduates has ever taken the refund`}
                 />

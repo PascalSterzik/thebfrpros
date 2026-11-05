@@ -28,17 +28,27 @@ import { FAQ } from "@/content/faq";
 import type { Variant } from "@/content/variants";
 import { buildSchemaGraph } from "@/lib/schema";
 import { SITE_MENU_LINKS } from "@/lib/menus";
+import SaleBanner from "@/components/sections/SaleBanner";
+import { PriceProvider } from "@/components/shared/PriceContext";
+import { getPriceState, withCurrentPrice } from "@/lib/sale";
 
-export default function VariantPage({ variant }: { variant: Variant }) {
+export default function VariantPage({ variant, onSale = false }: { variant: Variant; onSale?: boolean }) {
+  // Sale state is decided once on the server (see src/lib/sale.ts) and shared
+  // with every section through PriceProvider.
+  const price = getPriceState(onSale);
+  const faq = FAQ.map((item) => ({ ...item, a: withCurrentPrice(item.a, price) }));
   const schema = buildSchemaGraph({
     variantPath: variant.routePath,
     pageTitle: variant.metaTitle,
     pageDescription: variant.metaDescription,
-    faq: FAQ,
+    faq,
+    price: Number(price.priceLabel.slice(1)),
   });
 
   return (
-    <>
+    <PriceProvider onSale={onSale}>
+      <SaleBanner />
+
       {/* 1. Sticky header (Pascal-2026-05-13 retrofit: only the global header
           remains on the cert page. The earlier CertAnchorNav secondary bar
           was removed at Pascal's direction — single menu sitewide.) */}
@@ -115,7 +125,7 @@ export default function VariantPage({ variant }: { variant: Variant }) {
         <GuaranteeSection />
 
         {/* 20. FAQ, 9 questions */}
-        <FAQSection />
+        <FAQSection items={faq} />
 
         {/* Light cross-pointer: an owner on the cert page should discover the team lane (spec §7.3) */}
         <TeamTrainingPointer variant="certification" />
@@ -137,6 +147,6 @@ export default function VariantPage({ variant }: { variant: Variant }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-    </>
+    </PriceProvider>
   );
 }

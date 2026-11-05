@@ -1584,9 +1584,11 @@ type SchemaInput = {
   pageTitle: string;
   pageDescription: string;
   faq: Array<{ q: string; a: string }>;
+  /** Price paid today (sale price while a sale runs). Defaults to PRICING.bundlePrice. */
+  price?: number;
 };
 
-export function buildSchemaGraph({ variantPath, pageTitle, pageDescription, faq }: SchemaInput) {
+export function buildSchemaGraph({ variantPath, pageTitle, pageDescription, faq, price }: SchemaInput) {
   const pageUrl = `${SITE.origin}${variantPath}`;
   const orgId = `${SITE.origin}#organization`;
   const websiteId = `${SITE.origin}#website`;
@@ -1668,7 +1670,7 @@ export function buildSchemaGraph({ variantPath, pageTitle, pageDescription, faq 
         offers: [
           {
             "@type": "Offer",
-            price: PRICING.bundlePrice,
+            price: price ?? PRICING.bundlePrice,
             priceCurrency: PRICING.currency,
             availability: "https://schema.org/InStock",
             url: ENROLL_URL,

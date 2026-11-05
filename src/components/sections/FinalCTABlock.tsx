@@ -6,6 +6,7 @@ import PrimaryCTA from "@/components/shared/PrimaryCTA";
 import SectionLabel from "@/components/shared/SectionLabel";
 import { PRICING, STATS } from "@/lib/constants";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
+import { TextWithSalePrice } from "@/components/shared/PriceContext";
 
 function Highlighted({ text, phrase }: { text: string; phrase: string }) {
   const i = text.indexOf(phrase);
@@ -42,7 +43,7 @@ export default function FinalCTABlock({ variant }: { variant: Variant }) {
             variants={fadeUp}
             className="mt-7 mx-auto max-w-2xl text-lg leading-relaxed text-white/80"
           >
-            {variant.finalCta.subhead}
+            <TextWithSalePrice text={variant.finalCta.subhead} />
           </motion.p>
 
           <motion.div
