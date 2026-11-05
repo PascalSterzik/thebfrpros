@@ -23,7 +23,9 @@ export const SALE = {
   endsAt: Date.parse("2026-12-01T00:00:00-05:00"),
   label: "November sale",
   endLabel: "November 30",
-  bannerText: "November sale! 45% OFF The BFR Certification. Click to learn more",
+  // Banner reads: NOVEMBER SALE | GET 45% OFF THE BFR CERTIFICATION | [countdown]
+  bannerLabel: "NOVEMBER SALE",
+  bannerOffer: "GET 45% OFF THE BFR CERTIFICATION",
   bannerHref: "/certification",
 } as const;
 
