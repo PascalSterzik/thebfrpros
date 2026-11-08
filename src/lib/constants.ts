@@ -41,14 +41,14 @@ export const CONSULTING = {
 // one-line swap (back to a `mailto:` or out to a CRM/GHL endpoint) if ever needed.
 export const CONSULTING_FORM_ENDPOINT = "/api/consulting";
 
-// The BFR Pros Cal.com booking link for 1:1 consulting (Pascal-provided
-// 2026-06-06, live). Two uses: (1) the hero "Book a call" CTA + the booking-step
-// fallback button link to CONSULTING_CAL_URL in a new tab; (2) the ConsultingForm
-// booking step renders Cal.com's official inline embed using CONSULTING_CAL_LINK
-// (the cal.com slug; embed namespace "consult"). Full embed snippet + setup notes
-// archived at "Agency/Clients/The BFR Pros/Consulting-Integrations-Setup.md".
-export const CONSULTING_CAL_URL = "https://cal.com/thebfrpros/consult";
-export const CONSULTING_CAL_LINK = "thebfrpros/consult";
+// 1:1 consulting booking runs on Nick's Jane App (switched from Cal.com
+// 2026-11-08, Nick's embed via Pascal). The booking step renders Jane's official
+// "Book Online" button embed (CONSULTING_JANE_EMBED_URL, an iframe that opens the
+// booking page in a new tab). Jane's booking page itself refuses to be framed
+// (X-Frame-Options: SAMEORIGIN), so the button embed is the supported way.
+// CONSULTING_BOOKING_URL is the plain fallback link.
+export const CONSULTING_BOOKING_URL = "https://hpm.janeapp.com";
+export const CONSULTING_JANE_EMBED_URL = "https://hpm.janeapp.com/embed/book_online";
 
 // ---- /train-your-team (clinic team-training lane) -------------------------
 // New secondary offer lane (2026-06, Phase 4): Dr. Rolnick trains a clinic's

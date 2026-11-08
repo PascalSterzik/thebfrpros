@@ -119,7 +119,7 @@ export const CONSULTING_PRICING = {
 // `affirmation` (the "pat on the back"); prompts + affirmations support {name}
 // and {answerId} tokens, interpolated at render time (see ConsultingFormFlow).
 // The final `budget` question terminally branches: a ready answer goes to the
-// Cal.com booking step; a "know more first" answer goes to the certification
+// Jane App booking step; a "know more first" answer goes to the certification
 // page instead of the calendar.
 
 export type ConsultingQuestionType = "text" | "email" | "select" | "scale" | "longtext";
@@ -242,9 +242,9 @@ export const CONSULTING_FORM = {
     eyebrow: "Last step",
     headline: "Pick a time with Nick",
     intro:
-      "Choose an hour that works for you. You'll get a confirmation and a calendar invite, and your answers are already on their way to Nick so he can prep for your case.",
+      "Click the button to pick an hour that works for you. Nick's booking page opens in a new tab. You'll get a confirmation, and your answers are already on their way to Nick so he can prep for your case.",
     // Subtle fallback only: the link lives on `fallbackLinkLabel` (no big button).
-    fallbackBefore: "If the calendar does not load above, ",
+    fallbackBefore: "If the button does not load above, ",
     fallbackLinkLabel: "click here",
     fallbackAfter: " to open it in a new tab.",
   },

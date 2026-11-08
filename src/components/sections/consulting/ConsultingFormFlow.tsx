@@ -4,9 +4,9 @@ import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CONSULTING_FORM, type ConsultingQuestion } from "@/content/consulting";
 import {
-  CONSULTING_CAL_LINK,
-  CONSULTING_CAL_URL,
+  CONSULTING_BOOKING_URL,
   CONSULTING_FORM_ENDPOINT,
+  CONSULTING_JANE_EMBED_URL,
   SITE,
 } from "@/lib/constants";
 import { editorialEase } from "@/lib/motion";
@@ -17,7 +17,7 @@ import { editorialEase } from "@/lib/motion";
 // (NOT mode="wait"+exit, which deadlocks under React StrictMode dev). Each step
 // from Q2 on shows an affirmation (the "pat"); prompts/affirmations interpolate
 // {name} and {answerId}. The budget answer terminally branches: a ready "yes"
-// goes to the Cal.com booking step, "know more first" to the certification page.
+// goes to the Jane App booking step, "know more first" to the certification page.
 // Leads save twice: an incomplete snapshot once the email validates, and a
 // complete row on finish (append-only; latest row per lead_id wins server-side).
 
@@ -238,7 +238,7 @@ export default function ConsultingFormFlow() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.28, ease: editorialEase }}
             >
-              {qualified ? <Booking answers={answers} /> : <NotReady />}
+              {qualified ? <Booking /> : <NotReady />}
             </motion.div>
           ) : (
             <motion.div
@@ -444,37 +444,8 @@ function ScaleSelector({
   );
 }
 
-function Booking({ answers }: { answers: Record<string, string> }) {
+function Booking() {
   const b = CONSULTING_FORM.booking;
-
-  // Prefill the Cal.com booking with what they already gave us, so they never
-  // retype name/email, and Nick sees the case on the calendar event. Values go
-  // through URLSearchParams (encodes quotes/newlines/backslashes), so the
-  // resulting calLink is safe to drop into the injected script string.
-  const params = new URLSearchParams();
-  if (answers.name) params.set("name", answers.name);
-  if (answers.email) params.set("email", answers.email);
-  if (answers.need) params.set("notes", answers.need);
-  const qs = params.toString().replace(/\+/g, "%20");
-  const calLink = qs ? `${CONSULTING_CAL_LINK}?${qs}` : CONSULTING_CAL_LINK;
-
-  // Cal.com official inline embed. We inject the exact vanilla snippet via a
-  // created <script> so it runs client-side with no npm dep and no Cal typing.
-  // The id guard makes it StrictMode-safe (initializes once on the dev
-  // double-invoke). It renders the calendar into #my-cal-inline-consult.
-  useEffect(() => {
-    if (document.getElementById("cal-embed-loader-consult")) return;
-    const s = document.createElement("script");
-    s.id = "cal-embed-loader-consult";
-    s.type = "text/javascript";
-    s.text = `
-(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init", "consult", {origin:"https://app.cal.com"});
-Cal.ns.consult("inline", { elementOrSelector:"#my-cal-inline-consult", config: {"layout":"month_view","useSlotsViewOnSmallScreen":"true"}, calLink: "${calLink}" });
-Cal.ns.consult("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-`;
-    document.body.appendChild(s);
-  }, [calLink]);
 
   return (
     <div className="text-center">
@@ -482,17 +453,23 @@ Cal.ns.consult("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
       <h3 className="mt-3 font-display text-display-md text-navy">{b.headline}</h3>
       <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ink/80">{b.intro}</p>
 
-      {/* Cal.com inline embed renders here (see useEffect above). */}
-      <div
-        id="my-cal-inline-consult"
-        className="mt-7 min-h-[600px] w-full overflow-auto rounded-lg border border-line bg-white"
-      />
+      {/* Nick's Jane App "Book Online" button embed (opens booking in a new tab). */}
+      <div className="mt-7 flex justify-center">
+        <iframe
+          src={CONSULTING_JANE_EMBED_URL}
+          title="Book a 1:1 consultation with Nick"
+          width={177}
+          height={28}
+          scrolling="no"
+          style={{ border: 0 }}
+        />
+      </div>
 
       {/* Subtle fallback only, no competing button. */}
       <p className="mt-4 text-xs text-muted">
         {b.fallbackBefore}
         <a
-          href={CONSULTING_CAL_URL}
+          href={CONSULTING_BOOKING_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="text-accent underline underline-offset-2 hover:no-underline"
