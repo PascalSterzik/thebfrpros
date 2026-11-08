@@ -5,7 +5,7 @@
 // BFR case to the clinician who wrote the research. Authority = 80 peer-
 // reviewed BFR publications, Topic Editor at Frontiers, peer reviewer for 31
 // journals, active Manhattan practice. The named mechanism is the "BFR Case
-// Review" (one hour, one case, one-on-one). Price ($275/hour) is shown on
+// Review" (one hour, one case, one-on-one). Price ($270/hour) is shown on
 // purpose: this is the offer's own page and the budget qualifier needs the
 // number (a deliberate exception to the brand guide's no-price-top-of-funnel
 // rule).
@@ -19,7 +19,7 @@
 export const CONSULTING_META = {
   title: "BFR Consulting with Dr. Nicholas Rolnick | The BFR Pros",
   description:
-    "Book a 1:1 BFR Case Review with Dr. Nicholas Rolnick, author of 80 peer-reviewed BFR publications and an active Manhattan clinician. One hour, one case, $275. Bring the patient who is stuck and leave with a plan you can run on your next visit.",
+    "Book a 1:1 BFR Case Review with Dr. Nicholas Rolnick, author of 80 peer-reviewed BFR publications and an active Manhattan clinician. One hour, one case, $270. Bring the patient who is stuck and leave with a plan you can run on your next visit.",
   canonicalPath: "/consultation",
   ogImagePath: "/og/home",
 } as const;
@@ -31,7 +31,7 @@ export const CONSULTING_HERO = {
   credentialsLine:
     "Dr. Nicholas Rolnick, PT, DPT · 80 peer-reviewed BFR publications · Active Manhattan practice",
   subhead:
-    "Book a BFR Case Review: one hour, one-on-one, $275. Bring a patient who is not progressing and we work the screening, the pressure, and the programming together. You leave with a plan you can run on your next visit.",
+    "Book a BFR Case Review: one hour, one-on-one, $270. Bring a patient who is not progressing and we work the screening, the pressure, and the programming together. You leave with a plan you can run on your next visit.",
   primaryCta: "Start with a few questions",
   photoSrc: "/images/instructors/rolnick-large.jpg",
   photoAlt: "Dr. Nicholas Rolnick, founder of The BFR Pros",
@@ -102,7 +102,7 @@ export const CONSULTING_PRICING = {
   eyebrow: "What it costs",
   headline: "One rate, billed by the hour",
   highlight: "One rate",
-  rate: "$275",
+  rate: "$270",
   rateUnit: "per hour, one-on-one",
   note: "One hour, online, just you and Nick. You pay per session. No packages and no retainer for now, the hour you need when you need it.",
   includes: [
@@ -114,7 +114,7 @@ export const CONSULTING_PRICING = {
 
 // ---- Qualification form ----------------------------------------------------
 // Typeform-style, one question per screen, shown in a full-screen overlay.
-// Need-and-engagement-first order (this is a $275 self-pay call, not a
+// Need-and-engagement-first order (this is a $270 self-pay call, not a
 // four-figure disqualification gate). Each question from Q2 on carries a small
 // `affirmation` (the "pat on the back"); prompts + affirmations support {name}
 // and {answerId} tokens, interpolated at render time (see ConsultingFormFlow).
@@ -277,7 +277,7 @@ export const CONSULTING_FAQ = {
     },
     {
       q: "What does it cost?",
-      a: "$275 for one hour, one-on-one. You pay per session. There are no packages or retainers right now, just the hour you need.",
+      a: "$270 for one hour, one-on-one. You pay per session. There are no packages or retainers right now, just the hour you need.",
     },
     {
       q: "What if I need more than an hour?",

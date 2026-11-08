@@ -20,7 +20,7 @@ import { buildConsultingSchemaGraph } from "@/lib/schema";
 // BFR literature, book an hour, leave with a plan. The qualification form is
 // the ONLY conversion path (it gates the calendar), and it opens as a
 // full-screen overlay (ConsultingFormOverlay, triggered by the #start hash from
-// the hero, the launch band, and the closer). Price ($275/hour) is shown on
+// the hero, the launch band, and the closer). Price ($270/hour) is shown on
 // this page on purpose (the budget qualifier needs the number).
 
 export const metadata: Metadata = {
@@ -75,7 +75,7 @@ export default function ConsultingPage() {
         {/* How it works — 3 steps */}
         <ConsultingHowItWorks />
 
-        {/* Pricing — $275/hour, plainly */}
+        {/* Pricing — $270/hour, plainly */}
         <ConsultingPricing />
 
         {/* Launch band: opens the full-screen qualification overlay (#start) */}

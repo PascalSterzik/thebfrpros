@@ -6,7 +6,7 @@ import { CONSULTING_PRICING } from "@/content/consulting";
 import Highlighted from "@/components/shared/Highlighted";
 import { fadeUp, inViewOnce, stagger } from "@/lib/motion";
 
-// Pricing. Shown plainly ($275/hour) on a navy field for emphasis. This is the
+// Pricing. Shown plainly ($270/hour) on a navy field for emphasis. This is the
 // deliberate exception to the brand guide's no-price-top-of-funnel rule: it is
 // the offer's own page and the budget qualifier needs the number. No bonus
 // stack, so the bonus-sequencing rule does not apply.

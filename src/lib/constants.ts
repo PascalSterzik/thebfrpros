@@ -26,9 +26,9 @@ export const CONTACT_FORM_ENDPOINT = "mailto:nick@thebfrpros.com";
 // sessions to individual clinicians (PT / AT / S&C) at an hourly rate. Hourly
 // only for v1; packages can be added later. The rate lives here as the single
 // source of truth (schema.ts + the budget question read it); display strings
-// like "$275 an hour" are composed in src/content/consulting.ts.
+// like "$270 an hour" are composed in src/content/consulting.ts.
 export const CONSULTING = {
-  hourlyRate: 275,
+  hourlyRate: 270,
   currency: "USD",
   currencySymbol: "$",
 } as const;
